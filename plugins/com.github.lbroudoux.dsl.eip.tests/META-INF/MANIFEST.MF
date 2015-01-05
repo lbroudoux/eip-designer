@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: com.github.lbroudoux.dsl.eip.tests;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: com.github.lbroudoux.dsl.eip.tests
+Require-Bundle: org.eclipse.core.runtime,
+ com.github.lbroudoux.dsl.eip;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
+ org.junit;visibility:=reexport
+Bundle-ActivationPolicy: lazy
