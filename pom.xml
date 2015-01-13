@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.github.lbroudoux.dsl</groupId>
+  <artifactId>com.github.lbroudoux.dsl.eip.parent</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>EIP Designer Parent</name>
+  <properties>
+    <tycho-version>0.11.0</tycho-version>
+  </properties>
+  <modules>
+    <module>features/com.github.lbroudoux.dsl.feature.eip</module>
+    <module>plugins/com.github.lbroudoux.dsl.eip</module>
+    <module>plugins/com.github.lbroudoux.dsl.eip.edit</module>
+    <module>plugins/com.github.lbroudoux.dsl.eip.editor</module>
+    <module>plugins/com.github.lbroudoux.dsl.eip.tests</module>
+  </modules>
+  <repositories>
+    <repository>
+      <id>luna</id>
+      <layout>p2</layout>
+      <url>http://download.eclipse.org/releases/luna</url>
+    </repository>
+    <repository>
+      <id>sirius</id>
+      <layout>p2</layout>
+      <url>http://download.eclipse.org/sirius/updates/releases/2.0.0/luna</url>
+    </repository>
+  </repositories>
+  <build>
+    <plugins>
+      <plugin>
+        <!-- enable tycho build extension -->
+        <groupId>org.sonatype.tycho</groupId>
+        <artifactId>tycho-maven-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <extensions>true</extensions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

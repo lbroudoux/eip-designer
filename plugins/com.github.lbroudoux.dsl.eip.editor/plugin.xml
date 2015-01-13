@@ -6,4 +6,31 @@
 
 <plugin>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated eip -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="com.github.lbroudoux.dsl.eip.presentation.EipModelWizardID"
+            name="%_UI_EipModelWizard_label"
+            class="com.github.lbroudoux.dsl.eip.presentation.EipModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/EipModelFile.gif">
+         <description>%_UI_EipModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated eip -->
+      <editor
+            id="com.github.lbroudoux.dsl.eip.presentation.EipEditorID"
+            name="%_UI_EipEditor_label"
+            icon="icons/full/obj16/EipModelFile.gif"
+            extensions="eip"
+            class="com.github.lbroudoux.dsl.eip.presentation.EipEditor"
+            contributorClass="com.github.lbroudoux.dsl.eip.presentation.EipActionBarContributor">
+      </editor>
+   </extension>
 </plugin>
