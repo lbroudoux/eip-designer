@@ -72,6 +72,282 @@ public class EipItemProviderAdapterFactory extends EipAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Channel} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ChannelItemProvider channelItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Channel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createChannelAdapter() {
+		if (channelItemProvider == null) {
+			channelItemProvider = new ChannelItemProvider(this);
+		}
+
+		return channelItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Adapter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AdapterItemProvider adapterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Adapter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAdapterAdapter() {
+		if (adapterItemProvider == null) {
+			adapterItemProvider = new AdapterItemProvider(this);
+		}
+
+		return adapterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Router} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RouterItemProvider routerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Router}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRouterAdapter() {
+		if (routerItemProvider == null) {
+			routerItemProvider = new RouterItemProvider(this);
+		}
+
+		return routerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Filter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FilterItemProvider filterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Filter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFilterAdapter() {
+		if (filterItemProvider == null) {
+			filterItemProvider = new FilterItemProvider(this);
+		}
+
+		return filterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Transformer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TransformerItemProvider transformerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Transformer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTransformerAdapter() {
+		if (transformerItemProvider == null) {
+			transformerItemProvider = new TransformerItemProvider(this);
+		}
+
+		return transformerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Gateway} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GatewayItemProvider gatewayItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Gateway}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGatewayAdapter() {
+		if (gatewayItemProvider == null) {
+			gatewayItemProvider = new GatewayItemProvider(this);
+		}
+
+		return gatewayItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.ConditionalRoute} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConditionalRouteItemProvider conditionalRouteItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.ConditionalRoute}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConditionalRouteAdapter() {
+		if (conditionalRouteItemProvider == null) {
+			conditionalRouteItemProvider = new ConditionalRouteItemProvider(this);
+		}
+
+		return conditionalRouteItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Splitter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SplitterItemProvider splitterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Splitter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSplitterAdapter() {
+		if (splitterItemProvider == null) {
+			splitterItemProvider = new SplitterItemProvider(this);
+		}
+
+		return splitterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Aggregator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AggregatorItemProvider aggregatorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Aggregator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAggregatorAdapter() {
+		if (aggregatorItemProvider == null) {
+			aggregatorItemProvider = new AggregatorItemProvider(this);
+		}
+
+		return aggregatorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Route} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RouteItemProvider routeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Route}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRouteAdapter() {
+		if (routeItemProvider == null) {
+			routeItemProvider = new RouteItemProvider(this);
+		}
+
+		return routeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.ServiceActivator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ServiceActivatorItemProvider serviceActivatorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.ServiceActivator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createServiceActivatorAdapter() {
+		if (serviceActivatorItemProvider == null) {
+			serviceActivatorItemProvider = new ServiceActivatorItemProvider(this);
+		}
+
+		return serviceActivatorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.EIPModel} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EIPModelItemProvider eipModelItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.EIPModel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEIPModelAdapter() {
+		if (eipModelItemProvider == null) {
+			eipModelItemProvider = new EIPModelItemProvider(this);
+		}
+
+		return eipModelItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -170,6 +446,18 @@ public class EipItemProviderAdapterFactory extends EipAdapterFactory implements 
 	 * @generated
 	 */
 	public void dispose() {
+		if (channelItemProvider != null) channelItemProvider.dispose();
+		if (adapterItemProvider != null) adapterItemProvider.dispose();
+		if (routerItemProvider != null) routerItemProvider.dispose();
+		if (filterItemProvider != null) filterItemProvider.dispose();
+		if (transformerItemProvider != null) transformerItemProvider.dispose();
+		if (gatewayItemProvider != null) gatewayItemProvider.dispose();
+		if (conditionalRouteItemProvider != null) conditionalRouteItemProvider.dispose();
+		if (splitterItemProvider != null) splitterItemProvider.dispose();
+		if (aggregatorItemProvider != null) aggregatorItemProvider.dispose();
+		if (routeItemProvider != null) routeItemProvider.dispose();
+		if (serviceActivatorItemProvider != null) serviceActivatorItemProvider.dispose();
+		if (eipModelItemProvider != null) eipModelItemProvider.dispose();
 	}
 
 }
