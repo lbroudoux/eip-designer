@@ -22,6 +22,114 @@ public interface EipFactory extends EFactory {
 	EipFactory eINSTANCE = com.github.lbroudoux.dsl.eip.impl.EipFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Channel</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Channel</em>'.
+	 * @generated
+	 */
+	Channel createChannel();
+
+	/**
+	 * Returns a new object of class '<em>Adapter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Adapter</em>'.
+	 * @generated
+	 */
+	Adapter createAdapter();
+
+	/**
+	 * Returns a new object of class '<em>Router</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Router</em>'.
+	 * @generated
+	 */
+	Router createRouter();
+
+	/**
+	 * Returns a new object of class '<em>Filter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Filter</em>'.
+	 * @generated
+	 */
+	Filter createFilter();
+
+	/**
+	 * Returns a new object of class '<em>Transformer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Transformer</em>'.
+	 * @generated
+	 */
+	Transformer createTransformer();
+
+	/**
+	 * Returns a new object of class '<em>Gateway</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Gateway</em>'.
+	 * @generated
+	 */
+	Gateway createGateway();
+
+	/**
+	 * Returns a new object of class '<em>Conditional Route</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Conditional Route</em>'.
+	 * @generated
+	 */
+	ConditionalRoute createConditionalRoute();
+
+	/**
+	 * Returns a new object of class '<em>Splitter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Splitter</em>'.
+	 * @generated
+	 */
+	Splitter createSplitter();
+
+	/**
+	 * Returns a new object of class '<em>Aggregator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Aggregator</em>'.
+	 * @generated
+	 */
+	Aggregator createAggregator();
+
+	/**
+	 * Returns a new object of class '<em>Route</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Route</em>'.
+	 * @generated
+	 */
+	Route createRoute();
+
+	/**
+	 * Returns a new object of class '<em>Service Activator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Service Activator</em>'.
+	 * @generated
+	 */
+	ServiceActivator createServiceActivator();
+
+	/**
+	 * Returns a new object of class '<em>EIP Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>EIP Model</em>'.
+	 * @generated
+	 */
+	EIPModel createEIPModel();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

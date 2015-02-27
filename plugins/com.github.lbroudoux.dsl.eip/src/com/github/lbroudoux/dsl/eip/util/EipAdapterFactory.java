@@ -72,6 +72,54 @@ public class EipAdapterFactory extends AdapterFactoryImpl {
 				return createEndpointAdapter();
 			}
 			@Override
+			public Adapter caseChannel(Channel object) {
+				return createChannelAdapter();
+			}
+			@Override
+			public Adapter caseAdapter(com.github.lbroudoux.dsl.eip.Adapter object) {
+				return createAdapterAdapter();
+			}
+			@Override
+			public Adapter caseRouter(Router object) {
+				return createRouterAdapter();
+			}
+			@Override
+			public Adapter caseFilter(Filter object) {
+				return createFilterAdapter();
+			}
+			@Override
+			public Adapter caseTransformer(Transformer object) {
+				return createTransformerAdapter();
+			}
+			@Override
+			public Adapter caseGateway(Gateway object) {
+				return createGatewayAdapter();
+			}
+			@Override
+			public Adapter caseConditionalRoute(ConditionalRoute object) {
+				return createConditionalRouteAdapter();
+			}
+			@Override
+			public Adapter caseSplitter(Splitter object) {
+				return createSplitterAdapter();
+			}
+			@Override
+			public Adapter caseAggregator(Aggregator object) {
+				return createAggregatorAdapter();
+			}
+			@Override
+			public Adapter caseRoute(Route object) {
+				return createRouteAdapter();
+			}
+			@Override
+			public Adapter caseServiceActivator(ServiceActivator object) {
+				return createServiceActivatorAdapter();
+			}
+			@Override
+			public Adapter caseEIPModel(EIPModel object) {
+				return createEIPModelAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -102,6 +150,174 @@ public class EipAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEndpointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.lbroudoux.dsl.eip.Channel <em>Channel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.lbroudoux.dsl.eip.Channel
+	 * @generated
+	 */
+	public Adapter createChannelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.lbroudoux.dsl.eip.Adapter <em>Adapter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.lbroudoux.dsl.eip.Adapter
+	 * @generated
+	 */
+	public Adapter createAdapterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.lbroudoux.dsl.eip.Router <em>Router</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.lbroudoux.dsl.eip.Router
+	 * @generated
+	 */
+	public Adapter createRouterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.lbroudoux.dsl.eip.Filter <em>Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.lbroudoux.dsl.eip.Filter
+	 * @generated
+	 */
+	public Adapter createFilterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.lbroudoux.dsl.eip.Transformer <em>Transformer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.lbroudoux.dsl.eip.Transformer
+	 * @generated
+	 */
+	public Adapter createTransformerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.lbroudoux.dsl.eip.Gateway <em>Gateway</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.lbroudoux.dsl.eip.Gateway
+	 * @generated
+	 */
+	public Adapter createGatewayAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.lbroudoux.dsl.eip.ConditionalRoute <em>Conditional Route</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.lbroudoux.dsl.eip.ConditionalRoute
+	 * @generated
+	 */
+	public Adapter createConditionalRouteAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.lbroudoux.dsl.eip.Splitter <em>Splitter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.lbroudoux.dsl.eip.Splitter
+	 * @generated
+	 */
+	public Adapter createSplitterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.lbroudoux.dsl.eip.Aggregator <em>Aggregator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.lbroudoux.dsl.eip.Aggregator
+	 * @generated
+	 */
+	public Adapter createAggregatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.lbroudoux.dsl.eip.Route <em>Route</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.lbroudoux.dsl.eip.Route
+	 * @generated
+	 */
+	public Adapter createRouteAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.lbroudoux.dsl.eip.ServiceActivator <em>Service Activator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.lbroudoux.dsl.eip.ServiceActivator
+	 * @generated
+	 */
+	public Adapter createServiceActivatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.lbroudoux.dsl.eip.EIPModel <em>EIP Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.lbroudoux.dsl.eip.EIPModel
+	 * @generated
+	 */
+	public Adapter createEIPModelAdapter() {
 		return null;
 	}
 

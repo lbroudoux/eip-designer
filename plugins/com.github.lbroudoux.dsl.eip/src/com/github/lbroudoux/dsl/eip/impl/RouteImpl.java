@@ -1,0 +1,259 @@
+/**
+ */
+package com.github.lbroudoux.dsl.eip.impl;
+
+import com.github.lbroudoux.dsl.eip.Channel;
+import com.github.lbroudoux.dsl.eip.EipPackage;
+import com.github.lbroudoux.dsl.eip.Endpoint;
+import com.github.lbroudoux.dsl.eip.Route;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Route</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * <ul>
+ *   <li>{@link com.github.lbroudoux.dsl.eip.impl.RouteImpl#getOwnedEndpoints <em>Owned Endpoints</em>}</li>
+ *   <li>{@link com.github.lbroudoux.dsl.eip.impl.RouteImpl#getOwnedChannels <em>Owned Channels</em>}</li>
+ *   <li>{@link com.github.lbroudoux.dsl.eip.impl.RouteImpl#getName <em>Name</em>}</li>
+ * </ul>
+ * </p>
+ *
+ * @generated
+ */
+public class RouteImpl extends MinimalEObjectImpl.Container implements Route {
+	/**
+	 * The cached value of the '{@link #getOwnedEndpoints() <em>Owned Endpoints</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOwnedEndpoints()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Endpoint> ownedEndpoints;
+
+	/**
+	 * The cached value of the '{@link #getOwnedChannels() <em>Owned Channels</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOwnedChannels()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Channel> ownedChannels;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RouteImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return EipPackage.Literals.ROUTE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Endpoint> getOwnedEndpoints() {
+		if (ownedEndpoints == null) {
+			ownedEndpoints = new EObjectContainmentEList<Endpoint>(Endpoint.class, this, EipPackage.ROUTE__OWNED_ENDPOINTS);
+		}
+		return ownedEndpoints;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Channel> getOwnedChannels() {
+		if (ownedChannels == null) {
+			ownedChannels = new EObjectContainmentEList<Channel>(Channel.class, this, EipPackage.ROUTE__OWNED_CHANNELS);
+		}
+		return ownedChannels;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EipPackage.ROUTE__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EipPackage.ROUTE__OWNED_ENDPOINTS:
+				return ((InternalEList<?>)getOwnedEndpoints()).basicRemove(otherEnd, msgs);
+			case EipPackage.ROUTE__OWNED_CHANNELS:
+				return ((InternalEList<?>)getOwnedChannels()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case EipPackage.ROUTE__OWNED_ENDPOINTS:
+				return getOwnedEndpoints();
+			case EipPackage.ROUTE__OWNED_CHANNELS:
+				return getOwnedChannels();
+			case EipPackage.ROUTE__NAME:
+				return getName();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case EipPackage.ROUTE__OWNED_ENDPOINTS:
+				getOwnedEndpoints().clear();
+				getOwnedEndpoints().addAll((Collection<? extends Endpoint>)newValue);
+				return;
+			case EipPackage.ROUTE__OWNED_CHANNELS:
+				getOwnedChannels().clear();
+				getOwnedChannels().addAll((Collection<? extends Channel>)newValue);
+				return;
+			case EipPackage.ROUTE__NAME:
+				setName((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case EipPackage.ROUTE__OWNED_ENDPOINTS:
+				getOwnedEndpoints().clear();
+				return;
+			case EipPackage.ROUTE__OWNED_CHANNELS:
+				getOwnedChannels().clear();
+				return;
+			case EipPackage.ROUTE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case EipPackage.ROUTE__OWNED_ENDPOINTS:
+				return ownedEndpoints != null && !ownedEndpoints.isEmpty();
+			case EipPackage.ROUTE__OWNED_CHANNELS:
+				return ownedChannels != null && !ownedChannels.isEmpty();
+			case EipPackage.ROUTE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
+	}
+
+} //RouteImpl

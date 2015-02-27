@@ -72,6 +72,85 @@ public class EipSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EipPackage.CHANNEL: {
+				Channel channel = (Channel)theEObject;
+				T result = caseChannel(channel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EipPackage.ADAPTER: {
+				Adapter adapter = (Adapter)theEObject;
+				T result = caseAdapter(adapter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EipPackage.ROUTER: {
+				Router router = (Router)theEObject;
+				T result = caseRouter(router);
+				if (result == null) result = caseEndpoint(router);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EipPackage.FILTER: {
+				Filter filter = (Filter)theEObject;
+				T result = caseFilter(filter);
+				if (result == null) result = caseEndpoint(filter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EipPackage.TRANSFORMER: {
+				Transformer transformer = (Transformer)theEObject;
+				T result = caseTransformer(transformer);
+				if (result == null) result = caseEndpoint(transformer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EipPackage.GATEWAY: {
+				Gateway gateway = (Gateway)theEObject;
+				T result = caseGateway(gateway);
+				if (result == null) result = caseEndpoint(gateway);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EipPackage.CONDITIONAL_ROUTE: {
+				ConditionalRoute conditionalRoute = (ConditionalRoute)theEObject;
+				T result = caseConditionalRoute(conditionalRoute);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EipPackage.SPLITTER: {
+				Splitter splitter = (Splitter)theEObject;
+				T result = caseSplitter(splitter);
+				if (result == null) result = caseEndpoint(splitter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EipPackage.AGGREGATOR: {
+				Aggregator aggregator = (Aggregator)theEObject;
+				T result = caseAggregator(aggregator);
+				if (result == null) result = caseEndpoint(aggregator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EipPackage.ROUTE: {
+				Route route = (Route)theEObject;
+				T result = caseRoute(route);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EipPackage.SERVICE_ACTIVATOR: {
+				ServiceActivator serviceActivator = (ServiceActivator)theEObject;
+				T result = caseServiceActivator(serviceActivator);
+				if (result == null) result = caseEndpoint(serviceActivator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EipPackage.EIP_MODEL: {
+				EIPModel eipModel = (EIPModel)theEObject;
+				T result = caseEIPModel(eipModel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -88,6 +167,186 @@ public class EipSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseEndpoint(Endpoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Channel</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Channel</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseChannel(Channel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Adapter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Adapter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAdapter(Adapter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Router</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Router</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRouter(Router object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Filter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Filter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFilter(Filter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Transformer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Transformer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTransformer(Transformer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Gateway</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Gateway</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGateway(Gateway object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Conditional Route</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Conditional Route</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConditionalRoute(ConditionalRoute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Splitter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Splitter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSplitter(Splitter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Aggregator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Aggregator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAggregator(Aggregator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Route</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Route</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRoute(Route object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Service Activator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Service Activator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseServiceActivator(ServiceActivator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>EIP Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>EIP Model</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEIPModel(EIPModel object) {
 		return null;
 	}
 
