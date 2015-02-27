@@ -1,20 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" name="eip" version="8.1.0">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="eip" version="8.1.0">
   <ownedViewpoints name="Enterprise Integration Patterns" modelFileExtension="*.eip">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Route Diagram" initialisation="true" domainClass="eip.Route">
       <defaultLayer name="Default">
         <nodeMappings name="NRE_Endpoint" semanticCandidatesExpression="[ownedEndpoints/]" domainClass="eip.Endpoint">
-          <style xsi:type="style:SquareDescription" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-          </style>
+          <conditionnalStyles predicateExpression="[self.oclIsTypeOf(eip::Router)/]">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Router.gif">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.oclIsTypeOf(eip::Filter)/]">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Filter.gif">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[true/]">
+            <style xsi:type="style:SquareDescription" labelSize="10" showIcon="false" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+            </style>
+          </conditionnalStyles>
         </nodeMappings>
         <toolSections name="Message Routing">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Content Based Router">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Router" nodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/Router.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
-            <initialOperation/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="eip.Router" referenceName="ownedEndpoints">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Router_'+self.eContainer().eContents()->filter(eip::Router)->size()/]"/>
+              </firstModelOperations>
+            </initialOperation>
           </ownedTools>
         </toolSections>
       </defaultLayer>
