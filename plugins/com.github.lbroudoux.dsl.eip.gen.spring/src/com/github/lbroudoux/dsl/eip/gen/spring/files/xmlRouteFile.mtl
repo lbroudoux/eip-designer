@@ -1,0 +1,32 @@
+[comment encoding = UTF-8 /]
+[module xmlRouteFile('http://www.github.com/lbroudoux/dsl/eip/1.0')]
+
+[import com::github::lbroudoux::dsl::eip::gen::spring::common::channel /]
+[import com::github::lbroudoux::dsl::eip::gen::spring::common::endpoint /]
+
+[template public genXmlRouteFilePath(aRoute : Route)]
+[aRoute.name.concat('.xml')/]
+[/template]
+
+[template public genXmlRouteFileBody(aRoute : Route)]
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:int="http://www.springframework.org/schema/integration"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:beans="http://www.springframework.org/schema/beans"
+ xmlns:int-stream="http://www.springframework.org/schema/integration/stream"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/integration
+  http://www.springframework.org/schema/integration/spring-integration.xsd
+  http://www.springframework.org/schema/integration/stream
+  http://www.springframework.org/schema/integration/stream/spring-integration-stream.xsd">
+
+[for (endpoint : Endpoint | aRoute.ownedEndpoints)]
+  [endpoint.genEndpoint()/]
+[/for]
+
+[for (channel : Channel | aRoute.ownedChannels)]
+  [channel.genChannel()/]
+[/for]
+</beans:beans>
+[/template]

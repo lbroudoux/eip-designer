@@ -682,7 +682,7 @@
           <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_PMu71NkLEeSbkMWOPdeang" red="255" green="252" blue="216"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_N7ZPwNkLEeSbkMWOPdeang" name="expression : EString" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'org.eclipse.emf.ecore.impl.EAttributeImpl@14f13fa{platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Filter/newAttribute}' must be set&#xA;ERROR : The typed element must have a type">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_N7ZPwNkLEeSbkMWOPdeang" name="expression : EString" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="eip.ecore#//Filter/expression"/>
           <semanticElements xmi:type="ecore:EAttribute" href="eip.ecore#//Filter/expression"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_PMymMNkLEeSbkMWOPdeang" labelAlignment="LEFT">
@@ -1064,7 +1064,7 @@
           <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_MtcmdNh9EeSbkMWOPdeang" red="255" green="252" blue="216"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_KsnXINh9EeSbkMWOPdeang" name="part : MessagePart = PAYLOAD" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'org.eclipse.emf.ecore.impl.EAttributeImpl@1f9fd55{platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Enricher/newAttribute}' must be set&#xA;ERROR : The typed element must have a type">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_KsnXINh9EeSbkMWOPdeang" name="part : MessagePart = PAYLOAD" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="eip.ecore#//Enricher/part"/>
           <semanticElements xmi:type="ecore:EAttribute" href="eip.ecore#//Enricher/part"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_MtgQ0Nh9EeSbkMWOPdeang" labelAlignment="LEFT">

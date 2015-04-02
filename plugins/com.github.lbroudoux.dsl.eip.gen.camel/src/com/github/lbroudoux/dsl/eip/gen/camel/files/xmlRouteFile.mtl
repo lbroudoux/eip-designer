@@ -1,0 +1,13 @@
+[comment encoding = UTF-8 /]
+[module xmlRouteFile('http://www.github.com/lbroudoux/dsl/eip/1.0')]
+
+[import com::github::lbroudoux::dsl::eip::gen::camel::xml::routeXml /]
+
+[template public genXmlRouteFilePath(aRoute : Route)]
+[aRoute.name.concat('.xml')/]
+[/template]
+
+[template public genXmlRouteFileBody(aRoute : Route)]
+<?xml version="1.0" encoding="UTF-8"?>
+[aRoute.genRouteXml()/]
+[/template]

@@ -1,0 +1,17 @@
+[comment encoding = UTF-8 /]
+[module channel('http://www.github.com/lbroudoux/dsl/eip/1.0')]
+
+
+[template public genChannel(aChannel : Channel)]
+<int:channel id="[aChannel.name/]" />
+[/template]
+
+[template public genChannelEndpointAttributes(anEndpoint : Endpoint) post (trim())]
+[if (not anEndpoint.fromChannel.oclIsUndefined())]
+ input-channel="[anEndpoint.fromChannel.name/]"
+[/if]
+[if (not anEndpoint.toChannel.oclIsUndefined())] 
+  output-channel="[anEndpoint.toChannel.name/]"
+[/if]
+[/template]
+

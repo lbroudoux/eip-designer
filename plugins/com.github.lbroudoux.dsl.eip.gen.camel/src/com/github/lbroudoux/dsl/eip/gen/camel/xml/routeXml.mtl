@@ -1,0 +1,9 @@
+[comment encoding = UTF-8 /]
+[module routeXml('http://www.github.com/lbroudoux/dsl/eip/1.0')]
+
+
+[template public genRouteXml(aRoute : Route)]
+<route id="[aRoute.name/]">
+
+</route>
+[/template]

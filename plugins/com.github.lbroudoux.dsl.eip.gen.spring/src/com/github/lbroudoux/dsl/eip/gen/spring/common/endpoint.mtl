@@ -1,0 +1,16 @@
+[comment encoding = UTF-8 /]
+[module endpoint('http://www.github.com/lbroudoux/dsl/eip/1.0')]
+
+[import com::github::lbroudoux::dsl::eip::gen::spring::common::channel /]
+
+[template public genEndpoint(aEndpoint : Endpoint)]
+<!-- Endpoint not yet supported by generator -->
+[/template]
+
+[template public genEndpoint(aFilter : Filter)]
+<int:filter id="[aFilter.name/]" [aFilter.genChannelEndpointAttributes()/] />
+[/template]
+
+[template public genEndpoint(aTransformer : Transformer)]
+<int:transformer id="[aTransformer.name/]" [aTransformer.genChannelEndpointAttributes()/] />
+[/template]

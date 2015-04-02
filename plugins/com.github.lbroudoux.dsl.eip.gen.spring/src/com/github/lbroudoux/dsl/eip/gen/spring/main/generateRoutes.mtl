@@ -1,0 +1,15 @@
+[comment encoding = UTF-8 /]
+[module generateRoutes('http://www.github.com/lbroudoux/dsl/eip/1.0')]
+
+[import com::github::lbroudoux::dsl::eip::gen::spring::files::xmlRouteFile /]
+
+[template public generateEIPModel(anEIPModel : EIPModel)]
+	[comment @main/]
+	[anEIPModel.ownedRoutes.generateXmlRoute()/]
+[/template]
+
+[template protected generateXmlRoute(aRoute : Route)]
+[file ('/resources/spring/' + aRoute.genXmlRouteFilePath(), false, 'UTF-8')]
+[aRoute.genXmlRouteFileBody()/]
+[/file]
+[/template]
