@@ -130,6 +130,24 @@ public interface EipFactory extends EFactory {
 	EIPModel createEIPModel();
 
 	/**
+	 * Returns a new object of class '<em>Enricher</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Enricher</em>'.
+	 * @generated
+	 */
+	Enricher createEnricher();
+
+	/**
+	 * Returns a new object of class '<em>Composite Processor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Composite Processor</em>'.
+	 * @generated
+	 */
+	CompositeProcessor createCompositeProcessor();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

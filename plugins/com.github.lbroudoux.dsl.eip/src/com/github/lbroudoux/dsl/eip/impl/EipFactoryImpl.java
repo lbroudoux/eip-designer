@@ -5,6 +5,7 @@ package com.github.lbroudoux.dsl.eip.impl;
 import com.github.lbroudoux.dsl.eip.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -68,8 +69,40 @@ public class EipFactoryImpl extends EFactoryImpl implements EipFactory {
 			case EipPackage.ROUTE: return createRoute();
 			case EipPackage.SERVICE_ACTIVATOR: return createServiceActivator();
 			case EipPackage.EIP_MODEL: return createEIPModel();
+			case EipPackage.ENRICHER: return createEnricher();
+			case EipPackage.COMPOSITE_PROCESSOR: return createCompositeProcessor();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case EipPackage.MESSAGE_PART:
+				return createMessagePartFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case EipPackage.MESSAGE_PART:
+				return convertMessagePartToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -191,6 +224,46 @@ public class EipFactoryImpl extends EFactoryImpl implements EipFactory {
 	public EIPModel createEIPModel() {
 		EIPModelImpl eipModel = new EIPModelImpl();
 		return eipModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Enricher createEnricher() {
+		EnricherImpl enricher = new EnricherImpl();
+		return enricher;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CompositeProcessor createCompositeProcessor() {
+		CompositeProcessorImpl compositeProcessor = new CompositeProcessorImpl();
+		return compositeProcessor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MessagePart createMessagePartFromString(EDataType eDataType, String initialValue) {
+		MessagePart result = MessagePart.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertMessagePartToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

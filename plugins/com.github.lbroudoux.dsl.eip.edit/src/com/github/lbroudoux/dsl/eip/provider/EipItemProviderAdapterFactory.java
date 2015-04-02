@@ -348,6 +348,52 @@ public class EipItemProviderAdapterFactory extends EipAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Enricher} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EnricherItemProvider enricherItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Enricher}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEnricherAdapter() {
+		if (enricherItemProvider == null) {
+			enricherItemProvider = new EnricherItemProvider(this);
+		}
+
+		return enricherItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.CompositeProcessor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CompositeProcessorItemProvider compositeProcessorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.CompositeProcessor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCompositeProcessorAdapter() {
+		if (compositeProcessorItemProvider == null) {
+			compositeProcessorItemProvider = new CompositeProcessorItemProvider(this);
+		}
+
+		return compositeProcessorItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -458,6 +504,8 @@ public class EipItemProviderAdapterFactory extends EipAdapterFactory implements 
 		if (routeItemProvider != null) routeItemProvider.dispose();
 		if (serviceActivatorItemProvider != null) serviceActivatorItemProvider.dispose();
 		if (eipModelItemProvider != null) eipModelItemProvider.dispose();
+		if (enricherItemProvider != null) enricherItemProvider.dispose();
+		if (compositeProcessorItemProvider != null) compositeProcessorItemProvider.dispose();
 	}
 
 }

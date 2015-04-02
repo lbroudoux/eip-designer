@@ -20,7 +20,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedRoutes" upperBound="-1"
         eType="#//ConditionalRoute" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Filter" eSuperTypes="#//Endpoint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Filter" eSuperTypes="#//Endpoint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Transformer" eSuperTypes="#//Endpoint"/>
   <eClassifiers xsi:type="ecore:EClass" name="Gateway" eSuperTypes="#//Endpoint"/>
   <eClassifiers xsi:type="ecore:EClass" name="ConditionalRoute">
@@ -41,5 +43,17 @@
   <eClassifiers xsi:type="ecore:EClass" name="EIPModel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedRoutes" upperBound="-1"
         eType="#//Route" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Enricher" eSuperTypes="#//Endpoint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="part" eType="#//MessagePart"
+        defaultValueLiteral="PAYLOAD"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="MessagePart">
+    <eLiterals name="HEADER"/>
+    <eLiterals name="PAYLOAD"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompositeProcessor" eSuperTypes="#//Endpoint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedEndpoints" upperBound="-1"
+        eType="#//Endpoint" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -3,7 +3,7 @@
   <ownedViewpoints name="Enterprise Integration Patterns" modelFileExtension="*.eip">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Route Diagram" initialisation="true" domainClass="eip.Route">
       <defaultLayer name="Default">
-        <nodeMappings name="NRE_Endpoint" semanticCandidatesExpression="[ownedEndpoints/]" domainClass="eip.Endpoint">
+        <nodeMappings name="NRE_Endpoint" labelDirectEdit="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Endpoint%20Name']" semanticCandidatesExpression="[ownedEndpoints/]" domainClass="eip.Endpoint">
           <conditionnalStyles predicateExpression="[self.oclIsTypeOf(eip::Router)/]">
             <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Router.gif">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -16,6 +16,48 @@
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.oclIsTypeOf(eip::Splitter)/]">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Splitter.gif">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.oclIsTypeOf(eip::Aggregator)/]">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Aggregator.gif">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.oclIsTypeOf(eip::CompositeProcessor)/]">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/CompositeProcessor.gif">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.oclIsTypeOf(eip::Transformer)/]">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Transformer.gif">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.oclIsTypeOf(eip::Enricher)/]">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Enricher.gif">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.oclIsTypeOf(eip::Gateway)/]">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Gateway.gif">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.oclIsTypeOf(eip::ServiceActivator)/]">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/ServiceActivator.gif">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
           <conditionnalStyles predicateExpression="[true/]">
             <style xsi:type="style:SquareDescription" labelSize="10" showIcon="false" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
@@ -24,14 +66,202 @@
             </style>
           </conditionnalStyles>
         </nodeMappings>
+        <edgeMappings name="ERC_Channel" labelDirectEdit="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Channel%20Name']" sourceMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint'] //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint']" targetMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint'] //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint']" targetFinderExpression="[toEndpoint/]" sourceFinderExpression="[fromEndpoint/]" domainClass="eip.Channel" useDomainElement="true">
+          <style sizeComputationExpression="2" routingStyle="manhattan">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="9" labelExpression="[name/]">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="RRC_Details" sourceMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" targetMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']" targetFinderExpression="[self/]">
+          <style lineStyle="dash" targetArrow="NoDecoration" sizeComputationExpression="2" foldingStyle="SOURCE">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="CRE_Composite" semanticCandidatesExpression="[ownedEndpoints/]" domainClass="eip.CompositeProcessor">
+          <subNodeMappings name="NRC_Endpoint" semanticCandidatesExpression="[ownedEndpoints/]" domainClass="eip.Endpoint">
+            <conditionnalStyles predicateExpression="[self.oclIsTypeOf(eip::Router)/]">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Router.gif">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="[self.oclIsTypeOf(eip::Filter)/]">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Filter.gif">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="[self.oclIsTypeOf(eip::Splitter)/]">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Splitter.gif">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="[self.oclIsTypeOf(eip::Aggregator)/]">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Aggregator.gif">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="[self.oclIsTypeOf(eip::Transformer)/]">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Transformer.gif">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="[self.oclIsTypeOf(eip::Enricher)/]">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Enricher.gif">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="[self.oclIsTypeOf(eip::Gateway)/]">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Gateway.gif">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="[self.oclIsTypeOf(eip::ServiceActivator)/]">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/ServiceActivator.gif">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="[true/]">
+              <style xsi:type="style:SquareDescription" labelSize="10" showIcon="false" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+              </style>
+            </conditionnalStyles>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="6" arcHeight="6" borderSizeComputationExpression="2" labelSize="9" showIcon="false" roundedCorner="true">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Channels">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Channel" edgeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@edgeMappings[name='ERC_Channel']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[source.eContainer(eip::Route)/]">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="eip.Channel" referenceName="ownedChannels">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="fromEndpoint" valueExpression="[source/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="toEndpoint" valueExpression="[target/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[source.name+'_'+target.name/]"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
         <toolSections name="Message Routing">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Router" nodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/Router.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Router" nodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint'] //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint']" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/Router.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="eip.Router" referenceName="ownedEndpoints">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Router_'+self.eContainer().eContents()->filter(eip::Router)->size()/]"/>
               </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Filter" label="Filter" nodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/Filter.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="eip.Filter" referenceName="ownedEndpoints">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Filter_'+self.eContainer().eContents()->filter(eip::Filter)->size()/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Splitter" nodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint'] //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint']" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/Splitter.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="eip.Splitter" referenceName="ownedEndpoints">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Splitter_'+self.eContainer().eContents()->filter(eip::Splitter)->size()/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Aggregator" nodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint'] //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint']" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/Aggregator.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="eip.Aggregator" referenceName="ownedEndpoints">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Aggregator_'+self.eContainer().eContents()->filter(eip::Aggregator)->size()/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Composite Processor" containerMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/CompositeProcessor.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="eip.CompositeProcessor" referenceName="ownedEndpoints">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Composite_'+self.eContainer().eContents()->filter(eip::CompositeProcessor)->size()/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Message Transformation">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Transformer" nodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/Transformer.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="eip.Transformer" referenceName="ownedEndpoints">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Transformer_'+self.eContainer().eContents()->filter(eip::Transformer)->size()/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Content Enricher" nodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/Enricher.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="eip.Enricher" referenceName="ownedEndpoints">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Enricher_'+self.eContainer().eContents()->filter(eip::Enricher)->size()/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Message Endpoints">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Gateway" nodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/Gateway.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="eip.Gateway" referenceName="ownedEndpoints">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Gateway_'+self.eContainer().eContents()->filter(eip::Gateway)->size()/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Service Activator" nodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/ServiceActivator.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="eip.ServiceActivator" referenceName="ownedEndpoints">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ServiceActivator_'+self.eContainer().eContents()->filter(eip::ServiceActivator)->size()/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Tools">
+          <ownedTools xsi:type="tool:DirectEditLabel" name="Endpoint Name">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[arg0/]"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="Channel Name">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[arg0/]"/>
             </initialOperation>
           </ownedTools>
         </toolSections>

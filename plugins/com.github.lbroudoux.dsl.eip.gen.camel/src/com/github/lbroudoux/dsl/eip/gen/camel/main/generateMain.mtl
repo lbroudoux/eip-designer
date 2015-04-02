@@ -1,0 +1,7 @@
+[comment encoding = UTF-8 /]
+[module generateMain('http://www.github.com/lbroudoux/dsl/eip/1.0')]
+
+
+[template public generateEIPModel(anEIPModel : EIPModel)]
+
+[/template]

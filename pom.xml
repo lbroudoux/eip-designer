@@ -17,6 +17,7 @@
     <module>plugins/com.github.lbroudoux.dsl.eip.editor</module>
     <module>plugins/com.github.lbroudoux.dsl.eip.tests</module>
     <module>plugins/com.github.lbroudoux.dsl.eip.design</module>
+    <module>plugins/com.github.lbroudoux.dsl.eip.gen.camel</module>
   </modules>
   <repositories>
     <repository>

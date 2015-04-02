@@ -2,10 +2,13 @@
  */
 package com.github.lbroudoux.dsl.eip.tests;
 
+import com.github.lbroudoux.dsl.eip.Channel;
+import com.github.lbroudoux.dsl.eip.EipFactory;
 import com.github.lbroudoux.dsl.eip.EipPackage;
 
 import java.io.File;
 
+import java.io.IOException;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
 
@@ -54,7 +57,16 @@ public class EipExample {
 		// If there are no arguments, emit an appropriate usage message.
 		//
 		if (args.length == 0) {
-			System.out.println("Enter a list of file paths or URIs");
+			System.out.println("Enter a list of file paths or URIs that have content like this:");
+			try {
+				Resource resource = resourceSet.createResource(URI.createURI("http:///My.eip"));
+				Channel root = EipFactory.eINSTANCE.createChannel();
+				resource.getContents().add(root);
+				resource.save(System.out, null);
+			}
+			catch (IOException exception) {
+				exception.printStackTrace();
+			}
 		}
 		else {
 			// Iterate over all the arguments.

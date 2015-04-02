@@ -120,6 +120,14 @@ public class EipAdapterFactory extends AdapterFactoryImpl {
 				return createEIPModelAdapter();
 			}
 			@Override
+			public Adapter caseEnricher(Enricher object) {
+				return createEnricherAdapter();
+			}
+			@Override
+			public Adapter caseCompositeProcessor(CompositeProcessor object) {
+				return createCompositeProcessorAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -318,6 +326,34 @@ public class EipAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEIPModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.lbroudoux.dsl.eip.Enricher <em>Enricher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.lbroudoux.dsl.eip.Enricher
+	 * @generated
+	 */
+	public Adapter createEnricherAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.lbroudoux.dsl.eip.CompositeProcessor <em>Composite Processor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.lbroudoux.dsl.eip.CompositeProcessor
+	 * @generated
+	 */
+	public Adapter createCompositeProcessorAdapter() {
 		return null;
 	}
 

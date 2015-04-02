@@ -218,6 +218,16 @@ public class RouteItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(EipPackage.Literals.ROUTE__OWNED_ENDPOINTS,
+				 EipFactory.eINSTANCE.createEnricher()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EipPackage.Literals.ROUTE__OWNED_ENDPOINTS,
+				 EipFactory.eINSTANCE.createCompositeProcessor()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(EipPackage.Literals.ROUTE__OWNED_CHANNELS,
 				 EipFactory.eINSTANCE.createChannel()));
 	}

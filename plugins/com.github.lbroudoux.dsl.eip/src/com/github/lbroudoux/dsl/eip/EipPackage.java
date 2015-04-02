@@ -4,6 +4,7 @@ package com.github.lbroudoux.dsl.eip;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -731,6 +732,145 @@ public interface EipPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link com.github.lbroudoux.dsl.eip.impl.EnricherImpl <em>Enricher</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.lbroudoux.dsl.eip.impl.EnricherImpl
+	 * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getEnricher()
+	 * @generated
+	 */
+	int ENRICHER = 13;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENRICHER__NAME = ENDPOINT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>To Channel</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENRICHER__TO_CHANNEL = ENDPOINT__TO_CHANNEL;
+
+	/**
+	 * The feature id for the '<em><b>From Channel</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENRICHER__FROM_CHANNEL = ENDPOINT__FROM_CHANNEL;
+
+	/**
+	 * The feature id for the '<em><b>Part</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENRICHER__PART = ENDPOINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Enricher</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENRICHER_FEATURE_COUNT = ENDPOINT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Enricher</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENRICHER_OPERATION_COUNT = ENDPOINT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.lbroudoux.dsl.eip.impl.CompositeProcessorImpl <em>Composite Processor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.lbroudoux.dsl.eip.impl.CompositeProcessorImpl
+	 * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getCompositeProcessor()
+	 * @generated
+	 */
+	int COMPOSITE_PROCESSOR = 14;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_PROCESSOR__NAME = ENDPOINT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>To Channel</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_PROCESSOR__TO_CHANNEL = ENDPOINT__TO_CHANNEL;
+
+	/**
+	 * The feature id for the '<em><b>From Channel</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_PROCESSOR__FROM_CHANNEL = ENDPOINT__FROM_CHANNEL;
+
+	/**
+	 * The feature id for the '<em><b>Owned Endpoints</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_PROCESSOR__OWNED_ENDPOINTS = ENDPOINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Composite Processor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_PROCESSOR_FEATURE_COUNT = ENDPOINT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Composite Processor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_PROCESSOR_OPERATION_COUNT = ENDPOINT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.lbroudoux.dsl.eip.MessagePart <em>Message Part</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.lbroudoux.dsl.eip.MessagePart
+	 * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getMessagePart()
+	 * @generated
+	 */
+	int MESSAGE_PART = 15;
+
+
+	/**
 	 * Returns the meta object for class '{@link com.github.lbroudoux.dsl.eip.Endpoint <em>Endpoint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1004,6 +1144,58 @@ public interface EipPackage extends EPackage {
 	EReference getEIPModel_OwnedRoutes();
 
 	/**
+	 * Returns the meta object for class '{@link com.github.lbroudoux.dsl.eip.Enricher <em>Enricher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Enricher</em>'.
+	 * @see com.github.lbroudoux.dsl.eip.Enricher
+	 * @generated
+	 */
+	EClass getEnricher();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.lbroudoux.dsl.eip.Enricher#getPart <em>Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Part</em>'.
+	 * @see com.github.lbroudoux.dsl.eip.Enricher#getPart()
+	 * @see #getEnricher()
+	 * @generated
+	 */
+	EAttribute getEnricher_Part();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.lbroudoux.dsl.eip.CompositeProcessor <em>Composite Processor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Composite Processor</em>'.
+	 * @see com.github.lbroudoux.dsl.eip.CompositeProcessor
+	 * @generated
+	 */
+	EClass getCompositeProcessor();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.github.lbroudoux.dsl.eip.CompositeProcessor#getOwnedEndpoints <em>Owned Endpoints</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Owned Endpoints</em>'.
+	 * @see com.github.lbroudoux.dsl.eip.CompositeProcessor#getOwnedEndpoints()
+	 * @see #getCompositeProcessor()
+	 * @generated
+	 */
+	EReference getCompositeProcessor_OwnedEndpoints();
+
+	/**
+	 * Returns the meta object for enum '{@link com.github.lbroudoux.dsl.eip.MessagePart <em>Message Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Message Part</em>'.
+	 * @see com.github.lbroudoux.dsl.eip.MessagePart
+	 * @generated
+	 */
+	EEnum getMessagePart();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1234,6 +1426,47 @@ public interface EipPackage extends EPackage {
 		 * @generated
 		 */
 		EReference EIP_MODEL__OWNED_ROUTES = eINSTANCE.getEIPModel_OwnedRoutes();
+		/**
+		 * The meta object literal for the '{@link com.github.lbroudoux.dsl.eip.impl.EnricherImpl <em>Enricher</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.lbroudoux.dsl.eip.impl.EnricherImpl
+		 * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getEnricher()
+		 * @generated
+		 */
+		EClass ENRICHER = eINSTANCE.getEnricher();
+		/**
+		 * The meta object literal for the '<em><b>Part</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ENRICHER__PART = eINSTANCE.getEnricher_Part();
+		/**
+		 * The meta object literal for the '{@link com.github.lbroudoux.dsl.eip.impl.CompositeProcessorImpl <em>Composite Processor</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.lbroudoux.dsl.eip.impl.CompositeProcessorImpl
+		 * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getCompositeProcessor()
+		 * @generated
+		 */
+		EClass COMPOSITE_PROCESSOR = eINSTANCE.getCompositeProcessor();
+		/**
+		 * The meta object literal for the '<em><b>Owned Endpoints</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPOSITE_PROCESSOR__OWNED_ENDPOINTS = eINSTANCE.getCompositeProcessor_OwnedEndpoints();
+		/**
+		 * The meta object literal for the '{@link com.github.lbroudoux.dsl.eip.MessagePart <em>Message Part</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.lbroudoux.dsl.eip.MessagePart
+		 * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getMessagePart()
+		 * @generated
+		 */
+		EEnum MESSAGE_PART = eINSTANCE.getMessagePart();
 
 	}
 

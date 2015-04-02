@@ -7,6 +7,10 @@
   <foreignModel>eip.ecore</foreignModel>
   <genPackages prefix="Eip" basePackage="com.github.lbroudoux.dsl" disposableProviderFactory="true"
       ecorePackage="eip.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="eip.ecore#//MessagePart">
+      <genEnumLiterals ecoreEnumLiteral="eip.ecore#//MessagePart/HEADER"/>
+      <genEnumLiterals ecoreEnumLiteral="eip.ecore#//MessagePart/PAYLOAD"/>
+    </genEnums>
     <genClasses image="false" ecoreClass="eip.ecore#//Endpoint">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//Endpoint/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eip.ecore#//Endpoint/toChannel"/>
@@ -21,7 +25,9 @@
     <genClasses ecoreClass="eip.ecore#//Router">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eip.ecore#//Router/ownedRoutes"/>
     </genClasses>
-    <genClasses ecoreClass="eip.ecore#//Filter"/>
+    <genClasses ecoreClass="eip.ecore#//Filter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//Filter/expression"/>
+    </genClasses>
     <genClasses ecoreClass="eip.ecore#//Transformer"/>
     <genClasses ecoreClass="eip.ecore#//Gateway"/>
     <genClasses ecoreClass="eip.ecore#//ConditionalRoute">
@@ -38,6 +44,12 @@
     <genClasses ecoreClass="eip.ecore#//ServiceActivator"/>
     <genClasses ecoreClass="eip.ecore#//EIPModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eip.ecore#//EIPModel/ownedRoutes"/>
+    </genClasses>
+    <genClasses ecoreClass="eip.ecore#//Enricher">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//Enricher/part"/>
+    </genClasses>
+    <genClasses ecoreClass="eip.ecore#//CompositeProcessor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eip.ecore#//CompositeProcessor/ownedEndpoints"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -5,14 +5,17 @@ package com.github.lbroudoux.dsl.eip.impl;
 import com.github.lbroudoux.dsl.eip.Adapter;
 import com.github.lbroudoux.dsl.eip.Aggregator;
 import com.github.lbroudoux.dsl.eip.Channel;
+import com.github.lbroudoux.dsl.eip.CompositeProcessor;
 import com.github.lbroudoux.dsl.eip.ConditionalRoute;
 import com.github.lbroudoux.dsl.eip.EIPModel;
 import com.github.lbroudoux.dsl.eip.EipFactory;
 import com.github.lbroudoux.dsl.eip.EipPackage;
 import com.github.lbroudoux.dsl.eip.Endpoint;
 
+import com.github.lbroudoux.dsl.eip.Enricher;
 import com.github.lbroudoux.dsl.eip.Filter;
 import com.github.lbroudoux.dsl.eip.Gateway;
+import com.github.lbroudoux.dsl.eip.MessagePart;
 import com.github.lbroudoux.dsl.eip.Route;
 import com.github.lbroudoux.dsl.eip.Router;
 import com.github.lbroudoux.dsl.eip.ServiceActivator;
@@ -20,6 +23,7 @@ import com.github.lbroudoux.dsl.eip.Splitter;
 import com.github.lbroudoux.dsl.eip.Transformer;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.EReference;
@@ -117,6 +121,27 @@ public class EipPackageImpl extends EPackageImpl implements EipPackage {
 	 * @generated
 	 */
 	private EClass eipModelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass enricherEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass compositeProcessorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum messagePartEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -418,6 +443,51 @@ public class EipPackageImpl extends EPackageImpl implements EipPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getEnricher() {
+		return enricherEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEnricher_Part() {
+		return (EAttribute)enricherEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCompositeProcessor() {
+		return compositeProcessorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCompositeProcessor_OwnedEndpoints() {
+		return (EReference)compositeProcessorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getMessagePart() {
+		return messagePartEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EipFactory getEipFactory() {
 		return (EipFactory)getEFactoryInstance();
 	}
@@ -479,6 +549,15 @@ public class EipPackageImpl extends EPackageImpl implements EipPackage {
 
 		eipModelEClass = createEClass(EIP_MODEL);
 		createEReference(eipModelEClass, EIP_MODEL__OWNED_ROUTES);
+
+		enricherEClass = createEClass(ENRICHER);
+		createEAttribute(enricherEClass, ENRICHER__PART);
+
+		compositeProcessorEClass = createEClass(COMPOSITE_PROCESSOR);
+		createEReference(compositeProcessorEClass, COMPOSITE_PROCESSOR__OWNED_ENDPOINTS);
+
+		// Create enums
+		messagePartEEnum = createEEnum(MESSAGE_PART);
 	}
 
 	/**
@@ -516,6 +595,8 @@ public class EipPackageImpl extends EPackageImpl implements EipPackage {
 		splitterEClass.getESuperTypes().add(this.getEndpoint());
 		aggregatorEClass.getESuperTypes().add(this.getEndpoint());
 		serviceActivatorEClass.getESuperTypes().add(this.getEndpoint());
+		enricherEClass.getESuperTypes().add(this.getEndpoint());
+		compositeProcessorEClass.getESuperTypes().add(this.getEndpoint());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(endpointEClass, Endpoint.class, "Endpoint", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -556,6 +637,17 @@ public class EipPackageImpl extends EPackageImpl implements EipPackage {
 
 		initEClass(eipModelEClass, EIPModel.class, "EIPModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEIPModel_OwnedRoutes(), this.getRoute(), null, "ownedRoutes", null, 0, -1, EIPModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(enricherEClass, Enricher.class, "Enricher", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEnricher_Part(), this.getMessagePart(), "part", "PAYLOAD", 0, 1, Enricher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(compositeProcessorEClass, CompositeProcessor.class, "CompositeProcessor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCompositeProcessor_OwnedEndpoints(), this.getEndpoint(), null, "ownedEndpoints", null, 0, -1, CompositeProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(messagePartEEnum, MessagePart.class, "MessagePart");
+		addEEnumLiteral(messagePartEEnum, MessagePart.HEADER);
+		addEEnumLiteral(messagePartEEnum, MessagePart.PAYLOAD);
 
 		// Create resource
 		createResource(eNS_URI);
