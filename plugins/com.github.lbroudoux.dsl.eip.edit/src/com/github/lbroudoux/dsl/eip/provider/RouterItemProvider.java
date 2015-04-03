@@ -64,7 +64,8 @@ public class RouterItemProvider
 
 			addNamePropertyDescriptor(object);
 			addToChannelPropertyDescriptor(object);
-			addFromChannelPropertyDescriptor(object);
+			addFromChannelsPropertyDescriptor(object);
+			addTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -114,23 +115,45 @@ public class RouterItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the From Channel feature.
+	 * This adds a property descriptor for the From Channels feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addFromChannelPropertyDescriptor(Object object) {
+	protected void addFromChannelsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Endpoint_fromChannel_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Endpoint_fromChannel_feature", "_UI_Endpoint_type"),
-				 EipPackage.Literals.ENDPOINT__FROM_CHANNEL,
+				 getString("_UI_Endpoint_fromChannels_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Endpoint_fromChannels_feature", "_UI_Endpoint_type"),
+				 EipPackage.Literals.ENDPOINT__FROM_CHANNELS,
 				 true,
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Router_type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Router_type_feature", "_UI_Router_type"),
+				 EipPackage.Literals.ROUTER__TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -204,6 +227,7 @@ public class RouterItemProvider
 
 		switch (notification.getFeatureID(Router.class)) {
 			case EipPackage.ROUTER__NAME:
+			case EipPackage.ROUTER__TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EipPackage.ROUTER__OWNED_ROUTES:

@@ -7,6 +7,7 @@ import com.github.lbroudoux.dsl.eip.EipPackage;
 import com.github.lbroudoux.dsl.eip.Endpoint;
 import com.github.lbroudoux.dsl.eip.Route;
 
+import com.github.lbroudoux.dsl.eip.ServiceRef;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -33,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.github.lbroudoux.dsl.eip.impl.RouteImpl#getOwnedEndpoints <em>Owned Endpoints</em>}</li>
  *   <li>{@link com.github.lbroudoux.dsl.eip.impl.RouteImpl#getOwnedChannels <em>Owned Channels</em>}</li>
  *   <li>{@link com.github.lbroudoux.dsl.eip.impl.RouteImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.github.lbroudoux.dsl.eip.impl.RouteImpl#getOwnedServiceRefs <em>Owned Service Refs</em>}</li>
  * </ul>
  * </p>
  *
@@ -78,6 +80,16 @@ public class RouteImpl extends MinimalEObjectImpl.Container implements Route {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getOwnedServiceRefs() <em>Owned Service Refs</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOwnedServiceRefs()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ServiceRef> ownedServiceRefs;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,6 +160,18 @@ public class RouteImpl extends MinimalEObjectImpl.Container implements Route {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ServiceRef> getOwnedServiceRefs() {
+		if (ownedServiceRefs == null) {
+			ownedServiceRefs = new EObjectContainmentEList<ServiceRef>(ServiceRef.class, this, EipPackage.ROUTE__OWNED_SERVICE_REFS);
+		}
+		return ownedServiceRefs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -155,6 +179,8 @@ public class RouteImpl extends MinimalEObjectImpl.Container implements Route {
 				return ((InternalEList<?>)getOwnedEndpoints()).basicRemove(otherEnd, msgs);
 			case EipPackage.ROUTE__OWNED_CHANNELS:
 				return ((InternalEList<?>)getOwnedChannels()).basicRemove(otherEnd, msgs);
+			case EipPackage.ROUTE__OWNED_SERVICE_REFS:
+				return ((InternalEList<?>)getOwnedServiceRefs()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -173,6 +199,8 @@ public class RouteImpl extends MinimalEObjectImpl.Container implements Route {
 				return getOwnedChannels();
 			case EipPackage.ROUTE__NAME:
 				return getName();
+			case EipPackage.ROUTE__OWNED_SERVICE_REFS:
+				return getOwnedServiceRefs();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -197,6 +225,10 @@ public class RouteImpl extends MinimalEObjectImpl.Container implements Route {
 			case EipPackage.ROUTE__NAME:
 				setName((String)newValue);
 				return;
+			case EipPackage.ROUTE__OWNED_SERVICE_REFS:
+				getOwnedServiceRefs().clear();
+				getOwnedServiceRefs().addAll((Collection<? extends ServiceRef>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -218,6 +250,9 @@ public class RouteImpl extends MinimalEObjectImpl.Container implements Route {
 			case EipPackage.ROUTE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case EipPackage.ROUTE__OWNED_SERVICE_REFS:
+				getOwnedServiceRefs().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -236,6 +271,8 @@ public class RouteImpl extends MinimalEObjectImpl.Container implements Route {
 				return ownedChannels != null && !ownedChannels.isEmpty();
 			case EipPackage.ROUTE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case EipPackage.ROUTE__OWNED_SERVICE_REFS:
+				return ownedServiceRefs != null && !ownedServiceRefs.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

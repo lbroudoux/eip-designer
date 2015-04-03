@@ -11,19 +11,26 @@
       <genEnumLiterals ecoreEnumLiteral="eip.ecore#//MessagePart/HEADER"/>
       <genEnumLiterals ecoreEnumLiteral="eip.ecore#//MessagePart/PAYLOAD"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="eip.ecore#//RoutingType">
+      <genEnumLiterals ecoreEnumLiteral="eip.ecore#//RoutingType/HEADER_VALUE"/>
+      <genEnumLiterals ecoreEnumLiteral="eip.ecore#//RoutingType/PAYLOAD_VALUE"/>
+      <genEnumLiterals ecoreEnumLiteral="eip.ecore#//RoutingType/PAYLOAD_TYPE"/>
+    </genEnums>
     <genClasses image="false" ecoreClass="eip.ecore#//Endpoint">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//Endpoint/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eip.ecore#//Endpoint/toChannel"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eip.ecore#//Endpoint/fromChannel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eip.ecore#//Endpoint/fromChannels"/>
     </genClasses>
     <genClasses ecoreClass="eip.ecore#//Channel">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eip.ecore#//Channel/toEndpoint"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eip.ecore#//Channel/fromEndpoint"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//Channel/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//Channel/guaranteed"/>
     </genClasses>
     <genClasses ecoreClass="eip.ecore#//Adapter"/>
     <genClasses ecoreClass="eip.ecore#//Router">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eip.ecore#//Router/ownedRoutes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//Router/type"/>
     </genClasses>
     <genClasses ecoreClass="eip.ecore#//Filter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//Filter/expression"/>
@@ -35,11 +42,14 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eip.ecore#//ConditionalRoute/channel"/>
     </genClasses>
     <genClasses ecoreClass="eip.ecore#//Splitter"/>
-    <genClasses ecoreClass="eip.ecore#//Aggregator"/>
+    <genClasses ecoreClass="eip.ecore#//Aggregator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//Aggregator/strategy"/>
+    </genClasses>
     <genClasses ecoreClass="eip.ecore#//Route">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eip.ecore#//Route/ownedEndpoints"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eip.ecore#//Route/ownedChannels"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//Route/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eip.ecore#//Route/ownedServiceRefs"/>
     </genClasses>
     <genClasses ecoreClass="eip.ecore#//ServiceActivator"/>
     <genClasses ecoreClass="eip.ecore#//EIPModel">
@@ -50,6 +60,19 @@
     </genClasses>
     <genClasses ecoreClass="eip.ecore#//CompositeProcessor">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eip.ecore#//CompositeProcessor/ownedEndpoints"/>
+    </genClasses>
+    <genClasses ecoreClass="eip.ecore#//RecipientListRouter"/>
+    <genClasses ecoreClass="eip.ecore#//ServiceRef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//ServiceRef/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//ServiceRef/reference"/>
+    </genClasses>
+    <genClasses ecoreClass="eip.ecore#//ServiceInvocation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//ServiceInvocation/context"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//ServiceInvocation/operationName"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eip.ecore#//ServiceInvocation/serviceRef"/>
+    </genClasses>
+    <genClasses ecoreClass="eip.ecore#//InvocableEndpoint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eip.ecore#//InvocableEndpoint/ownedServiceInvocations"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

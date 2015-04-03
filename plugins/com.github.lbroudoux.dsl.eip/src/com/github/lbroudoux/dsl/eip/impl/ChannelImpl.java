@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link com.github.lbroudoux.dsl.eip.impl.ChannelImpl#getToEndpoint <em>To Endpoint</em>}</li>
  *   <li>{@link com.github.lbroudoux.dsl.eip.impl.ChannelImpl#getFromEndpoint <em>From Endpoint</em>}</li>
  *   <li>{@link com.github.lbroudoux.dsl.eip.impl.ChannelImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.github.lbroudoux.dsl.eip.impl.ChannelImpl#isGuaranteed <em>Guaranteed</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,6 +67,25 @@ public class ChannelImpl extends MinimalEObjectImpl.Container implements Channel
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isGuaranteed() <em>Guaranteed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isGuaranteed()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean GUARANTEED_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isGuaranteed() <em>Guaranteed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isGuaranteed()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean guaranteed = GUARANTEED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -136,9 +156,9 @@ public class ChannelImpl extends MinimalEObjectImpl.Container implements Channel
 		if (newToEndpoint != toEndpoint) {
 			NotificationChain msgs = null;
 			if (toEndpoint != null)
-				msgs = ((InternalEObject)toEndpoint).eInverseRemove(this, EipPackage.ENDPOINT__FROM_CHANNEL, Endpoint.class, msgs);
+				msgs = ((InternalEObject)toEndpoint).eInverseRemove(this, EipPackage.ENDPOINT__FROM_CHANNELS, Endpoint.class, msgs);
 			if (newToEndpoint != null)
-				msgs = ((InternalEObject)newToEndpoint).eInverseAdd(this, EipPackage.ENDPOINT__FROM_CHANNEL, Endpoint.class, msgs);
+				msgs = ((InternalEObject)newToEndpoint).eInverseAdd(this, EipPackage.ENDPOINT__FROM_CHANNELS, Endpoint.class, msgs);
 			msgs = basicSetToEndpoint(newToEndpoint, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -232,12 +252,33 @@ public class ChannelImpl extends MinimalEObjectImpl.Container implements Channel
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isGuaranteed() {
+		return guaranteed;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGuaranteed(boolean newGuaranteed) {
+		boolean oldGuaranteed = guaranteed;
+		guaranteed = newGuaranteed;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EipPackage.CHANNEL__GUARANTEED, oldGuaranteed, guaranteed));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EipPackage.CHANNEL__TO_ENDPOINT:
 				if (toEndpoint != null)
-					msgs = ((InternalEObject)toEndpoint).eInverseRemove(this, EipPackage.ENDPOINT__FROM_CHANNEL, Endpoint.class, msgs);
+					msgs = ((InternalEObject)toEndpoint).eInverseRemove(this, EipPackage.ENDPOINT__FROM_CHANNELS, Endpoint.class, msgs);
 				return basicSetToEndpoint((Endpoint)otherEnd, msgs);
 			case EipPackage.CHANNEL__FROM_ENDPOINT:
 				if (fromEndpoint != null)
@@ -279,6 +320,8 @@ public class ChannelImpl extends MinimalEObjectImpl.Container implements Channel
 				return basicGetFromEndpoint();
 			case EipPackage.CHANNEL__NAME:
 				return getName();
+			case EipPackage.CHANNEL__GUARANTEED:
+				return isGuaranteed();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -299,6 +342,9 @@ public class ChannelImpl extends MinimalEObjectImpl.Container implements Channel
 				return;
 			case EipPackage.CHANNEL__NAME:
 				setName((String)newValue);
+				return;
+			case EipPackage.CHANNEL__GUARANTEED:
+				setGuaranteed((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -321,6 +367,9 @@ public class ChannelImpl extends MinimalEObjectImpl.Container implements Channel
 			case EipPackage.CHANNEL__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case EipPackage.CHANNEL__GUARANTEED:
+				setGuaranteed(GUARANTEED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -339,6 +388,8 @@ public class ChannelImpl extends MinimalEObjectImpl.Container implements Channel
 				return fromEndpoint != null;
 			case EipPackage.CHANNEL__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case EipPackage.CHANNEL__GUARANTEED:
+				return guaranteed != GUARANTEED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -355,6 +406,8 @@ public class ChannelImpl extends MinimalEObjectImpl.Container implements Channel
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", guaranteed: ");
+		result.append(guaranteed);
 		result.append(')');
 		return result.toString();
 	}

@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -32,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.github.lbroudoux.dsl.eip.impl.CompositeProcessorImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.github.lbroudoux.dsl.eip.impl.CompositeProcessorImpl#getToChannel <em>To Channel</em>}</li>
- *   <li>{@link com.github.lbroudoux.dsl.eip.impl.CompositeProcessorImpl#getFromChannel <em>From Channel</em>}</li>
+ *   <li>{@link com.github.lbroudoux.dsl.eip.impl.CompositeProcessorImpl#getFromChannels <em>From Channels</em>}</li>
  *   <li>{@link com.github.lbroudoux.dsl.eip.impl.CompositeProcessorImpl#getOwnedEndpoints <em>Owned Endpoints</em>}</li>
  * </ul>
  * </p>
@@ -71,14 +72,14 @@ public class CompositeProcessorImpl extends MinimalEObjectImpl.Container impleme
 	protected Channel toChannel;
 
 	/**
-	 * The cached value of the '{@link #getFromChannel() <em>From Channel</em>}' reference.
+	 * The cached value of the '{@link #getFromChannels() <em>From Channels</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFromChannel()
+	 * @see #getFromChannels()
 	 * @generated
 	 * @ordered
 	 */
-	protected Channel fromChannel;
+	protected EList<Channel> fromChannels;
 
 	/**
 	 * The cached value of the '{@link #getOwnedEndpoints() <em>Owned Endpoints</em>}' containment reference list.
@@ -195,59 +196,11 @@ public class CompositeProcessorImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Channel getFromChannel() {
-		if (fromChannel != null && fromChannel.eIsProxy()) {
-			InternalEObject oldFromChannel = (InternalEObject)fromChannel;
-			fromChannel = (Channel)eResolveProxy(oldFromChannel);
-			if (fromChannel != oldFromChannel) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EipPackage.COMPOSITE_PROCESSOR__FROM_CHANNEL, oldFromChannel, fromChannel));
-			}
+	public EList<Channel> getFromChannels() {
+		if (fromChannels == null) {
+			fromChannels = new EObjectWithInverseResolvingEList<Channel>(Channel.class, this, EipPackage.COMPOSITE_PROCESSOR__FROM_CHANNELS, EipPackage.CHANNEL__TO_ENDPOINT);
 		}
-		return fromChannel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Channel basicGetFromChannel() {
-		return fromChannel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetFromChannel(Channel newFromChannel, NotificationChain msgs) {
-		Channel oldFromChannel = fromChannel;
-		fromChannel = newFromChannel;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EipPackage.COMPOSITE_PROCESSOR__FROM_CHANNEL, oldFromChannel, newFromChannel);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFromChannel(Channel newFromChannel) {
-		if (newFromChannel != fromChannel) {
-			NotificationChain msgs = null;
-			if (fromChannel != null)
-				msgs = ((InternalEObject)fromChannel).eInverseRemove(this, EipPackage.CHANNEL__TO_ENDPOINT, Channel.class, msgs);
-			if (newFromChannel != null)
-				msgs = ((InternalEObject)newFromChannel).eInverseAdd(this, EipPackage.CHANNEL__TO_ENDPOINT, Channel.class, msgs);
-			msgs = basicSetFromChannel(newFromChannel, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EipPackage.COMPOSITE_PROCESSOR__FROM_CHANNEL, newFromChannel, newFromChannel));
+		return fromChannels;
 	}
 
 	/**
@@ -267,6 +220,7 @@ public class CompositeProcessorImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -274,10 +228,8 @@ public class CompositeProcessorImpl extends MinimalEObjectImpl.Container impleme
 				if (toChannel != null)
 					msgs = ((InternalEObject)toChannel).eInverseRemove(this, EipPackage.CHANNEL__FROM_ENDPOINT, Channel.class, msgs);
 				return basicSetToChannel((Channel)otherEnd, msgs);
-			case EipPackage.COMPOSITE_PROCESSOR__FROM_CHANNEL:
-				if (fromChannel != null)
-					msgs = ((InternalEObject)fromChannel).eInverseRemove(this, EipPackage.CHANNEL__TO_ENDPOINT, Channel.class, msgs);
-				return basicSetFromChannel((Channel)otherEnd, msgs);
+			case EipPackage.COMPOSITE_PROCESSOR__FROM_CHANNELS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFromChannels()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -292,8 +244,8 @@ public class CompositeProcessorImpl extends MinimalEObjectImpl.Container impleme
 		switch (featureID) {
 			case EipPackage.COMPOSITE_PROCESSOR__TO_CHANNEL:
 				return basicSetToChannel(null, msgs);
-			case EipPackage.COMPOSITE_PROCESSOR__FROM_CHANNEL:
-				return basicSetFromChannel(null, msgs);
+			case EipPackage.COMPOSITE_PROCESSOR__FROM_CHANNELS:
+				return ((InternalEList<?>)getFromChannels()).basicRemove(otherEnd, msgs);
 			case EipPackage.COMPOSITE_PROCESSOR__OWNED_ENDPOINTS:
 				return ((InternalEList<?>)getOwnedEndpoints()).basicRemove(otherEnd, msgs);
 		}
@@ -313,9 +265,8 @@ public class CompositeProcessorImpl extends MinimalEObjectImpl.Container impleme
 			case EipPackage.COMPOSITE_PROCESSOR__TO_CHANNEL:
 				if (resolve) return getToChannel();
 				return basicGetToChannel();
-			case EipPackage.COMPOSITE_PROCESSOR__FROM_CHANNEL:
-				if (resolve) return getFromChannel();
-				return basicGetFromChannel();
+			case EipPackage.COMPOSITE_PROCESSOR__FROM_CHANNELS:
+				return getFromChannels();
 			case EipPackage.COMPOSITE_PROCESSOR__OWNED_ENDPOINTS:
 				return getOwnedEndpoints();
 		}
@@ -337,8 +288,9 @@ public class CompositeProcessorImpl extends MinimalEObjectImpl.Container impleme
 			case EipPackage.COMPOSITE_PROCESSOR__TO_CHANNEL:
 				setToChannel((Channel)newValue);
 				return;
-			case EipPackage.COMPOSITE_PROCESSOR__FROM_CHANNEL:
-				setFromChannel((Channel)newValue);
+			case EipPackage.COMPOSITE_PROCESSOR__FROM_CHANNELS:
+				getFromChannels().clear();
+				getFromChannels().addAll((Collection<? extends Channel>)newValue);
 				return;
 			case EipPackage.COMPOSITE_PROCESSOR__OWNED_ENDPOINTS:
 				getOwnedEndpoints().clear();
@@ -362,8 +314,8 @@ public class CompositeProcessorImpl extends MinimalEObjectImpl.Container impleme
 			case EipPackage.COMPOSITE_PROCESSOR__TO_CHANNEL:
 				setToChannel((Channel)null);
 				return;
-			case EipPackage.COMPOSITE_PROCESSOR__FROM_CHANNEL:
-				setFromChannel((Channel)null);
+			case EipPackage.COMPOSITE_PROCESSOR__FROM_CHANNELS:
+				getFromChannels().clear();
 				return;
 			case EipPackage.COMPOSITE_PROCESSOR__OWNED_ENDPOINTS:
 				getOwnedEndpoints().clear();
@@ -384,8 +336,8 @@ public class CompositeProcessorImpl extends MinimalEObjectImpl.Container impleme
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case EipPackage.COMPOSITE_PROCESSOR__TO_CHANNEL:
 				return toChannel != null;
-			case EipPackage.COMPOSITE_PROCESSOR__FROM_CHANNEL:
-				return fromChannel != null;
+			case EipPackage.COMPOSITE_PROCESSOR__FROM_CHANNELS:
+				return fromChannels != null && !fromChannels.isEmpty();
 			case EipPackage.COMPOSITE_PROCESSOR__OWNED_ENDPOINTS:
 				return ownedEndpoints != null && !ownedEndpoints.isEmpty();
 		}

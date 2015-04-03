@@ -394,6 +394,98 @@ public class EipItemProviderAdapterFactory extends EipAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.RecipientListRouter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RecipientListRouterItemProvider recipientListRouterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.RecipientListRouter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRecipientListRouterAdapter() {
+		if (recipientListRouterItemProvider == null) {
+			recipientListRouterItemProvider = new RecipientListRouterItemProvider(this);
+		}
+
+		return recipientListRouterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.ServiceRef} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ServiceRefItemProvider serviceRefItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.ServiceRef}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createServiceRefAdapter() {
+		if (serviceRefItemProvider == null) {
+			serviceRefItemProvider = new ServiceRefItemProvider(this);
+		}
+
+		return serviceRefItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.ServiceInvocation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ServiceInvocationItemProvider serviceInvocationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.ServiceInvocation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createServiceInvocationAdapter() {
+		if (serviceInvocationItemProvider == null) {
+			serviceInvocationItemProvider = new ServiceInvocationItemProvider(this);
+		}
+
+		return serviceInvocationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.InvocableEndpoint} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InvocableEndpointItemProvider invocableEndpointItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.InvocableEndpoint}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInvocableEndpointAdapter() {
+		if (invocableEndpointItemProvider == null) {
+			invocableEndpointItemProvider = new InvocableEndpointItemProvider(this);
+		}
+
+		return invocableEndpointItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -506,6 +598,10 @@ public class EipItemProviderAdapterFactory extends EipAdapterFactory implements 
 		if (eipModelItemProvider != null) eipModelItemProvider.dispose();
 		if (enricherItemProvider != null) enricherItemProvider.dispose();
 		if (compositeProcessorItemProvider != null) compositeProcessorItemProvider.dispose();
+		if (recipientListRouterItemProvider != null) recipientListRouterItemProvider.dispose();
+		if (serviceRefItemProvider != null) serviceRefItemProvider.dispose();
+		if (serviceInvocationItemProvider != null) serviceInvocationItemProvider.dispose();
+		if (invocableEndpointItemProvider != null) invocableEndpointItemProvider.dispose();
 	}
 
 }

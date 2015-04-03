@@ -62,6 +62,7 @@ public class ChannelItemProvider
 			addToEndpointPropertyDescriptor(object);
 			addFromEndpointPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
+			addGuaranteedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -133,6 +134,28 @@ public class ChannelItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Guaranteed feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGuaranteedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Channel_guaranteed_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Channel_guaranteed_feature", "_UI_Channel_type"),
+				 EipPackage.Literals.CHANNEL__GUARANTEED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Channel.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -171,6 +194,7 @@ public class ChannelItemProvider
 
 		switch (notification.getFeatureID(Channel.class)) {
 			case EipPackage.CHANNEL__NAME:
+			case EipPackage.CHANNEL__GUARANTEED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -65,7 +65,7 @@ public class CompositeProcessorItemProvider
 
 			addNamePropertyDescriptor(object);
 			addToChannelPropertyDescriptor(object);
-			addFromChannelPropertyDescriptor(object);
+			addFromChannelsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -115,19 +115,19 @@ public class CompositeProcessorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the From Channel feature.
+	 * This adds a property descriptor for the From Channels feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addFromChannelPropertyDescriptor(Object object) {
+	protected void addFromChannelsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Endpoint_fromChannel_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Endpoint_fromChannel_feature", "_UI_Endpoint_type"),
-				 EipPackage.Literals.ENDPOINT__FROM_CHANNEL,
+				 getString("_UI_Endpoint_fromChannels_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Endpoint_fromChannels_feature", "_UI_Endpoint_type"),
+				 EipPackage.Literals.ENDPOINT__FROM_CHANNELS,
 				 true,
 				 false,
 				 true,
@@ -258,6 +258,11 @@ public class CompositeProcessorItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EipPackage.Literals.COMPOSITE_PROCESSOR__OWNED_ENDPOINTS,
+				 EipFactory.eINSTANCE.createInvocableEndpoint()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EipPackage.Literals.COMPOSITE_PROCESSOR__OWNED_ENDPOINTS,
 				 EipFactory.eINSTANCE.createServiceActivator()));
 
 		newChildDescriptors.add
@@ -269,6 +274,11 @@ public class CompositeProcessorItemProvider
 			(createChildParameter
 				(EipPackage.Literals.COMPOSITE_PROCESSOR__OWNED_ENDPOINTS,
 				 EipFactory.eINSTANCE.createCompositeProcessor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EipPackage.Literals.COMPOSITE_PROCESSOR__OWNED_ENDPOINTS,
+				 EipFactory.eINSTANCE.createRecipientListRouter()));
 	}
 
 	/**

@@ -2,6 +2,7 @@
  */
 package com.github.lbroudoux.dsl.eip;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.github.lbroudoux.dsl.eip.Endpoint#getName <em>Name</em>}</li>
  *   <li>{@link com.github.lbroudoux.dsl.eip.Endpoint#getToChannel <em>To Channel</em>}</li>
- *   <li>{@link com.github.lbroudoux.dsl.eip.Endpoint#getFromChannel <em>From Channel</em>}</li>
+ *   <li>{@link com.github.lbroudoux.dsl.eip.Endpoint#getFromChannels <em>From Channels</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,30 +80,20 @@ public interface Endpoint extends EObject {
 	void setToChannel(Channel value);
 
 	/**
-	 * Returns the value of the '<em><b>From Channel</b></em>' reference.
+	 * Returns the value of the '<em><b>From Channels</b></em>' reference list.
+	 * The list contents are of type {@link com.github.lbroudoux.dsl.eip.Channel}.
 	 * It is bidirectional and its opposite is '{@link com.github.lbroudoux.dsl.eip.Channel#getToEndpoint <em>To Endpoint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>From Channel</em>' reference isn't clear,
+	 * If the meaning of the '<em>From Channels</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>From Channel</em>' reference.
-	 * @see #setFromChannel(Channel)
-	 * @see com.github.lbroudoux.dsl.eip.EipPackage#getEndpoint_FromChannel()
+	 * @return the value of the '<em>From Channels</em>' reference list.
+	 * @see com.github.lbroudoux.dsl.eip.EipPackage#getEndpoint_FromChannels()
 	 * @see com.github.lbroudoux.dsl.eip.Channel#getToEndpoint
 	 * @model opposite="toEndpoint"
 	 * @generated
 	 */
-	Channel getFromChannel();
-
-	/**
-	 * Sets the value of the '{@link com.github.lbroudoux.dsl.eip.Endpoint#getFromChannel <em>From Channel</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>From Channel</em>' reference.
-	 * @see #getFromChannel()
-	 * @generated
-	 */
-	void setFromChannel(Channel value);
+	EList<Channel> getFromChannels();
 } // Endpoint

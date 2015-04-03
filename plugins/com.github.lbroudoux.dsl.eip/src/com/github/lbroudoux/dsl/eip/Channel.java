@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.github.lbroudoux.dsl.eip.Channel#getToEndpoint <em>To Endpoint</em>}</li>
  *   <li>{@link com.github.lbroudoux.dsl.eip.Channel#getFromEndpoint <em>From Endpoint</em>}</li>
  *   <li>{@link com.github.lbroudoux.dsl.eip.Channel#getName <em>Name</em>}</li>
+ *   <li>{@link com.github.lbroudoux.dsl.eip.Channel#isGuaranteed <em>Guaranteed</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,7 +27,7 @@ public interface Channel extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>To Endpoint</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link com.github.lbroudoux.dsl.eip.Endpoint#getFromChannel <em>From Channel</em>}'.
+	 * It is bidirectional and its opposite is '{@link com.github.lbroudoux.dsl.eip.Endpoint#getFromChannels <em>From Channels</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>To Endpoint</em>' reference isn't clear,
@@ -36,8 +37,8 @@ public interface Channel extends EObject {
 	 * @return the value of the '<em>To Endpoint</em>' reference.
 	 * @see #setToEndpoint(Endpoint)
 	 * @see com.github.lbroudoux.dsl.eip.EipPackage#getChannel_ToEndpoint()
-	 * @see com.github.lbroudoux.dsl.eip.Endpoint#getFromChannel
-	 * @model opposite="fromChannel"
+	 * @see com.github.lbroudoux.dsl.eip.Endpoint#getFromChannels
+	 * @model opposite="fromChannels"
 	 * @generated
 	 */
 	Endpoint getToEndpoint();
@@ -105,4 +106,30 @@ public interface Channel extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Guaranteed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Guaranteed</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Guaranteed</em>' attribute.
+	 * @see #setGuaranteed(boolean)
+	 * @see com.github.lbroudoux.dsl.eip.EipPackage#getChannel_Guaranteed()
+	 * @model
+	 * @generated
+	 */
+	boolean isGuaranteed();
+
+	/**
+	 * Sets the value of the '{@link com.github.lbroudoux.dsl.eip.Channel#isGuaranteed <em>Guaranteed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Guaranteed</em>' attribute.
+	 * @see #isGuaranteed()
+	 * @generated
+	 */
+	void setGuaranteed(boolean value);
 } // Channel

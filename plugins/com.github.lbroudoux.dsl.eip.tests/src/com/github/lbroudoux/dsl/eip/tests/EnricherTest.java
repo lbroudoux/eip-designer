@@ -4,9 +4,6 @@ package com.github.lbroudoux.dsl.eip.tests;
 
 import com.github.lbroudoux.dsl.eip.EipFactory;
 import com.github.lbroudoux.dsl.eip.Enricher;
-
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -15,15 +12,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EnricherTest extends TestCase {
-
-	/**
-	 * The fixture for this Enricher test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Enricher fixture = null;
+public class EnricherTest extends InvocableEndpointTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -45,23 +34,14 @@ public class EnricherTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Enricher test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(Enricher fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Enricher test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected Enricher getFixture() {
-		return fixture;
+		return (Enricher)fixture;
 	}
 
 	/**

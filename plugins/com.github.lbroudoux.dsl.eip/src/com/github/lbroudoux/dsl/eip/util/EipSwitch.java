@@ -141,6 +141,7 @@ public class EipSwitch<T> extends Switch<T> {
 			case EipPackage.SERVICE_ACTIVATOR: {
 				ServiceActivator serviceActivator = (ServiceActivator)theEObject;
 				T result = caseServiceActivator(serviceActivator);
+				if (result == null) result = caseInvocableEndpoint(serviceActivator);
 				if (result == null) result = caseEndpoint(serviceActivator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -154,6 +155,7 @@ public class EipSwitch<T> extends Switch<T> {
 			case EipPackage.ENRICHER: {
 				Enricher enricher = (Enricher)theEObject;
 				T result = caseEnricher(enricher);
+				if (result == null) result = caseInvocableEndpoint(enricher);
 				if (result == null) result = caseEndpoint(enricher);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -162,6 +164,33 @@ public class EipSwitch<T> extends Switch<T> {
 				CompositeProcessor compositeProcessor = (CompositeProcessor)theEObject;
 				T result = caseCompositeProcessor(compositeProcessor);
 				if (result == null) result = caseEndpoint(compositeProcessor);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EipPackage.RECIPIENT_LIST_ROUTER: {
+				RecipientListRouter recipientListRouter = (RecipientListRouter)theEObject;
+				T result = caseRecipientListRouter(recipientListRouter);
+				if (result == null) result = caseRouter(recipientListRouter);
+				if (result == null) result = caseEndpoint(recipientListRouter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EipPackage.SERVICE_REF: {
+				ServiceRef serviceRef = (ServiceRef)theEObject;
+				T result = caseServiceRef(serviceRef);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EipPackage.SERVICE_INVOCATION: {
+				ServiceInvocation serviceInvocation = (ServiceInvocation)theEObject;
+				T result = caseServiceInvocation(serviceInvocation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EipPackage.INVOCABLE_ENDPOINT: {
+				InvocableEndpoint invocableEndpoint = (InvocableEndpoint)theEObject;
+				T result = caseInvocableEndpoint(invocableEndpoint);
+				if (result == null) result = caseEndpoint(invocableEndpoint);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -391,6 +420,66 @@ public class EipSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCompositeProcessor(CompositeProcessor object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Recipient List Router</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Recipient List Router</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRecipientListRouter(RecipientListRouter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Service Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Service Ref</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseServiceRef(ServiceRef object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Service Invocation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Service Invocation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseServiceInvocation(ServiceInvocation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Invocable Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Invocable Endpoint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInvocableEndpoint(InvocableEndpoint object) {
 		return null;
 	}
 

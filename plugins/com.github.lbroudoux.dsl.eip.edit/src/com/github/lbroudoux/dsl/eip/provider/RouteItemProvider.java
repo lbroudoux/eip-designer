@@ -104,6 +104,7 @@ public class RouteItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(EipPackage.Literals.ROUTE__OWNED_ENDPOINTS);
 			childrenFeatures.add(EipPackage.Literals.ROUTE__OWNED_CHANNELS);
+			childrenFeatures.add(EipPackage.Literals.ROUTE__OWNED_SERVICE_REFS);
 		}
 		return childrenFeatures;
 	}
@@ -164,6 +165,7 @@ public class RouteItemProvider
 				return;
 			case EipPackage.ROUTE__OWNED_ENDPOINTS:
 			case EipPackage.ROUTE__OWNED_CHANNELS:
+			case EipPackage.ROUTE__OWNED_SERVICE_REFS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -214,6 +216,11 @@ public class RouteItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EipPackage.Literals.ROUTE__OWNED_ENDPOINTS,
+				 EipFactory.eINSTANCE.createInvocableEndpoint()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EipPackage.Literals.ROUTE__OWNED_ENDPOINTS,
 				 EipFactory.eINSTANCE.createServiceActivator()));
 
 		newChildDescriptors.add
@@ -228,8 +235,18 @@ public class RouteItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(EipPackage.Literals.ROUTE__OWNED_ENDPOINTS,
+				 EipFactory.eINSTANCE.createRecipientListRouter()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(EipPackage.Literals.ROUTE__OWNED_CHANNELS,
 				 EipFactory.eINSTANCE.createChannel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EipPackage.Literals.ROUTE__OWNED_SERVICE_REFS,
+				 EipFactory.eINSTANCE.createServiceRef()));
 	}
 
 	/**

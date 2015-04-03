@@ -7,6 +7,7 @@ import com.github.lbroudoux.dsl.eip.ConditionalRoute;
 import com.github.lbroudoux.dsl.eip.EipPackage;
 import com.github.lbroudoux.dsl.eip.Router;
 
+import com.github.lbroudoux.dsl.eip.RoutingType;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -18,6 +19,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -29,8 +31,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.github.lbroudoux.dsl.eip.impl.RouterImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.github.lbroudoux.dsl.eip.impl.RouterImpl#getToChannel <em>To Channel</em>}</li>
- *   <li>{@link com.github.lbroudoux.dsl.eip.impl.RouterImpl#getFromChannel <em>From Channel</em>}</li>
+ *   <li>{@link com.github.lbroudoux.dsl.eip.impl.RouterImpl#getFromChannels <em>From Channels</em>}</li>
  *   <li>{@link com.github.lbroudoux.dsl.eip.impl.RouterImpl#getOwnedRoutes <em>Owned Routes</em>}</li>
+ *   <li>{@link com.github.lbroudoux.dsl.eip.impl.RouterImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -68,14 +71,14 @@ public class RouterImpl extends MinimalEObjectImpl.Container implements Router {
 	protected Channel toChannel;
 
 	/**
-	 * The cached value of the '{@link #getFromChannel() <em>From Channel</em>}' reference.
+	 * The cached value of the '{@link #getFromChannels() <em>From Channels</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFromChannel()
+	 * @see #getFromChannels()
 	 * @generated
 	 * @ordered
 	 */
-	protected Channel fromChannel;
+	protected EList<Channel> fromChannels;
 
 	/**
 	 * The cached value of the '{@link #getOwnedRoutes() <em>Owned Routes</em>}' containment reference list.
@@ -86,6 +89,26 @@ public class RouterImpl extends MinimalEObjectImpl.Container implements Router {
 	 * @ordered
 	 */
 	protected EList<ConditionalRoute> ownedRoutes;
+
+	/**
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final RoutingType TYPE_EDEFAULT = RoutingType.HEADER_VALUE;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected RoutingType type = TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -192,59 +215,11 @@ public class RouterImpl extends MinimalEObjectImpl.Container implements Router {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Channel getFromChannel() {
-		if (fromChannel != null && fromChannel.eIsProxy()) {
-			InternalEObject oldFromChannel = (InternalEObject)fromChannel;
-			fromChannel = (Channel)eResolveProxy(oldFromChannel);
-			if (fromChannel != oldFromChannel) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EipPackage.ROUTER__FROM_CHANNEL, oldFromChannel, fromChannel));
-			}
+	public EList<Channel> getFromChannels() {
+		if (fromChannels == null) {
+			fromChannels = new EObjectWithInverseResolvingEList<Channel>(Channel.class, this, EipPackage.ROUTER__FROM_CHANNELS, EipPackage.CHANNEL__TO_ENDPOINT);
 		}
-		return fromChannel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Channel basicGetFromChannel() {
-		return fromChannel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetFromChannel(Channel newFromChannel, NotificationChain msgs) {
-		Channel oldFromChannel = fromChannel;
-		fromChannel = newFromChannel;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EipPackage.ROUTER__FROM_CHANNEL, oldFromChannel, newFromChannel);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFromChannel(Channel newFromChannel) {
-		if (newFromChannel != fromChannel) {
-			NotificationChain msgs = null;
-			if (fromChannel != null)
-				msgs = ((InternalEObject)fromChannel).eInverseRemove(this, EipPackage.CHANNEL__TO_ENDPOINT, Channel.class, msgs);
-			if (newFromChannel != null)
-				msgs = ((InternalEObject)newFromChannel).eInverseAdd(this, EipPackage.CHANNEL__TO_ENDPOINT, Channel.class, msgs);
-			msgs = basicSetFromChannel(newFromChannel, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EipPackage.ROUTER__FROM_CHANNEL, newFromChannel, newFromChannel));
+		return fromChannels;
 	}
 
 	/**
@@ -264,6 +239,28 @@ public class RouterImpl extends MinimalEObjectImpl.Container implements Router {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RoutingType getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(RoutingType newType) {
+		RoutingType oldType = type;
+		type = newType == null ? TYPE_EDEFAULT : newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EipPackage.ROUTER__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -271,10 +268,8 @@ public class RouterImpl extends MinimalEObjectImpl.Container implements Router {
 				if (toChannel != null)
 					msgs = ((InternalEObject)toChannel).eInverseRemove(this, EipPackage.CHANNEL__FROM_ENDPOINT, Channel.class, msgs);
 				return basicSetToChannel((Channel)otherEnd, msgs);
-			case EipPackage.ROUTER__FROM_CHANNEL:
-				if (fromChannel != null)
-					msgs = ((InternalEObject)fromChannel).eInverseRemove(this, EipPackage.CHANNEL__TO_ENDPOINT, Channel.class, msgs);
-				return basicSetFromChannel((Channel)otherEnd, msgs);
+			case EipPackage.ROUTER__FROM_CHANNELS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFromChannels()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -289,8 +284,8 @@ public class RouterImpl extends MinimalEObjectImpl.Container implements Router {
 		switch (featureID) {
 			case EipPackage.ROUTER__TO_CHANNEL:
 				return basicSetToChannel(null, msgs);
-			case EipPackage.ROUTER__FROM_CHANNEL:
-				return basicSetFromChannel(null, msgs);
+			case EipPackage.ROUTER__FROM_CHANNELS:
+				return ((InternalEList<?>)getFromChannels()).basicRemove(otherEnd, msgs);
 			case EipPackage.ROUTER__OWNED_ROUTES:
 				return ((InternalEList<?>)getOwnedRoutes()).basicRemove(otherEnd, msgs);
 		}
@@ -310,11 +305,12 @@ public class RouterImpl extends MinimalEObjectImpl.Container implements Router {
 			case EipPackage.ROUTER__TO_CHANNEL:
 				if (resolve) return getToChannel();
 				return basicGetToChannel();
-			case EipPackage.ROUTER__FROM_CHANNEL:
-				if (resolve) return getFromChannel();
-				return basicGetFromChannel();
+			case EipPackage.ROUTER__FROM_CHANNELS:
+				return getFromChannels();
 			case EipPackage.ROUTER__OWNED_ROUTES:
 				return getOwnedRoutes();
+			case EipPackage.ROUTER__TYPE:
+				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -334,12 +330,16 @@ public class RouterImpl extends MinimalEObjectImpl.Container implements Router {
 			case EipPackage.ROUTER__TO_CHANNEL:
 				setToChannel((Channel)newValue);
 				return;
-			case EipPackage.ROUTER__FROM_CHANNEL:
-				setFromChannel((Channel)newValue);
+			case EipPackage.ROUTER__FROM_CHANNELS:
+				getFromChannels().clear();
+				getFromChannels().addAll((Collection<? extends Channel>)newValue);
 				return;
 			case EipPackage.ROUTER__OWNED_ROUTES:
 				getOwnedRoutes().clear();
 				getOwnedRoutes().addAll((Collection<? extends ConditionalRoute>)newValue);
+				return;
+			case EipPackage.ROUTER__TYPE:
+				setType((RoutingType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -359,11 +359,14 @@ public class RouterImpl extends MinimalEObjectImpl.Container implements Router {
 			case EipPackage.ROUTER__TO_CHANNEL:
 				setToChannel((Channel)null);
 				return;
-			case EipPackage.ROUTER__FROM_CHANNEL:
-				setFromChannel((Channel)null);
+			case EipPackage.ROUTER__FROM_CHANNELS:
+				getFromChannels().clear();
 				return;
 			case EipPackage.ROUTER__OWNED_ROUTES:
 				getOwnedRoutes().clear();
+				return;
+			case EipPackage.ROUTER__TYPE:
+				setType(TYPE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -381,10 +384,12 @@ public class RouterImpl extends MinimalEObjectImpl.Container implements Router {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case EipPackage.ROUTER__TO_CHANNEL:
 				return toChannel != null;
-			case EipPackage.ROUTER__FROM_CHANNEL:
-				return fromChannel != null;
+			case EipPackage.ROUTER__FROM_CHANNELS:
+				return fromChannels != null && !fromChannels.isEmpty();
 			case EipPackage.ROUTER__OWNED_ROUTES:
 				return ownedRoutes != null && !ownedRoutes.isEmpty();
+			case EipPackage.ROUTER__TYPE:
+				return type != TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -401,6 +406,8 @@ public class RouterImpl extends MinimalEObjectImpl.Container implements Router {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", type: ");
+		result.append(type);
 		result.append(')');
 		return result.toString();
 	}

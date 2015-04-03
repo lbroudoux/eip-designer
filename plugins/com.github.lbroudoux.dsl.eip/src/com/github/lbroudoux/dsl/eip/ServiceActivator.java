@@ -13,5 +13,5 @@ package com.github.lbroudoux.dsl.eip;
  * @model
  * @generated
  */
-public interface ServiceActivator extends Endpoint {
+public interface ServiceActivator extends InvocableEndpoint {
 } // ServiceActivator

@@ -5,20 +5,22 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="toChannel" eType="#//Channel"
         eOpposite="#//Channel/fromEndpoint"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="fromChannel" eType="#//Channel"
-        eOpposite="#//Channel/toEndpoint"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fromChannels" upperBound="-1"
+        eType="#//Channel" eOpposite="#//Channel/toEndpoint"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Channel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="toEndpoint" eType="#//Endpoint"
-        eOpposite="#//Endpoint/fromChannel"/>
+        eOpposite="#//Endpoint/fromChannels"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fromEndpoint" eType="#//Endpoint"
         eOpposite="#//Endpoint/toChannel"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="guaranteed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Adapter"/>
   <eClassifiers xsi:type="ecore:EClass" name="Router" eSuperTypes="#//Endpoint">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedRoutes" upperBound="-1"
         eType="#//ConditionalRoute" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//RoutingType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Filter" eSuperTypes="#//Endpoint">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -31,20 +33,24 @@
         eType="#//Channel"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Splitter" eSuperTypes="#//Endpoint"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Aggregator" eSuperTypes="#//Endpoint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Aggregator" eSuperTypes="#//Endpoint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="strategy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Route">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedEndpoints" upperBound="-1"
         eType="#//Endpoint" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedChannels" upperBound="-1"
         eType="#//Channel" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedServiceRefs" upperBound="-1"
+        eType="#//ServiceRef" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ServiceActivator" eSuperTypes="#//Endpoint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceActivator" eSuperTypes="#//InvocableEndpoint"/>
   <eClassifiers xsi:type="ecore:EClass" name="EIPModel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedRoutes" upperBound="-1"
         eType="#//Route" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Enricher" eSuperTypes="#//Endpoint">
+  <eClassifiers xsi:type="ecore:EClass" name="Enricher" eSuperTypes="#//InvocableEndpoint">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="part" eType="#//MessagePart"
         defaultValueLiteral="PAYLOAD"/>
   </eClassifiers>
@@ -55,5 +61,25 @@
   <eClassifiers xsi:type="ecore:EClass" name="CompositeProcessor" eSuperTypes="#//Endpoint">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedEndpoints" upperBound="-1"
         eType="#//Endpoint" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RoutingType">
+    <eLiterals name="HEADER_VALUE"/>
+    <eLiterals name="PAYLOAD_VALUE"/>
+    <eLiterals name="PAYLOAD_TYPE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RecipientListRouter" eSuperTypes="#//Router"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceRef">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reference" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceInvocation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="serviceRef" lowerBound="1"
+        eType="#//ServiceRef"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InvocableEndpoint" eSuperTypes="#//Endpoint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedServiceInvocations"
+        upperBound="-1" eType="#//ServiceInvocation" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

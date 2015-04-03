@@ -128,6 +128,22 @@ public class EipAdapterFactory extends AdapterFactoryImpl {
 				return createCompositeProcessorAdapter();
 			}
 			@Override
+			public Adapter caseRecipientListRouter(RecipientListRouter object) {
+				return createRecipientListRouterAdapter();
+			}
+			@Override
+			public Adapter caseServiceRef(ServiceRef object) {
+				return createServiceRefAdapter();
+			}
+			@Override
+			public Adapter caseServiceInvocation(ServiceInvocation object) {
+				return createServiceInvocationAdapter();
+			}
+			@Override
+			public Adapter caseInvocableEndpoint(InvocableEndpoint object) {
+				return createInvocableEndpointAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -354,6 +370,62 @@ public class EipAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCompositeProcessorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.lbroudoux.dsl.eip.RecipientListRouter <em>Recipient List Router</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.lbroudoux.dsl.eip.RecipientListRouter
+	 * @generated
+	 */
+	public Adapter createRecipientListRouterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.lbroudoux.dsl.eip.ServiceRef <em>Service Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.lbroudoux.dsl.eip.ServiceRef
+	 * @generated
+	 */
+	public Adapter createServiceRefAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.lbroudoux.dsl.eip.ServiceInvocation <em>Service Invocation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.lbroudoux.dsl.eip.ServiceInvocation
+	 * @generated
+	 */
+	public Adapter createServiceInvocationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.github.lbroudoux.dsl.eip.InvocableEndpoint <em>Invocable Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.github.lbroudoux.dsl.eip.InvocableEndpoint
+	 * @generated
+	 */
+	public Adapter createInvocableEndpointAdapter() {
 		return null;
 	}
 

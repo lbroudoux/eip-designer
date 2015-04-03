@@ -19,7 +19,7 @@ package com.github.lbroudoux.dsl.eip;
  * @model
  * @generated
  */
-public interface Enricher extends Endpoint {
+public interface Enricher extends InvocableEndpoint {
 	/**
 	 * Returns the value of the '<em><b>Part</b></em>' attribute.
 	 * The default value is <code>"PAYLOAD"</code>.

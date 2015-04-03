@@ -4,9 +4,6 @@ package com.github.lbroudoux.dsl.eip.tests;
 
 import com.github.lbroudoux.dsl.eip.EipFactory;
 import com.github.lbroudoux.dsl.eip.ServiceActivator;
-
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -15,15 +12,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ServiceActivatorTest extends TestCase {
-
-	/**
-	 * The fixture for this Service Activator test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ServiceActivator fixture = null;
+public class ServiceActivatorTest extends InvocableEndpointTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -45,23 +34,14 @@ public class ServiceActivatorTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Service Activator test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(ServiceActivator fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Service Activator test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected ServiceActivator getFixture() {
-		return fixture;
+		return (ServiceActivator)fixture;
 	}
 
 	/**

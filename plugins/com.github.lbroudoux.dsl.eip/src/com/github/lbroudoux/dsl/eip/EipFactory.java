@@ -148,6 +148,42 @@ public interface EipFactory extends EFactory {
 	CompositeProcessor createCompositeProcessor();
 
 	/**
+	 * Returns a new object of class '<em>Recipient List Router</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Recipient List Router</em>'.
+	 * @generated
+	 */
+	RecipientListRouter createRecipientListRouter();
+
+	/**
+	 * Returns a new object of class '<em>Service Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Service Ref</em>'.
+	 * @generated
+	 */
+	ServiceRef createServiceRef();
+
+	/**
+	 * Returns a new object of class '<em>Service Invocation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Service Invocation</em>'.
+	 * @generated
+	 */
+	ServiceInvocation createServiceInvocation();
+
+	/**
+	 * Returns a new object of class '<em>Invocable Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Invocable Endpoint</em>'.
+	 * @generated
+	 */
+	InvocableEndpoint createInvocableEndpoint();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

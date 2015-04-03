@@ -86,13 +86,13 @@ public interface EipPackage extends EPackage {
 	int ENDPOINT__TO_CHANNEL = 1;
 
 	/**
-	 * The feature id for the '<em><b>From Channel</b></em>' reference.
+	 * The feature id for the '<em><b>From Channels</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENDPOINT__FROM_CHANNEL = 2;
+	int ENDPOINT__FROM_CHANNELS = 2;
 
 	/**
 	 * The number of structural features of the '<em>Endpoint</em>' class.
@@ -151,13 +151,22 @@ public interface EipPackage extends EPackage {
 	int CHANNEL__NAME = 2;
 
 	/**
+	 * The feature id for the '<em><b>Guaranteed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHANNEL__GUARANTEED = 3;
+
+	/**
 	 * The number of structural features of the '<em>Channel</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHANNEL_FEATURE_COUNT = 3;
+	int CHANNEL_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Channel</em>' class.
@@ -225,13 +234,13 @@ public interface EipPackage extends EPackage {
 	int ROUTER__TO_CHANNEL = ENDPOINT__TO_CHANNEL;
 
 	/**
-	 * The feature id for the '<em><b>From Channel</b></em>' reference.
+	 * The feature id for the '<em><b>From Channels</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROUTER__FROM_CHANNEL = ENDPOINT__FROM_CHANNEL;
+	int ROUTER__FROM_CHANNELS = ENDPOINT__FROM_CHANNELS;
 
 	/**
 	 * The feature id for the '<em><b>Owned Routes</b></em>' containment reference list.
@@ -243,13 +252,22 @@ public interface EipPackage extends EPackage {
 	int ROUTER__OWNED_ROUTES = ENDPOINT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER__TYPE = ENDPOINT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Router</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROUTER_FEATURE_COUNT = ENDPOINT_FEATURE_COUNT + 1;
+	int ROUTER_FEATURE_COUNT = ENDPOINT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Router</em>' class.
@@ -289,13 +307,22 @@ public interface EipPackage extends EPackage {
 	int FILTER__TO_CHANNEL = ENDPOINT__TO_CHANNEL;
 
 	/**
-	 * The feature id for the '<em><b>From Channel</b></em>' reference.
+	 * The feature id for the '<em><b>From Channels</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FILTER__FROM_CHANNEL = ENDPOINT__FROM_CHANNEL;
+	int FILTER__FROM_CHANNELS = ENDPOINT__FROM_CHANNELS;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__EXPRESSION = ENDPOINT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Filter</em>' class.
@@ -304,7 +331,7 @@ public interface EipPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILTER_FEATURE_COUNT = ENDPOINT_FEATURE_COUNT + 0;
+	int FILTER_FEATURE_COUNT = ENDPOINT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Filter</em>' class.
@@ -344,13 +371,13 @@ public interface EipPackage extends EPackage {
 	int TRANSFORMER__TO_CHANNEL = ENDPOINT__TO_CHANNEL;
 
 	/**
-	 * The feature id for the '<em><b>From Channel</b></em>' reference.
+	 * The feature id for the '<em><b>From Channels</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSFORMER__FROM_CHANNEL = ENDPOINT__FROM_CHANNEL;
+	int TRANSFORMER__FROM_CHANNELS = ENDPOINT__FROM_CHANNELS;
 
 	/**
 	 * The number of structural features of the '<em>Transformer</em>' class.
@@ -399,13 +426,13 @@ public interface EipPackage extends EPackage {
 	int GATEWAY__TO_CHANNEL = ENDPOINT__TO_CHANNEL;
 
 	/**
-	 * The feature id for the '<em><b>From Channel</b></em>' reference.
+	 * The feature id for the '<em><b>From Channels</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GATEWAY__FROM_CHANNEL = ENDPOINT__FROM_CHANNEL;
+	int GATEWAY__FROM_CHANNELS = ENDPOINT__FROM_CHANNELS;
 
 	/**
 	 * The number of structural features of the '<em>Gateway</em>' class.
@@ -501,13 +528,13 @@ public interface EipPackage extends EPackage {
 	int SPLITTER__TO_CHANNEL = ENDPOINT__TO_CHANNEL;
 
 	/**
-	 * The feature id for the '<em><b>From Channel</b></em>' reference.
+	 * The feature id for the '<em><b>From Channels</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPLITTER__FROM_CHANNEL = ENDPOINT__FROM_CHANNEL;
+	int SPLITTER__FROM_CHANNELS = ENDPOINT__FROM_CHANNELS;
 
 	/**
 	 * The number of structural features of the '<em>Splitter</em>' class.
@@ -557,13 +584,22 @@ public interface EipPackage extends EPackage {
 	int AGGREGATOR__TO_CHANNEL = ENDPOINT__TO_CHANNEL;
 
 	/**
-	 * The feature id for the '<em><b>From Channel</b></em>' reference.
+	 * The feature id for the '<em><b>From Channels</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATOR__FROM_CHANNEL = ENDPOINT__FROM_CHANNEL;
+	int AGGREGATOR__FROM_CHANNELS = ENDPOINT__FROM_CHANNELS;
+
+	/**
+	 * The feature id for the '<em><b>Strategy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATOR__STRATEGY = ENDPOINT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Aggregator</em>' class.
@@ -572,7 +608,7 @@ public interface EipPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATOR_FEATURE_COUNT = ENDPOINT_FEATURE_COUNT + 0;
+	int AGGREGATOR_FEATURE_COUNT = ENDPOINT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Aggregator</em>' class.
@@ -621,13 +657,22 @@ public interface EipPackage extends EPackage {
 	int ROUTE__NAME = 2;
 
 	/**
+	 * The feature id for the '<em><b>Owned Service Refs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTE__OWNED_SERVICE_REFS = 3;
+
+	/**
 	 * The number of structural features of the '<em>Route</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROUTE_FEATURE_COUNT = 3;
+	int ROUTE_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Route</em>' class.
@@ -637,6 +682,70 @@ public interface EipPackage extends EPackage {
 	 * @ordered
 	 */
 	int ROUTE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.lbroudoux.dsl.eip.impl.InvocableEndpointImpl <em>Invocable Endpoint</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.lbroudoux.dsl.eip.impl.InvocableEndpointImpl
+	 * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getInvocableEndpoint()
+	 * @generated
+	 */
+	int INVOCABLE_ENDPOINT = 18;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INVOCABLE_ENDPOINT__NAME = ENDPOINT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>To Channel</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INVOCABLE_ENDPOINT__TO_CHANNEL = ENDPOINT__TO_CHANNEL;
+
+	/**
+	 * The feature id for the '<em><b>From Channels</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INVOCABLE_ENDPOINT__FROM_CHANNELS = ENDPOINT__FROM_CHANNELS;
+
+	/**
+	 * The feature id for the '<em><b>Owned Service Invocations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INVOCABLE_ENDPOINT__OWNED_SERVICE_INVOCATIONS = ENDPOINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Invocable Endpoint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INVOCABLE_ENDPOINT_FEATURE_COUNT = ENDPOINT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Invocable Endpoint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INVOCABLE_ENDPOINT_OPERATION_COUNT = ENDPOINT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.github.lbroudoux.dsl.eip.impl.ServiceActivatorImpl <em>Service Activator</em>}' class.
@@ -655,7 +764,7 @@ public interface EipPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_ACTIVATOR__NAME = ENDPOINT__NAME;
+	int SERVICE_ACTIVATOR__NAME = INVOCABLE_ENDPOINT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>To Channel</b></em>' reference.
@@ -664,16 +773,25 @@ public interface EipPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_ACTIVATOR__TO_CHANNEL = ENDPOINT__TO_CHANNEL;
+	int SERVICE_ACTIVATOR__TO_CHANNEL = INVOCABLE_ENDPOINT__TO_CHANNEL;
 
 	/**
-	 * The feature id for the '<em><b>From Channel</b></em>' reference.
+	 * The feature id for the '<em><b>From Channels</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_ACTIVATOR__FROM_CHANNEL = ENDPOINT__FROM_CHANNEL;
+	int SERVICE_ACTIVATOR__FROM_CHANNELS = INVOCABLE_ENDPOINT__FROM_CHANNELS;
+
+	/**
+	 * The feature id for the '<em><b>Owned Service Invocations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_ACTIVATOR__OWNED_SERVICE_INVOCATIONS = INVOCABLE_ENDPOINT__OWNED_SERVICE_INVOCATIONS;
 
 	/**
 	 * The number of structural features of the '<em>Service Activator</em>' class.
@@ -682,7 +800,7 @@ public interface EipPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_ACTIVATOR_FEATURE_COUNT = ENDPOINT_FEATURE_COUNT + 0;
+	int SERVICE_ACTIVATOR_FEATURE_COUNT = INVOCABLE_ENDPOINT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Service Activator</em>' class.
@@ -691,7 +809,7 @@ public interface EipPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_ACTIVATOR_OPERATION_COUNT = ENDPOINT_OPERATION_COUNT + 0;
+	int SERVICE_ACTIVATOR_OPERATION_COUNT = INVOCABLE_ENDPOINT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.github.lbroudoux.dsl.eip.impl.EIPModelImpl <em>EIP Model</em>}' class.
@@ -748,7 +866,7 @@ public interface EipPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENRICHER__NAME = ENDPOINT__NAME;
+	int ENRICHER__NAME = INVOCABLE_ENDPOINT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>To Channel</b></em>' reference.
@@ -757,16 +875,25 @@ public interface EipPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENRICHER__TO_CHANNEL = ENDPOINT__TO_CHANNEL;
+	int ENRICHER__TO_CHANNEL = INVOCABLE_ENDPOINT__TO_CHANNEL;
 
 	/**
-	 * The feature id for the '<em><b>From Channel</b></em>' reference.
+	 * The feature id for the '<em><b>From Channels</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENRICHER__FROM_CHANNEL = ENDPOINT__FROM_CHANNEL;
+	int ENRICHER__FROM_CHANNELS = INVOCABLE_ENDPOINT__FROM_CHANNELS;
+
+	/**
+	 * The feature id for the '<em><b>Owned Service Invocations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENRICHER__OWNED_SERVICE_INVOCATIONS = INVOCABLE_ENDPOINT__OWNED_SERVICE_INVOCATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Part</b></em>' attribute.
@@ -775,7 +902,7 @@ public interface EipPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENRICHER__PART = ENDPOINT_FEATURE_COUNT + 0;
+	int ENRICHER__PART = INVOCABLE_ENDPOINT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Enricher</em>' class.
@@ -784,7 +911,7 @@ public interface EipPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENRICHER_FEATURE_COUNT = ENDPOINT_FEATURE_COUNT + 1;
+	int ENRICHER_FEATURE_COUNT = INVOCABLE_ENDPOINT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Enricher</em>' class.
@@ -793,7 +920,7 @@ public interface EipPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENRICHER_OPERATION_COUNT = ENDPOINT_OPERATION_COUNT + 0;
+	int ENRICHER_OPERATION_COUNT = INVOCABLE_ENDPOINT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.github.lbroudoux.dsl.eip.impl.CompositeProcessorImpl <em>Composite Processor</em>}' class.
@@ -824,13 +951,13 @@ public interface EipPackage extends EPackage {
 	int COMPOSITE_PROCESSOR__TO_CHANNEL = ENDPOINT__TO_CHANNEL;
 
 	/**
-	 * The feature id for the '<em><b>From Channel</b></em>' reference.
+	 * The feature id for the '<em><b>From Channels</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_PROCESSOR__FROM_CHANNEL = ENDPOINT__FROM_CHANNEL;
+	int COMPOSITE_PROCESSOR__FROM_CHANNELS = ENDPOINT__FROM_CHANNELS;
 
 	/**
 	 * The feature id for the '<em><b>Owned Endpoints</b></em>' containment reference list.
@@ -860,6 +987,180 @@ public interface EipPackage extends EPackage {
 	int COMPOSITE_PROCESSOR_OPERATION_COUNT = ENDPOINT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.github.lbroudoux.dsl.eip.impl.RecipientListRouterImpl <em>Recipient List Router</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.lbroudoux.dsl.eip.impl.RecipientListRouterImpl
+	 * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getRecipientListRouter()
+	 * @generated
+	 */
+	int RECIPIENT_LIST_ROUTER = 15;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECIPIENT_LIST_ROUTER__NAME = ROUTER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>To Channel</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECIPIENT_LIST_ROUTER__TO_CHANNEL = ROUTER__TO_CHANNEL;
+
+	/**
+	 * The feature id for the '<em><b>From Channels</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECIPIENT_LIST_ROUTER__FROM_CHANNELS = ROUTER__FROM_CHANNELS;
+
+	/**
+	 * The feature id for the '<em><b>Owned Routes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECIPIENT_LIST_ROUTER__OWNED_ROUTES = ROUTER__OWNED_ROUTES;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECIPIENT_LIST_ROUTER__TYPE = ROUTER__TYPE;
+
+	/**
+	 * The number of structural features of the '<em>Recipient List Router</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECIPIENT_LIST_ROUTER_FEATURE_COUNT = ROUTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Recipient List Router</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECIPIENT_LIST_ROUTER_OPERATION_COUNT = ROUTER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.lbroudoux.dsl.eip.impl.ServiceRefImpl <em>Service Ref</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.lbroudoux.dsl.eip.impl.ServiceRefImpl
+	 * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getServiceRef()
+	 * @generated
+	 */
+	int SERVICE_REF = 16;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_REF__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_REF__REFERENCE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Service Ref</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_REF_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Service Ref</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_REF_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.github.lbroudoux.dsl.eip.impl.ServiceInvocationImpl <em>Service Invocation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.lbroudoux.dsl.eip.impl.ServiceInvocationImpl
+	 * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getServiceInvocation()
+	 * @generated
+	 */
+	int SERVICE_INVOCATION = 17;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_INVOCATION__CONTEXT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Operation Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_INVOCATION__OPERATION_NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Service Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_INVOCATION__SERVICE_REF = 2;
+
+	/**
+	 * The number of structural features of the '<em>Service Invocation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_INVOCATION_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Service Invocation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_INVOCATION_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link com.github.lbroudoux.dsl.eip.MessagePart <em>Message Part</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -867,7 +1168,18 @@ public interface EipPackage extends EPackage {
 	 * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getMessagePart()
 	 * @generated
 	 */
-	int MESSAGE_PART = 15;
+	int MESSAGE_PART = 19;
+
+
+	/**
+	 * The meta object id for the '{@link com.github.lbroudoux.dsl.eip.RoutingType <em>Routing Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.lbroudoux.dsl.eip.RoutingType
+	 * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getRoutingType()
+	 * @generated
+	 */
+	int ROUTING_TYPE = 20;
 
 
 	/**
@@ -903,15 +1215,15 @@ public interface EipPackage extends EPackage {
 	EReference getEndpoint_ToChannel();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.github.lbroudoux.dsl.eip.Endpoint#getFromChannel <em>From Channel</em>}'.
+	 * Returns the meta object for the reference list '{@link com.github.lbroudoux.dsl.eip.Endpoint#getFromChannels <em>From Channels</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>From Channel</em>'.
-	 * @see com.github.lbroudoux.dsl.eip.Endpoint#getFromChannel()
+	 * @return the meta object for the reference list '<em>From Channels</em>'.
+	 * @see com.github.lbroudoux.dsl.eip.Endpoint#getFromChannels()
 	 * @see #getEndpoint()
 	 * @generated
 	 */
-	EReference getEndpoint_FromChannel();
+	EReference getEndpoint_FromChannels();
 
 	/**
 	 * Returns the meta object for class '{@link com.github.lbroudoux.dsl.eip.Channel <em>Channel</em>}'.
@@ -957,6 +1269,17 @@ public interface EipPackage extends EPackage {
 	EAttribute getChannel_Name();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.github.lbroudoux.dsl.eip.Channel#isGuaranteed <em>Guaranteed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Guaranteed</em>'.
+	 * @see com.github.lbroudoux.dsl.eip.Channel#isGuaranteed()
+	 * @see #getChannel()
+	 * @generated
+	 */
+	EAttribute getChannel_Guaranteed();
+
+	/**
 	 * Returns the meta object for class '{@link com.github.lbroudoux.dsl.eip.Adapter <em>Adapter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -988,6 +1311,17 @@ public interface EipPackage extends EPackage {
 	EReference getRouter_OwnedRoutes();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.github.lbroudoux.dsl.eip.Router#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see com.github.lbroudoux.dsl.eip.Router#getType()
+	 * @see #getRouter()
+	 * @generated
+	 */
+	EAttribute getRouter_Type();
+
+	/**
 	 * Returns the meta object for class '{@link com.github.lbroudoux.dsl.eip.Filter <em>Filter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -996,6 +1330,17 @@ public interface EipPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getFilter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.lbroudoux.dsl.eip.Filter#getExpression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Expression</em>'.
+	 * @see com.github.lbroudoux.dsl.eip.Filter#getExpression()
+	 * @see #getFilter()
+	 * @generated
+	 */
+	EAttribute getFilter_Expression();
 
 	/**
 	 * Returns the meta object for class '{@link com.github.lbroudoux.dsl.eip.Transformer <em>Transformer</em>}'.
@@ -1070,6 +1415,17 @@ public interface EipPackage extends EPackage {
 	EClass getAggregator();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.github.lbroudoux.dsl.eip.Aggregator#getStrategy <em>Strategy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Strategy</em>'.
+	 * @see com.github.lbroudoux.dsl.eip.Aggregator#getStrategy()
+	 * @see #getAggregator()
+	 * @generated
+	 */
+	EAttribute getAggregator_Strategy();
+
+	/**
 	 * Returns the meta object for class '{@link com.github.lbroudoux.dsl.eip.Route <em>Route</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1111,6 +1467,17 @@ public interface EipPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getRoute_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.github.lbroudoux.dsl.eip.Route#getOwnedServiceRefs <em>Owned Service Refs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Owned Service Refs</em>'.
+	 * @see com.github.lbroudoux.dsl.eip.Route#getOwnedServiceRefs()
+	 * @see #getRoute()
+	 * @generated
+	 */
+	EReference getRoute_OwnedServiceRefs();
 
 	/**
 	 * Returns the meta object for class '{@link com.github.lbroudoux.dsl.eip.ServiceActivator <em>Service Activator</em>}'.
@@ -1186,6 +1553,112 @@ public interface EipPackage extends EPackage {
 	EReference getCompositeProcessor_OwnedEndpoints();
 
 	/**
+	 * Returns the meta object for class '{@link com.github.lbroudoux.dsl.eip.RecipientListRouter <em>Recipient List Router</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Recipient List Router</em>'.
+	 * @see com.github.lbroudoux.dsl.eip.RecipientListRouter
+	 * @generated
+	 */
+	EClass getRecipientListRouter();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.lbroudoux.dsl.eip.ServiceRef <em>Service Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Service Ref</em>'.
+	 * @see com.github.lbroudoux.dsl.eip.ServiceRef
+	 * @generated
+	 */
+	EClass getServiceRef();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.lbroudoux.dsl.eip.ServiceRef#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.github.lbroudoux.dsl.eip.ServiceRef#getName()
+	 * @see #getServiceRef()
+	 * @generated
+	 */
+	EAttribute getServiceRef_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.lbroudoux.dsl.eip.ServiceRef#getReference <em>Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Reference</em>'.
+	 * @see com.github.lbroudoux.dsl.eip.ServiceRef#getReference()
+	 * @see #getServiceRef()
+	 * @generated
+	 */
+	EAttribute getServiceRef_Reference();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.lbroudoux.dsl.eip.ServiceInvocation <em>Service Invocation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Service Invocation</em>'.
+	 * @see com.github.lbroudoux.dsl.eip.ServiceInvocation
+	 * @generated
+	 */
+	EClass getServiceInvocation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.lbroudoux.dsl.eip.ServiceInvocation#getContext <em>Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Context</em>'.
+	 * @see com.github.lbroudoux.dsl.eip.ServiceInvocation#getContext()
+	 * @see #getServiceInvocation()
+	 * @generated
+	 */
+	EAttribute getServiceInvocation_Context();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.github.lbroudoux.dsl.eip.ServiceInvocation#getOperationName <em>Operation Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Operation Name</em>'.
+	 * @see com.github.lbroudoux.dsl.eip.ServiceInvocation#getOperationName()
+	 * @see #getServiceInvocation()
+	 * @generated
+	 */
+	EAttribute getServiceInvocation_OperationName();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.github.lbroudoux.dsl.eip.ServiceInvocation#getServiceRef <em>Service Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Service Ref</em>'.
+	 * @see com.github.lbroudoux.dsl.eip.ServiceInvocation#getServiceRef()
+	 * @see #getServiceInvocation()
+	 * @generated
+	 */
+	EReference getServiceInvocation_ServiceRef();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.lbroudoux.dsl.eip.InvocableEndpoint <em>Invocable Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Invocable Endpoint</em>'.
+	 * @see com.github.lbroudoux.dsl.eip.InvocableEndpoint
+	 * @generated
+	 */
+	EClass getInvocableEndpoint();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.github.lbroudoux.dsl.eip.InvocableEndpoint#getOwnedServiceInvocations <em>Owned Service Invocations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Owned Service Invocations</em>'.
+	 * @see com.github.lbroudoux.dsl.eip.InvocableEndpoint#getOwnedServiceInvocations()
+	 * @see #getInvocableEndpoint()
+	 * @generated
+	 */
+	EReference getInvocableEndpoint_OwnedServiceInvocations();
+
+	/**
 	 * Returns the meta object for enum '{@link com.github.lbroudoux.dsl.eip.MessagePart <em>Message Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1194,6 +1667,16 @@ public interface EipPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getMessagePart();
+
+	/**
+	 * Returns the meta object for enum '{@link com.github.lbroudoux.dsl.eip.RoutingType <em>Routing Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Routing Type</em>'.
+	 * @see com.github.lbroudoux.dsl.eip.RoutingType
+	 * @generated
+	 */
+	EEnum getRoutingType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1242,12 +1725,12 @@ public interface EipPackage extends EPackage {
 		 */
 		EReference ENDPOINT__TO_CHANNEL = eINSTANCE.getEndpoint_ToChannel();
 		/**
-		 * The meta object literal for the '<em><b>From Channel</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>From Channels</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ENDPOINT__FROM_CHANNEL = eINSTANCE.getEndpoint_FromChannel();
+		EReference ENDPOINT__FROM_CHANNELS = eINSTANCE.getEndpoint_FromChannels();
 		/**
 		 * The meta object literal for the '{@link com.github.lbroudoux.dsl.eip.impl.ChannelImpl <em>Channel</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -1279,6 +1762,13 @@ public interface EipPackage extends EPackage {
 		 */
 		EAttribute CHANNEL__NAME = eINSTANCE.getChannel_Name();
 		/**
+		 * The meta object literal for the '<em><b>Guaranteed</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHANNEL__GUARANTEED = eINSTANCE.getChannel_Guaranteed();
+		/**
 		 * The meta object literal for the '{@link com.github.lbroudoux.dsl.eip.impl.AdapterImpl <em>Adapter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1304,6 +1794,13 @@ public interface EipPackage extends EPackage {
 		 */
 		EReference ROUTER__OWNED_ROUTES = eINSTANCE.getRouter_OwnedRoutes();
 		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ROUTER__TYPE = eINSTANCE.getRouter_Type();
+		/**
 		 * The meta object literal for the '{@link com.github.lbroudoux.dsl.eip.impl.FilterImpl <em>Filter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1312,6 +1809,13 @@ public interface EipPackage extends EPackage {
 		 * @generated
 		 */
 		EClass FILTER = eINSTANCE.getFilter();
+		/**
+		 * The meta object literal for the '<em><b>Expression</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FILTER__EXPRESSION = eINSTANCE.getFilter_Expression();
 		/**
 		 * The meta object literal for the '{@link com.github.lbroudoux.dsl.eip.impl.TransformerImpl <em>Transformer</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -1372,6 +1876,13 @@ public interface EipPackage extends EPackage {
 		 */
 		EClass AGGREGATOR = eINSTANCE.getAggregator();
 		/**
+		 * The meta object literal for the '<em><b>Strategy</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AGGREGATOR__STRATEGY = eINSTANCE.getAggregator_Strategy();
+		/**
 		 * The meta object literal for the '{@link com.github.lbroudoux.dsl.eip.impl.RouteImpl <em>Route</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1401,6 +1912,13 @@ public interface EipPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ROUTE__NAME = eINSTANCE.getRoute_Name();
+		/**
+		 * The meta object literal for the '<em><b>Owned Service Refs</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROUTE__OWNED_SERVICE_REFS = eINSTANCE.getRoute_OwnedServiceRefs();
 		/**
 		 * The meta object literal for the '{@link com.github.lbroudoux.dsl.eip.impl.ServiceActivatorImpl <em>Service Activator</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -1459,6 +1977,84 @@ public interface EipPackage extends EPackage {
 		 */
 		EReference COMPOSITE_PROCESSOR__OWNED_ENDPOINTS = eINSTANCE.getCompositeProcessor_OwnedEndpoints();
 		/**
+		 * The meta object literal for the '{@link com.github.lbroudoux.dsl.eip.impl.RecipientListRouterImpl <em>Recipient List Router</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.lbroudoux.dsl.eip.impl.RecipientListRouterImpl
+		 * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getRecipientListRouter()
+		 * @generated
+		 */
+		EClass RECIPIENT_LIST_ROUTER = eINSTANCE.getRecipientListRouter();
+		/**
+		 * The meta object literal for the '{@link com.github.lbroudoux.dsl.eip.impl.ServiceRefImpl <em>Service Ref</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.lbroudoux.dsl.eip.impl.ServiceRefImpl
+		 * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getServiceRef()
+		 * @generated
+		 */
+		EClass SERVICE_REF = eINSTANCE.getServiceRef();
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVICE_REF__NAME = eINSTANCE.getServiceRef_Name();
+		/**
+		 * The meta object literal for the '<em><b>Reference</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVICE_REF__REFERENCE = eINSTANCE.getServiceRef_Reference();
+		/**
+		 * The meta object literal for the '{@link com.github.lbroudoux.dsl.eip.impl.ServiceInvocationImpl <em>Service Invocation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.lbroudoux.dsl.eip.impl.ServiceInvocationImpl
+		 * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getServiceInvocation()
+		 * @generated
+		 */
+		EClass SERVICE_INVOCATION = eINSTANCE.getServiceInvocation();
+		/**
+		 * The meta object literal for the '<em><b>Context</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVICE_INVOCATION__CONTEXT = eINSTANCE.getServiceInvocation_Context();
+		/**
+		 * The meta object literal for the '<em><b>Operation Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVICE_INVOCATION__OPERATION_NAME = eINSTANCE.getServiceInvocation_OperationName();
+		/**
+		 * The meta object literal for the '<em><b>Service Ref</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SERVICE_INVOCATION__SERVICE_REF = eINSTANCE.getServiceInvocation_ServiceRef();
+		/**
+		 * The meta object literal for the '{@link com.github.lbroudoux.dsl.eip.impl.InvocableEndpointImpl <em>Invocable Endpoint</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.lbroudoux.dsl.eip.impl.InvocableEndpointImpl
+		 * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getInvocableEndpoint()
+		 * @generated
+		 */
+		EClass INVOCABLE_ENDPOINT = eINSTANCE.getInvocableEndpoint();
+		/**
+		 * The meta object literal for the '<em><b>Owned Service Invocations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INVOCABLE_ENDPOINT__OWNED_SERVICE_INVOCATIONS = eINSTANCE.getInvocableEndpoint_OwnedServiceInvocations();
+		/**
 		 * The meta object literal for the '{@link com.github.lbroudoux.dsl.eip.MessagePart <em>Message Part</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1467,6 +2063,15 @@ public interface EipPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum MESSAGE_PART = eINSTANCE.getMessagePart();
+		/**
+		 * The meta object literal for the '{@link com.github.lbroudoux.dsl.eip.RoutingType <em>Routing Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.lbroudoux.dsl.eip.RoutingType
+		 * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getRoutingType()
+		 * @generated
+		 */
+		EEnum ROUTING_TYPE = eINSTANCE.getRoutingType();
 
 	}
 

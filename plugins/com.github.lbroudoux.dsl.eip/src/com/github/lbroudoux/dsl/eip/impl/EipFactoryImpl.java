@@ -71,6 +71,10 @@ public class EipFactoryImpl extends EFactoryImpl implements EipFactory {
 			case EipPackage.EIP_MODEL: return createEIPModel();
 			case EipPackage.ENRICHER: return createEnricher();
 			case EipPackage.COMPOSITE_PROCESSOR: return createCompositeProcessor();
+			case EipPackage.RECIPIENT_LIST_ROUTER: return createRecipientListRouter();
+			case EipPackage.SERVICE_REF: return createServiceRef();
+			case EipPackage.SERVICE_INVOCATION: return createServiceInvocation();
+			case EipPackage.INVOCABLE_ENDPOINT: return createInvocableEndpoint();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -86,6 +90,8 @@ public class EipFactoryImpl extends EFactoryImpl implements EipFactory {
 		switch (eDataType.getClassifierID()) {
 			case EipPackage.MESSAGE_PART:
 				return createMessagePartFromString(eDataType, initialValue);
+			case EipPackage.ROUTING_TYPE:
+				return createRoutingTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -101,6 +107,8 @@ public class EipFactoryImpl extends EFactoryImpl implements EipFactory {
 		switch (eDataType.getClassifierID()) {
 			case EipPackage.MESSAGE_PART:
 				return convertMessagePartToString(eDataType, instanceValue);
+			case EipPackage.ROUTING_TYPE:
+				return convertRoutingTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -251,6 +259,46 @@ public class EipFactoryImpl extends EFactoryImpl implements EipFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RecipientListRouter createRecipientListRouter() {
+		RecipientListRouterImpl recipientListRouter = new RecipientListRouterImpl();
+		return recipientListRouter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ServiceRef createServiceRef() {
+		ServiceRefImpl serviceRef = new ServiceRefImpl();
+		return serviceRef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ServiceInvocation createServiceInvocation() {
+		ServiceInvocationImpl serviceInvocation = new ServiceInvocationImpl();
+		return serviceInvocation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InvocableEndpoint createInvocableEndpoint() {
+		InvocableEndpointImpl invocableEndpoint = new InvocableEndpointImpl();
+		return invocableEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public MessagePart createMessagePartFromString(EDataType eDataType, String initialValue) {
 		MessagePart result = MessagePart.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -263,6 +311,26 @@ public class EipFactoryImpl extends EFactoryImpl implements EipFactory {
 	 * @generated
 	 */
 	public String convertMessagePartToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RoutingType createRoutingTypeFromString(EDataType eDataType, String initialValue) {
+		RoutingType result = RoutingType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertRoutingTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
