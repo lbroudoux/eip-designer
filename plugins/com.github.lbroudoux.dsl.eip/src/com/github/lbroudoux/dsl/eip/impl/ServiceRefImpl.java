@@ -5,12 +5,15 @@ package com.github.lbroudoux.dsl.eip.impl;
 import com.github.lbroudoux.dsl.eip.EipPackage;
 import com.github.lbroudoux.dsl.eip.ServiceRef;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,6 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link com.github.lbroudoux.dsl.eip.impl.ServiceRefImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.github.lbroudoux.dsl.eip.impl.ServiceRefImpl#getReference <em>Reference</em>}</li>
+ *   <li>{@link com.github.lbroudoux.dsl.eip.impl.ServiceRefImpl#getOperations <em>Operations</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,6 +70,16 @@ public class ServiceRefImpl extends MinimalEObjectImpl.Container implements Serv
 	 * @ordered
 	 */
 	protected Object reference = REFERENCE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getOperations() <em>Operations</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOperations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> operations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,6 +147,18 @@ public class ServiceRefImpl extends MinimalEObjectImpl.Container implements Serv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<String> getOperations() {
+		if (operations == null) {
+			operations = new EDataTypeUniqueEList<String>(String.class, this, EipPackage.SERVICE_REF__OPERATIONS);
+		}
+		return operations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -140,6 +166,8 @@ public class ServiceRefImpl extends MinimalEObjectImpl.Container implements Serv
 				return getName();
 			case EipPackage.SERVICE_REF__REFERENCE:
 				return getReference();
+			case EipPackage.SERVICE_REF__OPERATIONS:
+				return getOperations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -149,6 +177,7 @@ public class ServiceRefImpl extends MinimalEObjectImpl.Container implements Serv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -157,6 +186,10 @@ public class ServiceRefImpl extends MinimalEObjectImpl.Container implements Serv
 				return;
 			case EipPackage.SERVICE_REF__REFERENCE:
 				setReference(newValue);
+				return;
+			case EipPackage.SERVICE_REF__OPERATIONS:
+				getOperations().clear();
+				getOperations().addAll((Collection<? extends String>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -176,6 +209,9 @@ public class ServiceRefImpl extends MinimalEObjectImpl.Container implements Serv
 			case EipPackage.SERVICE_REF__REFERENCE:
 				setReference(REFERENCE_EDEFAULT);
 				return;
+			case EipPackage.SERVICE_REF__OPERATIONS:
+				getOperations().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -192,6 +228,8 @@ public class ServiceRefImpl extends MinimalEObjectImpl.Container implements Serv
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case EipPackage.SERVICE_REF__REFERENCE:
 				return REFERENCE_EDEFAULT == null ? reference != null : !REFERENCE_EDEFAULT.equals(reference);
+			case EipPackage.SERVICE_REF__OPERATIONS:
+				return operations != null && !operations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -210,6 +248,8 @@ public class ServiceRefImpl extends MinimalEObjectImpl.Container implements Serv
 		result.append(name);
 		result.append(", reference: ");
 		result.append(reference);
+		result.append(", operations: ");
+		result.append(operations);
 		result.append(')');
 		return result.toString();
 	}

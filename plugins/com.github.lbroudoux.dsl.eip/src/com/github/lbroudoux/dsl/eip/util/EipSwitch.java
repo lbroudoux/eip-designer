@@ -194,6 +194,14 @@ public class EipSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EipPackage.CONTENT_FILTER: {
+				ContentFilter contentFilter = (ContentFilter)theEObject;
+				T result = caseContentFilter(contentFilter);
+				if (result == null) result = caseFilter(contentFilter);
+				if (result == null) result = caseEndpoint(contentFilter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -480,6 +488,21 @@ public class EipSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseInvocableEndpoint(InvocableEndpoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Content Filter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Content Filter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContentFilter(ContentFilter object) {
 		return null;
 	}
 

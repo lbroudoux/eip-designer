@@ -240,6 +240,11 @@ public class RouteItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(EipPackage.Literals.ROUTE__OWNED_ENDPOINTS,
+				 EipFactory.eINSTANCE.createContentFilter()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(EipPackage.Literals.ROUTE__OWNED_CHANNELS,
 				 EipFactory.eINSTANCE.createChannel()));
 

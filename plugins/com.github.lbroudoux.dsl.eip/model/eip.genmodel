@@ -65,6 +65,7 @@
     <genClasses ecoreClass="eip.ecore#//ServiceRef">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//ServiceRef/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//ServiceRef/reference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//ServiceRef/operations"/>
     </genClasses>
     <genClasses ecoreClass="eip.ecore#//ServiceInvocation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//ServiceInvocation/context"/>
@@ -74,5 +75,6 @@
     <genClasses ecoreClass="eip.ecore#//InvocableEndpoint">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eip.ecore#//InvocableEndpoint/ownedServiceInvocations"/>
     </genClasses>
+    <genClasses ecoreClass="eip.ecore#//ContentFilter"/>
   </genPackages>
 </genmodel:GenModel>

@@ -7,6 +7,7 @@ import com.github.lbroudoux.dsl.eip.Aggregator;
 import com.github.lbroudoux.dsl.eip.Channel;
 import com.github.lbroudoux.dsl.eip.CompositeProcessor;
 import com.github.lbroudoux.dsl.eip.ConditionalRoute;
+import com.github.lbroudoux.dsl.eip.ContentFilter;
 import com.github.lbroudoux.dsl.eip.EIPModel;
 import com.github.lbroudoux.dsl.eip.EipFactory;
 import com.github.lbroudoux.dsl.eip.EipPackage;
@@ -168,6 +169,13 @@ public class EipPackageImpl extends EPackageImpl implements EipPackage {
 	 * @generated
 	 */
 	private EClass invocableEndpointEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass contentFilterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -600,6 +608,15 @@ public class EipPackageImpl extends EPackageImpl implements EipPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getServiceRef_Operations() {
+		return (EAttribute)serviceRefEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getServiceInvocation() {
 		return serviceInvocationEClass;
 	}
@@ -647,6 +664,15 @@ public class EipPackageImpl extends EPackageImpl implements EipPackage {
 	 */
 	public EReference getInvocableEndpoint_OwnedServiceInvocations() {
 		return (EReference)invocableEndpointEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getContentFilter() {
+		return contentFilterEClass;
 	}
 
 	/**
@@ -750,6 +776,7 @@ public class EipPackageImpl extends EPackageImpl implements EipPackage {
 		serviceRefEClass = createEClass(SERVICE_REF);
 		createEAttribute(serviceRefEClass, SERVICE_REF__NAME);
 		createEAttribute(serviceRefEClass, SERVICE_REF__REFERENCE);
+		createEAttribute(serviceRefEClass, SERVICE_REF__OPERATIONS);
 
 		serviceInvocationEClass = createEClass(SERVICE_INVOCATION);
 		createEAttribute(serviceInvocationEClass, SERVICE_INVOCATION__CONTEXT);
@@ -758,6 +785,8 @@ public class EipPackageImpl extends EPackageImpl implements EipPackage {
 
 		invocableEndpointEClass = createEClass(INVOCABLE_ENDPOINT);
 		createEReference(invocableEndpointEClass, INVOCABLE_ENDPOINT__OWNED_SERVICE_INVOCATIONS);
+
+		contentFilterEClass = createEClass(CONTENT_FILTER);
 
 		// Create enums
 		messagePartEEnum = createEEnum(MESSAGE_PART);
@@ -803,6 +832,7 @@ public class EipPackageImpl extends EPackageImpl implements EipPackage {
 		compositeProcessorEClass.getESuperTypes().add(this.getEndpoint());
 		recipientListRouterEClass.getESuperTypes().add(this.getRouter());
 		invocableEndpointEClass.getESuperTypes().add(this.getEndpoint());
+		contentFilterEClass.getESuperTypes().add(this.getFilter());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(endpointEClass, Endpoint.class, "Endpoint", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -860,6 +890,7 @@ public class EipPackageImpl extends EPackageImpl implements EipPackage {
 		initEClass(serviceRefEClass, ServiceRef.class, "ServiceRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getServiceRef_Name(), ecorePackage.getEString(), "name", null, 1, 1, ServiceRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getServiceRef_Reference(), ecorePackage.getEJavaObject(), "reference", null, 0, 1, ServiceRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getServiceRef_Operations(), ecorePackage.getEString(), "operations", null, 0, -1, ServiceRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(serviceInvocationEClass, ServiceInvocation.class, "ServiceInvocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getServiceInvocation_Context(), ecorePackage.getEString(), "context", null, 0, 1, ServiceInvocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -868,6 +899,8 @@ public class EipPackageImpl extends EPackageImpl implements EipPackage {
 
 		initEClass(invocableEndpointEClass, InvocableEndpoint.class, "InvocableEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInvocableEndpoint_OwnedServiceInvocations(), this.getServiceInvocation(), null, "ownedServiceInvocations", null, 0, -1, InvocableEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(contentFilterEClass, ContentFilter.class, "ContentFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(messagePartEEnum, MessagePart.class, "MessagePart");

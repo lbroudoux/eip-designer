@@ -7,8 +7,8 @@
 [/template]
 
 [template public genChannelEndpointAttributes(anEndpoint : Endpoint) post (trim())]
-[if (not anEndpoint.fromChannel.oclIsUndefined())]
- input-channel="[anEndpoint.fromChannel.name/]"
+[if (anEndpoint.fromChannels->size() <> 0)]
+ input-channel="[anEndpoint.fromChannels->first().name/]"
 [/if]
 [if (not anEndpoint.toChannel.oclIsUndefined())] 
   output-channel="[anEndpoint.toChannel.name/]"

@@ -75,6 +75,7 @@ public class EipFactoryImpl extends EFactoryImpl implements EipFactory {
 			case EipPackage.SERVICE_REF: return createServiceRef();
 			case EipPackage.SERVICE_INVOCATION: return createServiceInvocation();
 			case EipPackage.INVOCABLE_ENDPOINT: return createInvocableEndpoint();
+			case EipPackage.CONTENT_FILTER: return createContentFilter();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -292,6 +293,16 @@ public class EipFactoryImpl extends EFactoryImpl implements EipFactory {
 	public InvocableEndpoint createInvocableEndpoint() {
 		InvocableEndpointImpl invocableEndpoint = new InvocableEndpointImpl();
 		return invocableEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ContentFilter createContentFilter() {
+		ContentFilterImpl contentFilter = new ContentFilterImpl();
+		return contentFilter;
 	}
 
 	/**

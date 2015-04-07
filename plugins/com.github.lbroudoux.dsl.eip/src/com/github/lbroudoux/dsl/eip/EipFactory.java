@@ -184,6 +184,15 @@ public interface EipFactory extends EFactory {
 	InvocableEndpoint createInvocableEndpoint();
 
 	/**
+	 * Returns a new object of class '<em>Content Filter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Content Filter</em>'.
+	 * @generated
+	 */
+	ContentFilter createContentFilter();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

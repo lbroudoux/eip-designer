@@ -62,6 +62,7 @@ public class ServiceRefItemProvider
 
 			addNamePropertyDescriptor(object);
 			addReferencePropertyDescriptor(object);
+			addOperationsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -111,6 +112,28 @@ public class ServiceRefItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Operations feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOperationsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ServiceRef_operations_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ServiceRef_operations_feature", "_UI_ServiceRef_type"),
+				 EipPackage.Literals.SERVICE_REF__OPERATIONS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns ServiceRef.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -150,6 +173,7 @@ public class ServiceRefItemProvider
 		switch (notification.getFeatureID(ServiceRef.class)) {
 			case EipPackage.SERVICE_REF__NAME:
 			case EipPackage.SERVICE_REF__REFERENCE:
+			case EipPackage.SERVICE_REF__OPERATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

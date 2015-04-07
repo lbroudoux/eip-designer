@@ -2,6 +2,7 @@
  */
 package com.github.lbroudoux.dsl.eip;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.github.lbroudoux.dsl.eip.ServiceRef#getName <em>Name</em>}</li>
  *   <li>{@link com.github.lbroudoux.dsl.eip.ServiceRef#getReference <em>Reference</em>}</li>
+ *   <li>{@link com.github.lbroudoux.dsl.eip.ServiceRef#getOperations <em>Operations</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,5 +75,21 @@ public interface ServiceRef extends EObject {
 	 * @generated
 	 */
 	void setReference(Object value);
+
+	/**
+	 * Returns the value of the '<em><b>Operations</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Operations</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Operations</em>' attribute list.
+	 * @see com.github.lbroudoux.dsl.eip.EipPackage#getServiceRef_Operations()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getOperations();
 
 } // ServiceRef

@@ -486,6 +486,29 @@ public class EipItemProviderAdapterFactory extends EipAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.ContentFilter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ContentFilterItemProvider contentFilterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.ContentFilter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createContentFilterAdapter() {
+		if (contentFilterItemProvider == null) {
+			contentFilterItemProvider = new ContentFilterItemProvider(this);
+		}
+
+		return contentFilterItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -602,6 +625,7 @@ public class EipItemProviderAdapterFactory extends EipAdapterFactory implements 
 		if (serviceRefItemProvider != null) serviceRefItemProvider.dispose();
 		if (serviceInvocationItemProvider != null) serviceInvocationItemProvider.dispose();
 		if (invocableEndpointItemProvider != null) invocableEndpointItemProvider.dispose();
+		if (contentFilterItemProvider != null) contentFilterItemProvider.dispose();
 	}
 
 }

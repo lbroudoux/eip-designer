@@ -1088,13 +1088,22 @@ public interface EipPackage extends EPackage {
 	int SERVICE_REF__REFERENCE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Operations</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_REF__OPERATIONS = 2;
+
+	/**
 	 * The number of structural features of the '<em>Service Ref</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_REF_FEATURE_COUNT = 2;
+	int SERVICE_REF_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Service Ref</em>' class.
@@ -1161,6 +1170,70 @@ public interface EipPackage extends EPackage {
 	int SERVICE_INVOCATION_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link com.github.lbroudoux.dsl.eip.impl.ContentFilterImpl <em>Content Filter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.github.lbroudoux.dsl.eip.impl.ContentFilterImpl
+	 * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getContentFilter()
+	 * @generated
+	 */
+	int CONTENT_FILTER = 19;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_FILTER__NAME = FILTER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>To Channel</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_FILTER__TO_CHANNEL = FILTER__TO_CHANNEL;
+
+	/**
+	 * The feature id for the '<em><b>From Channels</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_FILTER__FROM_CHANNELS = FILTER__FROM_CHANNELS;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_FILTER__EXPRESSION = FILTER__EXPRESSION;
+
+	/**
+	 * The number of structural features of the '<em>Content Filter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_FILTER_FEATURE_COUNT = FILTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Content Filter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT_FILTER_OPERATION_COUNT = FILTER_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.github.lbroudoux.dsl.eip.MessagePart <em>Message Part</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1168,7 +1241,7 @@ public interface EipPackage extends EPackage {
 	 * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getMessagePart()
 	 * @generated
 	 */
-	int MESSAGE_PART = 19;
+	int MESSAGE_PART = 20;
 
 
 	/**
@@ -1179,7 +1252,7 @@ public interface EipPackage extends EPackage {
 	 * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getRoutingType()
 	 * @generated
 	 */
-	int ROUTING_TYPE = 20;
+	int ROUTING_TYPE = 21;
 
 
 	/**
@@ -1595,6 +1668,17 @@ public interface EipPackage extends EPackage {
 	EAttribute getServiceRef_Reference();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link com.github.lbroudoux.dsl.eip.ServiceRef#getOperations <em>Operations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Operations</em>'.
+	 * @see com.github.lbroudoux.dsl.eip.ServiceRef#getOperations()
+	 * @see #getServiceRef()
+	 * @generated
+	 */
+	EAttribute getServiceRef_Operations();
+
+	/**
 	 * Returns the meta object for class '{@link com.github.lbroudoux.dsl.eip.ServiceInvocation <em>Service Invocation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1657,6 +1741,16 @@ public interface EipPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getInvocableEndpoint_OwnedServiceInvocations();
+
+	/**
+	 * Returns the meta object for class '{@link com.github.lbroudoux.dsl.eip.ContentFilter <em>Content Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Content Filter</em>'.
+	 * @see com.github.lbroudoux.dsl.eip.ContentFilter
+	 * @generated
+	 */
+	EClass getContentFilter();
 
 	/**
 	 * Returns the meta object for enum '{@link com.github.lbroudoux.dsl.eip.MessagePart <em>Message Part</em>}'.
@@ -2009,6 +2103,13 @@ public interface EipPackage extends EPackage {
 		 */
 		EAttribute SERVICE_REF__REFERENCE = eINSTANCE.getServiceRef_Reference();
 		/**
+		 * The meta object literal for the '<em><b>Operations</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVICE_REF__OPERATIONS = eINSTANCE.getServiceRef_Operations();
+		/**
 		 * The meta object literal for the '{@link com.github.lbroudoux.dsl.eip.impl.ServiceInvocationImpl <em>Service Invocation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2054,6 +2155,15 @@ public interface EipPackage extends EPackage {
 		 * @generated
 		 */
 		EReference INVOCABLE_ENDPOINT__OWNED_SERVICE_INVOCATIONS = eINSTANCE.getInvocableEndpoint_OwnedServiceInvocations();
+		/**
+		 * The meta object literal for the '{@link com.github.lbroudoux.dsl.eip.impl.ContentFilterImpl <em>Content Filter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.github.lbroudoux.dsl.eip.impl.ContentFilterImpl
+		 * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getContentFilter()
+		 * @generated
+		 */
+		EClass CONTENT_FILTER = eINSTANCE.getContentFilter();
 		/**
 		 * The meta object literal for the '{@link com.github.lbroudoux.dsl.eip.MessagePart <em>Message Part</em>}' enum.
 		 * <!-- begin-user-doc -->

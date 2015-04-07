@@ -279,6 +279,11 @@ public class CompositeProcessorItemProvider
 			(createChildParameter
 				(EipPackage.Literals.COMPOSITE_PROCESSOR__OWNED_ENDPOINTS,
 				 EipFactory.eINSTANCE.createRecipientListRouter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EipPackage.Literals.COMPOSITE_PROCESSOR__OWNED_ENDPOINTS,
+				 EipFactory.eINSTANCE.createContentFilter()));
 	}
 
 	/**
