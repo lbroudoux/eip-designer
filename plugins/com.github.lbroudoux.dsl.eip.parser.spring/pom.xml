@@ -3,9 +3,9 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.lbroudoux.dsl</groupId>
-  <artifactId>com.github.lbroudoux.dsl.eip.gen.spring</artifactId>
+  <artifactId>com.github.lbroudoux.dsl.eip.parser.spring</artifactId>
   <packaging>eclipse-plugin</packaging>
-  <name>EIP Spring generator</name>
+  <name>EIP Spring parser</name>
   <parent>
   	<groupId>com.github.lbroudoux.dsl</groupId>
   	<artifactId>com.github.lbroudoux.dsl.eip.parent</artifactId>

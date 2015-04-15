@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.core.resources.IFile"
+            id="com.github.lbroudoux.dsl.eip.parser.spring.contribution1">
+         <menu
+               label="New Submenu"
+               path="additions"
+               id="com.github.lbroudoux.dsl.eip.parser.spring.menu1">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               label="New Action"
+               class="com.github.lbroudoux.dsl.eip.parser.spring.popup.actions.NewAction"
+               menubarPath="com.github.lbroudoux.dsl.eip.parser.spring.menu1/group1"
+               enablesFor="1"
+               id="com.github.lbroudoux.dsl.eip.parser.spring.newAction">
+         </action>
+      </objectContribution>
+   </extension>
+
+</plugin>
