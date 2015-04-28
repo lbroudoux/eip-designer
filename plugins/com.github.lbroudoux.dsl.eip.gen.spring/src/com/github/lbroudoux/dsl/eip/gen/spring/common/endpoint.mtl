@@ -11,6 +11,34 @@
 <int:filter id="[aFilter.name/]" [aFilter.genChannelEndpointAttributes()/] />
 [/template]
 
+[template public genEndpoint(aFilter : ContentFilter)]
+
+[/template]
+
+[template public genEndpoint(anEnricher : Enricher)]
+
+[/template]
+
 [template public genEndpoint(aTransformer : Transformer)]
 <int:transformer id="[aTransformer.name/]" [aTransformer.genChannelEndpointAttributes()/] />
+[/template]
+
+[template public genEndpoint(aRouter : Router)]
+
+[/template]
+
+[template public genEndpoint(aSplitter : Splitter)]
+
+[/template]
+
+[template public genEndpoint(anAggregator : Aggregator)]
+
+[/template]
+
+[template public genEndpoint(aCompositeProcessor : CompositeProcessor)]
+
+[/template]
+
+[template public genEndpoint(aServiceActivator : ServiceActivator)]
+
 [/template]
