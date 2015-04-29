@@ -7,10 +7,10 @@ Here's an overview of the design perspective :
 ![overview](https://raw.githubusercontent.com/lbroudoux/eip-designer/master/assets/eip-designer.png)  
 
 Moreover designing routes, the goal of EIP Designer is also to give : 
-* acceleration to realization by allowing generation of routes skeleton for common integration frameworks such as [Spring Integration](http://projects.spring.io/spring-integration/) or [Apache Camel](http://camel.apache.org),
-* control onto final realization by providing parsers and comparators able to check that development was done "respecting original spirit". 
+* acceleration to realization by allowing generation of route skeletons for common integration frameworks such as [Spring Integration](http://projects.spring.io/spring-integration/) or [Apache Camel](http://camel.apache.org),
+* control onto final realization by providing parsers and comparators able to check that development was done respecting "original design". 
 
-Finally, we aim to provide adapters and bridges to allow the usage of EIP Designer from a more generic and abstract design solution such as a TOGAF or a Archimate Designer. Those one presenting the notion of Services and Services dependencies without a mean of describing orchestration process or integration routes ... everything we thought EIP is great as ! 
+Finally, we aim to provide adapters and bridges to allow the usage of EIP Designer from a more generic and abstract design solution such as a TOGAF or a Archimate Designer. Those one presenting the notion of Services and Services dependencies without a mean of describing orchestration process or integration routes ... everything we thought EIP is great at ! 
 
 
 ## Build Status
@@ -26,7 +26,7 @@ EIP Designer is currently in development mode and thus should be either be :
 
 ### Pre-requisites
 
-EIP Designer needs at least Eclipse Luna SR1 with modeling stuffs. We recommend you using directly the _Modeling Tools_ distribution of Eclipse available from [download page](http://www.eclipse.org/downloads/).
+EIP Designer needs at least Eclipse Luna SR1 with modeling stuffs. We recommend using directly the _Modeling Tools_ distribution of Eclipse available from [download page](http://www.eclipse.org/downloads/).
 
 After having installed and ran Eclipse, you also need to add Sirius 2.0. See the download page on [http://www.eclipse.org/sirius](http://www.eclipse.org/sirius/download.html) on how to add Sirius to your Eclipse modeling installation.
 
