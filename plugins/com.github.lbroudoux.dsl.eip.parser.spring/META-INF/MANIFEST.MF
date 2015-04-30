@@ -11,6 +11,7 @@ Require-Bundle: org.eclipse.ui,
  com.github.lbroudoux.dsl.eip,
  org.eclipse.emf.compare,
  com.google.guava,
- org.junit
+ org.junit,
+ org.eclipse.jface
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
