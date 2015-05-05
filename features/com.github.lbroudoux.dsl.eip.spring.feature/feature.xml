@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="com.github.lbroudoux.dsl.feature.eip.spring"
+      id="com.github.lbroudoux.dsl.eip.spring.feature"
       label="EIP Designer extension for Spring Integration"
       version="0.0.1.qualifier"
       provider-name="LBroudoux">

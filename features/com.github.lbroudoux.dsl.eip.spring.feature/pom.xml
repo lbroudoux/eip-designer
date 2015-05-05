@@ -2,7 +2,7 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.lbroudoux.dsl</groupId>
-  <artifactId>com.github.lbroudoux.dsl.feature.eip.spring</artifactId>
+  <artifactId>com.github.lbroudoux.dsl.eip.spring.feature</artifactId>
   <packaging>eclipse-feature</packaging>
   <name>EIP Spring Feature</name>
   <parent>

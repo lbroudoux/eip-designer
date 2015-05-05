@@ -19,8 +19,8 @@
     <module>plugins/com.github.lbroudoux.dsl.eip.gen.camel</module>
     <module>plugins/com.github.lbroudoux.dsl.eip.gen.spring</module>
     <module>plugins/com.github.lbroudoux.dsl.eip.parser.spring</module>
-    <module>features/com.github.lbroudoux.dsl.feature.eip</module>
-    <module>features/com.github.lbroudoux.dsl.feature.eip.spring</module>
+    <module>features/com.github.lbroudoux.dsl.eip.feature</module>
+    <module>features/com.github.lbroudoux.dsl.eip.spring.feature</module>
   </modules>
   <repositories>
     <repository>

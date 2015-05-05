@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="com.github.lbroudoux.dsl.feature.eip"
-      label="Eip"
+      id="com.github.lbroudoux.dsl.eip.feature"
+      label="EIP Designer Core"
       version="0.0.1.qualifier"
       provider-name="LBroudoux">
 
@@ -37,11 +37,12 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-         
-	<plugin
+
+   <plugin
          id="com.github.lbroudoux.dsl.eip.design"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+
 </feature>
