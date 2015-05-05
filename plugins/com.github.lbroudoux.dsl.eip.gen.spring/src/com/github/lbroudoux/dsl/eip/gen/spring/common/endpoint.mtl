@@ -3,42 +3,55 @@
 
 [import com::github::lbroudoux::dsl::eip::gen::spring::common::channel /]
 
-[template public genEndpoint(aEndpoint : Endpoint)]
+[template public genEndpoint(aEndpoint : Endpoint) post(trim())]
 <!-- Endpoint not yet supported by generator -->
 [/template]
 
-[template public genEndpoint(aFilter : Filter)]
+[template public genEndpoint(aFilter : Filter) post(trim())]
 <int:filter id="[aFilter.name/]" [aFilter.genChannelEndpointAttributes()/] />
 [/template]
 
-[template public genEndpoint(aFilter : ContentFilter)]
-
+[template public genEndpoint(aFilter : ContentFilter) post(trim())]
+<int:filter id="[aFilter.name/]" [aFilter.genChannelEndpointAttributes()/] />
 [/template]
 
-[template public genEndpoint(anEnricher : Enricher)]
-
+[template public genEndpoint(anEnricher : Enricher) post(trim())]
+[if (anEnricher.part = MessagePart::HEADER)]
+<int:header-enricher id="[anEnricher.name/]" [anEnricher.genChannelEndpointAttributes()/] />
+[/if]
+[if (anEnricher.part = MessagePart::PAYLOAD)]
+ <int:enricher id="[anEnricher.name/]" />
+[/if]
 [/template]
 
-[template public genEndpoint(aTransformer : Transformer)]
+[template public genEndpoint(aTransformer : Transformer) post(trim())]
 <int:transformer id="[aTransformer.name/]" [aTransformer.genChannelEndpointAttributes()/] />
 [/template]
 
-[template public genEndpoint(aRouter : Router)]
+[template public genEndpoint(aRouter : Router) post(trim())]
 
 [/template]
 
-[template public genEndpoint(aSplitter : Splitter)]
-
+[template public genEndpoint(aSplitter : Splitter) post(trim())]
+<int:splitter id="[aSplitter.name/]" [aSplitter.genChannelEndpointAttributes()/] />
 [/template]
 
-[template public genEndpoint(anAggregator : Aggregator)]
-
+[template public genEndpoint(anAggregator : Aggregator) post(trim())]
+<int:aggregator id="[anAggregator.name/]" [anAggregator.genChannelEndpointAttributes()/] />
 [/template]
 
-[template public genEndpoint(aCompositeProcessor : CompositeProcessor)]
-
+[template public genEndpoint(aCompositeProcessor : CompositeProcessor) post(trim())]
+<int:chain id="[aCompositeProcessor.name/]" [aCompositeProcessor.genChannelEndpointAttributes()/]>
+[for (endpoint : Endpoint | aCompositeProcessor.ownedEndpoints)]
+  [endpoint.genEndpoint()/]
+[/for]
+</int:chain>
 [/template]
 
-[template public genEndpoint(aServiceActivator : ServiceActivator)]
+[template public genEndpoint(aGateway : Gateway) post(trim())]
+<int:gateway id="[aGateway.name/]" [aGateway.genChannelEndpointAttributes()/] />
+[/template]
 
+[template public genEndpoint(aServiceActivator : ServiceActivator) post(trim())]
+<int:service-activator id="[aServiceActivator.name/]" [aServiceActivator.genChannelEndpointAttributes()/] />
 [/template]

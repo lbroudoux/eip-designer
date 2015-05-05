@@ -93,7 +93,20 @@ public class SpringIntegrationFileParser {
          endpoint = EipFactory.eINSTANCE.createFilter();
       } else if ("transformer".equals(endpointElement.getLocalName())) {
          endpoint = EipFactory.eINSTANCE.createTransformer();
+      } else if ("enricher".equals(endpointElement.getLocalName())) {
+         endpoint = EipFactory.eINSTANCE.createEnricher();
+      } else if ("chain".equals(endpointElement.getLocalName())) {
+         endpoint = EipFactory.eINSTANCE.createCompositeProcessor();
+      } else if ("splitter".equals(endpointElement.getLocalName())) {
+         endpoint = EipFactory.eINSTANCE.createSplitter();
+      } else if ("aggregator".equals(endpointElement.getLocalName())) {
+         endpoint = EipFactory.eINSTANCE.createAggregator();
+      } else if ("gateway".equals(endpointElement.getLocalName())) {
+         endpoint = EipFactory.eINSTANCE.createGateway();
+      } else if ("service-activator".equals(endpointElement.getLocalName())) {
+         endpoint = EipFactory.eINSTANCE.createServiceActivator();
       }
+      
       // Complete Endpoint with common attributes if any.
       if (endpoint != null) {
          endpoint.setName(endpointElement.getAttribute("id"));
