@@ -2,9 +2,11 @@ package com.github.lbroudoux.dsl.eip.parser.spring.ui.actions;
 
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.expressions.IEvaluationContext;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IObjectActionDelegate;
+import org.eclipse.ui.ISources;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.commands.ICommandService;
@@ -38,9 +40,14 @@ public class CompareWithRouteAction implements IObjectActionDelegate {
          serviceLocator = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
       } 
       
+      // Create an ExecutionEvent using Eclipse machinery.
       ICommandService srv = (ICommandService) serviceLocator.getService(ICommandService.class);
       IHandlerService hsrv = (IHandlerService) serviceLocator.getService(IHandlerService.class);
       ExecutionEvent event = hsrv.createExecutionEvent(srv.getCommand(ActionCommands.COMPARE_WITH_ROUTE_ACTION), null);
+      // Fill it my current active selection.
+      if (event.getApplicationContext() instanceof IEvaluationContext) {
+         ((IEvaluationContext) event.getApplicationContext()).addVariable(ISources.ACTIVE_CURRENT_SELECTION_NAME, mySelection);
+      }
       
       try {
          handler.execute(event);

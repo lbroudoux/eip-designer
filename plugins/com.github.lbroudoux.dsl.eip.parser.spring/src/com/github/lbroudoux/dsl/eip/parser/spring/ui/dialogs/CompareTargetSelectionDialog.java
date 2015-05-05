@@ -6,6 +6,7 @@ import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridLayout;
@@ -14,6 +15,8 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.FilteredTree;
 import org.eclipse.ui.dialogs.PatternFilter;
+
+import com.github.lbroudoux.dsl.eip.Route;
 
 /**
  * 
@@ -24,10 +27,22 @@ public class CompareTargetSelectionDialog extends TitleAreaDialog {
    /** The tree */
    protected TreeViewer projectTree;
    
-   public CompareTargetSelectionDialog(Shell parentShell) {
+   /** The first resource file used for comparison. */
+   private String fileName;
+   /** The selected EIP Route selected via Dialog. */
+   private Route selectedRoute;
+   
+   /** Constructor. */
+   public CompareTargetSelectionDialog(Shell parentShell, String fileName) {
       super(parentShell);
+      this.fileName = fileName;
    }
 
+   /** @return The selected EIP Route if any. */
+   public Route getSelectedRoute(){
+      return selectedRoute;
+   }
+   
    @Override
    protected Control createDialogArea(Composite base) {
       Composite parent = (Composite) super.createDialogArea(base);
@@ -56,12 +71,17 @@ public class CompareTargetSelectionDialog extends TitleAreaDialog {
       projectTree.addSelectionChangedListener(new ISelectionChangedListener() {
          @Override
          public void selectionChanged(SelectionChangedEvent event) {
-            System.err.println("In selectionChanged()");
+            if (event.getSelection() instanceof TreeSelection) {
+               TreeSelection tSelection = (TreeSelection)event.getSelection();
+               if (tSelection.getFirstElement() instanceof Route) {
+                  selectedRoute = (Route) tSelection.getFirstElement();
+               }
+            }
          }
       });
       
-      setTitle("Title");
-      setMessage("Message Text");
+      setTitle("Compare '" + fileName + "' with an EIP Route model");
+      setMessage("Select an EIP Route to compare the resource with");
       applyDialogFont(composite);
       
       return composite;

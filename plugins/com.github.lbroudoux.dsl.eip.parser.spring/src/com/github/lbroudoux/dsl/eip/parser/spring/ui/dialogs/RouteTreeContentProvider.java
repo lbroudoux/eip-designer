@@ -10,45 +10,75 @@ import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
+import com.github.lbroudoux.dsl.eip.EIPModel;
+import com.github.lbroudoux.dsl.eip.EipPackage;
 /**
  * 
  * @author laurent
  */
 public class RouteTreeContentProvider implements ITreeContentProvider {
 
+   /** ResourceSet used for loading and retrieving routes. */
+   private ResourceSet resourceSet;
+   
+   /** Build a new RouteTreeContentProvider. */
+   public RouteTreeContentProvider() {
+      // Initialize a ResourceSet to load model and get Routes.
+      resourceSet = new ResourceSetImpl();
+      
+      // Register the appropriate resource factory to handle all file extensions.
+      resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, 
+            new XMIResourceFactoryImpl());
+
+      // Register the package to ensure it is available during loading.
+      resourceSet.getPackageRegistry().put(EipPackage.eNS_URI, EipPackage.eINSTANCE);
+   }
+   
    @Override
    public void dispose() {
       // TODO Auto-generated method stub
-      
    }
 
    @Override
    public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
       // TODO Auto-generated method stub
-      
    }
 
    @Override
    public Object[] getElements(Object inputElement) {
-      System.err.println("In getElements(Object)");
       // First level : get workspace projects.
       return ResourcesPlugin.getWorkspace().getRoot().getProjects();
    }
 
    @Override
    public Object[] getChildren(Object parentElement) {
-      System.err.println("In getChildren(Object)");
+      // If project level, get EIP model files.
       if (parentElement instanceof IProject) {
          IProject project = (IProject) parentElement;
          List<IResource> models = new ArrayList<IResource>();
          findEIPModels(models, project.getLocation(), ResourcesPlugin.getWorkspace().getRoot());
          return models.toArray();
       }
+      // If EIP model level, load and find Route definitions.
       if (parentElement instanceof IResource) {
-         return null;
+         IResource resource = (IResource) parentElement;
+         Resource emfResource = resourceSet.getResource(URI.createURI(resource.getLocationURI().toString()), true);
+         
+         for (EObject object : emfResource.getContents()){
+            if (object instanceof EIPModel) {
+               EIPModel eipModel = (EIPModel) object;
+               return eipModel.getOwnedRoutes().toArray();
+            }
+         }
       }
       return null;
    }
@@ -61,7 +91,6 @@ public class RouteTreeContentProvider implements ITreeContentProvider {
 
    @Override
    public boolean hasChildren(Object element) {
-      System.err.println("In hasChildren(Object)");
       if (element instanceof IProject) {
          IProject project = (IProject) element;
          List<IResource> models = new ArrayList<IResource>();

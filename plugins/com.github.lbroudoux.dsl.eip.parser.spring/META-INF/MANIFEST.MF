@@ -11,7 +11,15 @@ Require-Bundle: org.eclipse.ui,
  com.github.lbroudoux.dsl.eip,
  org.eclipse.emf.compare,
  com.google.guava,
+ org.eclipse.jface,
+ org.eclipse.osgi,
+ org.eclipse.compare,
  org.junit,
- org.eclipse.jface
+ org.eclipse.emf.compare.ide.ui,
+ org.eclipse.emf.compare.rcp,
+ org.eclipse.emf.compare.edit,
+ org.eclipse.core.expressions
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.emf.ecore.xmi.impl,
+ org.eclipse.emf.edit.provider
