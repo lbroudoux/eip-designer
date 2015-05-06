@@ -7,12 +7,14 @@ import java.util.Map;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.eclipse.emf.common.util.EList;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import com.github.lbroudoux.dsl.eip.Channel;
+import com.github.lbroudoux.dsl.eip.CompositeProcessor;
 import com.github.lbroudoux.dsl.eip.EIPModel;
 import com.github.lbroudoux.dsl.eip.EipFactory;
 import com.github.lbroudoux.dsl.eip.Endpoint;
@@ -66,11 +68,25 @@ public class SpringIntegrationFileParser {
       
       // Then, extract and add endpoints to model.
       NodeList children = root.getChildNodes();
+      parseAndFillEndpoints(children, route.getOwnedEndpoints());
+   }
+   
+   /** Parse children NodeList and fill the given endpoint collection. */
+   private void parseAndFillEndpoints(NodeList children, EList<Endpoint> endpoints) {
       for (int i=0; i<children.getLength(); i++) {
          Node childNode = children.item(i);
          if (childNode.getNodeType() == Node.ELEMENT_NODE 
                && !"channel".equals(childNode.getLocalName())){
-            route.getOwnedEndpoints().add(createEndpoint(childNode));
+            Endpoint endpoint = createEndpoint(childNode);
+            // Prevent unknown null endpoint being inserted into no-null constrained list.
+            if (endpoint != null) {
+               endpoints.add(endpoint);
+               // In case of composite, we should recurse.
+               if (endpoint instanceof CompositeProcessor) {
+                  NodeList compositeChildren = childNode.getChildNodes();
+                  parseAndFillEndpoints(compositeChildren, ((CompositeProcessor)endpoint).getOwnedEndpoints());
+               }
+            }
          }
       }
    }
@@ -112,7 +128,11 @@ public class SpringIntegrationFileParser {
          endpoint.setName(endpointElement.getAttribute("id"));
          String inputChannelName = endpointElement.getAttribute("input-channel");
          if (inputChannelName != null) {
-            endpoint.getFromChannels().add(channelsMap.get(inputChannelName));
+            Channel inputChannel = channelsMap.get(inputChannelName);
+            // Prevent unknown null channel from being inserted in no-null constrained list.
+            if (inputChannel != null) {
+               endpoint.getFromChannels().add(inputChannel);
+            }
          }
          String outputChannelName = endpointElement.getAttribute("output-channel");
          if (outputChannelName != null) {
