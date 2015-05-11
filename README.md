@@ -50,15 +50,40 @@ Now just launch a new `Run As... > Eclipse Application` to launch a new Workbenc
 
 ### Designer
 
-More to come soon...
+Using designer is rather simple and follow Eclipse Modeling and Sirius guidelines :
+* Create a new _Modeling Project_ within your workspace,
+* Add to this project a new _Eip Model_ resource (choose _EIP Model_ as the root object for model),
+* Update the Viewpoint selection for this project (right-click on project while being into Sirius perspective)
+
+We provide a new viewpoint simply named _Enterprise Integration Patterns_ and applicable when your project contains a `*.eip` resource as shown below.
+
+![viewpoint](https://raw.githubusercontent.com/lbroudoux/eip-designer/master/assets/eip-designer-viewpoint.png)
+
+Your project is now ready !
+
+Designer provides only 2 diagrams :
+* A _Routes Catalog_ that just allows you to create and remove Route definitions within your model,
+* A _Route Diagram_ that allows you to specify a Route behaviour using the tools and semantics shown in top screenshot.
 
 ### Generators
 
-More to come soon...
+Generators are provided within features dedicated to specific generation target. For now, we have :
+* [Spring Integration](http://projects.spring.io/spring-integration/) support provided by the _EIP Designer extension for Spring Integration_ (`com.github.lbroudoux.dsl.eip.spring.feature` feature)
+* [Apache Camel](http://camel.apache.org) support provided by the _EIP Designer extension for Apache Camel_ (`com.github.lbroudoux.dsl.eip.camel.feature` feature)
+
+For now, there's no graphical integration plugin defined and you should defined an _Acceleo Application_ and use our generators through the traditional `Run As...` integration.
+
+The main classes for generators are :
+* `com.github.lbroudoux.dsl.eip.gen.spring.main.GenerateRoutes` for [Spring Integration](http://projects.spring.io/spring-integration/),
+* `com.github.lbroudoux.dsl.eip.gen.camel.main.GenerateXmlRoutes` for [Apache Camel](http://camel.apache.org). We only support routes specification in Xml at time of writing.
 
 ### Parsers and comparators
 
-More to come soon...
+Once features mentioned into _Generators_ section are presents, comparison of implementations files with base model is made available through a new `Compare With EIP Route` context item within the traditional `Compare With...` submenu.
+
+Then, select a Route definition within an EIP Model present into your workspace and you should be able to inspect differences onto a quite standard `Compare` dialog : 
+   
+![compare](https://raw.githubusercontent.com/lbroudoux/eip-designer/master/assets/eip-designer-compare.png)
 
 ### Bridges
 
