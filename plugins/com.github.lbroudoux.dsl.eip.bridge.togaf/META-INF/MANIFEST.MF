@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: com.github.lbroudoux.dsl.eip.bridge.togaf;singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Bundle-Activator: com.github.lbroudoux.dsl.eip.bridge.togaf.Activator
+Bundle-Vendor: %pluginVendor
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.expressions,
+ org.eclipse.emf.ecore,
+ org.eclipse.gmf.runtime.diagram.ui,
+ org.eclipse.sirius.diagram.ui;bundle-version="2.0.0",
+ org.obeonetwork.dsl.togaf.contentfwk;bundle-version="2.0.0",
+ com.github.lbroudoux.dsl.eip
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy

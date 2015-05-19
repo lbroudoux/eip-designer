@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension point="org.eclipse.ui.commands">
+      <command
+            id="com.github.lbroudoux.dsl.eip.bridge.togaf.command.createRouteDesign"
+            name="Design an EIP Route">
+      </command>
+   </extension>
+   <extension point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+           id="com.github.lbroudoux.dsl.eip.bridge.togaf.ui.IsATogafServiceTester"
+           type="org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramElementEditPart"
+           namespace="com.github.lbroudoux.dsl.eip.bridge.togaf.ui"
+           properties="isATogafService"
+           class="com.github.lbroudoux.dsl.eip.bridge.togaf.ui.testers.IsATogafServiceTester">
+       </propertyTester>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+         locationURI="popup:org.eclipse.ui.popup.any?after=org.eclipse.sirius.diagram.ui.popup.otherActions">
+         <command
+            commandId="com.github.lbroudoux.dsl.eip.bridge.togaf.command.createRouteDesign"
+            icon="icons/Route.gif"
+            label="Design an EIP Route..."
+            style="push">
+            <visibleWhen
+               checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <iterate
+                        operator="and">
+                     <instanceof
+                           value="org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramElementEditPart">
+                     </instanceof>
+                     <test
+                        property="com.github.lbroudoux.dsl.eip.bridge.togaf.ui.isATogafService">
+                     </test>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.github.lbroudoux.dsl.eip.bridge.togaf.ui.actions.CreateEIPRouteDesignActionHandler"
+            commandId="com.github.lbroudoux.dsl.eip.bridge.togaf.command.createRouteDesign">
+      </handler>
+   </extension>
+
+</plugin>
