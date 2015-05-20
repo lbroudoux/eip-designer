@@ -1,4 +1,4 @@
-package com.github.lbroudoux.dsl.eip.parser.spring.ui.dialogs;
+package com.github.lbroudoux.dsl.eip.parser.core.ui.dialogs;
 
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jface.dialogs.IDialogConstants;
@@ -24,7 +24,7 @@ import com.github.lbroudoux.dsl.eip.Route;
  */
 public class CompareTargetSelectionDialog extends TitleAreaDialog {
 
-   /** The tree */
+   /** The tree. */
    protected TreeViewer projectTree;
    
    /** The first resource file used for comparison. */

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="com.github.lbroudoux.dsl.eip.spring.feature"
-      label="EIP Designer extension for Spring Integration"
+      id="com.github.lbroudoux.dsl.eip.togaf"
+      label="Togaf"
       version="0.0.1.qualifier"
-      provider-name="LBroudoux">
+      provider-name="LBROUDOUX">
 
-   <description url="https://github.com/lbroudoux/eip-designer">
+   <description url="http://www.example.com/description">
       [Enter Feature Description here.]
    </description>
 
@@ -17,26 +17,36 @@
       [Enter License Description here.]
    </license>
 
-   <requires>
-      <import feature="com.github.lbroudoux.dsl.eip.feature"/>
-   </requires>
-
    <plugin
-         id="com.github.lbroudoux.dsl.eip.gen.spring"
+         id="com.github.lbroudoux.dsl.eip"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="com.github.lbroudoux.dsl.eip.parser.spring"
+         id="com.github.lbroudoux.dsl.eip.bridge.core"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="com.github.lbroudoux.dsl.eip.parser.core"
+         id="com.github.lbroudoux.dsl.eip.bridge.togaf"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.github.lbroudoux.dsl.eip.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.github.lbroudoux.dsl.eip.editor"
          download-size="0"
          install-size="0"
          version="0.0.0"

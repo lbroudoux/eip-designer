@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Core for EIP parsers
+Bundle-SymbolicName: com.github.lbroudoux.dsl.eip.parser.core
+Bundle-Version: 0.0.1.qualifier
+Bundle-Activator: com.github.lbroudoux.dsl.eip.parser.core.Activator
+Bundle-Vendor: LBroudoux
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ com.github.lbroudoux.dsl.eip,
+ org.eclipse.compare,
+ org.eclipse.emf.ecore.xmi,
+ org.eclipse.emf.compare.ide.ui,
+ org.eclipse.emf.compare,
+ org.eclipse.emf.compare.edit,
+ org.eclipse.emf.compare.rcp
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: com.github.lbroudoux.dsl.eip.parser.core.ui.actions,
+ com.github.lbroudoux.dsl.eip.parser.core.ui.dialogs

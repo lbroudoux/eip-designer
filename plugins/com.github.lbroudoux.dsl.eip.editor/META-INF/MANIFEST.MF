@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: EIP Editor
 Bundle-SymbolicName: com.github.lbroudoux.dsl.eip.editor;singleton:=true
 Bundle-Version: 0.0.1.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: com.github.lbroudoux.dsl.eip.presentation.EipEditorPlugin$Implementation
-Bundle-Vendor: %providerName
+Bundle-Vendor: LBroudoux
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: com.github.lbroudoux.dsl.eip.presentation

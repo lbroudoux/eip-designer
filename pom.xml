@@ -18,9 +18,15 @@
     <module>plugins/com.github.lbroudoux.dsl.eip.design</module>
     <module>plugins/com.github.lbroudoux.dsl.eip.gen.camel</module>
     <module>plugins/com.github.lbroudoux.dsl.eip.gen.spring</module>
+    <module>plugins/com.github.lbroudoux.dsl.eip.parser.core</module>
+    <module>plugins/com.github.lbroudoux.dsl.eip.parser.camel</module>
     <module>plugins/com.github.lbroudoux.dsl.eip.parser.spring</module>
+    <module>plugins/com.github.lbroudoux.dsl.eip.bridge.core</module>
+    <!-- <module>plugins/com.github.lbroudoux.dsl.eip.bridge.togaf</module> -->
     <module>features/com.github.lbroudoux.dsl.eip.feature</module>
+    <module>features/com.github.lbroudoux.dsl.eip.camel.feature</module>
     <module>features/com.github.lbroudoux.dsl.eip.spring.feature</module>
+    <!-- <module>features/com.github.lbroudoux.dsl.eip.togaf.feature</module> -->
   </modules>
   <repositories>
     <repository>

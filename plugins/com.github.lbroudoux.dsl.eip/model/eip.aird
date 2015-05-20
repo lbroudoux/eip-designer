@@ -1149,7 +1149,7 @@
           <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_m-qMJNoMEeSvZ6f-Xe6-zA" red="255" green="252" blue="216"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_l7L88NoMEeSvZ6f-Xe6-zA" name="strategy : EString" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'org.eclipse.emf.ecore.impl.EAttributeImpl@ea3e8f{platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Aggregator/newAttribute}' must be set&#xA;ERROR : The typed element must have a type">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_l7L88NoMEeSvZ6f-Xe6-zA" name="strategy : EString" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="eip.ecore#//Aggregator/strategy"/>
           <semanticElements xmi:type="ecore:EAttribute" href="eip.ecore#//Aggregator/strategy"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_m-t2gNoMEeSvZ6f-Xe6-zA" labelAlignment="LEFT">
@@ -1544,7 +1544,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_7mCAINoJEeSvZ6f-Xe6-zA" name="reference : EJavaObject" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'org.eclipse.emf.ecore.impl.EAttributeImpl@b76a82{platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//ServiceRef/newAttribute}' must be set&#xA;ERROR : The typed element must have a type">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_7mCAINoJEeSvZ6f-Xe6-zA" name="reference : EJavaObject" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="eip.ecore#//ServiceRef/reference"/>
           <semanticElements xmi:type="ecore:EAttribute" href="eip.ecore#//ServiceRef/reference"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_9JU-4NoJEeSvZ6f-Xe6-zA" labelAlignment="LEFT">
@@ -1555,7 +1555,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_ndTvMNz6EeSvZ6f-Xe6-zA" name="operations : EString" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'org.eclipse.emf.ecore.impl.EAttributeImpl@30c79c{platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//ServiceRef/newAttribute}' must be set&#xA;ERROR : The typed element must have a type">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_ndTvMNz6EeSvZ6f-Xe6-zA" name="operations : EString" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="eip.ecore#//ServiceRef/operations"/>
           <semanticElements xmi:type="ecore:EAttribute" href="eip.ecore#//ServiceRef/operations"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_o90fsNz6EeSvZ6f-Xe6-zA" labelAlignment="LEFT">
@@ -1581,7 +1581,7 @@
           <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_MIyLVNoLEeSvZ6f-Xe6-zA" red="255" green="252" blue="216"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_-4uDcNoKEeSvZ6f-Xe6-zA" name="context : EString" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'org.eclipse.emf.ecore.impl.EAttributeImpl@ec7742{platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Invocation/newAttribute}' must be set&#xA;ERROR : The typed element must have a type">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_-4uDcNoKEeSvZ6f-Xe6-zA" name="context : EString" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="eip.ecore#//ServiceInvocation/context"/>
           <semanticElements xmi:type="ecore:EAttribute" href="eip.ecore#//ServiceInvocation/context"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="___T4ENoKEeSvZ6f-Xe6-zA" labelAlignment="LEFT">
@@ -1592,7 +1592,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_AyiEwNoLEeSvZ6f-Xe6-zA" name="operationName : EString" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'org.eclipse.emf.ecore.impl.EAttributeImpl@1fb4a60{platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Invocation/newAttribute}' must be set&#xA;ERROR : The typed element must have a type">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_AyiEwNoLEeSvZ6f-Xe6-zA" name="operationName : EString" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="eip.ecore#//ServiceInvocation/operationName"/>
           <semanticElements xmi:type="ecore:EAttribute" href="eip.ecore#//ServiceInvocation/operationName"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_MI3q4NoLEeSvZ6f-Xe6-zA" labelAlignment="LEFT">

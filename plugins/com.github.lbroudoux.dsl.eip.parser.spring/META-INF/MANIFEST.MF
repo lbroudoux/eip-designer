@@ -1,25 +1,19 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: EIP Spring parser
 Bundle-SymbolicName: com.github.lbroudoux.dsl.eip.parser.spring;singleton:=true
 Bundle-Version: 0.0.1.qualifier
 Bundle-Activator: com.github.lbroudoux.dsl.eip.parser.spring.Activator
-Bundle-Vendor: %pluginVendor
+Bundle-Vendor: LBroudoux
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
- com.github.lbroudoux.dsl.eip,
- org.eclipse.emf.compare,
+ org.eclipse.core.expressions,
  com.google.guava,
- org.eclipse.jface,
  org.eclipse.osgi,
- org.eclipse.compare,
- org.junit,
- org.eclipse.emf.compare.ide.ui,
- org.eclipse.emf.compare.rcp,
- org.eclipse.emf.compare.edit,
- org.eclipse.core.expressions
+ org.eclipse.emf.ecore.xmi,
+ com.github.lbroudoux.dsl.eip,
+ com.github.lbroudoux.dsl.eip.parser.core,
+ org.junit
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
-Import-Package: org.eclipse.emf.ecore.xmi.impl,
- org.eclipse.emf.edit.provider
