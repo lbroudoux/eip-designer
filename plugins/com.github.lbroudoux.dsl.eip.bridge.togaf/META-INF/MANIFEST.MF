@@ -12,6 +12,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.gmf.runtime.diagram.ui,
  org.eclipse.sirius.diagram.ui;bundle-version="2.0.0",
  org.obeonetwork.dsl.togaf.contentfwk;bundle-version="2.0.0",
- com.github.lbroudoux.dsl.eip
+ com.github.lbroudoux.dsl.eip,
+ com.github.lbroudoux.dsl.eip.bridge.core
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy

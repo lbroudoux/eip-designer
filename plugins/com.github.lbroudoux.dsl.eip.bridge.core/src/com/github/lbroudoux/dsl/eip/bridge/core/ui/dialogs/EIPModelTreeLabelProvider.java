@@ -1,4 +1,4 @@
-package com.github.lbroudoux.dsl.eip.bridge.togaf.ui.dialogs;
+package com.github.lbroudoux.dsl.eip.bridge.core.ui.dialogs;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;

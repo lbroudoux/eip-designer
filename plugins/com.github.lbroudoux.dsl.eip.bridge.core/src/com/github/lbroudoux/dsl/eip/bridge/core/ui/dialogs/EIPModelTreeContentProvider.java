@@ -1,4 +1,4 @@
-package com.github.lbroudoux.dsl.eip.bridge.togaf.ui.dialogs;
+package com.github.lbroudoux.dsl.eip.bridge.core.ui.dialogs;
 
 import java.util.ArrayList;
 import java.util.List;
