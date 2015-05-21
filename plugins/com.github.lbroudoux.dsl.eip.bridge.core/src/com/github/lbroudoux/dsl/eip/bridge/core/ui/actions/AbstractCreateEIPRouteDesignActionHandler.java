@@ -25,7 +25,14 @@ import com.github.lbroudoux.dsl.eip.ServiceRef;
 import com.github.lbroudoux.dsl.eip.bridge.core.ui.dialogs.EIPModelAndRouteSelectionDialog;
 
 /**
- * 
+ * Base Handler for Designer Bridges plugins. It defines the base process of bridging designers together
+ * and initializing the target EIP model as a consequence. It provides 2 hook methods that shouls be implemented
+ * by concrete subclasses : <ul>
+ * <li><code>checkEventCurrentSelection(ISelection)</code> should check if event is correct and return
+ * a Route name in this case,</li>
+ * <li><code>extractServiceRefs()</code> should extract from the semantic elements targeted by event,
+ * the service references to add into target EIP Route.</li>
+ * </ul> 
  * @author laurent
  */
 public abstract class AbstractCreateEIPRouteDesignActionHandler extends AbstractHandler {
@@ -81,15 +88,21 @@ public abstract class AbstractCreateEIPRouteDesignActionHandler extends Abstract
    }
    
    /**
-    * 
-    * @param currentSelection
-    * @return
+    * Hook for concrete subclass. Called by this base handler once ExecutionEvent is received. Current selection
+    * is passed in order to check if event is eligible to the creation of an EIP Route. If so, subsclass should
+    * return a name for the target EIP Route to create. If current selection is not valid, subclass should just
+    * return null and current handling will stop.
+    * @param currentSelection The event current selection.
+    * @return The name of EIP Route to create if correct, null otherwise.
     */
    protected abstract String checkEventCurrentSelection(ISelection currentSelection);
    
    /**
-    * 
-    * @return
+    * Hook for concrete subclass. Only called once event is valid and valid EIP Model to host target EIP Route
+    * has been found and loaded. Subclass should implement this method in order to specify how to retrieve the Service
+    * references that need to be injected into the target EIP Route to create. These references are specific to the
+    * semantic of designer subclass is working on and thus should be specified.
+    * @return A list of ServiceRefWrapper or null if no service references found for the target EIP Route.
     */
    protected abstract List<ServiceRefWrapper> extractServiceRefs();
    
