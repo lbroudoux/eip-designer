@@ -27,6 +27,7 @@
     <module>features/com.github.lbroudoux.dsl.eip.camel.feature</module>
     <module>features/com.github.lbroudoux.dsl.eip.spring.feature</module>
     <!-- <module>features/com.github.lbroudoux.dsl.eip.togaf.feature</module> -->
+    <module>releng/com.github.lbroudoux.dsl.eip.repository</module>
   </modules>
   <repositories>
     <repository>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.github.lbroudoux.dsl.eip.feature_0.0.1.qualifier.jar" id="com.github.lbroudoux.dsl.eip.feature" version="0.0.1.qualifier">
+      <category name="com.github.lbroudoux.dsl.eip.designer"/>
+   </feature>
+   <feature url="features/com.github.lbroudoux.dsl.eip.camel.feature_0.0.1.qualifier.jar" id="com.github.lbroudoux.dsl.eip.camel.feature" version="0.0.1.qualifier">
+      <category name="com.github.lbroudoux.dsl.eip.extensions"/>
+   </feature>
+   <feature url="features/com.github.lbroudoux.dsl.eip.spring.feature_0.0.1.qualifier.jar" id="com.github.lbroudoux.dsl.eip.spring.feature" version="0.0.1.qualifier">
+      <category name="com.github.lbroudoux.dsl.eip.extensions"/>
+   </feature>
+   <category-def name="com.github.lbroudoux.dsl.eip.designer" label="EIP Designer"/>
+   <category-def name="com.github.lbroudoux.dsl.eip.extensions" label="EIP Designer Extensions"/>
+</site>
