@@ -97,7 +97,7 @@ As an example, we provide a bridge for the [TOGAF Designer](http://marketplace.o
 
 ![togaf](https://raw.githubusercontent.com/lbroudoux/eip-designer/master/assets/eip-designer-togaf-extension.png)
 
-As soon, you have choosen a target EIP Model as the container for the Service Route design, it initializes a complete EIP design for the Service realization and by bringing in every service dependencies identified within Togaf designer :
+As soon as you have choosen a target EIP Model as the container for the Service Route design, it initializes a complete EIP design for the Service realization and by bringing in every service dependencies identified within Togaf designer :
 
 ![togaf-route](https://raw.githubusercontent.com/lbroudoux/eip-designer/master/assets/eip-designer-togaf-route.png)
 
