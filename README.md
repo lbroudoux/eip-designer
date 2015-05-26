@@ -87,7 +87,19 @@ Then, select a Route definition within an EIP Model present into your workspace 
 
 ### Bridges
 
-More to come soon...
+One of our goal is also to provide an easy way to integrate EIP Designer with other solutions in order to offer a complementary viewpoint onto system design. For example, you may want to integrate EIP route design features with a Enterprise Architecture related designer in order to offer continuum between Service communication design and Service realization design.
+
+Check our [Wiki documentation](https://github.com/lbroudoux/eip-designer/wiki/How-To-Write-A-Bridge) on how to write a custom bridge !
+
+#### TOGAF Designer
+
+As an example, we provide a bridge for the [TOGAF Designer](http://marketplace.obeonetwork.com/module/togaf) from [Obeo](http://www.obeo.fr). This feature brings you a new contextual menu contribution for designing EIP route from Togaf Information System Service within diagrams as shown below :
+
+![togaf](https://raw.githubusercontent.com/lbroudoux/eip-designer/master/assets/eip-designer-togaf-extension.png)
+
+As soon, you have choosen a target EIP Model as the container for the Service Route design, it initializes a complete EIP design for the Service realization and by bringing in every service dependencies identified within Togaf designer :
+
+![togaf-route](https://raw.githubusercontent.com/lbroudoux/eip-designer/master/assets/eip-designer-togaf-route.png)
 
 
 ## License
