@@ -1,3 +1,21 @@
+/*
+ * Licensed to Laurent Broudoux (the "Author") under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership. Author licenses this
+ * file to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
 package com.github.lbroudoux.dsl.eip.parser.core.ui.actions;
 
 import org.eclipse.compare.CompareConfiguration;
@@ -26,7 +44,9 @@ import com.github.lbroudoux.dsl.eip.Route;
 import com.github.lbroudoux.dsl.eip.parser.core.ui.dialogs.CompareTargetSelectionDialog;
 
 /**
- * 
+ * Base abstract handler for building comparators of parsed resources with EIP Model route.
+ * It drives generic comparison process and provides a sole method <code>extractRouteFromFile(IFile)</code>
+ * that subclass should implement in order to specify how to parse the selected file.
  * @author laurent
  */
 public abstract class AbstractCompareWithRouteActionHandler extends AbstractHandler {
@@ -77,5 +97,11 @@ public abstract class AbstractCompareWithRouteActionHandler extends AbstractHand
       return null;
    }
    
+   /**
+    * This is a hook that concrete subclass should implement. It allows the subclass to specify how
+    * to parse the specific target resource and extract an EIP Route from it.
+    * @param selectionFile The file selected by user with right-click and "Compare with" option menu.
+    * @return The route parsed from selectionFile if any, null otherwise.
+    */
    protected abstract Route extractRouteFromFile(IFile selectionFile);
 }
