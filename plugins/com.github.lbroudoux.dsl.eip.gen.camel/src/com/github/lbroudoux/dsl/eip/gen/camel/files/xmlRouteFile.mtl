@@ -9,5 +9,7 @@
 
 [template public genXmlRouteFileBody(aRoute : Route)]
 <?xml version="1.0" encoding="UTF-8"?>
-[aRoute.genRouteXml()/]
+<routes xmlns="http://camel.apache.org/schema/spring">
+  [aRoute.genRouteXml()/]
+</routes>
 [/template]

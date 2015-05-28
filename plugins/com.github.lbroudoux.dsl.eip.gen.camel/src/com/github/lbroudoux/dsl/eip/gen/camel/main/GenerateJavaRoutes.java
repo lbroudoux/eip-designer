@@ -1,21 +1,13 @@
-/*
- * Licensed to Laurent Broudoux (the "Author") under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership. Author licenses this
- * file to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
+/*******************************************************************************
+ * Copyright (c) 2008, 2012 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ *******************************************************************************/
 package com.github.lbroudoux.dsl.eip.gen.camel.main;
 
 import java.io.File;
@@ -33,17 +25,17 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
 /**
- * Entry point of the 'GenerateXmlRoutes' generation module.
+ * Entry point of the 'GenerateJavaRoutes' generation module.
  *
  * @generated
  */
-public class GenerateXmlRoutes extends AbstractAcceleoGenerator {
+public class GenerateJavaRoutes extends AbstractAcceleoGenerator {
     /**
      * The name of the module.
      *
      * @generated
      */
-    public static final String MODULE_FILE_NAME = "/com/github/lbroudoux/dsl/eip/gen/camel/main/generateXmlRoutes";
+    public static final String MODULE_FILE_NAME = "/com/github/lbroudoux/dsl/eip/gen/camel/main/generateJavaRoutes";
     
     /**
      * The name of the templates that are to be generated.
@@ -73,7 +65,7 @@ public class GenerateXmlRoutes extends AbstractAcceleoGenerator {
      *
      * @generated
      */
-    public GenerateXmlRoutes() {
+    public GenerateJavaRoutes() {
         // Empty implementation
     }
 
@@ -93,7 +85,7 @@ public class GenerateXmlRoutes extends AbstractAcceleoGenerator {
      *             the model cannot be loaded.
      * @generated
      */
-    public GenerateXmlRoutes(URI modelURI, File targetFolder,
+    public GenerateJavaRoutes(URI modelURI, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(modelURI, targetFolder, arguments);
     }
@@ -114,7 +106,7 @@ public class GenerateXmlRoutes extends AbstractAcceleoGenerator {
      *             This can be thrown in two scenarios : the module cannot be found, or it cannot be loaded.
      * @generated
      */
-    public GenerateXmlRoutes(EObject model, File targetFolder,
+    public GenerateJavaRoutes(EObject model, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(model, targetFolder, arguments);
     }
@@ -149,7 +141,7 @@ public class GenerateXmlRoutes extends AbstractAcceleoGenerator {
                  * add in "arguments" this "String" attribute.
                  */
                 
-                GenerateXmlRoutes generator = new GenerateXmlRoutes(modelURI, folder, arguments);
+                GenerateJavaRoutes generator = new GenerateJavaRoutes(modelURI, folder, arguments);
                 
                 /*
                  * Add the properties from the launch arguments.
@@ -348,9 +340,6 @@ public class GenerateXmlRoutes extends AbstractAcceleoGenerator {
     @Override
     public void registerPackages(ResourceSet resourceSet) {
         super.registerPackages(resourceSet);
-        if (!isInWorkspace(com.github.lbroudoux.dsl.eip.EipPackage.class)) {
-            resourceSet.getPackageRegistry().put(com.github.lbroudoux.dsl.eip.EipPackage.eINSTANCE.getNsURI(), com.github.lbroudoux.dsl.eip.EipPackage.eINSTANCE);
-        }
         
         /*
          * If you want to change the content of this method, do NOT forget to change the "@generated"

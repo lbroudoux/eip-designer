@@ -1,0 +1,23 @@
+[comment encoding = UTF-8 /]
+[module javaRouteFile('http://www.github.com/lbroudoux/dsl/eip/1.0')]
+
+
+[template public genJavaRouteFilePath(aRoute : Route)]
+[aRoute.name.concat('.java')/]
+[/template]
+
+[template public genJavaRouteFileBody(aRoute : Route)]
+import org.apache.camel.builder.RouteBuilder;
+
+public class [aRoute.name/] extends RouteBuilder {
+   /**
+    * The Camel route is configured via this method.
+	* The from endpoint is required to be a SwitchYard service.
+    */
+   public void configure() { 
+      // [protected ('route implementation')]
+      	
+      // [/protected]
+   }
+}
+[/template]
