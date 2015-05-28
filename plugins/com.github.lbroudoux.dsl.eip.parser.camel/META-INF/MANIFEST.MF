@@ -6,6 +6,11 @@ Bundle-Version: 0.0.1.qualifier
 Bundle-Activator: com.github.lbroudoux.dsl.eip.parser.camel.Activator
 Bundle-Vendor: LBroudoux
 Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime
+ org.eclipse.core.runtime,
+ com.github.lbroudoux.dsl.eip,
+ com.github.lbroudoux.dsl.eip.parser.core,
+ org.eclipse.core.resources,
+ org.eclipse.core.expressions,
+ org.junit
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
