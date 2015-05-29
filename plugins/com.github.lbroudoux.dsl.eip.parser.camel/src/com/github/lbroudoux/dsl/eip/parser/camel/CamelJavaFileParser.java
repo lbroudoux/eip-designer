@@ -16,14 +16,31 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.github.lbroudoux.dsl.eip.parser.spring.ui.actions;
+package com.github.lbroudoux.dsl.eip.parser.camel;
+
+import java.io.File;
+
+import com.github.lbroudoux.dsl.eip.EIPModel;
 
 /**
- * Plugin commands identifiers.
+ * Parser for Apache Camel Java RouteBuilder class file. Just build a new instance and call
+ * <code>parseAndFillModel()</code> with already initialized model and it should go !
  * @author laurent
  */
-public class ActionCommands {
+public class CamelJavaFileParser {
 
-   /** "Compare with route" action command id */
-   public static final String COMPARE_WITH_ROUTE_ACTION = "com.github.lbroudoux.dsl.eip.parser.spring.ui.actions.CompareWithRoute";
+   private final File routeFile;
+   
+   public CamelJavaFileParser(File routeFile) {
+      this.routeFile = routeFile;
+   }
+   
+   /**
+    * Parse the routeFile given while building the instance and fill the model.
+    * @param model The EIP Model to fill with parsed elements from routeFile.
+    * @throws InvalidArgumentException if given file is not a valid Spring integration file
+    */
+   public void parseAndFillModel(EIPModel model) throws Exception {
+      
+   }
 }

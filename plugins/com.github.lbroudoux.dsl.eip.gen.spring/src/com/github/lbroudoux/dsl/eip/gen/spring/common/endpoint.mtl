@@ -20,7 +20,7 @@
 <int:header-enricher id="[anEnricher.name/]" [anEnricher.genChannelEndpointAttributes()/] />
 [/if]
 [if (anEnricher.part = MessagePart::PAYLOAD)]
- <int:enricher id="[anEnricher.name/]" />
+<int:enricher id="[anEnricher.name/]" />
 [/if]
 [/template]
 

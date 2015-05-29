@@ -5,13 +5,13 @@
    <extension point="org.eclipse.ui.popupMenus">
       <objectContribution
          adaptable="true"
-         id="com.github.lbroudoux.dsl.eip.parser.spring.ui.compareContribution"
+         id="com.github.lbroudoux.dsl.eip.parser.camel.ui.compareContribution"
          objectClass="org.eclipse.core.resources.IResource">
          
          <action
-               class="com.github.lbroudoux.dsl.eip.parser.spring.ui.actions.CompareWithRouteAction"
+               class="com.github.lbroudoux.dsl.eip.parser.camel.ui.actions.CompareWithRouteAction"
                icon="icons/obj16/Route.gif"
-               id="com.github.lbroudoux.dsl.eip.parser.spring.ui.actions.CompareWithRouteAction"
+               id="com.github.lbroudoux.dsl.eip.parser.camel.ui.actions.CompareWithRouteAction"
                label="Compare With EIP Route"
                menubarPath="compareWithMenu/eipCompareWithGroup">
          </action>
@@ -20,13 +20,13 @@
    
    <extension point="org.eclipse.ui.commands" name="EIP Commands">
       <category
-         id="com.github.lbroudoux.dsl.eip.parser.spring.ui.commandCategory"
-         name="EIP Spring UI">
+         id="com.github.lbroudoux.dsl.eip.parser.camel.ui.commandCategory"
+         name="EIP Camel UI">
       </category>
       <command
-         id="com.github.lbroudoux.dsl.eip.parser.spring.ui.actions.CompareWithRoute"
-         categoryId="com.github.lbroudoux.dsl.eip.parser.spring.ui.commandCategory"
-         defaultHandler="com.github.lbroudoux.dsl.eip.parser.spring.ui.actions.CompareWithRouteHandler"
+         id="com.github.lbroudoux.dsl.eip.parser.camel.ui.actions.CompareWithRoute"
+         categoryId="com.github.lbroudoux.dsl.eip.parser.camel.ui.commandCategory"
+         defaultHandler="com.github.lbroudoux.dsl.eip.parser.camel.ui.actions.CompareWithRouteHandler"
          name="Compare With EIP Route Command">
       </command>
    </extension>

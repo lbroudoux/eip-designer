@@ -1,13 +1,14 @@
 [comment encoding = UTF-8 /]
 [module routeXml('http://www.github.com/lbroudoux/dsl/eip/1.0')]
 
+[import com::github::lbroudoux::dsl::eip::gen::camel::xml::channel /]
 [import com::github::lbroudoux::dsl::eip::gen::camel::xml::endpoint /]
 
 [template public genRouteXml(aRoute : Route)]
 <route id="[aRoute.name/]">
 [for (endpoint : Endpoint | aRoute.ownedEndpoints)]
 [if (endpoint.fromChannels->size() = 0)]
-  <from id="[endpoint.name/]" uri="switchyard://[endpoint.name/]"/>
+  <from id="[endpoint.name/][endpoint.genOutgoingChannelName()/]" uri="switchyard://[endpoint.name/]"/>
   [endpoint.toChannel.toEndpoint.genEndpoint()/]
 [/if]
 [/for]

@@ -1,12 +1,14 @@
 [comment encoding = UTF-8 /]
 [module endpoint('http://www.github.com/lbroudoux/dsl/eip/1.0')]
 
+[import com::github::lbroudoux::dsl::eip::gen::camel::xml::channel /]
+
 [template public genEndpoint(anEndpoint : Endpoint) post(trim())]
 <!-- Endpoint not yet supported by generator -->
 [/template]
 
 [template public genEndpoint(aFilter : Filter) post(trim())]
-<filter id="[aFilter.name/]">
+<filter id="[aFilter.name/][aFilter.genOutgoingChannelName()/]">
   <simple></simple>
   [aFilter.toChannel.toEndpoint.genEndpoint()/]	
 </filter>
@@ -21,12 +23,12 @@
 [/template]
 
 [template public genEndpoint(aTransformer : Transformer) post(trim())]
-<to id="[aTransformer.name/]" uri="xslt:[aTransformer.name/]"/>
+<to id="[aTransformer.name/][aTransformer.genOutgoingChannelName()/]" uri="xslt:[aTransformer.name/]"/>
 [aTransformer.toChannel.toEndpoint.genEndpoint()/]
 [/template]
 
 [template public genEndpoint(aRouter : Router) post(trim())]
-<choice id="[aRouter.name/]">
+<choice id="[aRouter.name/][aRouter.genOutgoingChannelName()/]">
 [for (route : ConditionalRoute | aRouter.ownedRoutes)]
   <when id="[route.channel.name/]">
 	<simple>[route.condition/]</simple>
@@ -40,16 +42,16 @@
 [/template]
 
 [template public genEndpoint(aSplitter : Splitter) post(trim())]
-<split id="[aSplitter.name/]">
+<split id="[aSplitter.name/][aSplitter.genOutgoingChannelName()/]">
   [aSplitter.toChannel.toEndpoint.genEndpoint()/]
 </split>
 [/template]
 
 [template public genEndpoint(aCompositeProcessor : CompositeProcessor) post(trim())]
-<pipeline id="[aCompositeProcessor.name/]">
+<pipeline id="[aCompositeProcessor.name/][aCompositeProcessor.genOutgoingChannelName()/]">
 [for (endpoint : Endpoint | aCompositeProcessor.ownedEndpoints)]
 [if (endpoint.fromChannels->size() = 0)]
-  [endpoint.toChannel.toEndpoint.genEndpoint()/]
+  [endpoint.genEndpoint()/]
 [/if]
 [/for]
 </pipeline>
@@ -57,10 +59,10 @@
 [/template]
 
 [template public genEndpoint(aGateway : Gateway) post(trim())]
-<to id="[aGateway.name/]" uri="switchyard://[aGateway.name/]"/>
+<to id="[aGateway.name/][aGateway.genOutgoingChannelName()/]" uri="switchyard://[aGateway.name/]"/>
 [/template]
 
 [template public genEndpoint(aServiceActivator : ServiceActivator) post(trim())]
-<to id="[aServiceActivator.name/]" uri="switchyard://[aServiceActivator.name/]"/>
+<to id="[aServiceActivator.name/][aServiceActivator.genOutgoingChannelName()/]" uri="switchyard://[aServiceActivator.name/]"/>
 [aServiceActivator.toChannel.toEndpoint.genEndpoint()/]
 [/template]

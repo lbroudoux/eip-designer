@@ -38,20 +38,21 @@ public class CompareWithRouteActionHandler extends AbstractCompareWithRouteActio
 
    @Override
    protected Route extractRouteFromFile(IFile selectionFile) {
-      SpringIntegrationFileParser parser = new SpringIntegrationFileParser(selectionFile.getLocation().toFile());
-       EIPModel model = EipFactory.eINSTANCE.createEIPModel();
-       try {
-          parser.parseAndFillModel(model);
-       } catch (Exception e) {
-          // TODO Manage parsing exception
-          e.printStackTrace();
-          return null;
-       }
-       if (model.getOwnedRoutes() == null || model.getOwnedRoutes().isEmpty()) {
-          // TODO Manage empty parsing result.
-          System.err.println("No Route was found during Spring Integration file parsing !");
-          return null;
-       }
-       return model.getOwnedRoutes().get(0);
+      SpringIntegrationFileParser parser = new SpringIntegrationFileParser(
+            selectionFile.getLocation().toFile());
+      EIPModel model = EipFactory.eINSTANCE.createEIPModel();
+      try {
+         parser.parseAndFillModel(model);
+      } catch (Exception e) {
+         // TODO Manage parsing exception
+         e.printStackTrace();
+         return null;
+      }
+      if (model.getOwnedRoutes() == null || model.getOwnedRoutes().isEmpty()) {
+         // TODO Manage empty parsing result.
+         System.err.println("No Route was found during Spring Integration file parsing !");
+         return null;
+      }
+      return model.getOwnedRoutes().get(0);
    }
 }
