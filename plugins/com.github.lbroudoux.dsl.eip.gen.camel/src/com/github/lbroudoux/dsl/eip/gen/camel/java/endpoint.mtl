@@ -1,0 +1,62 @@
+[comment encoding = UTF-8 /]
+[module endpoint('http://www.github.com/lbroudoux/dsl/eip/1.0')]
+
+
+[template public genEndpoint(anEndpoint : Endpoint) post(trim())]
+// Endpoint not yet supported by generator
+[/template]
+
+[template public genEndpoint(aFilter : Filter) post(trim())]
+.filter()
+[aFilter.toChannel.toEndpoint.genEndpoint()/]
+[/template]
+
+[template public genEndpoint(aFilter : ContentFilter) post(trim())]
+.filter()
+[aFilter.toChannel.toEndpoint.genEndpoint()/]
+[/template]
+
+[template public genEndpoint(anEnricher : Enricher) post(trim())]
+// Enricher
+[anEnricher.toChannel.toEndpoint.genEndpoint()/]
+[/template]
+
+[template public genEndpoint(aTransformer : Transformer) post(trim())]
+.to("xslt:")
+[aTransformer.toChannel.toEndpoint.genEndpoint()/]
+[/template]
+
+[template public genEndpoint(aRouter : Router) post(trim())]
+.choice()
+[for (route : ConditionalRoute | aRouter.ownedRoutes)]
+   .when()
+      [route.channel.toEndpoint.genEndpoint()/]
+[/for]
+   .otherwise()
+      [aRouter.toChannel.toEndpoint.genEndpoint()/]
+[/template]
+
+[template public genEndpoint(aSplitter : Splitter) post(trim())]
+.split()
+  [aSplitter.toChannel.toEndpoint.genEndpoint()/]
+[/template]
+
+[template public genEndpoint(aCompositeProcessor : CompositeProcessor) post(trim())]
+[for (endpoint : Endpoint | aCompositeProcessor.ownedEndpoints)]
+[if (endpoint.fromChannels->size() = 0)]
+  [endpoint.genEndpoint()/]
+[/if]
+[/for]
+.end()
+[aCompositeProcessor.toChannel.toEndpoint.genEndpoint()/]
+[/template]
+
+[template public genEndpoint(aGateway : Gateway) post(trim())]
+.to("switchyard://[aGateway.name/]")
+[/template]
+
+[template public genEndpoint(aServiceActivator : ServiceActivator) post(trim())]
+.to()
+[aServiceActivator.toChannel.toEndpoint.genEndpoint()/]
+[/template]
+

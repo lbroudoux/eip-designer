@@ -343,11 +343,12 @@ public class GenerateXmlRoutes extends AbstractAcceleoGenerator {
      * 
      * @param resourceSet
      *            The resource set which registry has to be updated.
-     * @generated
+     * @generated not
      */
     @Override
     public void registerPackages(ResourceSet resourceSet) {
         super.registerPackages(resourceSet);
+        
         if (!isInWorkspace(com.github.lbroudoux.dsl.eip.EipPackage.class)) {
             resourceSet.getPackageRegistry().put(com.github.lbroudoux.dsl.eip.EipPackage.eINSTANCE.getNsURI(), com.github.lbroudoux.dsl.eip.EipPackage.eINSTANCE);
         }
