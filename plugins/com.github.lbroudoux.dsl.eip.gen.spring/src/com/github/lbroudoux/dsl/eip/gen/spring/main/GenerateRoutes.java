@@ -32,6 +32,8 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
+import com.github.lbroudoux.dsl.eip.EipPackage;
+
 /**
  * Entry point of the 'GenerateRoutes' generation module.
  *
@@ -343,13 +345,14 @@ public class GenerateRoutes extends AbstractAcceleoGenerator {
      * 
      * @param resourceSet
      *            The resource set which registry has to be updated.
-     * @generated
+     * @generated not
      */
     @Override
     public void registerPackages(ResourceSet resourceSet) {
         super.registerPackages(resourceSet);
-        if (!isInWorkspace(com.github.lbroudoux.dsl.eip.EipPackage.class)) {
-            resourceSet.getPackageRegistry().put(com.github.lbroudoux.dsl.eip.EipPackage.eINSTANCE.getNsURI(), com.github.lbroudoux.dsl.eip.EipPackage.eINSTANCE);
+        
+        if (!isInWorkspace(EipPackage.class)) {
+        	resourceSet.getPackageRegistry().put(EipPackage.eNS_URI, EipPackage.eINSTANCE);
         }
         
         /*
