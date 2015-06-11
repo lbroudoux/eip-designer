@@ -24,6 +24,8 @@ EIP Designer is currently in development mode and thus should be either be :
 * built from sources to get distributable and installable binary packages or,
 * directly imported into Eclipse workbench for local tests.
 
+For early testers, a snapshot P2 repository as been setup here: `http://dl.bintray.com/lbroudoux/maven/eip-designer/0.0.1/`. Just use this URL as an update site into your Eclipse installation within `Install New Software...`.  
+
 ### Pre-requisites
 
 EIP Designer needs at least Eclipse Luna SR1 with modeling stuffs. We recommend using directly the _Modeling Tools_ distribution of Eclipse available from [download page](http://www.eclipse.org/downloads/).
