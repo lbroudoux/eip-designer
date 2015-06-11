@@ -9,6 +9,10 @@
    <feature url="features/com.github.lbroudoux.dsl.eip.spring.feature_0.0.1.qualifier.jar" id="com.github.lbroudoux.dsl.eip.spring.feature" version="0.0.1.qualifier">
       <category name="com.github.lbroudoux.dsl.eip.extensions"/>
    </feature>
+   <bundle id="com.github.lbroudoux.dsl.eip.bridge.core" version="0.0.1.qualifier">
+      <category name="com.github.lbroudoux.dsl.eip.sdk"/>
+   </bundle>
    <category-def name="com.github.lbroudoux.dsl.eip.designer" label="EIP Designer"/>
    <category-def name="com.github.lbroudoux.dsl.eip.extensions" label="EIP Designer Extensions"/>
+   <category-def name="com.github.lbroudoux.dsl.eip.sdk" label="EIP Designer SDK"/>
 </site>
