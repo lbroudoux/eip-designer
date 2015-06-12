@@ -7,6 +7,37 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>EIP Designer Parent</name>
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>7</version>
+  </parent>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>laurent</id>
+      <name>Laurent Broudoux</name>
+      <email>laurent.broudoux@gmail.com</email>
+      <url>http://lbroudoux.wordpress.com</url>
+      <timezone>+1</timezone>
+    </developer>
+  </developers>
+  <scm>
+    <url>scm:git@github.com:lbroudoux/eip-designer.git</url>
+    <connection>scm:git:git@github.com:lbroudoux/eip-designer</connection>
+    <developerConnection>scm:git:git@github.com:lbroudoux/eip-designer.git</developerConnection>
+    <tag>HEAD</tag>
+  </scm>
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/lbroudoux/eip-designer/issues/</url>
+  </issueManagement>
   <properties>
     <tycho-version>0.11.0</tycho-version>
   </properties>
@@ -52,4 +83,27 @@
       </plugin>
     </plugins>
   </build>
+  <profiles>
+    <profile>
+      <id>release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.4</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
