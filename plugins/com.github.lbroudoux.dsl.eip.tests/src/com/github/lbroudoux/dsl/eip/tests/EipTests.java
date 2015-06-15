@@ -16,31 +16,31 @@ import junit.textui.TestRunner;
 public class EipTests extends TestSuite {
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public static void main(String[] args) {
-		TestRunner.run(suite());
-	}
+      TestRunner.run(suite());
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public static Test suite() {
-		TestSuite suite = new EipTests("eip Tests");
-		return suite;
-	}
+      TestSuite suite = new EipTests("eip Tests");
+      return suite;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EipTests(String name) {
-		super(name);
-	}
+      super(name);
+   }
 
 } //EipTests

@@ -24,81 +24,87 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ServiceInvocation extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Context</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+    * Returns the value of the '<em><b>Context</b></em>' attribute.
+    * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Context</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Context</em>' attribute.
-	 * @see #setContext(String)
-	 * @see com.github.lbroudoux.dsl.eip.EipPackage#getServiceInvocation_Context()
-	 * @model
-	 * @generated
-	 */
+    * <!-- begin-model-doc -->
+    * Allow to specify a specific invocation context (documentation purpose).
+    * <!-- end-model-doc -->
+    * @return the value of the '<em>Context</em>' attribute.
+    * @see #setContext(String)
+    * @see com.github.lbroudoux.dsl.eip.EipPackage#getServiceInvocation_Context()
+    * @model
+    * @generated
+    */
 	String getContext();
 
 	/**
-	 * Sets the value of the '{@link com.github.lbroudoux.dsl.eip.ServiceInvocation#getContext <em>Context</em>}' attribute.
-	 * <!-- begin-user-doc -->
+    * Sets the value of the '{@link com.github.lbroudoux.dsl.eip.ServiceInvocation#getContext <em>Context</em>}' attribute.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Context</em>' attribute.
-	 * @see #getContext()
-	 * @generated
-	 */
+    * @param value the new value of the '<em>Context</em>' attribute.
+    * @see #getContext()
+    * @generated
+    */
 	void setContext(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Operation Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+    * Returns the value of the '<em><b>Operation Name</b></em>' attribute.
+    * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Operation Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Operation Name</em>' attribute.
-	 * @see #setOperationName(String)
-	 * @see com.github.lbroudoux.dsl.eip.EipPackage#getServiceInvocation_OperationName()
-	 * @model
-	 * @generated
-	 */
+    * <!-- begin-model-doc -->
+    * The name of service's operation to invoke.
+    * <!-- end-model-doc -->
+    * @return the value of the '<em>Operation Name</em>' attribute.
+    * @see #setOperationName(String)
+    * @see com.github.lbroudoux.dsl.eip.EipPackage#getServiceInvocation_OperationName()
+    * @model
+    * @generated
+    */
 	String getOperationName();
 
 	/**
-	 * Sets the value of the '{@link com.github.lbroudoux.dsl.eip.ServiceInvocation#getOperationName <em>Operation Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+    * Sets the value of the '{@link com.github.lbroudoux.dsl.eip.ServiceInvocation#getOperationName <em>Operation Name</em>}' attribute.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Operation Name</em>' attribute.
-	 * @see #getOperationName()
-	 * @generated
-	 */
+    * @param value the new value of the '<em>Operation Name</em>' attribute.
+    * @see #getOperationName()
+    * @generated
+    */
 	void setOperationName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Service Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
+    * Returns the value of the '<em><b>Service Ref</b></em>' reference.
+    * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Service Ref</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Service Ref</em>' reference.
-	 * @see #setServiceRef(ServiceRef)
-	 * @see com.github.lbroudoux.dsl.eip.EipPackage#getServiceInvocation_ServiceRef()
-	 * @model required="true"
-	 * @generated
-	 */
+    * @return the value of the '<em>Service Ref</em>' reference.
+    * @see #setServiceRef(ServiceRef)
+    * @see com.github.lbroudoux.dsl.eip.EipPackage#getServiceInvocation_ServiceRef()
+    * @model required="true"
+    * @generated
+    */
 	ServiceRef getServiceRef();
 
 	/**
-	 * Sets the value of the '{@link com.github.lbroudoux.dsl.eip.ServiceInvocation#getServiceRef <em>Service Ref</em>}' reference.
-	 * <!-- begin-user-doc -->
+    * Sets the value of the '{@link com.github.lbroudoux.dsl.eip.ServiceInvocation#getServiceRef <em>Service Ref</em>}' reference.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Service Ref</em>' reference.
-	 * @see #getServiceRef()
-	 * @generated
-	 */
+    * @param value the new value of the '<em>Service Ref</em>' reference.
+    * @see #getServiceRef()
+    * @generated
+    */
 	void setServiceRef(ServiceRef value);
 
 } // ServiceInvocation

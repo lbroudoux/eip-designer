@@ -17,22 +17,22 @@ import org.eclipse.emf.ecore.EClass;
  */
 public class ServiceActivatorImpl extends InvocableEndpointImpl implements ServiceActivator {
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	protected ServiceActivatorImpl() {
-		super();
-	}
+      super();
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	@Override
 	protected EClass eStaticClass() {
-		return EipPackage.Literals.SERVICE_ACTIVATOR;
-	}
+      return EipPackage.Literals.SERVICE_ACTIVATOR;
+   }
 
 } //ServiceActivatorImpl

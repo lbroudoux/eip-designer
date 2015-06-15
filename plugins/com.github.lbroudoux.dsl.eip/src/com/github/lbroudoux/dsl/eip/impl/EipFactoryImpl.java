@@ -21,348 +21,383 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  */
 public class EipFactoryImpl extends EFactoryImpl implements EipFactory {
 	/**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc -->
+    * Creates the default factory implementation.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public static EipFactory init() {
-		try {
-			EipFactory theEipFactory = (EipFactory)EPackage.Registry.INSTANCE.getEFactory(EipPackage.eNS_URI);
-			if (theEipFactory != null) {
-				return theEipFactory;
-			}
-		}
-		catch (Exception exception) {
-			EcorePlugin.INSTANCE.log(exception);
-		}
-		return new EipFactoryImpl();
-	}
+      try {
+         EipFactory theEipFactory = (EipFactory)EPackage.Registry.INSTANCE.getEFactory(EipPackage.eNS_URI);
+         if (theEipFactory != null) {
+            return theEipFactory;
+         }
+      }
+      catch (Exception exception) {
+         EcorePlugin.INSTANCE.log(exception);
+      }
+      return new EipFactoryImpl();
+   }
 
 	/**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc -->
+    * Creates an instance of the factory.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EipFactoryImpl() {
-		super();
-	}
+      super();
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	@Override
 	public EObject create(EClass eClass) {
-		switch (eClass.getClassifierID()) {
-			case EipPackage.CHANNEL: return createChannel();
-			case EipPackage.ADAPTER: return createAdapter();
-			case EipPackage.ROUTER: return createRouter();
-			case EipPackage.FILTER: return createFilter();
-			case EipPackage.TRANSFORMER: return createTransformer();
-			case EipPackage.GATEWAY: return createGateway();
-			case EipPackage.CONDITIONAL_ROUTE: return createConditionalRoute();
-			case EipPackage.SPLITTER: return createSplitter();
-			case EipPackage.AGGREGATOR: return createAggregator();
-			case EipPackage.ROUTE: return createRoute();
-			case EipPackage.SERVICE_ACTIVATOR: return createServiceActivator();
-			case EipPackage.EIP_MODEL: return createEIPModel();
-			case EipPackage.ENRICHER: return createEnricher();
-			case EipPackage.COMPOSITE_PROCESSOR: return createCompositeProcessor();
-			case EipPackage.RECIPIENT_LIST_ROUTER: return createRecipientListRouter();
-			case EipPackage.SERVICE_REF: return createServiceRef();
-			case EipPackage.SERVICE_INVOCATION: return createServiceInvocation();
-			case EipPackage.INVOCABLE_ENDPOINT: return createInvocableEndpoint();
-			case EipPackage.CONTENT_FILTER: return createContentFilter();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
+      switch (eClass.getClassifierID()) {
+         case EipPackage.CHANNEL: return createChannel();
+         case EipPackage.ADAPTER: return createAdapter();
+         case EipPackage.ROUTER: return createRouter();
+         case EipPackage.FILTER: return createFilter();
+         case EipPackage.TRANSFORMER: return createTransformer();
+         case EipPackage.GATEWAY: return createGateway();
+         case EipPackage.CONDITIONAL_ROUTE: return createConditionalRoute();
+         case EipPackage.SPLITTER: return createSplitter();
+         case EipPackage.AGGREGATOR: return createAggregator();
+         case EipPackage.ROUTE: return createRoute();
+         case EipPackage.SERVICE_ACTIVATOR: return createServiceActivator();
+         case EipPackage.EIP_MODEL: return createEIPModel();
+         case EipPackage.ENRICHER: return createEnricher();
+         case EipPackage.COMPOSITE_PROCESSOR: return createCompositeProcessor();
+         case EipPackage.RECIPIENT_LIST_ROUTER: return createRecipientListRouter();
+         case EipPackage.SERVICE_REF: return createServiceRef();
+         case EipPackage.SERVICE_INVOCATION: return createServiceInvocation();
+         case EipPackage.INVOCABLE_ENDPOINT: return createInvocableEndpoint();
+         case EipPackage.CONTENT_FILTER: return createContentFilter();
+         case EipPackage.RESEQUENCER: return createResequencer();
+         default:
+            throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+      }
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
-		switch (eDataType.getClassifierID()) {
-			case EipPackage.MESSAGE_PART:
-				return createMessagePartFromString(eDataType, initialValue);
-			case EipPackage.ROUTING_TYPE:
-				return createRoutingTypeFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
+      switch (eDataType.getClassifierID()) {
+         case EipPackage.MESSAGE_PART:
+            return createMessagePartFromString(eDataType, initialValue);
+         case EipPackage.ROUTING_TYPE:
+            return createRoutingTypeFromString(eDataType, initialValue);
+         case EipPackage.EXCHANGE_TYPE:
+            return createExchangeTypeFromString(eDataType, initialValue);
+         default:
+            throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+      }
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
-		switch (eDataType.getClassifierID()) {
-			case EipPackage.MESSAGE_PART:
-				return convertMessagePartToString(eDataType, instanceValue);
-			case EipPackage.ROUTING_TYPE:
-				return convertRoutingTypeToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
+      switch (eDataType.getClassifierID()) {
+         case EipPackage.MESSAGE_PART:
+            return convertMessagePartToString(eDataType, instanceValue);
+         case EipPackage.ROUTING_TYPE:
+            return convertRoutingTypeToString(eDataType, instanceValue);
+         case EipPackage.EXCHANGE_TYPE:
+            return convertExchangeTypeToString(eDataType, instanceValue);
+         default:
+            throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+      }
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public Channel createChannel() {
-		ChannelImpl channel = new ChannelImpl();
-		return channel;
-	}
+      ChannelImpl channel = new ChannelImpl();
+      return channel;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public Adapter createAdapter() {
-		AdapterImpl adapter = new AdapterImpl();
-		return adapter;
-	}
+      AdapterImpl adapter = new AdapterImpl();
+      return adapter;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public Router createRouter() {
-		RouterImpl router = new RouterImpl();
-		return router;
-	}
+      RouterImpl router = new RouterImpl();
+      return router;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public Filter createFilter() {
-		FilterImpl filter = new FilterImpl();
-		return filter;
-	}
+      FilterImpl filter = new FilterImpl();
+      return filter;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public Transformer createTransformer() {
-		TransformerImpl transformer = new TransformerImpl();
-		return transformer;
-	}
+      TransformerImpl transformer = new TransformerImpl();
+      return transformer;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public Gateway createGateway() {
-		GatewayImpl gateway = new GatewayImpl();
-		return gateway;
-	}
+      GatewayImpl gateway = new GatewayImpl();
+      return gateway;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public ConditionalRoute createConditionalRoute() {
-		ConditionalRouteImpl conditionalRoute = new ConditionalRouteImpl();
-		return conditionalRoute;
-	}
+      ConditionalRouteImpl conditionalRoute = new ConditionalRouteImpl();
+      return conditionalRoute;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public Splitter createSplitter() {
-		SplitterImpl splitter = new SplitterImpl();
-		return splitter;
-	}
+      SplitterImpl splitter = new SplitterImpl();
+      return splitter;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public Aggregator createAggregator() {
-		AggregatorImpl aggregator = new AggregatorImpl();
-		return aggregator;
-	}
+      AggregatorImpl aggregator = new AggregatorImpl();
+      return aggregator;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public Route createRoute() {
-		RouteImpl route = new RouteImpl();
-		return route;
-	}
+      RouteImpl route = new RouteImpl();
+      return route;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public ServiceActivator createServiceActivator() {
-		ServiceActivatorImpl serviceActivator = new ServiceActivatorImpl();
-		return serviceActivator;
-	}
+      ServiceActivatorImpl serviceActivator = new ServiceActivatorImpl();
+      return serviceActivator;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EIPModel createEIPModel() {
-		EIPModelImpl eipModel = new EIPModelImpl();
-		return eipModel;
-	}
+      EIPModelImpl eipModel = new EIPModelImpl();
+      return eipModel;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public Enricher createEnricher() {
-		EnricherImpl enricher = new EnricherImpl();
-		return enricher;
-	}
+      EnricherImpl enricher = new EnricherImpl();
+      return enricher;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public CompositeProcessor createCompositeProcessor() {
-		CompositeProcessorImpl compositeProcessor = new CompositeProcessorImpl();
-		return compositeProcessor;
-	}
+      CompositeProcessorImpl compositeProcessor = new CompositeProcessorImpl();
+      return compositeProcessor;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public RecipientListRouter createRecipientListRouter() {
-		RecipientListRouterImpl recipientListRouter = new RecipientListRouterImpl();
-		return recipientListRouter;
-	}
+      RecipientListRouterImpl recipientListRouter = new RecipientListRouterImpl();
+      return recipientListRouter;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public ServiceRef createServiceRef() {
-		ServiceRefImpl serviceRef = new ServiceRefImpl();
-		return serviceRef;
-	}
+      ServiceRefImpl serviceRef = new ServiceRefImpl();
+      return serviceRef;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public ServiceInvocation createServiceInvocation() {
-		ServiceInvocationImpl serviceInvocation = new ServiceInvocationImpl();
-		return serviceInvocation;
-	}
+      ServiceInvocationImpl serviceInvocation = new ServiceInvocationImpl();
+      return serviceInvocation;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public InvocableEndpoint createInvocableEndpoint() {
-		InvocableEndpointImpl invocableEndpoint = new InvocableEndpointImpl();
-		return invocableEndpoint;
-	}
+      InvocableEndpointImpl invocableEndpoint = new InvocableEndpointImpl();
+      return invocableEndpoint;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public ContentFilter createContentFilter() {
-		ContentFilterImpl contentFilter = new ContentFilterImpl();
-		return contentFilter;
-	}
+      ContentFilterImpl contentFilter = new ContentFilterImpl();
+      return contentFilter;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public Resequencer createResequencer() {
+      ResequencerImpl resequencer = new ResequencerImpl();
+      return resequencer;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public MessagePart createMessagePartFromString(EDataType eDataType, String initialValue) {
-		MessagePart result = MessagePart.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
+      MessagePart result = MessagePart.get(initialValue);
+      if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+      return result;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public String convertMessagePartToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
+      return instanceValue == null ? null : instanceValue.toString();
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public RoutingType createRoutingTypeFromString(EDataType eDataType, String initialValue) {
-		RoutingType result = RoutingType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
+      RoutingType result = RoutingType.get(initialValue);
+      if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+      return result;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public String convertRoutingTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
+      return instanceValue == null ? null : instanceValue.toString();
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public ExchangeType createExchangeTypeFromString(EDataType eDataType, String initialValue) {
+      ExchangeType result = ExchangeType.get(initialValue);
+      if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+      return result;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public String convertExchangeTypeToString(EDataType eDataType, Object instanceValue) {
+      return instanceValue == null ? null : instanceValue.toString();
+   }
+
+   /**
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EipPackage getEipPackage() {
-		return (EipPackage)getEPackage();
-	}
+      return (EipPackage)getEPackage();
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @deprecated
-	 * @generated
-	 */
+    * @deprecated
+    * @generated
+    */
 	@Deprecated
 	public static EipPackage getPackage() {
-		return EipPackage.eINSTANCE;
-	}
+      return EipPackage.eINSTANCE;
+   }
 
 } //EipFactoryImpl

@@ -18,72 +18,72 @@ import junit.textui.TestRunner;
 public class AggregatorTest extends TestCase {
 
 	/**
-	 * The fixture for this Aggregator test case.
-	 * <!-- begin-user-doc -->
+    * The fixture for this Aggregator test case.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	protected Aggregator fixture = null;
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public static void main(String[] args) {
-		TestRunner.run(AggregatorTest.class);
-	}
+      TestRunner.run(AggregatorTest.class);
+   }
 
 	/**
-	 * Constructs a new Aggregator test case with the given name.
-	 * <!-- begin-user-doc -->
+    * Constructs a new Aggregator test case with the given name.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public AggregatorTest(String name) {
-		super(name);
-	}
+      super(name);
+   }
 
 	/**
-	 * Sets the fixture for this Aggregator test case.
-	 * <!-- begin-user-doc -->
+    * Sets the fixture for this Aggregator test case.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	protected void setFixture(Aggregator fixture) {
-		this.fixture = fixture;
-	}
+      this.fixture = fixture;
+   }
 
 	/**
-	 * Returns the fixture for this Aggregator test case.
-	 * <!-- begin-user-doc -->
+    * Returns the fixture for this Aggregator test case.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	protected Aggregator getFixture() {
-		return fixture;
-	}
+      return fixture;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
+    * @see junit.framework.TestCase#setUp()
+    * @generated
+    */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(EipFactory.eINSTANCE.createAggregator());
-	}
+      setFixture(EipFactory.eINSTANCE.createAggregator());
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
+    * @see junit.framework.TestCase#tearDown()
+    * @generated
+    */
 	@Override
 	protected void tearDown() throws Exception {
-		setFixture(null);
-	}
+      setFixture(null);
+   }
 
 } //AggregatorTest

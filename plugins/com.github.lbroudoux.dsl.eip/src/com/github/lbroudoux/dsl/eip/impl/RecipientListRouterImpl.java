@@ -18,22 +18,22 @@ import org.eclipse.emf.ecore.EClass;
  */
 public class RecipientListRouterImpl extends RouterImpl implements RecipientListRouter {
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	protected RecipientListRouterImpl() {
-		super();
-	}
+      super();
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	@Override
 	protected EClass eStaticClass() {
-		return EipPackage.Literals.RECIPIENT_LIST_ROUTER;
-	}
+      return EipPackage.Literals.RECIPIENT_LIST_ROUTER;
+   }
 
 } //RecipientListRouterImpl

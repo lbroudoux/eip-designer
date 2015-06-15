@@ -14,11 +14,13 @@ import com.github.lbroudoux.dsl.eip.EipPackage;
 import com.github.lbroudoux.dsl.eip.Endpoint;
 
 import com.github.lbroudoux.dsl.eip.Enricher;
+import com.github.lbroudoux.dsl.eip.ExchangeType;
 import com.github.lbroudoux.dsl.eip.Filter;
 import com.github.lbroudoux.dsl.eip.Gateway;
 import com.github.lbroudoux.dsl.eip.InvocableEndpoint;
 import com.github.lbroudoux.dsl.eip.MessagePart;
 import com.github.lbroudoux.dsl.eip.RecipientListRouter;
+import com.github.lbroudoux.dsl.eip.Resequencer;
 import com.github.lbroudoux.dsl.eip.Route;
 import com.github.lbroudoux.dsl.eip.Router;
 import com.github.lbroudoux.dsl.eip.RoutingType;
@@ -43,877 +45,963 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  */
 public class EipPackageImpl extends EPackageImpl implements EipPackage {
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	private EClass endpointEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	private EClass channelEClass = null;
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	private EClass adapterEClass = null;
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	private EClass routerEClass = null;
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	private EClass filterEClass = null;
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	private EClass transformerEClass = null;
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	private EClass gatewayEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	private EClass conditionalRouteEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	private EClass splitterEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	private EClass aggregatorEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	private EClass routeEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	private EClass serviceActivatorEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	private EClass eipModelEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	private EClass enricherEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	private EClass compositeProcessorEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	private EClass recipientListRouterEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	private EClass serviceRefEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	private EClass serviceInvocationEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	private EClass invocableEndpointEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	private EClass contentFilterEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   private EClass resequencerEClass = null;
+
+   /**
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	private EEnum messagePartEEnum = null;
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	private EEnum routingTypeEEnum = null;
 
 	/**
-	 * Creates an instance of the model <b>Package</b>, registered with
-	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
-	 * package URI value.
-	 * <p>Note: the correct way to create the package is via the static
-	 * factory method {@link #init init()}, which also performs
-	 * initialization of the package, or returns the registered package,
-	 * if one already exists.
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   private EEnum exchangeTypeEEnum = null;
+
+   /**
+    * Creates an instance of the model <b>Package</b>, registered with
+    * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
+    * package URI value.
+    * <p>Note: the correct way to create the package is via the static
+    * factory method {@link #init init()}, which also performs
+    * initialization of the package, or returns the registered package,
+    * if one already exists.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see com.github.lbroudoux.dsl.eip.EipPackage#eNS_URI
-	 * @see #init()
-	 * @generated
-	 */
+    * @see org.eclipse.emf.ecore.EPackage.Registry
+    * @see com.github.lbroudoux.dsl.eip.EipPackage#eNS_URI
+    * @see #init()
+    * @generated
+    */
 	private EipPackageImpl() {
-		super(eNS_URI, EipFactory.eINSTANCE);
-	}
+      super(eNS_URI, EipFactory.eINSTANCE);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
-	 * <p>This method is used to initialize {@link EipPackage#eINSTANCE} when that field is accessed.
-	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
-	 * <!-- begin-user-doc -->
+    * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+    * 
+    * <p>This method is used to initialize {@link EipPackage#eINSTANCE} when that field is accessed.
+    * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #eNS_URI
-	 * @see #createPackageContents()
-	 * @see #initializePackageContents()
-	 * @generated
-	 */
+    * @see #eNS_URI
+    * @see #createPackageContents()
+    * @see #initializePackageContents()
+    * @generated
+    */
 	public static EipPackage init() {
-		if (isInited) return (EipPackage)EPackage.Registry.INSTANCE.getEPackage(EipPackage.eNS_URI);
+      if (isInited) return (EipPackage)EPackage.Registry.INSTANCE.getEPackage(EipPackage.eNS_URI);
 
-		// Obtain or create and register package
-		EipPackageImpl theEipPackage = (EipPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof EipPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new EipPackageImpl());
+      // Obtain or create and register package
+      EipPackageImpl theEipPackage = (EipPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof EipPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new EipPackageImpl());
 
-		isInited = true;
+      isInited = true;
 
-		// Create package meta-data objects
-		theEipPackage.createPackageContents();
+      // Create package meta-data objects
+      theEipPackage.createPackageContents();
 
-		// Initialize created meta-data
-		theEipPackage.initializePackageContents();
+      // Initialize created meta-data
+      theEipPackage.initializePackageContents();
 
-		// Mark meta-data to indicate it can't be changed
-		theEipPackage.freeze();
+      // Mark meta-data to indicate it can't be changed
+      theEipPackage.freeze();
 
   
-		// Update the registry and return the package
-		EPackage.Registry.INSTANCE.put(EipPackage.eNS_URI, theEipPackage);
-		return theEipPackage;
-	}
+      // Update the registry and return the package
+      EPackage.Registry.INSTANCE.put(EipPackage.eNS_URI, theEipPackage);
+      return theEipPackage;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EClass getEndpoint() {
-		return endpointEClass;
-	}
+      return endpointEClass;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EAttribute getEndpoint_Name() {
-		return (EAttribute)endpointEClass.getEStructuralFeatures().get(0);
-	}
+      return (EAttribute)endpointEClass.getEStructuralFeatures().get(0);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EReference getEndpoint_ToChannel() {
-		return (EReference)endpointEClass.getEStructuralFeatures().get(1);
-	}
+      return (EReference)endpointEClass.getEStructuralFeatures().get(1);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EReference getEndpoint_FromChannels() {
-		return (EReference)endpointEClass.getEStructuralFeatures().get(2);
-	}
+      return (EReference)endpointEClass.getEStructuralFeatures().get(2);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EClass getChannel() {
-		return channelEClass;
-	}
+      return channelEClass;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EReference getChannel_ToEndpoint() {
-		return (EReference)channelEClass.getEStructuralFeatures().get(0);
-	}
+      return (EReference)channelEClass.getEStructuralFeatures().get(0);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EReference getChannel_FromEndpoint() {
-		return (EReference)channelEClass.getEStructuralFeatures().get(1);
-	}
+      return (EReference)channelEClass.getEStructuralFeatures().get(1);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EAttribute getChannel_Name() {
-		return (EAttribute)channelEClass.getEStructuralFeatures().get(2);
-	}
+      return (EAttribute)channelEClass.getEStructuralFeatures().get(2);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EAttribute getChannel_Guaranteed() {
-		return (EAttribute)channelEClass.getEStructuralFeatures().get(3);
-	}
+      return (EAttribute)channelEClass.getEStructuralFeatures().get(3);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EClass getAdapter() {
-		return adapterEClass;
-	}
+      return adapterEClass;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EClass getRouter() {
-		return routerEClass;
-	}
+      return routerEClass;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EReference getRouter_OwnedRoutes() {
-		return (EReference)routerEClass.getEStructuralFeatures().get(0);
-	}
+      return (EReference)routerEClass.getEStructuralFeatures().get(0);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EAttribute getRouter_Type() {
-		return (EAttribute)routerEClass.getEStructuralFeatures().get(1);
-	}
+      return (EAttribute)routerEClass.getEStructuralFeatures().get(1);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EClass getFilter() {
-		return filterEClass;
-	}
+      return filterEClass;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EAttribute getFilter_Expression() {
-		return (EAttribute)filterEClass.getEStructuralFeatures().get(0);
-	}
+      return (EAttribute)filterEClass.getEStructuralFeatures().get(0);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EClass getTransformer() {
-		return transformerEClass;
-	}
+      return transformerEClass;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EClass getGateway() {
-		return gatewayEClass;
-	}
+      return gatewayEClass;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EClass getConditionalRoute() {
-		return conditionalRouteEClass;
-	}
+      return conditionalRouteEClass;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EAttribute getConditionalRoute_Condition() {
-		return (EAttribute)conditionalRouteEClass.getEStructuralFeatures().get(0);
-	}
+      return (EAttribute)conditionalRouteEClass.getEStructuralFeatures().get(0);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EReference getConditionalRoute_Channel() {
-		return (EReference)conditionalRouteEClass.getEStructuralFeatures().get(1);
-	}
+      return (EReference)conditionalRouteEClass.getEStructuralFeatures().get(1);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EClass getSplitter() {
-		return splitterEClass;
-	}
+      return splitterEClass;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EClass getAggregator() {
-		return aggregatorEClass;
-	}
+      return aggregatorEClass;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getAggregator_Part() {
+      return (EAttribute)aggregatorEClass.getEStructuralFeatures().get(0);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EAttribute getAggregator_Strategy() {
-		return (EAttribute)aggregatorEClass.getEStructuralFeatures().get(0);
-	}
+      return (EAttribute)aggregatorEClass.getEStructuralFeatures().get(1);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getAggregator_Expression() {
+      return (EAttribute)aggregatorEClass.getEStructuralFeatures().get(2);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EClass getRoute() {
-		return routeEClass;
-	}
+      return routeEClass;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EReference getRoute_OwnedEndpoints() {
-		return (EReference)routeEClass.getEStructuralFeatures().get(0);
-	}
+      return (EReference)routeEClass.getEStructuralFeatures().get(0);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EReference getRoute_OwnedChannels() {
-		return (EReference)routeEClass.getEStructuralFeatures().get(1);
-	}
+      return (EReference)routeEClass.getEStructuralFeatures().get(1);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EAttribute getRoute_Name() {
-		return (EAttribute)routeEClass.getEStructuralFeatures().get(2);
-	}
+      return (EAttribute)routeEClass.getEStructuralFeatures().get(2);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EReference getRoute_OwnedServiceRefs() {
-		return (EReference)routeEClass.getEStructuralFeatures().get(3);
-	}
+      return (EReference)routeEClass.getEStructuralFeatures().get(3);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getRoute_ExchangeType() {
+      return (EAttribute)routeEClass.getEStructuralFeatures().get(4);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EClass getServiceActivator() {
-		return serviceActivatorEClass;
-	}
+      return serviceActivatorEClass;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EClass getEIPModel() {
-		return eipModelEClass;
-	}
+      return eipModelEClass;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EReference getEIPModel_OwnedRoutes() {
-		return (EReference)eipModelEClass.getEStructuralFeatures().get(0);
-	}
+      return (EReference)eipModelEClass.getEStructuralFeatures().get(0);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EClass getEnricher() {
-		return enricherEClass;
-	}
+      return enricherEClass;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EAttribute getEnricher_Part() {
-		return (EAttribute)enricherEClass.getEStructuralFeatures().get(0);
-	}
+      return (EAttribute)enricherEClass.getEStructuralFeatures().get(0);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EClass getCompositeProcessor() {
-		return compositeProcessorEClass;
-	}
+      return compositeProcessorEClass;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EReference getCompositeProcessor_OwnedEndpoints() {
-		return (EReference)compositeProcessorEClass.getEStructuralFeatures().get(0);
-	}
+      return (EReference)compositeProcessorEClass.getEStructuralFeatures().get(0);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EClass getRecipientListRouter() {
-		return recipientListRouterEClass;
-	}
+      return recipientListRouterEClass;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EClass getServiceRef() {
-		return serviceRefEClass;
-	}
+      return serviceRefEClass;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EAttribute getServiceRef_Name() {
-		return (EAttribute)serviceRefEClass.getEStructuralFeatures().get(0);
-	}
+      return (EAttribute)serviceRefEClass.getEStructuralFeatures().get(0);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EAttribute getServiceRef_Reference() {
-		return (EAttribute)serviceRefEClass.getEStructuralFeatures().get(1);
-	}
+      return (EAttribute)serviceRefEClass.getEStructuralFeatures().get(1);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EAttribute getServiceRef_Operations() {
-		return (EAttribute)serviceRefEClass.getEStructuralFeatures().get(2);
-	}
+      return (EAttribute)serviceRefEClass.getEStructuralFeatures().get(2);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EClass getServiceInvocation() {
-		return serviceInvocationEClass;
-	}
+      return serviceInvocationEClass;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EAttribute getServiceInvocation_Context() {
-		return (EAttribute)serviceInvocationEClass.getEStructuralFeatures().get(0);
-	}
+      return (EAttribute)serviceInvocationEClass.getEStructuralFeatures().get(0);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EAttribute getServiceInvocation_OperationName() {
-		return (EAttribute)serviceInvocationEClass.getEStructuralFeatures().get(1);
-	}
+      return (EAttribute)serviceInvocationEClass.getEStructuralFeatures().get(1);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EReference getServiceInvocation_ServiceRef() {
-		return (EReference)serviceInvocationEClass.getEStructuralFeatures().get(2);
-	}
+      return (EReference)serviceInvocationEClass.getEStructuralFeatures().get(2);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EClass getInvocableEndpoint() {
-		return invocableEndpointEClass;
-	}
+      return invocableEndpointEClass;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EReference getInvocableEndpoint_OwnedServiceInvocations() {
-		return (EReference)invocableEndpointEClass.getEStructuralFeatures().get(0);
-	}
+      return (EReference)invocableEndpointEClass.getEStructuralFeatures().get(0);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EClass getContentFilter() {
-		return contentFilterEClass;
-	}
+      return contentFilterEClass;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EClass getResequencer() {
+      return resequencerEClass;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getResequencer_StreamSequences() {
+      return (EAttribute)resequencerEClass.getEStructuralFeatures().get(0);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EEnum getMessagePart() {
-		return messagePartEEnum;
-	}
+      return messagePartEEnum;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EEnum getRoutingType() {
-		return routingTypeEEnum;
-	}
+      return routingTypeEEnum;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EEnum getExchangeType() {
+      return exchangeTypeEEnum;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EipFactory getEipFactory() {
-		return (EipFactory)getEFactoryInstance();
-	}
+      return (EipFactory)getEFactoryInstance();
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	private boolean isCreated = false;
 
 	/**
-	 * Creates the meta-model objects for the package.  This method is
-	 * guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc -->
+    * Creates the meta-model objects for the package.  This method is
+    * guarded to have no affect on any invocation but its first.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public void createPackageContents() {
-		if (isCreated) return;
-		isCreated = true;
+      if (isCreated) return;
+      isCreated = true;
 
-		// Create classes and their features
-		endpointEClass = createEClass(ENDPOINT);
-		createEAttribute(endpointEClass, ENDPOINT__NAME);
-		createEReference(endpointEClass, ENDPOINT__TO_CHANNEL);
-		createEReference(endpointEClass, ENDPOINT__FROM_CHANNELS);
+      // Create classes and their features
+      endpointEClass = createEClass(ENDPOINT);
+      createEAttribute(endpointEClass, ENDPOINT__NAME);
+      createEReference(endpointEClass, ENDPOINT__TO_CHANNEL);
+      createEReference(endpointEClass, ENDPOINT__FROM_CHANNELS);
 
-		channelEClass = createEClass(CHANNEL);
-		createEReference(channelEClass, CHANNEL__TO_ENDPOINT);
-		createEReference(channelEClass, CHANNEL__FROM_ENDPOINT);
-		createEAttribute(channelEClass, CHANNEL__NAME);
-		createEAttribute(channelEClass, CHANNEL__GUARANTEED);
+      channelEClass = createEClass(CHANNEL);
+      createEReference(channelEClass, CHANNEL__TO_ENDPOINT);
+      createEReference(channelEClass, CHANNEL__FROM_ENDPOINT);
+      createEAttribute(channelEClass, CHANNEL__NAME);
+      createEAttribute(channelEClass, CHANNEL__GUARANTEED);
 
-		adapterEClass = createEClass(ADAPTER);
+      adapterEClass = createEClass(ADAPTER);
 
-		routerEClass = createEClass(ROUTER);
-		createEReference(routerEClass, ROUTER__OWNED_ROUTES);
-		createEAttribute(routerEClass, ROUTER__TYPE);
+      routerEClass = createEClass(ROUTER);
+      createEReference(routerEClass, ROUTER__OWNED_ROUTES);
+      createEAttribute(routerEClass, ROUTER__TYPE);
 
-		filterEClass = createEClass(FILTER);
-		createEAttribute(filterEClass, FILTER__EXPRESSION);
+      filterEClass = createEClass(FILTER);
+      createEAttribute(filterEClass, FILTER__EXPRESSION);
 
-		transformerEClass = createEClass(TRANSFORMER);
+      transformerEClass = createEClass(TRANSFORMER);
 
-		gatewayEClass = createEClass(GATEWAY);
+      gatewayEClass = createEClass(GATEWAY);
 
-		conditionalRouteEClass = createEClass(CONDITIONAL_ROUTE);
-		createEAttribute(conditionalRouteEClass, CONDITIONAL_ROUTE__CONDITION);
-		createEReference(conditionalRouteEClass, CONDITIONAL_ROUTE__CHANNEL);
+      conditionalRouteEClass = createEClass(CONDITIONAL_ROUTE);
+      createEAttribute(conditionalRouteEClass, CONDITIONAL_ROUTE__CONDITION);
+      createEReference(conditionalRouteEClass, CONDITIONAL_ROUTE__CHANNEL);
 
-		splitterEClass = createEClass(SPLITTER);
+      splitterEClass = createEClass(SPLITTER);
 
-		aggregatorEClass = createEClass(AGGREGATOR);
-		createEAttribute(aggregatorEClass, AGGREGATOR__STRATEGY);
+      aggregatorEClass = createEClass(AGGREGATOR);
+      createEAttribute(aggregatorEClass, AGGREGATOR__PART);
+      createEAttribute(aggregatorEClass, AGGREGATOR__STRATEGY);
+      createEAttribute(aggregatorEClass, AGGREGATOR__EXPRESSION);
 
-		routeEClass = createEClass(ROUTE);
-		createEReference(routeEClass, ROUTE__OWNED_ENDPOINTS);
-		createEReference(routeEClass, ROUTE__OWNED_CHANNELS);
-		createEAttribute(routeEClass, ROUTE__NAME);
-		createEReference(routeEClass, ROUTE__OWNED_SERVICE_REFS);
+      routeEClass = createEClass(ROUTE);
+      createEReference(routeEClass, ROUTE__OWNED_ENDPOINTS);
+      createEReference(routeEClass, ROUTE__OWNED_CHANNELS);
+      createEAttribute(routeEClass, ROUTE__NAME);
+      createEReference(routeEClass, ROUTE__OWNED_SERVICE_REFS);
+      createEAttribute(routeEClass, ROUTE__EXCHANGE_TYPE);
 
-		serviceActivatorEClass = createEClass(SERVICE_ACTIVATOR);
+      serviceActivatorEClass = createEClass(SERVICE_ACTIVATOR);
 
-		eipModelEClass = createEClass(EIP_MODEL);
-		createEReference(eipModelEClass, EIP_MODEL__OWNED_ROUTES);
+      eipModelEClass = createEClass(EIP_MODEL);
+      createEReference(eipModelEClass, EIP_MODEL__OWNED_ROUTES);
 
-		enricherEClass = createEClass(ENRICHER);
-		createEAttribute(enricherEClass, ENRICHER__PART);
+      enricherEClass = createEClass(ENRICHER);
+      createEAttribute(enricherEClass, ENRICHER__PART);
 
-		compositeProcessorEClass = createEClass(COMPOSITE_PROCESSOR);
-		createEReference(compositeProcessorEClass, COMPOSITE_PROCESSOR__OWNED_ENDPOINTS);
+      compositeProcessorEClass = createEClass(COMPOSITE_PROCESSOR);
+      createEReference(compositeProcessorEClass, COMPOSITE_PROCESSOR__OWNED_ENDPOINTS);
 
-		recipientListRouterEClass = createEClass(RECIPIENT_LIST_ROUTER);
+      recipientListRouterEClass = createEClass(RECIPIENT_LIST_ROUTER);
 
-		serviceRefEClass = createEClass(SERVICE_REF);
-		createEAttribute(serviceRefEClass, SERVICE_REF__NAME);
-		createEAttribute(serviceRefEClass, SERVICE_REF__REFERENCE);
-		createEAttribute(serviceRefEClass, SERVICE_REF__OPERATIONS);
+      serviceRefEClass = createEClass(SERVICE_REF);
+      createEAttribute(serviceRefEClass, SERVICE_REF__NAME);
+      createEAttribute(serviceRefEClass, SERVICE_REF__REFERENCE);
+      createEAttribute(serviceRefEClass, SERVICE_REF__OPERATIONS);
 
-		serviceInvocationEClass = createEClass(SERVICE_INVOCATION);
-		createEAttribute(serviceInvocationEClass, SERVICE_INVOCATION__CONTEXT);
-		createEAttribute(serviceInvocationEClass, SERVICE_INVOCATION__OPERATION_NAME);
-		createEReference(serviceInvocationEClass, SERVICE_INVOCATION__SERVICE_REF);
+      serviceInvocationEClass = createEClass(SERVICE_INVOCATION);
+      createEAttribute(serviceInvocationEClass, SERVICE_INVOCATION__CONTEXT);
+      createEAttribute(serviceInvocationEClass, SERVICE_INVOCATION__OPERATION_NAME);
+      createEReference(serviceInvocationEClass, SERVICE_INVOCATION__SERVICE_REF);
 
-		invocableEndpointEClass = createEClass(INVOCABLE_ENDPOINT);
-		createEReference(invocableEndpointEClass, INVOCABLE_ENDPOINT__OWNED_SERVICE_INVOCATIONS);
+      invocableEndpointEClass = createEClass(INVOCABLE_ENDPOINT);
+      createEReference(invocableEndpointEClass, INVOCABLE_ENDPOINT__OWNED_SERVICE_INVOCATIONS);
 
-		contentFilterEClass = createEClass(CONTENT_FILTER);
+      contentFilterEClass = createEClass(CONTENT_FILTER);
 
-		// Create enums
-		messagePartEEnum = createEEnum(MESSAGE_PART);
-		routingTypeEEnum = createEEnum(ROUTING_TYPE);
-	}
+      resequencerEClass = createEClass(RESEQUENCER);
+      createEAttribute(resequencerEClass, RESEQUENCER__STREAM_SEQUENCES);
+
+      // Create enums
+      messagePartEEnum = createEEnum(MESSAGE_PART);
+      routingTypeEEnum = createEEnum(ROUTING_TYPE);
+      exchangeTypeEEnum = createEEnum(EXCHANGE_TYPE);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	private boolean isInitialized = false;
 
 	/**
-	 * Complete the initialization of the package and its meta-model.  This
-	 * method is guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc -->
+    * Complete the initialization of the package and its meta-model.  This
+    * method is guarded to have no affect on any invocation but its first.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public void initializePackageContents() {
-		if (isInitialized) return;
-		isInitialized = true;
+      if (isInitialized) return;
+      isInitialized = true;
 
-		// Initialize package
-		setName(eNAME);
-		setNsPrefix(eNS_PREFIX);
-		setNsURI(eNS_URI);
+      // Initialize package
+      setName(eNAME);
+      setNsPrefix(eNS_PREFIX);
+      setNsURI(eNS_URI);
 
-		// Create type parameters
+      // Create type parameters
 
-		// Set bounds for type parameters
+      // Set bounds for type parameters
 
-		// Add supertypes to classes
-		routerEClass.getESuperTypes().add(this.getEndpoint());
-		filterEClass.getESuperTypes().add(this.getEndpoint());
-		transformerEClass.getESuperTypes().add(this.getEndpoint());
-		gatewayEClass.getESuperTypes().add(this.getEndpoint());
-		splitterEClass.getESuperTypes().add(this.getEndpoint());
-		aggregatorEClass.getESuperTypes().add(this.getEndpoint());
-		serviceActivatorEClass.getESuperTypes().add(this.getInvocableEndpoint());
-		enricherEClass.getESuperTypes().add(this.getInvocableEndpoint());
-		compositeProcessorEClass.getESuperTypes().add(this.getEndpoint());
-		recipientListRouterEClass.getESuperTypes().add(this.getRouter());
-		invocableEndpointEClass.getESuperTypes().add(this.getEndpoint());
-		contentFilterEClass.getESuperTypes().add(this.getFilter());
+      // Add supertypes to classes
+      routerEClass.getESuperTypes().add(this.getEndpoint());
+      filterEClass.getESuperTypes().add(this.getEndpoint());
+      transformerEClass.getESuperTypes().add(this.getEndpoint());
+      gatewayEClass.getESuperTypes().add(this.getEndpoint());
+      splitterEClass.getESuperTypes().add(this.getEndpoint());
+      aggregatorEClass.getESuperTypes().add(this.getEndpoint());
+      serviceActivatorEClass.getESuperTypes().add(this.getInvocableEndpoint());
+      enricherEClass.getESuperTypes().add(this.getInvocableEndpoint());
+      compositeProcessorEClass.getESuperTypes().add(this.getEndpoint());
+      recipientListRouterEClass.getESuperTypes().add(this.getRouter());
+      invocableEndpointEClass.getESuperTypes().add(this.getEndpoint());
+      contentFilterEClass.getESuperTypes().add(this.getFilter());
+      resequencerEClass.getESuperTypes().add(this.getAggregator());
 
-		// Initialize classes, features, and operations; add parameters
-		initEClass(endpointEClass, Endpoint.class, "Endpoint", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEndpoint_Name(), ecorePackage.getEString(), "name", null, 1, 1, Endpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEndpoint_ToChannel(), this.getChannel(), this.getChannel_FromEndpoint(), "toChannel", null, 0, 1, Endpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEndpoint_FromChannels(), this.getChannel(), this.getChannel_ToEndpoint(), "fromChannels", null, 0, -1, Endpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      // Initialize classes, features, and operations; add parameters
+      initEClass(endpointEClass, Endpoint.class, "Endpoint", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEAttribute(getEndpoint_Name(), ecorePackage.getEString(), "name", null, 1, 1, Endpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getEndpoint_ToChannel(), this.getChannel(), this.getChannel_FromEndpoint(), "toChannel", null, 0, 1, Endpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getEndpoint_FromChannels(), this.getChannel(), this.getChannel_ToEndpoint(), "fromChannels", null, 0, -1, Endpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(channelEClass, Channel.class, "Channel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getChannel_ToEndpoint(), this.getEndpoint(), this.getEndpoint_FromChannels(), "toEndpoint", null, 0, 1, Channel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getChannel_FromEndpoint(), this.getEndpoint(), this.getEndpoint_ToChannel(), "fromEndpoint", null, 0, 1, Channel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getChannel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Channel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getChannel_Guaranteed(), ecorePackage.getEBoolean(), "guaranteed", null, 0, 1, Channel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEClass(channelEClass, Channel.class, "Channel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEReference(getChannel_ToEndpoint(), this.getEndpoint(), this.getEndpoint_FromChannels(), "toEndpoint", null, 0, 1, Channel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getChannel_FromEndpoint(), this.getEndpoint(), this.getEndpoint_ToChannel(), "fromEndpoint", null, 0, 1, Channel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getChannel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Channel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getChannel_Guaranteed(), ecorePackage.getEBoolean(), "guaranteed", null, 0, 1, Channel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(adapterEClass, Adapter.class, "Adapter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEClass(adapterEClass, Adapter.class, "Adapter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(routerEClass, Router.class, "Router", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRouter_OwnedRoutes(), this.getConditionalRoute(), null, "ownedRoutes", null, 0, -1, Router.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRouter_Type(), this.getRoutingType(), "type", null, 0, 1, Router.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEClass(routerEClass, Router.class, "Router", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEReference(getRouter_OwnedRoutes(), this.getConditionalRoute(), null, "ownedRoutes", null, 0, -1, Router.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getRouter_Type(), this.getRoutingType(), "type", null, 0, 1, Router.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(filterEClass, Filter.class, "Filter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getFilter_Expression(), ecorePackage.getEString(), "expression", null, 0, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEClass(filterEClass, Filter.class, "Filter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEAttribute(getFilter_Expression(), ecorePackage.getEString(), "expression", null, 0, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(transformerEClass, Transformer.class, "Transformer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEClass(transformerEClass, Transformer.class, "Transformer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(gatewayEClass, Gateway.class, "Gateway", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEClass(gatewayEClass, Gateway.class, "Gateway", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(conditionalRouteEClass, ConditionalRoute.class, "ConditionalRoute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getConditionalRoute_Condition(), ecorePackage.getEString(), "condition", null, 0, 1, ConditionalRoute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConditionalRoute_Channel(), this.getChannel(), null, "channel", null, 1, 1, ConditionalRoute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEClass(conditionalRouteEClass, ConditionalRoute.class, "ConditionalRoute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEAttribute(getConditionalRoute_Condition(), ecorePackage.getEString(), "condition", null, 0, 1, ConditionalRoute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getConditionalRoute_Channel(), this.getChannel(), null, "channel", null, 1, 1, ConditionalRoute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(splitterEClass, Splitter.class, "Splitter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEClass(splitterEClass, Splitter.class, "Splitter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(aggregatorEClass, Aggregator.class, "Aggregator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAggregator_Strategy(), ecorePackage.getEString(), "strategy", null, 0, 1, Aggregator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEClass(aggregatorEClass, Aggregator.class, "Aggregator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEAttribute(getAggregator_Part(), this.getMessagePart(), "part", "HEADER", 0, 1, Aggregator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getAggregator_Strategy(), ecorePackage.getEString(), "strategy", null, 0, 1, Aggregator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getAggregator_Expression(), ecorePackage.getEString(), "expression", null, 0, 1, Aggregator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(routeEClass, Route.class, "Route", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRoute_OwnedEndpoints(), this.getEndpoint(), null, "ownedEndpoints", null, 0, -1, Route.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRoute_OwnedChannels(), this.getChannel(), null, "ownedChannels", null, 0, -1, Route.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRoute_Name(), ecorePackage.getEString(), "name", null, 1, 1, Route.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRoute_OwnedServiceRefs(), this.getServiceRef(), null, "ownedServiceRefs", null, 0, -1, Route.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEClass(routeEClass, Route.class, "Route", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEReference(getRoute_OwnedEndpoints(), this.getEndpoint(), null, "ownedEndpoints", null, 0, -1, Route.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getRoute_OwnedChannels(), this.getChannel(), null, "ownedChannels", null, 0, -1, Route.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getRoute_Name(), ecorePackage.getEString(), "name", null, 1, 1, Route.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getRoute_OwnedServiceRefs(), this.getServiceRef(), null, "ownedServiceRefs", null, 0, -1, Route.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getRoute_ExchangeType(), this.getExchangeType(), "exchangeType", null, 0, 1, Route.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(serviceActivatorEClass, ServiceActivator.class, "ServiceActivator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEClass(serviceActivatorEClass, ServiceActivator.class, "ServiceActivator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(eipModelEClass, EIPModel.class, "EIPModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEIPModel_OwnedRoutes(), this.getRoute(), null, "ownedRoutes", null, 0, -1, EIPModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEClass(eipModelEClass, EIPModel.class, "EIPModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEReference(getEIPModel_OwnedRoutes(), this.getRoute(), null, "ownedRoutes", null, 0, -1, EIPModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(enricherEClass, Enricher.class, "Enricher", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEnricher_Part(), this.getMessagePart(), "part", "PAYLOAD", 0, 1, Enricher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEClass(enricherEClass, Enricher.class, "Enricher", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEAttribute(getEnricher_Part(), this.getMessagePart(), "part", "PAYLOAD", 0, 1, Enricher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(compositeProcessorEClass, CompositeProcessor.class, "CompositeProcessor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCompositeProcessor_OwnedEndpoints(), this.getEndpoint(), null, "ownedEndpoints", null, 0, -1, CompositeProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEClass(compositeProcessorEClass, CompositeProcessor.class, "CompositeProcessor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEReference(getCompositeProcessor_OwnedEndpoints(), this.getEndpoint(), null, "ownedEndpoints", null, 0, -1, CompositeProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(recipientListRouterEClass, RecipientListRouter.class, "RecipientListRouter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEClass(recipientListRouterEClass, RecipientListRouter.class, "RecipientListRouter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(serviceRefEClass, ServiceRef.class, "ServiceRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getServiceRef_Name(), ecorePackage.getEString(), "name", null, 1, 1, ServiceRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getServiceRef_Reference(), ecorePackage.getEJavaObject(), "reference", null, 0, 1, ServiceRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getServiceRef_Operations(), ecorePackage.getEString(), "operations", null, 0, -1, ServiceRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEClass(serviceRefEClass, ServiceRef.class, "ServiceRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEAttribute(getServiceRef_Name(), ecorePackage.getEString(), "name", null, 1, 1, ServiceRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getServiceRef_Reference(), ecorePackage.getEJavaObject(), "reference", null, 0, 1, ServiceRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getServiceRef_Operations(), ecorePackage.getEString(), "operations", null, 0, -1, ServiceRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(serviceInvocationEClass, ServiceInvocation.class, "ServiceInvocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getServiceInvocation_Context(), ecorePackage.getEString(), "context", null, 0, 1, ServiceInvocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getServiceInvocation_OperationName(), ecorePackage.getEString(), "operationName", null, 0, 1, ServiceInvocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getServiceInvocation_ServiceRef(), this.getServiceRef(), null, "serviceRef", null, 1, 1, ServiceInvocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEClass(serviceInvocationEClass, ServiceInvocation.class, "ServiceInvocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEAttribute(getServiceInvocation_Context(), ecorePackage.getEString(), "context", null, 0, 1, ServiceInvocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getServiceInvocation_OperationName(), ecorePackage.getEString(), "operationName", null, 0, 1, ServiceInvocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getServiceInvocation_ServiceRef(), this.getServiceRef(), null, "serviceRef", null, 1, 1, ServiceInvocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(invocableEndpointEClass, InvocableEndpoint.class, "InvocableEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInvocableEndpoint_OwnedServiceInvocations(), this.getServiceInvocation(), null, "ownedServiceInvocations", null, 0, -1, InvocableEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEClass(invocableEndpointEClass, InvocableEndpoint.class, "InvocableEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEReference(getInvocableEndpoint_OwnedServiceInvocations(), this.getServiceInvocation(), null, "ownedServiceInvocations", null, 0, -1, InvocableEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(contentFilterEClass, ContentFilter.class, "ContentFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEClass(contentFilterEClass, ContentFilter.class, "ContentFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		// Initialize enums and add enum literals
-		initEEnum(messagePartEEnum, MessagePart.class, "MessagePart");
-		addEEnumLiteral(messagePartEEnum, MessagePart.HEADER);
-		addEEnumLiteral(messagePartEEnum, MessagePart.PAYLOAD);
+      initEClass(resequencerEClass, Resequencer.class, "Resequencer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEAttribute(getResequencer_StreamSequences(), ecorePackage.getEBoolean(), "streamSequences", "false", 0, 1, Resequencer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEEnum(routingTypeEEnum, RoutingType.class, "RoutingType");
-		addEEnumLiteral(routingTypeEEnum, RoutingType.HEADER_VALUE);
-		addEEnumLiteral(routingTypeEEnum, RoutingType.PAYLOAD_VALUE);
-		addEEnumLiteral(routingTypeEEnum, RoutingType.PAYLOAD_TYPE);
+      // Initialize enums and add enum literals
+      initEEnum(messagePartEEnum, MessagePart.class, "MessagePart");
+      addEEnumLiteral(messagePartEEnum, MessagePart.HEADER);
+      addEEnumLiteral(messagePartEEnum, MessagePart.PAYLOAD);
 
-		// Create resource
-		createResource(eNS_URI);
-	}
+      initEEnum(routingTypeEEnum, RoutingType.class, "RoutingType");
+      addEEnumLiteral(routingTypeEEnum, RoutingType.HEADER_VALUE);
+      addEEnumLiteral(routingTypeEEnum, RoutingType.PAYLOAD_VALUE);
+      addEEnumLiteral(routingTypeEEnum, RoutingType.PAYLOAD_TYPE);
+
+      initEEnum(exchangeTypeEEnum, ExchangeType.class, "ExchangeType");
+      addEEnumLiteral(exchangeTypeEEnum, ExchangeType.IN_ONLY);
+      addEEnumLiteral(exchangeTypeEEnum, ExchangeType.IN_OUT);
+
+      // Create resource
+      createResource(eNS_URI);
+   }
 
 } //EipPackageImpl

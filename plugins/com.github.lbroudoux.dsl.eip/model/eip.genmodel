@@ -16,6 +16,10 @@
       <genEnumLiterals ecoreEnumLiteral="eip.ecore#//RoutingType/PAYLOAD_VALUE"/>
       <genEnumLiterals ecoreEnumLiteral="eip.ecore#//RoutingType/PAYLOAD_TYPE"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="eip.ecore#//ExchangeType">
+      <genEnumLiterals ecoreEnumLiteral="eip.ecore#//ExchangeType/IN_ONLY"/>
+      <genEnumLiterals ecoreEnumLiteral="eip.ecore#//ExchangeType/IN_OUT"/>
+    </genEnums>
     <genClasses image="false" ecoreClass="eip.ecore#//Endpoint">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//Endpoint/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eip.ecore#//Endpoint/toChannel"/>
@@ -43,13 +47,16 @@
     </genClasses>
     <genClasses ecoreClass="eip.ecore#//Splitter"/>
     <genClasses ecoreClass="eip.ecore#//Aggregator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//Aggregator/part"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//Aggregator/strategy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//Aggregator/expression"/>
     </genClasses>
     <genClasses ecoreClass="eip.ecore#//Route">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eip.ecore#//Route/ownedEndpoints"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eip.ecore#//Route/ownedChannels"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//Route/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eip.ecore#//Route/ownedServiceRefs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//Route/exchangeType"/>
     </genClasses>
     <genClasses ecoreClass="eip.ecore#//ServiceActivator"/>
     <genClasses ecoreClass="eip.ecore#//EIPModel">
@@ -76,5 +83,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eip.ecore#//InvocableEndpoint/ownedServiceInvocations"/>
     </genClasses>
     <genClasses ecoreClass="eip.ecore#//ContentFilter"/>
+    <genClasses ecoreClass="eip.ecore#//Resequencer">
+      <genFeatures createChild="false" propertyCategory="" propertyDescription=""
+          ecoreFeature="ecore:EAttribute eip.ecore#//Resequencer/streamSequences"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -18,22 +18,22 @@ import org.eclipse.emf.ecore.EClass;
  */
 public class ContentFilterImpl extends FilterImpl implements ContentFilter {
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	protected ContentFilterImpl() {
-		super();
-	}
+      super();
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	@Override
 	protected EClass eStaticClass() {
-		return EipPackage.Literals.CONTENT_FILTER;
-	}
+      return EipPackage.Literals.CONTENT_FILTER;
+   }
 
 } //ContentFilterImpl

@@ -23,55 +23,58 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ConditionalRoute extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Condition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+    * Returns the value of the '<em><b>Condition</b></em>' attribute.
+    * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Condition</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Condition</em>' attribute.
-	 * @see #setCondition(String)
-	 * @see com.github.lbroudoux.dsl.eip.EipPackage#getConditionalRoute_Condition()
-	 * @model
-	 * @generated
-	 */
+    * <!-- begin-model-doc -->
+    * The condition message should fulffil in order to be sent to outgoing channel.
+    * <!-- end-model-doc -->
+    * @return the value of the '<em>Condition</em>' attribute.
+    * @see #setCondition(String)
+    * @see com.github.lbroudoux.dsl.eip.EipPackage#getConditionalRoute_Condition()
+    * @model
+    * @generated
+    */
 	String getCondition();
 
 	/**
-	 * Sets the value of the '{@link com.github.lbroudoux.dsl.eip.ConditionalRoute#getCondition <em>Condition</em>}' attribute.
-	 * <!-- begin-user-doc -->
+    * Sets the value of the '{@link com.github.lbroudoux.dsl.eip.ConditionalRoute#getCondition <em>Condition</em>}' attribute.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Condition</em>' attribute.
-	 * @see #getCondition()
-	 * @generated
-	 */
+    * @param value the new value of the '<em>Condition</em>' attribute.
+    * @see #getCondition()
+    * @generated
+    */
 	void setCondition(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Channel</b></em>' reference.
-	 * <!-- begin-user-doc -->
+    * Returns the value of the '<em><b>Channel</b></em>' reference.
+    * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Channel</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Channel</em>' reference.
-	 * @see #setChannel(Channel)
-	 * @see com.github.lbroudoux.dsl.eip.EipPackage#getConditionalRoute_Channel()
-	 * @model required="true"
-	 * @generated
-	 */
+    * @return the value of the '<em>Channel</em>' reference.
+    * @see #setChannel(Channel)
+    * @see com.github.lbroudoux.dsl.eip.EipPackage#getConditionalRoute_Channel()
+    * @model required="true"
+    * @generated
+    */
 	Channel getChannel();
 
 	/**
-	 * Sets the value of the '{@link com.github.lbroudoux.dsl.eip.ConditionalRoute#getChannel <em>Channel</em>}' reference.
-	 * <!-- begin-user-doc -->
+    * Sets the value of the '{@link com.github.lbroudoux.dsl.eip.ConditionalRoute#getChannel <em>Channel</em>}' reference.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Channel</em>' reference.
-	 * @see #getChannel()
-	 * @generated
-	 */
+    * @param value the new value of the '<em>Channel</em>' reference.
+    * @see #getChannel()
+    * @generated
+    */
 	void setChannel(Channel value);
 
 } // ConditionalRoute

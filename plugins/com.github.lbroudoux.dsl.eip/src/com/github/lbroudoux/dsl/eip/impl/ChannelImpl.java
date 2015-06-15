@@ -32,384 +32,384 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class ChannelImpl extends MinimalEObjectImpl.Container implements Channel {
 	/**
-	 * The cached value of the '{@link #getToEndpoint() <em>To Endpoint</em>}' reference.
-	 * <!-- begin-user-doc -->
+    * The cached value of the '{@link #getToEndpoint() <em>To Endpoint</em>}' reference.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getToEndpoint()
-	 * @generated
-	 * @ordered
-	 */
+    * @see #getToEndpoint()
+    * @generated
+    * @ordered
+    */
 	protected Endpoint toEndpoint;
 	/**
-	 * The cached value of the '{@link #getFromEndpoint() <em>From Endpoint</em>}' reference.
-	 * <!-- begin-user-doc -->
+    * The cached value of the '{@link #getFromEndpoint() <em>From Endpoint</em>}' reference.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFromEndpoint()
-	 * @generated
-	 * @ordered
-	 */
+    * @see #getFromEndpoint()
+    * @generated
+    * @ordered
+    */
 	protected Endpoint fromEndpoint;
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
+    * @see #getName()
+    * @generated
+    * @ordered
+    */
 	protected static final String NAME_EDEFAULT = null;
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+    * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
+    * @see #getName()
+    * @generated
+    * @ordered
+    */
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isGuaranteed() <em>Guaranteed</em>}' attribute.
-	 * <!-- begin-user-doc -->
+    * The default value of the '{@link #isGuaranteed() <em>Guaranteed</em>}' attribute.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isGuaranteed()
-	 * @generated
-	 * @ordered
-	 */
+    * @see #isGuaranteed()
+    * @generated
+    * @ordered
+    */
 	protected static final boolean GUARANTEED_EDEFAULT = false;
 	/**
-	 * The cached value of the '{@link #isGuaranteed() <em>Guaranteed</em>}' attribute.
-	 * <!-- begin-user-doc -->
+    * The cached value of the '{@link #isGuaranteed() <em>Guaranteed</em>}' attribute.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isGuaranteed()
-	 * @generated
-	 * @ordered
-	 */
+    * @see #isGuaranteed()
+    * @generated
+    * @ordered
+    */
 	protected boolean guaranteed = GUARANTEED_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	protected ChannelImpl() {
-		super();
-	}
+      super();
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	@Override
 	protected EClass eStaticClass() {
-		return EipPackage.Literals.CHANNEL;
-	}
+      return EipPackage.Literals.CHANNEL;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public Endpoint getToEndpoint() {
-		if (toEndpoint != null && toEndpoint.eIsProxy()) {
-			InternalEObject oldToEndpoint = (InternalEObject)toEndpoint;
-			toEndpoint = (Endpoint)eResolveProxy(oldToEndpoint);
-			if (toEndpoint != oldToEndpoint) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EipPackage.CHANNEL__TO_ENDPOINT, oldToEndpoint, toEndpoint));
-			}
-		}
-		return toEndpoint;
-	}
+      if (toEndpoint != null && toEndpoint.eIsProxy()) {
+         InternalEObject oldToEndpoint = (InternalEObject)toEndpoint;
+         toEndpoint = (Endpoint)eResolveProxy(oldToEndpoint);
+         if (toEndpoint != oldToEndpoint) {
+            if (eNotificationRequired())
+               eNotify(new ENotificationImpl(this, Notification.RESOLVE, EipPackage.CHANNEL__TO_ENDPOINT, oldToEndpoint, toEndpoint));
+         }
+      }
+      return toEndpoint;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public Endpoint basicGetToEndpoint() {
-		return toEndpoint;
-	}
+      return toEndpoint;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public NotificationChain basicSetToEndpoint(Endpoint newToEndpoint, NotificationChain msgs) {
-		Endpoint oldToEndpoint = toEndpoint;
-		toEndpoint = newToEndpoint;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EipPackage.CHANNEL__TO_ENDPOINT, oldToEndpoint, newToEndpoint);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
+      Endpoint oldToEndpoint = toEndpoint;
+      toEndpoint = newToEndpoint;
+      if (eNotificationRequired()) {
+         ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EipPackage.CHANNEL__TO_ENDPOINT, oldToEndpoint, newToEndpoint);
+         if (msgs == null) msgs = notification; else msgs.add(notification);
+      }
+      return msgs;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public void setToEndpoint(Endpoint newToEndpoint) {
-		if (newToEndpoint != toEndpoint) {
-			NotificationChain msgs = null;
-			if (toEndpoint != null)
-				msgs = ((InternalEObject)toEndpoint).eInverseRemove(this, EipPackage.ENDPOINT__FROM_CHANNELS, Endpoint.class, msgs);
-			if (newToEndpoint != null)
-				msgs = ((InternalEObject)newToEndpoint).eInverseAdd(this, EipPackage.ENDPOINT__FROM_CHANNELS, Endpoint.class, msgs);
-			msgs = basicSetToEndpoint(newToEndpoint, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EipPackage.CHANNEL__TO_ENDPOINT, newToEndpoint, newToEndpoint));
-	}
+      if (newToEndpoint != toEndpoint) {
+         NotificationChain msgs = null;
+         if (toEndpoint != null)
+            msgs = ((InternalEObject)toEndpoint).eInverseRemove(this, EipPackage.ENDPOINT__FROM_CHANNELS, Endpoint.class, msgs);
+         if (newToEndpoint != null)
+            msgs = ((InternalEObject)newToEndpoint).eInverseAdd(this, EipPackage.ENDPOINT__FROM_CHANNELS, Endpoint.class, msgs);
+         msgs = basicSetToEndpoint(newToEndpoint, msgs);
+         if (msgs != null) msgs.dispatch();
+      }
+      else if (eNotificationRequired())
+         eNotify(new ENotificationImpl(this, Notification.SET, EipPackage.CHANNEL__TO_ENDPOINT, newToEndpoint, newToEndpoint));
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public Endpoint getFromEndpoint() {
-		if (fromEndpoint != null && fromEndpoint.eIsProxy()) {
-			InternalEObject oldFromEndpoint = (InternalEObject)fromEndpoint;
-			fromEndpoint = (Endpoint)eResolveProxy(oldFromEndpoint);
-			if (fromEndpoint != oldFromEndpoint) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EipPackage.CHANNEL__FROM_ENDPOINT, oldFromEndpoint, fromEndpoint));
-			}
-		}
-		return fromEndpoint;
-	}
+      if (fromEndpoint != null && fromEndpoint.eIsProxy()) {
+         InternalEObject oldFromEndpoint = (InternalEObject)fromEndpoint;
+         fromEndpoint = (Endpoint)eResolveProxy(oldFromEndpoint);
+         if (fromEndpoint != oldFromEndpoint) {
+            if (eNotificationRequired())
+               eNotify(new ENotificationImpl(this, Notification.RESOLVE, EipPackage.CHANNEL__FROM_ENDPOINT, oldFromEndpoint, fromEndpoint));
+         }
+      }
+      return fromEndpoint;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public Endpoint basicGetFromEndpoint() {
-		return fromEndpoint;
-	}
+      return fromEndpoint;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public NotificationChain basicSetFromEndpoint(Endpoint newFromEndpoint, NotificationChain msgs) {
-		Endpoint oldFromEndpoint = fromEndpoint;
-		fromEndpoint = newFromEndpoint;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EipPackage.CHANNEL__FROM_ENDPOINT, oldFromEndpoint, newFromEndpoint);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
+      Endpoint oldFromEndpoint = fromEndpoint;
+      fromEndpoint = newFromEndpoint;
+      if (eNotificationRequired()) {
+         ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EipPackage.CHANNEL__FROM_ENDPOINT, oldFromEndpoint, newFromEndpoint);
+         if (msgs == null) msgs = notification; else msgs.add(notification);
+      }
+      return msgs;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public void setFromEndpoint(Endpoint newFromEndpoint) {
-		if (newFromEndpoint != fromEndpoint) {
-			NotificationChain msgs = null;
-			if (fromEndpoint != null)
-				msgs = ((InternalEObject)fromEndpoint).eInverseRemove(this, EipPackage.ENDPOINT__TO_CHANNEL, Endpoint.class, msgs);
-			if (newFromEndpoint != null)
-				msgs = ((InternalEObject)newFromEndpoint).eInverseAdd(this, EipPackage.ENDPOINT__TO_CHANNEL, Endpoint.class, msgs);
-			msgs = basicSetFromEndpoint(newFromEndpoint, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EipPackage.CHANNEL__FROM_ENDPOINT, newFromEndpoint, newFromEndpoint));
-	}
+      if (newFromEndpoint != fromEndpoint) {
+         NotificationChain msgs = null;
+         if (fromEndpoint != null)
+            msgs = ((InternalEObject)fromEndpoint).eInverseRemove(this, EipPackage.ENDPOINT__TO_CHANNEL, Endpoint.class, msgs);
+         if (newFromEndpoint != null)
+            msgs = ((InternalEObject)newFromEndpoint).eInverseAdd(this, EipPackage.ENDPOINT__TO_CHANNEL, Endpoint.class, msgs);
+         msgs = basicSetFromEndpoint(newFromEndpoint, msgs);
+         if (msgs != null) msgs.dispatch();
+      }
+      else if (eNotificationRequired())
+         eNotify(new ENotificationImpl(this, Notification.SET, EipPackage.CHANNEL__FROM_ENDPOINT, newFromEndpoint, newFromEndpoint));
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public String getName() {
-		return name;
-	}
+      return name;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EipPackage.CHANNEL__NAME, oldName, name));
-	}
+      String oldName = name;
+      name = newName;
+      if (eNotificationRequired())
+         eNotify(new ENotificationImpl(this, Notification.SET, EipPackage.CHANNEL__NAME, oldName, name));
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public boolean isGuaranteed() {
-		return guaranteed;
-	}
+      return guaranteed;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public void setGuaranteed(boolean newGuaranteed) {
-		boolean oldGuaranteed = guaranteed;
-		guaranteed = newGuaranteed;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EipPackage.CHANNEL__GUARANTEED, oldGuaranteed, guaranteed));
-	}
+      boolean oldGuaranteed = guaranteed;
+      guaranteed = newGuaranteed;
+      if (eNotificationRequired())
+         eNotify(new ENotificationImpl(this, Notification.SET, EipPackage.CHANNEL__GUARANTEED, oldGuaranteed, guaranteed));
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case EipPackage.CHANNEL__TO_ENDPOINT:
-				if (toEndpoint != null)
-					msgs = ((InternalEObject)toEndpoint).eInverseRemove(this, EipPackage.ENDPOINT__FROM_CHANNELS, Endpoint.class, msgs);
-				return basicSetToEndpoint((Endpoint)otherEnd, msgs);
-			case EipPackage.CHANNEL__FROM_ENDPOINT:
-				if (fromEndpoint != null)
-					msgs = ((InternalEObject)fromEndpoint).eInverseRemove(this, EipPackage.ENDPOINT__TO_CHANNEL, Endpoint.class, msgs);
-				return basicSetFromEndpoint((Endpoint)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
+      switch (featureID) {
+         case EipPackage.CHANNEL__TO_ENDPOINT:
+            if (toEndpoint != null)
+               msgs = ((InternalEObject)toEndpoint).eInverseRemove(this, EipPackage.ENDPOINT__FROM_CHANNELS, Endpoint.class, msgs);
+            return basicSetToEndpoint((Endpoint)otherEnd, msgs);
+         case EipPackage.CHANNEL__FROM_ENDPOINT:
+            if (fromEndpoint != null)
+               msgs = ((InternalEObject)fromEndpoint).eInverseRemove(this, EipPackage.ENDPOINT__TO_CHANNEL, Endpoint.class, msgs);
+            return basicSetFromEndpoint((Endpoint)otherEnd, msgs);
+      }
+      return super.eInverseAdd(otherEnd, featureID, msgs);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case EipPackage.CHANNEL__TO_ENDPOINT:
-				return basicSetToEndpoint(null, msgs);
-			case EipPackage.CHANNEL__FROM_ENDPOINT:
-				return basicSetFromEndpoint(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+      switch (featureID) {
+         case EipPackage.CHANNEL__TO_ENDPOINT:
+            return basicSetToEndpoint(null, msgs);
+         case EipPackage.CHANNEL__FROM_ENDPOINT:
+            return basicSetFromEndpoint(null, msgs);
+      }
+      return super.eInverseRemove(otherEnd, featureID, msgs);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case EipPackage.CHANNEL__TO_ENDPOINT:
-				if (resolve) return getToEndpoint();
-				return basicGetToEndpoint();
-			case EipPackage.CHANNEL__FROM_ENDPOINT:
-				if (resolve) return getFromEndpoint();
-				return basicGetFromEndpoint();
-			case EipPackage.CHANNEL__NAME:
-				return getName();
-			case EipPackage.CHANNEL__GUARANTEED:
-				return isGuaranteed();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+      switch (featureID) {
+         case EipPackage.CHANNEL__TO_ENDPOINT:
+            if (resolve) return getToEndpoint();
+            return basicGetToEndpoint();
+         case EipPackage.CHANNEL__FROM_ENDPOINT:
+            if (resolve) return getFromEndpoint();
+            return basicGetFromEndpoint();
+         case EipPackage.CHANNEL__NAME:
+            return getName();
+         case EipPackage.CHANNEL__GUARANTEED:
+            return isGuaranteed();
+      }
+      return super.eGet(featureID, resolve, coreType);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case EipPackage.CHANNEL__TO_ENDPOINT:
-				setToEndpoint((Endpoint)newValue);
-				return;
-			case EipPackage.CHANNEL__FROM_ENDPOINT:
-				setFromEndpoint((Endpoint)newValue);
-				return;
-			case EipPackage.CHANNEL__NAME:
-				setName((String)newValue);
-				return;
-			case EipPackage.CHANNEL__GUARANTEED:
-				setGuaranteed((Boolean)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+      switch (featureID) {
+         case EipPackage.CHANNEL__TO_ENDPOINT:
+            setToEndpoint((Endpoint)newValue);
+            return;
+         case EipPackage.CHANNEL__FROM_ENDPOINT:
+            setFromEndpoint((Endpoint)newValue);
+            return;
+         case EipPackage.CHANNEL__NAME:
+            setName((String)newValue);
+            return;
+         case EipPackage.CHANNEL__GUARANTEED:
+            setGuaranteed((Boolean)newValue);
+            return;
+      }
+      super.eSet(featureID, newValue);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case EipPackage.CHANNEL__TO_ENDPOINT:
-				setToEndpoint((Endpoint)null);
-				return;
-			case EipPackage.CHANNEL__FROM_ENDPOINT:
-				setFromEndpoint((Endpoint)null);
-				return;
-			case EipPackage.CHANNEL__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case EipPackage.CHANNEL__GUARANTEED:
-				setGuaranteed(GUARANTEED_EDEFAULT);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+      switch (featureID) {
+         case EipPackage.CHANNEL__TO_ENDPOINT:
+            setToEndpoint((Endpoint)null);
+            return;
+         case EipPackage.CHANNEL__FROM_ENDPOINT:
+            setFromEndpoint((Endpoint)null);
+            return;
+         case EipPackage.CHANNEL__NAME:
+            setName(NAME_EDEFAULT);
+            return;
+         case EipPackage.CHANNEL__GUARANTEED:
+            setGuaranteed(GUARANTEED_EDEFAULT);
+            return;
+      }
+      super.eUnset(featureID);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case EipPackage.CHANNEL__TO_ENDPOINT:
-				return toEndpoint != null;
-			case EipPackage.CHANNEL__FROM_ENDPOINT:
-				return fromEndpoint != null;
-			case EipPackage.CHANNEL__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case EipPackage.CHANNEL__GUARANTEED:
-				return guaranteed != GUARANTEED_EDEFAULT;
-		}
-		return super.eIsSet(featureID);
-	}
+      switch (featureID) {
+         case EipPackage.CHANNEL__TO_ENDPOINT:
+            return toEndpoint != null;
+         case EipPackage.CHANNEL__FROM_ENDPOINT:
+            return fromEndpoint != null;
+         case EipPackage.CHANNEL__NAME:
+            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+         case EipPackage.CHANNEL__GUARANTEED:
+            return guaranteed != GUARANTEED_EDEFAULT;
+      }
+      return super.eIsSet(featureID);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+      if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", guaranteed: ");
-		result.append(guaranteed);
-		result.append(')');
-		return result.toString();
-	}
+      StringBuffer result = new StringBuffer(super.toString());
+      result.append(" (name: ");
+      result.append(name);
+      result.append(", guaranteed: ");
+      result.append(guaranteed);
+      result.append(')');
+      return result.toString();
+   }
 
 } //ChannelImpl

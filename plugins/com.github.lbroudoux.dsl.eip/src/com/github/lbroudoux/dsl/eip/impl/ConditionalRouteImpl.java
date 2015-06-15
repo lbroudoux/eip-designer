@@ -30,196 +30,196 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class ConditionalRouteImpl extends MinimalEObjectImpl.Container implements ConditionalRoute {
 	/**
-	 * The default value of the '{@link #getCondition() <em>Condition</em>}' attribute.
-	 * <!-- begin-user-doc -->
+    * The default value of the '{@link #getCondition() <em>Condition</em>}' attribute.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCondition()
-	 * @generated
-	 * @ordered
-	 */
+    * @see #getCondition()
+    * @generated
+    * @ordered
+    */
 	protected static final String CONDITION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' attribute.
-	 * <!-- begin-user-doc -->
+    * The cached value of the '{@link #getCondition() <em>Condition</em>}' attribute.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCondition()
-	 * @generated
-	 * @ordered
-	 */
+    * @see #getCondition()
+    * @generated
+    * @ordered
+    */
 	protected String condition = CONDITION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getChannel() <em>Channel</em>}' reference.
-	 * <!-- begin-user-doc -->
+    * The cached value of the '{@link #getChannel() <em>Channel</em>}' reference.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getChannel()
-	 * @generated
-	 * @ordered
-	 */
+    * @see #getChannel()
+    * @generated
+    * @ordered
+    */
 	protected Channel channel;
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	protected ConditionalRouteImpl() {
-		super();
-	}
+      super();
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	@Override
 	protected EClass eStaticClass() {
-		return EipPackage.Literals.CONDITIONAL_ROUTE;
-	}
+      return EipPackage.Literals.CONDITIONAL_ROUTE;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public String getCondition() {
-		return condition;
-	}
+      return condition;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public void setCondition(String newCondition) {
-		String oldCondition = condition;
-		condition = newCondition;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EipPackage.CONDITIONAL_ROUTE__CONDITION, oldCondition, condition));
-	}
+      String oldCondition = condition;
+      condition = newCondition;
+      if (eNotificationRequired())
+         eNotify(new ENotificationImpl(this, Notification.SET, EipPackage.CONDITIONAL_ROUTE__CONDITION, oldCondition, condition));
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public Channel getChannel() {
-		if (channel != null && channel.eIsProxy()) {
-			InternalEObject oldChannel = (InternalEObject)channel;
-			channel = (Channel)eResolveProxy(oldChannel);
-			if (channel != oldChannel) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EipPackage.CONDITIONAL_ROUTE__CHANNEL, oldChannel, channel));
-			}
-		}
-		return channel;
-	}
+      if (channel != null && channel.eIsProxy()) {
+         InternalEObject oldChannel = (InternalEObject)channel;
+         channel = (Channel)eResolveProxy(oldChannel);
+         if (channel != oldChannel) {
+            if (eNotificationRequired())
+               eNotify(new ENotificationImpl(this, Notification.RESOLVE, EipPackage.CONDITIONAL_ROUTE__CHANNEL, oldChannel, channel));
+         }
+      }
+      return channel;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public Channel basicGetChannel() {
-		return channel;
-	}
+      return channel;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public void setChannel(Channel newChannel) {
-		Channel oldChannel = channel;
-		channel = newChannel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EipPackage.CONDITIONAL_ROUTE__CHANNEL, oldChannel, channel));
-	}
+      Channel oldChannel = channel;
+      channel = newChannel;
+      if (eNotificationRequired())
+         eNotify(new ENotificationImpl(this, Notification.SET, EipPackage.CONDITIONAL_ROUTE__CHANNEL, oldChannel, channel));
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case EipPackage.CONDITIONAL_ROUTE__CONDITION:
-				return getCondition();
-			case EipPackage.CONDITIONAL_ROUTE__CHANNEL:
-				if (resolve) return getChannel();
-				return basicGetChannel();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+      switch (featureID) {
+         case EipPackage.CONDITIONAL_ROUTE__CONDITION:
+            return getCondition();
+         case EipPackage.CONDITIONAL_ROUTE__CHANNEL:
+            if (resolve) return getChannel();
+            return basicGetChannel();
+      }
+      return super.eGet(featureID, resolve, coreType);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case EipPackage.CONDITIONAL_ROUTE__CONDITION:
-				setCondition((String)newValue);
-				return;
-			case EipPackage.CONDITIONAL_ROUTE__CHANNEL:
-				setChannel((Channel)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+      switch (featureID) {
+         case EipPackage.CONDITIONAL_ROUTE__CONDITION:
+            setCondition((String)newValue);
+            return;
+         case EipPackage.CONDITIONAL_ROUTE__CHANNEL:
+            setChannel((Channel)newValue);
+            return;
+      }
+      super.eSet(featureID, newValue);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case EipPackage.CONDITIONAL_ROUTE__CONDITION:
-				setCondition(CONDITION_EDEFAULT);
-				return;
-			case EipPackage.CONDITIONAL_ROUTE__CHANNEL:
-				setChannel((Channel)null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+      switch (featureID) {
+         case EipPackage.CONDITIONAL_ROUTE__CONDITION:
+            setCondition(CONDITION_EDEFAULT);
+            return;
+         case EipPackage.CONDITIONAL_ROUTE__CHANNEL:
+            setChannel((Channel)null);
+            return;
+      }
+      super.eUnset(featureID);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case EipPackage.CONDITIONAL_ROUTE__CONDITION:
-				return CONDITION_EDEFAULT == null ? condition != null : !CONDITION_EDEFAULT.equals(condition);
-			case EipPackage.CONDITIONAL_ROUTE__CHANNEL:
-				return channel != null;
-		}
-		return super.eIsSet(featureID);
-	}
+      switch (featureID) {
+         case EipPackage.CONDITIONAL_ROUTE__CONDITION:
+            return CONDITION_EDEFAULT == null ? condition != null : !CONDITION_EDEFAULT.equals(condition);
+         case EipPackage.CONDITIONAL_ROUTE__CHANNEL:
+            return channel != null;
+      }
+      return super.eIsSet(featureID);
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+      if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (condition: ");
-		result.append(condition);
-		result.append(')');
-		return result.toString();
-	}
+      StringBuffer result = new StringBuffer(super.toString());
+      result.append(" (condition: ");
+      result.append(condition);
+      result.append(')');
+      return result.toString();
+   }
 
 } //ConditionalRouteImpl

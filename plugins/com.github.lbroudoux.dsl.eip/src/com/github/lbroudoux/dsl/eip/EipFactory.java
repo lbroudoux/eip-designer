@@ -14,191 +14,200 @@ import org.eclipse.emf.ecore.EFactory;
  */
 public interface EipFactory extends EFactory {
 	/**
-	 * The singleton instance of the factory.
-	 * <!-- begin-user-doc -->
+    * The singleton instance of the factory.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	EipFactory eINSTANCE = com.github.lbroudoux.dsl.eip.impl.EipFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Channel</em>'.
-	 * <!-- begin-user-doc -->
+    * Returns a new object of class '<em>Channel</em>'.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Channel</em>'.
-	 * @generated
-	 */
+    * @return a new object of class '<em>Channel</em>'.
+    * @generated
+    */
 	Channel createChannel();
 
 	/**
-	 * Returns a new object of class '<em>Adapter</em>'.
-	 * <!-- begin-user-doc -->
+    * Returns a new object of class '<em>Adapter</em>'.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Adapter</em>'.
-	 * @generated
-	 */
+    * @return a new object of class '<em>Adapter</em>'.
+    * @generated
+    */
 	Adapter createAdapter();
 
 	/**
-	 * Returns a new object of class '<em>Router</em>'.
-	 * <!-- begin-user-doc -->
+    * Returns a new object of class '<em>Router</em>'.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Router</em>'.
-	 * @generated
-	 */
+    * @return a new object of class '<em>Router</em>'.
+    * @generated
+    */
 	Router createRouter();
 
 	/**
-	 * Returns a new object of class '<em>Filter</em>'.
-	 * <!-- begin-user-doc -->
+    * Returns a new object of class '<em>Filter</em>'.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Filter</em>'.
-	 * @generated
-	 */
+    * @return a new object of class '<em>Filter</em>'.
+    * @generated
+    */
 	Filter createFilter();
 
 	/**
-	 * Returns a new object of class '<em>Transformer</em>'.
-	 * <!-- begin-user-doc -->
+    * Returns a new object of class '<em>Transformer</em>'.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Transformer</em>'.
-	 * @generated
-	 */
+    * @return a new object of class '<em>Transformer</em>'.
+    * @generated
+    */
 	Transformer createTransformer();
 
 	/**
-	 * Returns a new object of class '<em>Gateway</em>'.
-	 * <!-- begin-user-doc -->
+    * Returns a new object of class '<em>Gateway</em>'.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Gateway</em>'.
-	 * @generated
-	 */
+    * @return a new object of class '<em>Gateway</em>'.
+    * @generated
+    */
 	Gateway createGateway();
 
 	/**
-	 * Returns a new object of class '<em>Conditional Route</em>'.
-	 * <!-- begin-user-doc -->
+    * Returns a new object of class '<em>Conditional Route</em>'.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Conditional Route</em>'.
-	 * @generated
-	 */
+    * @return a new object of class '<em>Conditional Route</em>'.
+    * @generated
+    */
 	ConditionalRoute createConditionalRoute();
 
 	/**
-	 * Returns a new object of class '<em>Splitter</em>'.
-	 * <!-- begin-user-doc -->
+    * Returns a new object of class '<em>Splitter</em>'.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Splitter</em>'.
-	 * @generated
-	 */
+    * @return a new object of class '<em>Splitter</em>'.
+    * @generated
+    */
 	Splitter createSplitter();
 
 	/**
-	 * Returns a new object of class '<em>Aggregator</em>'.
-	 * <!-- begin-user-doc -->
+    * Returns a new object of class '<em>Aggregator</em>'.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Aggregator</em>'.
-	 * @generated
-	 */
+    * @return a new object of class '<em>Aggregator</em>'.
+    * @generated
+    */
 	Aggregator createAggregator();
 
 	/**
-	 * Returns a new object of class '<em>Route</em>'.
-	 * <!-- begin-user-doc -->
+    * Returns a new object of class '<em>Route</em>'.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Route</em>'.
-	 * @generated
-	 */
+    * @return a new object of class '<em>Route</em>'.
+    * @generated
+    */
 	Route createRoute();
 
 	/**
-	 * Returns a new object of class '<em>Service Activator</em>'.
-	 * <!-- begin-user-doc -->
+    * Returns a new object of class '<em>Service Activator</em>'.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Service Activator</em>'.
-	 * @generated
-	 */
+    * @return a new object of class '<em>Service Activator</em>'.
+    * @generated
+    */
 	ServiceActivator createServiceActivator();
 
 	/**
-	 * Returns a new object of class '<em>EIP Model</em>'.
-	 * <!-- begin-user-doc -->
+    * Returns a new object of class '<em>EIP Model</em>'.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>EIP Model</em>'.
-	 * @generated
-	 */
+    * @return a new object of class '<em>EIP Model</em>'.
+    * @generated
+    */
 	EIPModel createEIPModel();
 
 	/**
-	 * Returns a new object of class '<em>Enricher</em>'.
-	 * <!-- begin-user-doc -->
+    * Returns a new object of class '<em>Enricher</em>'.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Enricher</em>'.
-	 * @generated
-	 */
+    * @return a new object of class '<em>Enricher</em>'.
+    * @generated
+    */
 	Enricher createEnricher();
 
 	/**
-	 * Returns a new object of class '<em>Composite Processor</em>'.
-	 * <!-- begin-user-doc -->
+    * Returns a new object of class '<em>Composite Processor</em>'.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Composite Processor</em>'.
-	 * @generated
-	 */
+    * @return a new object of class '<em>Composite Processor</em>'.
+    * @generated
+    */
 	CompositeProcessor createCompositeProcessor();
 
 	/**
-	 * Returns a new object of class '<em>Recipient List Router</em>'.
-	 * <!-- begin-user-doc -->
+    * Returns a new object of class '<em>Recipient List Router</em>'.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Recipient List Router</em>'.
-	 * @generated
-	 */
+    * @return a new object of class '<em>Recipient List Router</em>'.
+    * @generated
+    */
 	RecipientListRouter createRecipientListRouter();
 
 	/**
-	 * Returns a new object of class '<em>Service Ref</em>'.
-	 * <!-- begin-user-doc -->
+    * Returns a new object of class '<em>Service Ref</em>'.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Service Ref</em>'.
-	 * @generated
-	 */
+    * @return a new object of class '<em>Service Ref</em>'.
+    * @generated
+    */
 	ServiceRef createServiceRef();
 
 	/**
-	 * Returns a new object of class '<em>Service Invocation</em>'.
-	 * <!-- begin-user-doc -->
+    * Returns a new object of class '<em>Service Invocation</em>'.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Service Invocation</em>'.
-	 * @generated
-	 */
+    * @return a new object of class '<em>Service Invocation</em>'.
+    * @generated
+    */
 	ServiceInvocation createServiceInvocation();
 
 	/**
-	 * Returns a new object of class '<em>Invocable Endpoint</em>'.
-	 * <!-- begin-user-doc -->
+    * Returns a new object of class '<em>Invocable Endpoint</em>'.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Invocable Endpoint</em>'.
-	 * @generated
-	 */
+    * @return a new object of class '<em>Invocable Endpoint</em>'.
+    * @generated
+    */
 	InvocableEndpoint createInvocableEndpoint();
 
 	/**
-	 * Returns a new object of class '<em>Content Filter</em>'.
-	 * <!-- begin-user-doc -->
+    * Returns a new object of class '<em>Content Filter</em>'.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Content Filter</em>'.
-	 * @generated
-	 */
+    * @return a new object of class '<em>Content Filter</em>'.
+    * @generated
+    */
 	ContentFilter createContentFilter();
 
 	/**
-	 * Returns the package supported by this factory.
-	 * <!-- begin-user-doc -->
+    * Returns a new object of class '<em>Resequencer</em>'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return a new object of class '<em>Resequencer</em>'.
+    * @generated
+    */
+   Resequencer createResequencer();
+
+   /**
+    * Returns the package supported by this factory.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the package supported by this factory.
-	 * @generated
-	 */
+    * @return the package supported by this factory.
+    * @generated
+    */
 	EipPackage getEipPackage();
 
 } //EipFactory

@@ -18,72 +18,72 @@ import junit.textui.TestRunner;
 public class ChannelTest extends TestCase {
 
 	/**
-	 * The fixture for this Channel test case.
-	 * <!-- begin-user-doc -->
+    * The fixture for this Channel test case.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	protected Channel fixture = null;
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public static void main(String[] args) {
-		TestRunner.run(ChannelTest.class);
-	}
+      TestRunner.run(ChannelTest.class);
+   }
 
 	/**
-	 * Constructs a new Channel test case with the given name.
-	 * <!-- begin-user-doc -->
+    * Constructs a new Channel test case with the given name.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public ChannelTest(String name) {
-		super(name);
-	}
+      super(name);
+   }
 
 	/**
-	 * Sets the fixture for this Channel test case.
-	 * <!-- begin-user-doc -->
+    * Sets the fixture for this Channel test case.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	protected void setFixture(Channel fixture) {
-		this.fixture = fixture;
-	}
+      this.fixture = fixture;
+   }
 
 	/**
-	 * Returns the fixture for this Channel test case.
-	 * <!-- begin-user-doc -->
+    * Returns the fixture for this Channel test case.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	protected Channel getFixture() {
-		return fixture;
-	}
+      return fixture;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
+    * @see junit.framework.TestCase#setUp()
+    * @generated
+    */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(EipFactory.eINSTANCE.createChannel());
-	}
+      setFixture(EipFactory.eINSTANCE.createChannel());
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
+    * @see junit.framework.TestCase#tearDown()
+    * @generated
+    */
 	@Override
 	protected void tearDown() throws Exception {
-		setFixture(null);
-	}
+      setFixture(null);
+   }
 
 } //ChannelTest

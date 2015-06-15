@@ -14,13 +14,21 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="fromEndpoint" eType="#//Endpoint"
         eOpposite="#//Endpoint/toChannel"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="guaranteed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="guaranteed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Whether channel should guarantee delivery (through a repository or store mechanism for example)."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Adapter"/>
   <eClassifiers xsi:type="ecore:EClass" name="Router" eSuperTypes="#//Endpoint">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedRoutes" upperBound="-1"
         eType="#//ConditionalRoute" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//RoutingType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//RoutingType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The type tells if the routing decision is based upon the message's content and/or metadata available in the message headers."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Filter" eSuperTypes="#//Endpoint">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -28,13 +36,32 @@
   <eClassifiers xsi:type="ecore:EClass" name="Transformer" eSuperTypes="#//Endpoint"/>
   <eClassifiers xsi:type="ecore:EClass" name="Gateway" eSuperTypes="#//Endpoint"/>
   <eClassifiers xsi:type="ecore:EClass" name="ConditionalRoute">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The condition message should fulffil in order to be sent to outgoing channel."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="channel" lowerBound="1"
         eType="#//Channel"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Splitter" eSuperTypes="#//Endpoint"/>
   <eClassifiers xsi:type="ecore:EClass" name="Aggregator" eSuperTypes="#//Endpoint">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="strategy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="part" eType="#//MessagePart"
+        defaultValueLiteral="HEADER">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The message part upon whom is made correlation before aggregation."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="strategy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The name of Aggregation strategy to use to correlate or merge the incoming message with previous ones."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The expression which evaluates the correlation key to use for aggregation."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Route">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedEndpoints" upperBound="-1"
@@ -44,6 +71,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedServiceRefs" upperBound="-1"
         eType="#//ServiceRef" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="exchangeType" eType="#//ExchangeType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Semantic of the exchange supported by the route : InOnly in case of a one-way message (for example, JMS messaging is often one-way messaging) ; InOut in case of a request-response message (for example, HTTP-based transports are often request reply).&#xA;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ServiceActivator" eSuperTypes="#//InvocableEndpoint"/>
   <eClassifiers xsi:type="ecore:EClass" name="EIPModel">
@@ -75,8 +107,16 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ServiceInvocation">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Allow to specify a specific invocation context (documentation purpose)."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The name of service's operation to invoke."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="serviceRef" lowerBound="1"
         eType="#//ServiceRef"/>
   </eClassifiers>
@@ -85,4 +125,16 @@
         upperBound="-1" eType="#//ServiceInvocation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ContentFilter" eSuperTypes="#//Filter"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Resequencer" eSuperTypes="#//Aggregator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="streamSequences" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Whether to apply a stream semantic : send out ordered sequences as soon as they are available, or only after the whole message group arrives."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ExchangeType">
+    <eLiterals name="IN_ONLY"/>
+    <eLiterals name="IN_OUT"/>
+  </eClassifiers>
 </ecore:EPackage>

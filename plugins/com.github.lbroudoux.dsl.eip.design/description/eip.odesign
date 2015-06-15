@@ -28,6 +28,12 @@
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.oclIsTypeOf(eip::Resequencer)/]">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Resequencer.gif">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
           <conditionnalStyles predicateExpression="[self.oclIsTypeOf(eip::CompositeProcessor)/]">
             <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/CompositeProcessor.gif">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -124,6 +130,12 @@
             </conditionnalStyles>
             <conditionnalStyles predicateExpression="[self.oclIsTypeOf(eip::Aggregator)/]">
               <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Aggregator.gif">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="[self.oclIsTypeOf(eip::Resequencer)/]">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Resequencer.gif">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
@@ -248,6 +260,15 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="eip.Aggregator" referenceName="ownedEndpoints">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Aggregator_'+self.eContainer().eContents()->filter(eip::Aggregator)->size()/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Resequencer" nodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint'] //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint']" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/Resequencer.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="eip.Resequencer" referenceName="ownedEndpoints">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Resequencer_'+self.eContainer().eContents()->filter(eip::Resequencer)->size()/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>

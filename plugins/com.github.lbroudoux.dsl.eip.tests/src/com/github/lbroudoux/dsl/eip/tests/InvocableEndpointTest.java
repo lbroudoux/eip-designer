@@ -18,72 +18,72 @@ import junit.textui.TestRunner;
 public class InvocableEndpointTest extends TestCase {
 
 	/**
-	 * The fixture for this Invocable Endpoint test case.
-	 * <!-- begin-user-doc -->
+    * The fixture for this Invocable Endpoint test case.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	protected InvocableEndpoint fixture = null;
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public static void main(String[] args) {
-		TestRunner.run(InvocableEndpointTest.class);
-	}
+      TestRunner.run(InvocableEndpointTest.class);
+   }
 
 	/**
-	 * Constructs a new Invocable Endpoint test case with the given name.
-	 * <!-- begin-user-doc -->
+    * Constructs a new Invocable Endpoint test case with the given name.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public InvocableEndpointTest(String name) {
-		super(name);
-	}
+      super(name);
+   }
 
 	/**
-	 * Sets the fixture for this Invocable Endpoint test case.
-	 * <!-- begin-user-doc -->
+    * Sets the fixture for this Invocable Endpoint test case.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	protected void setFixture(InvocableEndpoint fixture) {
-		this.fixture = fixture;
-	}
+      this.fixture = fixture;
+   }
 
 	/**
-	 * Returns the fixture for this Invocable Endpoint test case.
-	 * <!-- begin-user-doc -->
+    * Returns the fixture for this Invocable Endpoint test case.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	protected InvocableEndpoint getFixture() {
-		return fixture;
-	}
+      return fixture;
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
+    * @see junit.framework.TestCase#setUp()
+    * @generated
+    */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(EipFactory.eINSTANCE.createInvocableEndpoint());
-	}
+      setFixture(EipFactory.eINSTANCE.createInvocableEndpoint());
+   }
 
 	/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
+    * @see junit.framework.TestCase#tearDown()
+    * @generated
+    */
 	@Override
 	protected void tearDown() throws Exception {
-		setFixture(null);
-	}
+      setFixture(null);
+   }
 
 } //InvocableEndpointTest
