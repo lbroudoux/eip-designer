@@ -15,22 +15,35 @@ Finally, we aim to provide adapters and bridges to allow the usage of EIP Design
 
 ## Build Status
 
-Travis CI [![Build Status](https://travis-ci.org/lbroudoux/eip-designer.png?branch=master)](https://travis-ci.org/lbroudoux/eip-designer)
+Current development version is `0.1.1-SNAPSHOT`. [![Build Status](https://travis-ci.org/lbroudoux/eip-designer.png?branch=master)](https://travis-ci.org/lbroudoux/eip-designer)
+
+
+## Releases
+
+| Versions      | Date          | Update site  |
+| ------------- | ------------- | ------------ |
+|`0.1.0`      |16 Jun. 2015   |`http://dl.bintray.com/lbroudoux/maven/eip-designer/0.1.0/`|
 
 
 ## Installation
-
-EIP Designer is currently in development mode and thus should be either be : 
-* built from sources to get distributable and installable binary packages or,
-* directly imported into Eclipse workbench for local tests.
-
-For early testers, a snapshot P2 repository as been setup here: `http://dl.bintray.com/lbroudoux/maven/eip-designer/0.0.1/`. Just use this URL as an update site into your Eclipse installation within `Install New Software...`.  
 
 ### Pre-requisites
 
 EIP Designer needs at least Eclipse Luna SR1 with modeling stuffs. We recommend using directly the _Modeling Tools_ distribution of Eclipse available from [download page](http://www.eclipse.org/downloads/).
 
 After having installed and ran Eclipse, you also need to add Sirius 2.0. See the download page on [http://www.eclipse.org/sirius](http://www.eclipse.org/sirius/download.html) on how to add Sirius to your Eclipse modeling installation.
+
+#### Released versions
+
+Find the correct update site URL in the above Releases table and just use this URL as an update site into your Eclipse installation within `Install New Software...`. More details on available features are mentionned below when talking about _Usage_, _Generators_ and _Bridges_.
+
+#### Development version
+
+Want to live on the edge ? The development version of EIP Designer could either be : 
+* built from sources to get distributable and installable binary packages or,
+* directly imported into Eclipse workbench for local tests.
+
+For early testers, snapshot P2 repositories are regularly setup and provisioned here: `http://dl.bintray.com/lbroudoux/maven/eip-designer/`. Just use this URL to see if there's a snapshot for current version and use URL as an update site into your Eclipse installation within `Install New Software...`.  
 
 ### Build from sources
 
