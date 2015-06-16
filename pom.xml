@@ -7,11 +7,6 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>EIP Designer Parent</name>
-  <parent>
-    <groupId>org.sonatype.oss</groupId>
-    <artifactId>oss-parent</artifactId>
-    <version>7</version>
-  </parent>
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
