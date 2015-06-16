@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: EIP Camel generator
 Bundle-SymbolicName: com.github.lbroudoux.dsl.eip.gen.camel
-Bundle-Version: 0.0.1.qualifier
+Bundle-Version: 0.1.0
 Bundle-Activator: com.github.lbroudoux.dsl.eip.gen.camel.Activator
 Bundle-Vendor: LBroudoux
 Require-Bundle: org.eclipse.core.runtime,
