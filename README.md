@@ -33,11 +33,11 @@ EIP Designer needs at least Eclipse Luna SR1 with modeling stuffs. We recommend 
 
 After having installed and ran Eclipse, you also need to add Sirius 2.0. See the download page on [http://www.eclipse.org/sirius](http://www.eclipse.org/sirius/download.html) on how to add Sirius to your Eclipse modeling installation.
 
-#### Released versions
+### Released versions
 
 Find the correct update site URL in the above Releases table and just use this URL as an update site into your Eclipse installation within `Install New Software...`. More details on available features are mentionned below when talking about _Usage_, _Generators_ and _Bridges_.
 
-#### Development version
+### Development version
 
 Want to live on the edge ? The development version of EIP Designer could either be : 
 * built from sources to get distributable and installable binary packages or,
@@ -45,7 +45,7 @@ Want to live on the edge ? The development version of EIP Designer could either 
 
 For early testers, snapshot P2 repositories are regularly setup and provisioned here: `http://dl.bintray.com/lbroudoux/maven/eip-designer/`. Just use this URL to see if there's a snapshot for current version and use URL as an update site into your Eclipse installation within `Install New Software...`.  
 
-### Build from sources
+#### Build from sources
 
 In order to build from sources, you'll need Apache Maven (version >= 3.0). After having cloned the Github repository, just go to the repository root and run :
 
@@ -54,7 +54,7 @@ $ mvn clean install
 ```
 This should build and install all binary plugins into your Maven local repository under the `com.github.lbroudoux.dsl.eip` group / sub directories.
 
-### Import into Eclipse
+#### Import into Eclipse
 
 After having cloned the Github repository, just launch Eclipse and do a regular projet import (_Import...  > Existing Projects into Workspace_) of all the projects located under `/plugins` and `/features` directories.  
 
