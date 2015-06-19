@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:int="http://www.springframework.org/schema/integration"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:beans="http://www.springframework.org/schema/beans"
+ xmlns:int-stream="http://www.springframework.org/schema/integration/stream"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/integration
+  http://www.springframework.org/schema/integration/spring-integration.xsd
+  http://www.springframework.org/schema/integration/stream
+  http://www.springframework.org/schema/integration/stream/spring-integration-stream.xsd">
+
+  <int:filter id="FilterIncompleteNormalization" input-channel="Normalize_Filter"
+   output-channel="Filter_Check" />
+  <int:gateway id="GatewayIn" output-channel="GatewayIn_Normalize" />
+  <int:transformer id="NormalizeClients" input-channel="GatewayIn_Normalize"
+   output-channel="Normalize_Filter" />
+  <int:service-activator id="Check ServiceCallout" input-channel="Filter_Check"
+   output-channel="ServiceCallout_Composite" />
+  <int:chain id="Composite" input-channel="ServiceCallout_Composite"
+   output-channel="Composite_GatewayOut">
+    <int:splitter id="ClientSplitter" output-channel="Splitter_Router" />
+    <int:header-value-router id="ClientRouter" input-channel="Splitter_Router" header-name="ClientRouter"
+        default-output-channel="DefaultRoute">
+      <int:mapping id="client.isGold()" value="client.isGold()" channel="Channel_" />
+    </int:header-value-router>
+    <int:aggregator id="ClientAggregator" input-channel="Default_Aggregator" />
+    <int:service-activator id="GoldService" input-channel="Channel_"
+     output-channel="GoldService_Aggregator" />
+    <int:service-activator id="DefaultService" input-channel="DefaultRoute"
+     output-channel="Default_Aggregator" />
+  </int:chain>
+  <int:gateway id="GatewayOut" input-channel="Composite_GatewayOut" />
+
+  <int:channel id="GatewayIn_Normalize" />
+  <int:channel id="Normalize_Filter" />
+  <int:channel id="Filter_Check" />
+  <int:channel id="ServiceCallout_Composite" />
+  <int:channel id="Composite_GatewayOut" />
+  <int:channel id="Splitter_Router" />
+  <int:channel id="DefaultRoute" />
+  <int:channel id="Channel_" />
+  <int:channel id="Default_Aggregator" />
+  <int:channel id="GoldService_Aggregator" />
+</beans:beans>

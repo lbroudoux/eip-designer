@@ -22,15 +22,18 @@ import static org.junit.Assert.*;
 
 import java.io.File;
 
+
 //import org.eclipse.emf.compare.Comparison;
 //import org.eclipse.emf.compare.EMFCompare;
 import org.junit.Test;
 
 import com.github.lbroudoux.dsl.eip.Channel;
+import com.github.lbroudoux.dsl.eip.CompositeProcessor;
 import com.github.lbroudoux.dsl.eip.EIPModel;
 import com.github.lbroudoux.dsl.eip.EipFactory;
 import com.github.lbroudoux.dsl.eip.Endpoint;
 import com.github.lbroudoux.dsl.eip.Route;
+import com.github.lbroudoux.dsl.eip.Router;
 /**
  * Unit tests for SpringIntegrationFileParser.
  * @author laurent
@@ -49,6 +52,45 @@ public class SpringIntegrationFileParserTest {
       Route route = model.getOwnedRoutes().get(0);
       assertEquals(7, route.getOwnedChannels().size());
       assertEquals(2, route.getOwnedEndpoints().size());
+   }
+   
+   @Test
+   public void testAdvanced() throws Exception {
+      SpringIntegrationFileParser parser = new SpringIntegrationFileParser(
+            new File("test/com/github/lbroudoux/dsl/eip/parser/spring/MyRoute2.xml"));
+      EIPModel model = EipFactory.eINSTANCE.createEIPModel();
+      parser.parseAndFillModel(model);
+      
+      // Assert on model.
+      assertEquals(1, model.getOwnedRoutes().size());
+      Route route = model.getOwnedRoutes().get(0);
+      assertEquals(10, route.getOwnedChannels().size());
+      assertEquals(6, route.getOwnedEndpoints().size());
+      
+      // Assert on composed endpoints.
+      CompositeProcessor composite = null;
+      for (Endpoint endpoint : route.getOwnedEndpoints()) {
+         if (endpoint instanceof CompositeProcessor) {
+            composite = (CompositeProcessor) endpoint;
+            break;
+         }
+      }
+      assertNotNull(composite);
+      assertEquals(5, composite.getOwnedEndpoints().size());
+      
+      // Assert on router properties.
+      boolean foundRouter = false;
+      for (Endpoint endpoint : composite.getOwnedEndpoints()) {
+         if (endpoint instanceof Router) {
+            foundRouter = true;
+            Router router = (Router) endpoint;
+            assertNotNull(router.getToChannel());
+            assertEquals(1, router.getOwnedRoutes().size());
+            assertEquals("client.isGold()", router.getOwnedRoutes().get(0).getCondition());
+            assertEquals("Channel_", router.getOwnedRoutes().get(0).getChannel().getName());
+         }
+      }
+      assertTrue(foundRouter);
    }
    
    @Test

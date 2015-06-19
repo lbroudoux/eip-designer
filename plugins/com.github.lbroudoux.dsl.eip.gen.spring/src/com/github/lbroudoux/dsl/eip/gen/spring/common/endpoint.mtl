@@ -29,7 +29,30 @@
 [/template]
 
 [template public genEndpoint(aRouter : Router) post(trim())]
-
+[if (aRouter.type = RoutingType::HEADER_VALUE)]
+<int:header-value-router id="[aRouter.name/]" [aRouter.genInputChannelEndpointAttribute()/] header-name="[aRouter.name/]"
+    default-output-channel="[aRouter.toChannel.name/]">
+[for (route : ConditionalRoute | aRouter.ownedRoutes)]
+  <int:mapping id="[route.condition/]" value="[route.condition/]" channel="[route.channel.name/]" />
+[/for]
+</int:header-value-router>
+[/if]
+[if (aRouter.type = RoutingType::PAYLOAD_VALUE)]
+<int:router id="[aRouter.name/]" [aRouter.genInputChannelEndpointAttribute()/] expression="payload.paymentType"
+	 default-output-channel="[aRouter.toChannel.name/]">
+[for (route : ConditionalRoute | aRouter.ownedRoutes)]
+  <int:mapping id="[route.condition/]" value="[route.condition/]" channel="[route.channel.name/]" />
+[/for]
+</int:router>
+[/if]
+[if (aRouter.type = RoutingType::PAYLOAD_TYPE)]
+<int:payload-type-router id="[aRouter.name/]" [aRouter.genInputChannelEndpointAttribute()/] header-name="[aRouter.name/]"
+    default-output-channel="[aRouter.toChannel.name/]">
+[for (route : ConditionalRoute | aRouter.ownedRoutes)]
+  <int:mapping id="[route.condition/]" type="[route.condition/]" channel="[route.channel.name/]" />
+[/for]
+</int:payload-type-router>
+[/if]
 [/template]
 
 [template public genEndpoint(aSplitter : Splitter) post(trim())]

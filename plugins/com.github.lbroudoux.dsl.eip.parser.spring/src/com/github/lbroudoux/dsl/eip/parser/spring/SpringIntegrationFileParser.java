@@ -33,10 +33,13 @@ import org.w3c.dom.NodeList;
 
 import com.github.lbroudoux.dsl.eip.Channel;
 import com.github.lbroudoux.dsl.eip.CompositeProcessor;
+import com.github.lbroudoux.dsl.eip.ConditionalRoute;
 import com.github.lbroudoux.dsl.eip.EIPModel;
 import com.github.lbroudoux.dsl.eip.EipFactory;
 import com.github.lbroudoux.dsl.eip.Endpoint;
 import com.github.lbroudoux.dsl.eip.Route;
+import com.github.lbroudoux.dsl.eip.Router;
+import com.github.lbroudoux.dsl.eip.RoutingType;
 /**
  * Parser for Spring integration context file. Just build a new instance and call
  * <code>parseAndFillModel()</code> with already initialized model and it should go !
@@ -122,6 +125,7 @@ public class SpringIntegrationFileParser {
    private Endpoint createEndpoint(Node endpointNode) {
       Element endpointElement = (Element) endpointNode;
       Endpoint endpoint = null;
+      
       // Determine the correct implementation of Endpoint.
       if ("filter".equals(endpointElement.getLocalName())) {
          endpoint = EipFactory.eINSTANCE.createFilter();
@@ -139,13 +143,40 @@ public class SpringIntegrationFileParser {
          endpoint = EipFactory.eINSTANCE.createGateway();
       } else if ("service-activator".equals(endpointElement.getLocalName())) {
          endpoint = EipFactory.eINSTANCE.createServiceActivator();
+      } else if (endpointElement.getLocalName().contains("router")) {
+         // Complete common attributes for Router.
+         endpoint = EipFactory.eINSTANCE.createRouter();
+         Router router = ((Router) endpoint);
+         String channelOut = endpointElement.getAttribute("default-output-channel");
+         if (channelOut != null && channelOut.trim().length() > 0) {
+            router.setToChannel(channelsMap.get(channelOut));
+         }
+         NodeList mappings = endpointElement.getElementsByTagNameNS(SPRING_INT_NS, "mapping");
+         // Add a conditional route for each mapping.
+         for (int i=0; i<mappings.getLength(); i++) {
+            Element mapping = (Element)mappings.item(i);
+            ConditionalRoute cRoute = EipFactory.eINSTANCE.createConditionalRoute();
+            String cRouteChannel = mapping.getAttribute("channel");
+            cRoute.setChannel(channelsMap.get(cRouteChannel));
+            cRoute.setCondition(mapping.getAttribute("id"));
+            router.getOwnedRoutes().add(cRoute);
+         }
+         
+         // Complete specific router type attributes.
+         if ("header-value-router".equals(endpointElement.getLocalName())) {
+            router.setType(RoutingType.HEADER_VALUE);
+         } else if ("payload-type-router".equals(endpointElement.getLocalName())) {
+            router.setType(RoutingType.PAYLOAD_TYPE);
+         } else if ("router".equals(endpointElement.getLocalName())) {
+            router.setType(RoutingType.PAYLOAD_VALUE);
+         }
       }
       
       // Complete Endpoint with common attributes if any.
       if (endpoint != null) {
          endpoint.setName(endpointElement.getAttribute("id"));
          String inputChannelName = endpointElement.getAttribute("input-channel");
-         if (inputChannelName != null) {
+         if (inputChannelName != null && inputChannelName.trim().length() > 0) {
             Channel inputChannel = channelsMap.get(inputChannelName);
             // Prevent unknown null channel from being inserted in no-null constrained list.
             if (inputChannel != null) {
@@ -153,7 +184,7 @@ public class SpringIntegrationFileParser {
             }
          }
          String outputChannelName = endpointElement.getAttribute("output-channel");
-         if (outputChannelName != null) {
+         if (outputChannelName != null && outputChannelName.trim().length() > 0) {
             endpoint.setToChannel(channelsMap.get(outputChannelName));
          }
          endpointsMap.put(endpoint.getName(), endpoint);
