@@ -449,6 +449,10 @@
             <representationNameVariable name="diagramName"/>
           </ownedTools>
         </toolSections>
+        <decorationDescriptionsSet>
+          <decorationDescriptions xsi:type="description:SemanticBasedDecoration" name="DCR_OneWay" position="NORTH_EAST" decoratorPath="com.github.lbroudoux.dsl.eip.edit/icons/full/OneWay.gif" preconditionExpression="[self.exchangeType =ExchangeType::IN_ONLY/]" domainClass="Route"/>
+          <decorationDescriptions xsi:type="description:SemanticBasedDecoration" name="DCR_RequestReply" position="NORTH_EAST" decoratorPath="com.github.lbroudoux.dsl.eip.edit/icons/full/RequestReply.gif" preconditionExpression="[self.exchangeType =ExchangeType::IN_OUT/]" domainClass="Route"/>
+        </decorationDescriptionsSet>
       </defaultLayer>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="com.github.lbroudoux.dsl.eip.design.services.DebugService"/>
