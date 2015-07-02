@@ -23,6 +23,7 @@ import static org.junit.Assert.*;
 import java.io.File;
 
 
+
 //import org.eclipse.emf.compare.Comparison;
 //import org.eclipse.emf.compare.EMFCompare;
 import org.junit.Test;
@@ -32,6 +33,7 @@ import com.github.lbroudoux.dsl.eip.CompositeProcessor;
 import com.github.lbroudoux.dsl.eip.EIPModel;
 import com.github.lbroudoux.dsl.eip.EipFactory;
 import com.github.lbroudoux.dsl.eip.Endpoint;
+import com.github.lbroudoux.dsl.eip.Resequencer;
 import com.github.lbroudoux.dsl.eip.Route;
 import com.github.lbroudoux.dsl.eip.Router;
 /**
@@ -91,6 +93,33 @@ public class SpringIntegrationFileParserTest {
          }
       }
       assertTrue(foundRouter);
+   }
+   
+   @Test
+   public void testResequencer() throws Exception {
+      SpringIntegrationFileParser parser = new SpringIntegrationFileParser(
+            new File("test/com/github/lbroudoux/dsl/eip/parser/spring/MyRouteReseq.xml"));
+      EIPModel model = EipFactory.eINSTANCE.createEIPModel();
+      parser.parseAndFillModel(model);
+      
+      // Assert on model.
+      assertEquals(1, model.getOwnedRoutes().size());
+      Route route = model.getOwnedRoutes().get(0);
+      assertEquals(2, route.getOwnedChannels().size());
+      assertEquals(3, route.getOwnedEndpoints().size());
+      
+      // Assert on resequencer endpoints.
+      Resequencer resequencer = null;
+      for (Endpoint endpoint : route.getOwnedEndpoints()) {
+         if (endpoint instanceof Resequencer) {
+            resequencer = (Resequencer) endpoint;
+            break;
+         }
+      }
+      assertNotNull(resequencer);
+      assertNull(resequencer.getStrategy());
+      assertTrue(resequencer.isStreamSequences());
+      assertEquals("headers['foo']", resequencer.getExpression());
    }
    
    @Test

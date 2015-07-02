@@ -37,6 +37,7 @@ import com.github.lbroudoux.dsl.eip.ConditionalRoute;
 import com.github.lbroudoux.dsl.eip.EIPModel;
 import com.github.lbroudoux.dsl.eip.EipFactory;
 import com.github.lbroudoux.dsl.eip.Endpoint;
+import com.github.lbroudoux.dsl.eip.Resequencer;
 import com.github.lbroudoux.dsl.eip.Route;
 import com.github.lbroudoux.dsl.eip.Router;
 import com.github.lbroudoux.dsl.eip.RoutingType;
@@ -139,6 +140,22 @@ public class SpringIntegrationFileParser {
          endpoint = EipFactory.eINSTANCE.createSplitter();
       } else if ("aggregator".equals(endpointElement.getLocalName())) {
          endpoint = EipFactory.eINSTANCE.createAggregator();
+      } else if ("resequencer".equals(endpointElement.getLocalName())) {
+         endpoint = EipFactory.eINSTANCE.createResequencer();
+         // Complete specific attributes of Resequencer.
+         Resequencer resequencer = (Resequencer) endpoint;
+         String strategy = endpointElement.getAttribute("correlation-strategy");
+         String expression = endpointElement.getAttribute("correlation-strategy-expression");
+         String streamSequences = endpointElement.getAttribute("release-partial-sequences");
+         if (strategy != null && strategy.length() > 0) {
+            resequencer.setStrategy(strategy);
+         }
+         if (expression != null && expression.length() > 0) {
+            resequencer.setExpression(expression);
+         }
+         if (streamSequences != null && streamSequences.length() > 0) {
+            resequencer.setStreamSequences(Boolean.valueOf(streamSequences));
+         }
       } else if ("gateway".equals(endpointElement.getLocalName())) {
          endpoint = EipFactory.eINSTANCE.createGateway();
       } else if ("service-activator".equals(endpointElement.getLocalName())) {

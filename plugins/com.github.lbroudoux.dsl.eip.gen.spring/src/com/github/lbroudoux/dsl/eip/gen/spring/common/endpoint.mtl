@@ -63,6 +63,19 @@
 <int:aggregator id="[anAggregator.name/]" [anAggregator.genChannelEndpointAttributes()/] />
 [/template]
 
+[template public genEndpoint(aResequencer : Resequencer) post(trim())]
+<int:resequencer id="[aResequencer.name/]" [aResequencer.genChannelEndpointAttributes()/]
+[if (not aResequencer.expression.oclIsUndefined())]
+  correlation-strategy-expression="[aResequencer.expression/]"
+[elseif (not aResequencer.strategy.oclIsUndefined())]
+  correlation-strategy="[aResequencer.strategy/]"
+[/if]
+[if (aResequencer.streamSequences)] 
+  release-partial-sequences="true"
+[/if]
+/>
+[/template]
+
 [template public genEndpoint(aCompositeProcessor : CompositeProcessor) post(trim())]
 <int:chain id="[aCompositeProcessor.name/]" [aCompositeProcessor.genChannelEndpointAttributes()/]>
 [for (endpoint : Endpoint | aCompositeProcessor.ownedEndpoints)]
