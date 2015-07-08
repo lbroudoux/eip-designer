@@ -11,5 +11,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: com.github.lbroudoux.dsl.eip.provider
 Require-Bundle: org.eclipse.core.runtime,
  com.github.lbroudoux.dsl.eip;visibility:=reexport,
- org.eclipse.emf.edit;visibility:=reexport
+ org.eclipse.emf.edit;visibility:=reexport,
+ org.eclipse.emf.eef.runtime,
+ org.eclipse.sirius.eef.adapters
 Bundle-ActivationPolicy: lazy

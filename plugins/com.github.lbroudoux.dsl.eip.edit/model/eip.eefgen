@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<eef-gen:EEFGenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:eef-gen="http://www.eclipse.org/emf/eef/generation/1.0.0" genDirectory="/com.github.lbroudoux.dsl.eip.edit/src-eef" author="yanngv29">
+  <editionContexts basePackage="com.github.lbroudoux.dsl" descriptorsGenericPropertiesViews="true" leafComponentsSuperClass="org.eclipse.sirius.eef.components.SiriusAwarePropertiesEditingComponent">
+    <PropertiesEditionContext href="eip.components#_QrIvECVgEeW6yLik4m7P0g"/>
+  </editionContexts>
+  <viewsRepositories basePackage="com.github.lbroudoux.dsl.eip" swtViews="true" formViews="true">
+    <viewsRepository href="eip.components#_QrJ9iyVgEeW6yLik4m7P0g"/>
+  </viewsRepositories>
+</eef-gen:EEFGenModel>
