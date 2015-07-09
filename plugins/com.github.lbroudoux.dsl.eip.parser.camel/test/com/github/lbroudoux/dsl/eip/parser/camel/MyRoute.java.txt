@@ -1,0 +1,25 @@
+import org.apache.camel.builder.RouteBuilder;
+
+public class MyRoute extends RouteBuilder {
+   /**
+    * The Camel route is configured via this method.
+   * The from endpoint is required to be a SwitchYard service.
+    */
+   public void configure() { 
+      from("switchyard://GatewayIn")      // GatewayIn|GatewayIn_Normalize
+        .to("xslt:")    // NormalizeClients|Normalize_Filter
+        .filter()       // FilterIncompleteNormalization|Filter_Check
+        .to("switchyard://Check ServiceCallout")            // Check ServiceCallout|ServiceCallout_Composite
+        .split()        // ClientSplitter|Splitter_Router
+            .choice()         // ClientRouter|DefaultRoute
+               .when()        // Channel_
+                  .to("switchyard://GoldService")           // GoldService|GoldService_Aggregator
+                  // Endpoint not yet supported by generator
+               .otherwise()
+                  .to("switchyard://DefaultService")           // DefaultService|Default_Aggregator
+                  // Endpoint not yet supported by generator
+        .end()
+        .to("switchyard://GatewayOut")    // GatewayOut
+      ;
+   }
+}

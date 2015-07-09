@@ -1,6 +1,7 @@
 [comment encoding = UTF-8 /]
 [module javaRouteFile('http://www.github.com/lbroudoux/dsl/eip/1.0')]
 
+[import com::github::lbroudoux::dsl::eip::gen::camel::java::channel /]
 [import com::github::lbroudoux::dsl::eip::gen::camel::java::endpoint /]
 
 [template public genJavaRouteFilePath(aRoute : Route)]
@@ -18,8 +19,9 @@ public class [aRoute.name/] extends RouteBuilder {
    public void configure() { 
       [for (endpoint : Endpoint | aRoute.ownedEndpoints)]
 	  [if (endpoint.fromChannels->size() = 0)]
-      from("switchyard://[endpoint.name/]")
- 	     [endpoint.toChannel.toEndpoint.genEndpoint()/];
+      from("switchyard://[endpoint.name/]")		// [endpoint.name/][endpoint.genOutgoingChannelName()/]
+ 	     [endpoint.toChannel.toEndpoint.genEndpoint()/]
+      ;
       [/if]
       [/for]
    }

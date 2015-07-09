@@ -1,35 +1,36 @@
 [comment encoding = UTF-8 /]
 [module endpoint('http://www.github.com/lbroudoux/dsl/eip/1.0')]
 
+[import com::github::lbroudoux::dsl::eip::gen::camel::java::channel /]
 
 [template public genEndpoint(anEndpoint : Endpoint) post(trim())]
 // Endpoint not yet supported by generator
 [/template]
 
 [template public genEndpoint(aFilter : Filter) post(trim())]
-.filter()
+.filter()					// [aFilter.name/][aFilter.genOutgoingChannelName()/]
 [aFilter.toChannel.toEndpoint.genEndpoint()/]
 [/template]
 
 [template public genEndpoint(aFilter : ContentFilter) post(trim())]
-.filter()
+.filter()					// [aFilter.name/][aFilter.genOutgoingChannelName()/]
 [aFilter.toChannel.toEndpoint.genEndpoint()/]
 [/template]
 
 [template public genEndpoint(anEnricher : Enricher) post(trim())]
-// Enricher
+// Enricher					// [anEnricher.name/][anEnricher.genOutgoingChannelName()/]
 [anEnricher.toChannel.toEndpoint.genEndpoint()/]
 [/template]
 
 [template public genEndpoint(aTransformer : Transformer) post(trim())]
-.to("xslt:")
+.to("xslt:")				// [aTransformer.name/][aTransformer.genOutgoingChannelName()/]
 [aTransformer.toChannel.toEndpoint.genEndpoint()/]
 [/template]
 
 [template public genEndpoint(aRouter : Router) post(trim())]
-.choice()
+.choice()					// [aRouter.name/][aRouter.genOutgoingChannelName()/]
 [for (route : ConditionalRoute | aRouter.ownedRoutes)]
-   .when()
+   .when()						// [route.channel.name/]
       [route.channel.toEndpoint.genEndpoint()/]
 [/for]
    .otherwise()
@@ -37,7 +38,7 @@
 [/template]
 
 [template public genEndpoint(aSplitter : Splitter) post(trim())]
-.split()
+.split()					// [aSplitter.name/][aSplitter.genOutgoingChannelName()/]
   [aSplitter.toChannel.toEndpoint.genEndpoint()/]
 [/template]
 
@@ -52,11 +53,11 @@
 [/template]
 
 [template public genEndpoint(aGateway : Gateway) post(trim())]
-.to("switchyard://[aGateway.name/]")
+.to("switchyard://[aGateway.name/]")						// [aGateway.name/][aGateway.genOutgoingChannelName()/]
 [/template]
 
 [template public genEndpoint(aServiceActivator : ServiceActivator) post(trim())]
-.to()
+.to("switchyard://[aServiceActivator.name/]")						// [aServiceActivator.name/][aServiceActivator.genOutgoingChannelName()/]
 [aServiceActivator.toChannel.toEndpoint.genEndpoint()/]
 [/template]
 
