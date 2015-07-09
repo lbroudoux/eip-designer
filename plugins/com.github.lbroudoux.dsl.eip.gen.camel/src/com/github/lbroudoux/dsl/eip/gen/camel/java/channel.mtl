@@ -1,0 +1,8 @@
+[comment encoding = UTF-8 /]
+[module channel('http://www.github.com/lbroudoux/dsl/eip/1.0')]
+
+[template public genOutgoingChannelName(aEndpoint : Endpoint) post(trim())]
+[if (not aEndpoint.toChannel.oclIsUndefined())]
+|[aEndpoint.toChannel.name/]
+[/if]
+[/template]
