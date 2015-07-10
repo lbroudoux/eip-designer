@@ -429,7 +429,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="eip.Route" referenceName="ownedRoutes">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Route_'+self.eContainer().eContents()->filter(eip::Router)->size()/]"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Route_'+self.eContainer().eContents()->filter(eip::Route)->size()/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -450,8 +450,8 @@
           </ownedTools>
         </toolSections>
         <decorationDescriptionsSet>
-          <decorationDescriptions xsi:type="description:SemanticBasedDecoration" name="DCR_OneWay" position="NORTH_EAST" decoratorPath="com.github.lbroudoux.dsl.eip.edit/icons/full/OneWay.gif" preconditionExpression="[self.exchangeType =ExchangeType::IN_ONLY/]" domainClass="Route"/>
-          <decorationDescriptions xsi:type="description:SemanticBasedDecoration" name="DCR_RequestReply" position="NORTH_EAST" decoratorPath="com.github.lbroudoux.dsl.eip.edit/icons/full/RequestReply.gif" preconditionExpression="[self.exchangeType =ExchangeType::IN_OUT/]" domainClass="Route"/>
+          <decorationDescriptions xsi:type="description:SemanticBasedDecoration" name="DCR_OneWay" position="NORTH_EAST" decoratorPath="com.github.lbroudoux.dsl.eip.edit/icons/full/OneWay.gif" preconditionExpression="[self.exchangeType = ExchangeType::IN_ONLY/]" domainClass="Route"/>
+          <decorationDescriptions xsi:type="description:SemanticBasedDecoration" name="DCR_RequestReply" position="NORTH_EAST" decoratorPath="com.github.lbroudoux.dsl.eip.edit/icons/full/RequestReply.gif" preconditionExpression="[self.exchangeType = ExchangeType::IN_OUT/]" domainClass="Route"/>
         </decorationDescriptionsSet>
       </defaultLayer>
     </ownedRepresentations>
