@@ -700,8 +700,6 @@ public class AggregatorPropertiesEditionPartForm extends SectionPropertiesEditin
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		fromChannels.setContentProvider(contentProvider);
 		fromChannels.setInput(settings);
-		fromChannelsBusinessFilters.clear();
-		fromChannelsFilters.clear();
 		boolean eefElementEditorReadOnlyState = isReadOnly(EipViewsRepository.Aggregator.Properties.fromChannels);
 		if (eefElementEditorReadOnlyState && fromChannels.getTable().isEnabled()) {
 			fromChannels.setEnabled(false);

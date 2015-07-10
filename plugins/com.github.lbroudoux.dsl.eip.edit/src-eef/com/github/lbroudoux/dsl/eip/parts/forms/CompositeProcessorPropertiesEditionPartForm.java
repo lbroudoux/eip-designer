@@ -511,8 +511,6 @@ public class CompositeProcessorPropertiesEditionPartForm extends SectionProperti
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		fromChannels.setContentProvider(contentProvider);
 		fromChannels.setInput(settings);
-		fromChannelsBusinessFilters.clear();
-		fromChannelsFilters.clear();
 		boolean eefElementEditorReadOnlyState = isReadOnly(EipViewsRepository.CompositeProcessor.Properties.fromChannels);
 		if (eefElementEditorReadOnlyState && fromChannels.getTable().isEnabled()) {
 			fromChannels.setEnabled(false);

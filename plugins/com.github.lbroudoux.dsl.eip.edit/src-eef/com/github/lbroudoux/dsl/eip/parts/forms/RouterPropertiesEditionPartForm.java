@@ -612,8 +612,6 @@ public class RouterPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		fromChannels.setContentProvider(contentProvider);
 		fromChannels.setInput(settings);
-		fromChannelsBusinessFilters.clear();
-		fromChannelsFilters.clear();
 		boolean eefElementEditorReadOnlyState = isReadOnly(EipViewsRepository.Router.Properties.fromChannels);
 		if (eefElementEditorReadOnlyState && fromChannels.getTable().isEnabled()) {
 			fromChannels.setEnabled(false);

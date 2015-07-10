@@ -584,8 +584,6 @@ public class FilterPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		fromChannels.setContentProvider(contentProvider);
 		fromChannels.setInput(settings);
-		fromChannelsBusinessFilters.clear();
-		fromChannelsFilters.clear();
 		boolean eefElementEditorReadOnlyState = isReadOnly(EipViewsRepository.Filter.Properties.fromChannels);
 		if (eefElementEditorReadOnlyState && fromChannels.getTable().isEnabled()) {
 			fromChannels.setEnabled(false);
