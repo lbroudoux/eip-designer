@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eef-components="http://www.eclipse.org/emf/eef/components/1.0.0" xmlns:eef-views="http://www.eclipse.org/emf/eef/views/1.0.0">
+  <eef-components:PropertiesEditionContext xmi:id="_QrIvECVgEeW6yLik4m7P0g" documentation="Edition Context for eip GenPackage">
+    <categories xmi:id="_QrJWICVgEeW6yLik4m7P0g" name="eip">
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_QrJWISVgEeW6yLik4m7P0g" name="Channel" views="_QrJ9jSVgEeW6yLik4m7P0g">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9MCVgEeW6yLik4m7P0g" name="toEndpoint" views="_QrJ9jyVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Channel/toEndpoint"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9MSVgEeW6yLik4m7P0g" name="fromEndpoint" views="_QrJ9kCVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Channel/fromEndpoint"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9MiVgEeW6yLik4m7P0g" name="name" views="_QrJ9kSVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Channel/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9MyVgEeW6yLik4m7P0g" name="guaranteed" views="_QrJ9kiVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Channel/guaranteed"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Channel"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_QrJ9NCVgEeW6yLik4m7P0g" name="Adapter" views="_QrJ9kyVgEeW6yLik4m7P0g">
+        <model xsi:type="ecore:EClass" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Adapter"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_QrJ9NSVgEeW6yLik4m7P0g" name="Router" views="_QrJ9lCVgEeW6yLik4m7P0g">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9NiVgEeW6yLik4m7P0g" name="name" views="_QrJ9liVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9NyVgEeW6yLik4m7P0g" name="toChannel" views="_QrJ9lyVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannel"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9OCVgEeW6yLik4m7P0g" name="fromChannels" views="_QrJ9mCVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/fromChannels"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9OSVgEeW6yLik4m7P0g" name="ownedRoutes" views="_QrJ9mSVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Router/ownedRoutes"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9OiVgEeW6yLik4m7P0g" name="type" views="_QrJ9miVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Router/type"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Router"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_QrJ9OyVgEeW6yLik4m7P0g" name="Filter" views="_QrJ9myVgEeW6yLik4m7P0g">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9PCVgEeW6yLik4m7P0g" name="name" views="_QrJ9nSVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9PSVgEeW6yLik4m7P0g" name="toChannel" views="_QrJ9niVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannel"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9PiVgEeW6yLik4m7P0g" name="fromChannels" views="_QrJ9nyVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/fromChannels"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9PyVgEeW6yLik4m7P0g" name="expression" views="_QrJ9oCVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Filter/expression"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Filter"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_QrJ9QCVgEeW6yLik4m7P0g" name="Transformer" views="_QrJ9oSVgEeW6yLik4m7P0g">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9QSVgEeW6yLik4m7P0g" name="name" views="_QrJ9oyVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9QiVgEeW6yLik4m7P0g" name="toChannel" views="_QrJ9pCVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannel"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9QyVgEeW6yLik4m7P0g" name="fromChannels" views="_QrJ9pSVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/fromChannels"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Transformer"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_QrJ9RCVgEeW6yLik4m7P0g" name="Gateway" views="_QrJ9piVgEeW6yLik4m7P0g">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9RSVgEeW6yLik4m7P0g" name="name" views="_QrJ9qCVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9RiVgEeW6yLik4m7P0g" name="toChannel" views="_QrJ9qSVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannel"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9RyVgEeW6yLik4m7P0g" name="fromChannels" views="_QrJ9qiVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/fromChannels"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Gateway"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_QrJ9SCVgEeW6yLik4m7P0g" name="ConditionalRoute" views="_QrJ9qyVgEeW6yLik4m7P0g">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9SSVgEeW6yLik4m7P0g" name="condition" views="_QrJ9rSVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//ConditionalRoute/condition"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9SiVgEeW6yLik4m7P0g" name="channel" views="_QrJ9riVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//ConditionalRoute/channel"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//ConditionalRoute"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_QrJ9SyVgEeW6yLik4m7P0g" name="Splitter" views="_QrJ9ryVgEeW6yLik4m7P0g">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9TCVgEeW6yLik4m7P0g" name="name" views="_QrJ9sSVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9TSVgEeW6yLik4m7P0g" name="toChannel" views="_QrJ9siVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannel"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9TiVgEeW6yLik4m7P0g" name="fromChannels" views="_QrJ9syVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/fromChannels"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Splitter"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_QrJ9TyVgEeW6yLik4m7P0g" name="Aggregator" views="_QrJ9tCVgEeW6yLik4m7P0g">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9UCVgEeW6yLik4m7P0g" name="name" views="_QrJ9tiVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9USVgEeW6yLik4m7P0g" name="toChannel" views="_QrJ9tyVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannel"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9UiVgEeW6yLik4m7P0g" name="fromChannels" views="_QrJ9uCVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/fromChannels"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9UyVgEeW6yLik4m7P0g" name="part" views="_QrJ9uSVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Aggregator/part"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9VCVgEeW6yLik4m7P0g" name="strategy" views="_QrJ9uiVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Aggregator/strategy"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9VSVgEeW6yLik4m7P0g" name="expression" views="_QrJ9uyVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Aggregator/expression"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Aggregator"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_QrJ9ViVgEeW6yLik4m7P0g" name="Route" views="_QrJ9vCVgEeW6yLik4m7P0g">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9VyVgEeW6yLik4m7P0g" name="name" views="_QrJ9viVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Route/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9WCVgEeW6yLik4m7P0g" name="ownedServiceRefs" views="_QrJ9vyVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Route/ownedServiceRefs"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9WSVgEeW6yLik4m7P0g" name="exchangeType" views="_QrJ9wCVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Route/exchangeType"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Route"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_QrJ9WiVgEeW6yLik4m7P0g" name="ServiceActivator" views="_QrJ9wSVgEeW6yLik4m7P0g">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9WyVgEeW6yLik4m7P0g" name="name" views="_QrJ9wyVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9XCVgEeW6yLik4m7P0g" name="toChannel" views="_QrJ9xCVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannel"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9XSVgEeW6yLik4m7P0g" name="fromChannels" views="_QrJ9xSVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/fromChannels"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9XiVgEeW6yLik4m7P0g" name="ownedServiceInvocations" views="_QrJ9xiVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//InvocableEndpoint/ownedServiceInvocations"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//ServiceActivator"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_QrJ9XyVgEeW6yLik4m7P0g" name="EIPModel" views="_QrJ9xyVgEeW6yLik4m7P0g">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9YCVgEeW6yLik4m7P0g" name="ownedRoutes" views="_QrJ9ySVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//EIPModel/ownedRoutes"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//EIPModel"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_QrJ9YSVgEeW6yLik4m7P0g" name="Enricher" views="_QrJ9yiVgEeW6yLik4m7P0g">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9YiVgEeW6yLik4m7P0g" name="name" views="_QrJ9zCVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9YyVgEeW6yLik4m7P0g" name="toChannel" views="_QrJ9zSVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannel"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9ZCVgEeW6yLik4m7P0g" name="fromChannels" views="_QrJ9ziVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/fromChannels"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9ZSVgEeW6yLik4m7P0g" name="ownedServiceInvocations" views="_QrJ9zyVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//InvocableEndpoint/ownedServiceInvocations"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9ZiVgEeW6yLik4m7P0g" name="part" views="_QrJ90CVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Enricher/part"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Enricher"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_QrJ9ZyVgEeW6yLik4m7P0g" name="CompositeProcessor" views="_QrJ90SVgEeW6yLik4m7P0g">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9aCVgEeW6yLik4m7P0g" name="name" views="_QrJ90yVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9aSVgEeW6yLik4m7P0g" name="toChannel" views="_QrJ91CVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannel"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9aiVgEeW6yLik4m7P0g" name="fromChannels" views="_QrJ91SVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/fromChannels"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//CompositeProcessor"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_QrJ9ayVgEeW6yLik4m7P0g" name="RecipientListRouter" views="_QrJ91iVgEeW6yLik4m7P0g">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9bCVgEeW6yLik4m7P0g" name="name" views="_QrJ92CVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9bSVgEeW6yLik4m7P0g" name="toChannel" views="_QrJ92SVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannel"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9biVgEeW6yLik4m7P0g" name="fromChannels" views="_QrJ92iVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/fromChannels"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9byVgEeW6yLik4m7P0g" name="ownedRoutes" views="_QrJ92yVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Router/ownedRoutes"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9cCVgEeW6yLik4m7P0g" name="type" views="_QrJ93CVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Router/type"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//RecipientListRouter"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_QrJ9cSVgEeW6yLik4m7P0g" name="ServiceRef" views="_QrJ93SVgEeW6yLik4m7P0g">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9ciVgEeW6yLik4m7P0g" name="name" views="_QrJ93yVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//ServiceRef/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9cyVgEeW6yLik4m7P0g" name="reference" views="_QrJ94CVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//ServiceRef/reference"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9dCVgEeW6yLik4m7P0g" name="operations" views="_QrJ94SVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//ServiceRef/operations"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//ServiceRef"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_QrJ9dSVgEeW6yLik4m7P0g" name="ServiceInvocation" views="_QrJ94iVgEeW6yLik4m7P0g">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9diVgEeW6yLik4m7P0g" name="context" views="_QrJ95CVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//ServiceInvocation/context"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9dyVgEeW6yLik4m7P0g" name="operationName" views="_QrJ95SVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//ServiceInvocation/operationName"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9eCVgEeW6yLik4m7P0g" name="serviceRef" views="_QrJ95iVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//ServiceInvocation/serviceRef"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//ServiceInvocation"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_QrJ9eSVgEeW6yLik4m7P0g" name="InvocableEndpoint" views="_QrJ95yVgEeW6yLik4m7P0g">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9eiVgEeW6yLik4m7P0g" name="name" views="_QrJ96SVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9eyVgEeW6yLik4m7P0g" name="toChannel" views="_QrJ96iVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannel"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9fCVgEeW6yLik4m7P0g" name="fromChannels" views="_QrJ96yVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/fromChannels"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9fSVgEeW6yLik4m7P0g" name="ownedServiceInvocations" views="_QrJ97CVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//InvocableEndpoint/ownedServiceInvocations"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//InvocableEndpoint"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_QrJ9fiVgEeW6yLik4m7P0g" name="ContentFilter" views="_QrJ97SVgEeW6yLik4m7P0g">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9fyVgEeW6yLik4m7P0g" name="name" views="_QrJ97yVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9gCVgEeW6yLik4m7P0g" name="toChannel" views="_QrJ98CVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannel"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9gSVgEeW6yLik4m7P0g" name="fromChannels" views="_QrJ98SVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/fromChannels"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9giVgEeW6yLik4m7P0g" name="expression" views="_QrJ98iVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Filter/expression"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//ContentFilter"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_QrJ9gyVgEeW6yLik4m7P0g" name="Resequencer" views="_QrJ98yVgEeW6yLik4m7P0g">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9hCVgEeW6yLik4m7P0g" name="name" views="_QrJ99SVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9hSVgEeW6yLik4m7P0g" name="toChannel" views="_QrJ99iVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannel"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9hiVgEeW6yLik4m7P0g" name="fromChannels" views="_QrJ99yVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/fromChannels"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9hyVgEeW6yLik4m7P0g" name="part" views="_QrKkQCVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Aggregator/part"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9iCVgEeW6yLik4m7P0g" name="strategy" views="_QrKkQSVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Aggregator/strategy"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9iSVgEeW6yLik4m7P0g" name="expression" views="_QrKkQiVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Aggregator/expression"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9iiVgEeW6yLik4m7P0g" name="streamSequences" views="_QrKkQyVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Resequencer/streamSequences"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Resequencer"/>
+      </bindings>
+    </categories>
+    <model href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.genmodel#//eip"/>
+  </eef-components:PropertiesEditionContext>
+  <eef-views:ViewsRepository xmi:id="_QrJ9iyVgEeW6yLik4m7P0g" documentation="Views repository for eip GenPackage" name="eip">
+    <RepositoryKind>SWT</RepositoryKind>
+    <RepositoryKind>Form</RepositoryKind>
+    <categories xmi:id="_QrJ9jCVgEeW6yLik4m7P0g" name="eip">
+      <views xmi:id="_QrJ9jSVgEeW6yLik4m7P0g" name="Channel">
+        <elements xsi:type="eef-views:Container" xmi:id="_QrJ9jiVgEeW6yLik4m7P0g" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9jyVgEeW6yLik4m7P0g" name="toEndpoint">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9kCVgEeW6yLik4m7P0g" name="fromEndpoint">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9kSVgEeW6yLik4m7P0g" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9kiVgEeW6yLik4m7P0g" name="guaranteed">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.1"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_QrJ9kyVgEeW6yLik4m7P0g" name="Adapter"/>
+      <views xmi:id="_QrJ9lCVgEeW6yLik4m7P0g" name="Router">
+        <elements xsi:type="eef-views:Container" xmi:id="_QrJ9lSVgEeW6yLik4m7P0g" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9liVgEeW6yLik4m7P0g" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9lyVgEeW6yLik4m7P0g" name="toChannel">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9mCVgEeW6yLik4m7P0g" name="fromChannels">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9mSVgEeW6yLik4m7P0g" name="ownedRoutes">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9miVgEeW6yLik4m7P0g" name="type">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.2"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_QrJ9myVgEeW6yLik4m7P0g" name="Filter">
+        <elements xsi:type="eef-views:Container" xmi:id="_QrJ9nCVgEeW6yLik4m7P0g" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9nSVgEeW6yLik4m7P0g" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9niVgEeW6yLik4m7P0g" name="toChannel">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9nyVgEeW6yLik4m7P0g" name="fromChannels">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9oCVgEeW6yLik4m7P0g" name="expression">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_QrJ9oSVgEeW6yLik4m7P0g" name="Transformer">
+        <elements xsi:type="eef-views:Container" xmi:id="_QrJ9oiVgEeW6yLik4m7P0g" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9oyVgEeW6yLik4m7P0g" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9pCVgEeW6yLik4m7P0g" name="toChannel">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9pSVgEeW6yLik4m7P0g" name="fromChannels">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_QrJ9piVgEeW6yLik4m7P0g" name="Gateway">
+        <elements xsi:type="eef-views:Container" xmi:id="_QrJ9pyVgEeW6yLik4m7P0g" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9qCVgEeW6yLik4m7P0g" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9qSVgEeW6yLik4m7P0g" name="toChannel">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9qiVgEeW6yLik4m7P0g" name="fromChannels">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_QrJ9qyVgEeW6yLik4m7P0g" name="ConditionalRoute">
+        <elements xsi:type="eef-views:Container" xmi:id="_QrJ9rCVgEeW6yLik4m7P0g" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9rSVgEeW6yLik4m7P0g" name="condition">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9riVgEeW6yLik4m7P0g" name="channel">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_QrJ9ryVgEeW6yLik4m7P0g" name="Splitter">
+        <elements xsi:type="eef-views:Container" xmi:id="_QrJ9sCVgEeW6yLik4m7P0g" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9sSVgEeW6yLik4m7P0g" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9siVgEeW6yLik4m7P0g" name="toChannel">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9syVgEeW6yLik4m7P0g" name="fromChannels">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_QrJ9tCVgEeW6yLik4m7P0g" name="Aggregator">
+        <elements xsi:type="eef-views:Container" xmi:id="_QrJ9tSVgEeW6yLik4m7P0g" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9tiVgEeW6yLik4m7P0g" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9tyVgEeW6yLik4m7P0g" name="toChannel">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9uCVgEeW6yLik4m7P0g" name="fromChannels">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9uSVgEeW6yLik4m7P0g" name="part">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.2"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9uiVgEeW6yLik4m7P0g" name="strategy">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9uyVgEeW6yLik4m7P0g" name="expression">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_QrJ9vCVgEeW6yLik4m7P0g" name="Route">
+        <elements xsi:type="eef-views:Container" xmi:id="_QrJ9vSVgEeW6yLik4m7P0g" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9viVgEeW6yLik4m7P0g" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9vyVgEeW6yLik4m7P0g" name="ownedServiceRefs">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9wCVgEeW6yLik4m7P0g" name="exchangeType">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.2"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_QrJ9wSVgEeW6yLik4m7P0g" name="ServiceActivator">
+        <elements xsi:type="eef-views:Container" xmi:id="_QrJ9wiVgEeW6yLik4m7P0g" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9wyVgEeW6yLik4m7P0g" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9xCVgEeW6yLik4m7P0g" name="toChannel">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9xSVgEeW6yLik4m7P0g" name="fromChannels">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9xiVgEeW6yLik4m7P0g" name="ownedServiceInvocations">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_QrJ9xyVgEeW6yLik4m7P0g" name="EIPModel">
+        <elements xsi:type="eef-views:Container" xmi:id="_QrJ9yCVgEeW6yLik4m7P0g" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9ySVgEeW6yLik4m7P0g" name="ownedRoutes">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_QrJ9yiVgEeW6yLik4m7P0g" name="Enricher">
+        <elements xsi:type="eef-views:Container" xmi:id="_QrJ9yyVgEeW6yLik4m7P0g" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9zCVgEeW6yLik4m7P0g" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9zSVgEeW6yLik4m7P0g" name="toChannel">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9ziVgEeW6yLik4m7P0g" name="fromChannels">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9zyVgEeW6yLik4m7P0g" name="ownedServiceInvocations">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ90CVgEeW6yLik4m7P0g" name="part">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.2"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_QrJ90SVgEeW6yLik4m7P0g" name="CompositeProcessor">
+        <elements xsi:type="eef-views:Container" xmi:id="_QrJ90iVgEeW6yLik4m7P0g" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ90yVgEeW6yLik4m7P0g" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ91CVgEeW6yLik4m7P0g" name="toChannel">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ91SVgEeW6yLik4m7P0g" name="fromChannels">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_QrJ91iVgEeW6yLik4m7P0g" name="RecipientListRouter">
+        <elements xsi:type="eef-views:Container" xmi:id="_QrJ91yVgEeW6yLik4m7P0g" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ92CVgEeW6yLik4m7P0g" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ92SVgEeW6yLik4m7P0g" name="toChannel">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ92iVgEeW6yLik4m7P0g" name="fromChannels">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ92yVgEeW6yLik4m7P0g" name="ownedRoutes">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ93CVgEeW6yLik4m7P0g" name="type">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.2"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_QrJ93SVgEeW6yLik4m7P0g" name="ServiceRef">
+        <elements xsi:type="eef-views:Container" xmi:id="_QrJ93iVgEeW6yLik4m7P0g" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ93yVgEeW6yLik4m7P0g" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ94CVgEeW6yLik4m7P0g" name="reference">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ94SVgEeW6yLik4m7P0g" name="operations">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.3"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_QrJ94iVgEeW6yLik4m7P0g" name="ServiceInvocation">
+        <elements xsi:type="eef-views:Container" xmi:id="_QrJ94yVgEeW6yLik4m7P0g" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ95CVgEeW6yLik4m7P0g" name="context">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ95SVgEeW6yLik4m7P0g" name="operationName">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ95iVgEeW6yLik4m7P0g" name="serviceRef">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_QrJ95yVgEeW6yLik4m7P0g" name="InvocableEndpoint">
+        <elements xsi:type="eef-views:Container" xmi:id="_QrJ96CVgEeW6yLik4m7P0g" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ96SVgEeW6yLik4m7P0g" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ96iVgEeW6yLik4m7P0g" name="toChannel">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ96yVgEeW6yLik4m7P0g" name="fromChannels">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ97CVgEeW6yLik4m7P0g" name="ownedServiceInvocations">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_QrJ97SVgEeW6yLik4m7P0g" name="ContentFilter">
+        <elements xsi:type="eef-views:Container" xmi:id="_QrJ97iVgEeW6yLik4m7P0g" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ97yVgEeW6yLik4m7P0g" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ98CVgEeW6yLik4m7P0g" name="toChannel">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ98SVgEeW6yLik4m7P0g" name="fromChannels">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ98iVgEeW6yLik4m7P0g" name="expression">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_QrJ98yVgEeW6yLik4m7P0g" name="Resequencer">
+        <elements xsi:type="eef-views:Container" xmi:id="_QrJ99CVgEeW6yLik4m7P0g" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ99SVgEeW6yLik4m7P0g" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ99iVgEeW6yLik4m7P0g" name="toChannel">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ99yVgEeW6yLik4m7P0g" name="fromChannels">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrKkQCVgEeW6yLik4m7P0g" name="part">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.2"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrKkQSVgEeW6yLik4m7P0g" name="strategy">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrKkQiVgEeW6yLik4m7P0g" name="expression">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrKkQyVgEeW6yLik4m7P0g" name="streamSequences">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.1"/>
+          </elements>
+        </elements>
+      </views>
+    </categories>
+  </eef-views:ViewsRepository>
+</xmi:XMI>
