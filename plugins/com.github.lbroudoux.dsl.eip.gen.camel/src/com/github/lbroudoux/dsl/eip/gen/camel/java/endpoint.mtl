@@ -42,6 +42,27 @@
   [aSplitter.toChannel.toEndpoint.genEndpoint()/]
 [/template]
 
+[template public genEndpoint(aResequencer : Resequencer) post(trim())]
+.resequence([aResequencer.genExpression()/])[aResequencer.genConfig()/]				// [aResequencer.name/][aResequencer.genOutgoingChannelName()/]
+[aResequencer.toChannel.toEndpoint.genEndpoint()/]
+[/template]
+
+[template private genExpression(aResequencer : Resequencer) post(trim())]
+[if (aResequencer.part = MessagePart::PAYLOAD)]
+body()
+[else]
+header("[aResequencer.expression/]")
+[/if]
+[/template]
+
+[template private genConfig(aResequencer : Resequencer) post(trim())]
+[if (aResequencer.streamSequences)]
+.stream()
+[else]
+.batch()
+[/if]
+[/template]
+
 [template public genEndpoint(aCompositeProcessor : CompositeProcessor) post(trim())]
 [for (endpoint : Endpoint | aCompositeProcessor.ownedEndpoints)]
 [if (endpoint.fromChannels->size() = 0)]

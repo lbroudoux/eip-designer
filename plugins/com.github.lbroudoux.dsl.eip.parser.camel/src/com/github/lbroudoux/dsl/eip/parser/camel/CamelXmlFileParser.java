@@ -34,6 +34,7 @@ import com.github.lbroudoux.dsl.eip.CompositeProcessor;
 import com.github.lbroudoux.dsl.eip.EIPModel;
 import com.github.lbroudoux.dsl.eip.EipFactory;
 import com.github.lbroudoux.dsl.eip.Endpoint;
+import com.github.lbroudoux.dsl.eip.Resequencer;
 import com.github.lbroudoux.dsl.eip.Route;
 
 /**
@@ -106,6 +107,15 @@ public class CamelXmlFileParser {
                inspectChildren = true;
             } else if ("otherwise".equals(endpointElement.getLocalName())) {
                inspectChildren = true;
+            } else if ("resequence".equals(endpointElement.getLocalName())) {
+               endpoint = EipFactory.eINSTANCE.createResequencer();
+               inspectChildren = true;
+            } else if ("stream-config".equals(endpointElement.getLocalName())) {
+               // Parent should be a Resequencer.
+               Endpoint lastEndpoint = endpoints.get(endpoints.size() - 1);
+               if (lastEndpoint instanceof Resequencer) {
+                  ((Resequencer) lastEndpoint).setStreamSequences(true);
+               }
             } else if ("to".equals(endpointElement.getLocalName())) {
                // We may have a lot of stuffs here ! Check uri in order to guess...
                String uri = endpointElement.getAttribute("uri");

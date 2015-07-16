@@ -22,7 +22,6 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayDeque;
-import java.util.ArrayList;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.List;
@@ -43,9 +42,9 @@ import com.github.lbroudoux.dsl.eip.ConditionalRoute;
 import com.github.lbroudoux.dsl.eip.EIPModel;
 import com.github.lbroudoux.dsl.eip.EipFactory;
 import com.github.lbroudoux.dsl.eip.Endpoint;
+import com.github.lbroudoux.dsl.eip.Resequencer;
 import com.github.lbroudoux.dsl.eip.Route;
 import com.github.lbroudoux.dsl.eip.Router;
-import com.github.lbroudoux.dsl.eip.Splitter;
 
 /**
  * Parser for Apache Camel Java RouteBuilder class file. Just build a new instance and call
@@ -203,7 +202,16 @@ public class CamelJavaFileParser extends ASTVisitor {
          if (lastEndpoint.eContainer() instanceof CompositeProcessor) {
             endpoints = route.getOwnedEndpoints();
          }
-      } else if ("to".equals(invocation.getName().toString())) {
+      } else if ("resequence".equals(invocation.getName().toString())) {
+         endpoint = EipFactory.eINSTANCE.createResequencer();
+      } else if ("stream".equals(invocation.getName().toString())) {
+         // Parent should be a Resequencer.
+         Endpoint lastEndpoint = endpoints.get(endpoints.size() - 1);
+         if (lastEndpoint instanceof Resequencer) {
+            ((Resequencer) lastEndpoint).setStreamSequences(true);
+         }
+      }
+      else if ("to".equals(invocation.getName().toString())) {
          // We may have a lot of stuffs here ! Check uri in order to guess...
          String uri = invocation.arguments().get(0).toString();
          if (uri.startsWith("\"xslt:")) {
@@ -211,6 +219,8 @@ public class CamelJavaFileParser extends ASTVisitor {
          } else if (uri.startsWith("\"switchyard:")) {
             endpoint = EipFactory.eINSTANCE.createServiceActivator();
          }
+      } else {
+         System.err.println("Got an unsupported: " + invocation.getName());
       }
       
       if (endpoint != null) {
@@ -221,10 +231,14 @@ public class CamelJavaFileParser extends ASTVisitor {
          String endpointName = invocation.getName().toString() + "_" + endpoints.size();
          String outgoingChannelName = null;
          
-         // Comment may have "<endpoint_name>|<outgoing_channel_name>" format.
-         if (comment != null && comment.contains("|")) {
-            endpointName = comment.substring(0, comment.indexOf('|'));
-            outgoingChannelName = comment.substring(comment.indexOf('|') + 1);
+         // Comment may have "<endpoint_name>|<outgoing_channel_name>" or just "<endpoint_name>" format.
+         if (comment != null) {
+            if (comment.contains("|")) {
+               endpointName = comment.substring(0, comment.indexOf('|'));
+               outgoingChannelName = comment.substring(comment.indexOf('|') + 1);
+            } else {
+               endpointName = comment.trim();
+            }
          }
          endpoint.setName(endpointName);
          endpoints.add(endpoint);

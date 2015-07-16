@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes xmlns="http://camel.apache.org/schema/spring">
+  <route id="MyRoute_2">
+    <from id="GatewayIn|GatewayIn_Resequencer" uri="switchyard://GatewayIn"/>
+    <resequence id="Resequencer|Resequencer_GatewayOut">
+      <stream-config />
+      <simple>headers['foo']</simple>
+      <to id="GatewayOut" uri="switchyard://GatewayOut"/>
+    </resequence>
+  </route>
+</routes>

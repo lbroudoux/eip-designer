@@ -47,6 +47,22 @@
 </split>
 [/template]
 
+[template public genEndpoint(aResequencer : Resequencer) post(trim())]
+<resequence id="[aResequencer.name/][aResequencer.genOutgoingChannelName()/]">
+[if (aResequencer.streamSequences)]
+  <stream-config />
+[else]
+  <batch-config />
+[/if]
+[if (aResequencer.part = MessagePart::PAYLOAD)]
+  <simple>body</simple>
+[else]
+  <simple>[aResequencer.expression/]</simple>
+[/if]
+  [aResequencer.toChannel.toEndpoint.genEndpoint()/]
+</resequence>
+[/template]
+
 [template public genEndpoint(aCompositeProcessor : CompositeProcessor) post(trim())]
 <pipeline id="[aCompositeProcessor.name/][aCompositeProcessor.genOutgoingChannelName()/]">
 [for (endpoint : Endpoint | aCompositeProcessor.ownedEndpoints)]

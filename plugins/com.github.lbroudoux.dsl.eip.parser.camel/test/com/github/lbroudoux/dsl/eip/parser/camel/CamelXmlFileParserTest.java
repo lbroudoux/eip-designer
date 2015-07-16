@@ -28,6 +28,7 @@ import com.github.lbroudoux.dsl.eip.CompositeProcessor;
 import com.github.lbroudoux.dsl.eip.EIPModel;
 import com.github.lbroudoux.dsl.eip.EipFactory;
 import com.github.lbroudoux.dsl.eip.Endpoint;
+import com.github.lbroudoux.dsl.eip.Resequencer;
 import com.github.lbroudoux.dsl.eip.Route;
 /**
  * Unit tests for CamelXmlFileParser.
@@ -63,4 +64,32 @@ public class CamelXmlFileParserTest {
       //assertEquals(8, route.getOwnedChannels().size());
    }
 
+   @Test
+   public void testResequencer() throws Exception {
+      CamelXmlFileParser parser = new CamelXmlFileParser(
+            new File("test/com/github/lbroudoux/dsl/eip/parser/camel/MyRoute_2.xml"));
+      EIPModel model = EipFactory.eINSTANCE.createEIPModel();
+      parser.parseAndFillModel(model);
+      
+      // Assert on model.
+      assertEquals(1, model.getOwnedRoutes().size());
+      Route route = model.getOwnedRoutes().get(0);
+      assertEquals(3, route.getOwnedEndpoints().size());
+      
+      // Find Resequencer.
+      Resequencer resequencer = null;
+      for (Endpoint endpoint : route.getOwnedEndpoints()) {
+         if (endpoint instanceof Resequencer) {
+            resequencer = (Resequencer) endpoint;
+         }
+      }
+      if (resequencer == null) {
+         fail("We should have a Resequencer among endpoints");
+      }
+      
+      // Check properties.
+      assertEquals("Resequencer_GatewayOut", resequencer.getToChannel().getName());
+      assertEquals("GatewayOut", resequencer.getToChannel().getToEndpoint().getName());
+      assertTrue(resequencer.isStreamSequences());
+   }
 }

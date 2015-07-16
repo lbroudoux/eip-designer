@@ -18,8 +18,7 @@
  */
 package com.github.lbroudoux.dsl.eip.parser.camel;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import java.io.File;
 
@@ -29,6 +28,7 @@ import com.github.lbroudoux.dsl.eip.CompositeProcessor;
 import com.github.lbroudoux.dsl.eip.EIPModel;
 import com.github.lbroudoux.dsl.eip.EipFactory;
 import com.github.lbroudoux.dsl.eip.Endpoint;
+import com.github.lbroudoux.dsl.eip.Resequencer;
 import com.github.lbroudoux.dsl.eip.Route;
 
 /**
@@ -49,14 +49,14 @@ public class CamelJavaFileParserTest {
       Route route = model.getOwnedRoutes().get(0);
 
       for (Endpoint endpoint : route.getOwnedEndpoints()) {
-         System.err.println("Endpoint " + endpoint.getName());
-         System.err.println(" to -> " + (endpoint.getToChannel()!=null ? endpoint.getToChannel().getName() : "null"));
+//         System.err.println("Endpoint " + endpoint.getName());
+//         System.err.println(" to -> " + (endpoint.getToChannel()!=null ? endpoint.getToChannel().getName() : "null"));
          if (endpoint instanceof CompositeProcessor) {
             CompositeProcessor composite = (CompositeProcessor)endpoint;
-            for (Endpoint endpoint2 : composite.getOwnedEndpoints()) {
-               System.err.println("  Endpoint " + endpoint2.getName());
-               System.err.println("   to -> " + (endpoint2.getToChannel()!=null ? endpoint2.getToChannel().getName() : "null"));
-            }
+//            for (Endpoint endpoint2 : composite.getOwnedEndpoints()) {
+//               System.err.println("  Endpoint " + endpoint2.getName());
+//               System.err.println("   to -> " + (endpoint2.getToChannel()!=null ? endpoint2.getToChannel().getName() : "null"));
+//            }
          }
       }
       
@@ -74,5 +74,34 @@ public class CamelJavaFileParserTest {
       if (!foundAComposite) {
          fail("We should have parsed and found a CompositeProcessor...");
       }
+   }
+   
+   @Test
+   public void testResequencer() throws Exception {
+      CamelJavaFileParser parser = new CamelJavaFileParser(
+            new File("test/com/github/lbroudoux/dsl/eip/parser/camel/MyRoute_2.java.txt"));
+      EIPModel model = EipFactory.eINSTANCE.createEIPModel();
+      parser.parseAndFillModel(model);
+      
+      // Assert on model.
+      assertEquals(1, model.getOwnedRoutes().size());
+      Route route = model.getOwnedRoutes().get(0);
+      assertEquals(3, route.getOwnedEndpoints().size());
+      
+      // Find Resequencer.
+      Resequencer resequencer = null;
+      for (Endpoint endpoint : route.getOwnedEndpoints()) {
+         if (endpoint instanceof Resequencer) {
+            resequencer = (Resequencer) endpoint;
+         }
+      }
+      if (resequencer == null) {
+         fail("We should have a Resequencer among endpoints");
+      }
+      
+      // Check properties.
+      assertEquals("Resequencer_GatewayOut", resequencer.getToChannel().getName());
+      assertEquals("GatewayOut", resequencer.getToChannel().getToEndpoint().getName());
+      assertTrue(resequencer.isStreamSequences());
    }
 }
