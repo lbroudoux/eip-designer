@@ -4,7 +4,7 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Route Diagram" initialisation="true" domainClass="eip.Route" enablePopupBars="true">
       <defaultLayer name="Default">
         <nodeMappings name="NRE_Endpoint" deletionDescription="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Endpoint']" labelDirectEdit="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Endpoint%20Name']" semanticCandidatesExpression="[ownedEndpoints/]" domainClass="eip.Endpoint">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Router.gif">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Router.gif">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
@@ -35,13 +35,12 @@
         </edgeMappings>
         <containerMappings name="CRE_Composite" semanticCandidatesExpression="[ownedEndpoints/]" domainClass="eip.CompositeProcessor">
           <subNodeMappings name="NRC_Endpoint" deletionDescription="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Endpoint']" labelDirectEdit="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Endpoint%20Name']" semanticCandidatesExpression="[ownedEndpoints/]" domainClass="eip.Endpoint">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Router.gif">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Router.gif">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="6" arcHeight="6" borderSizeComputationExpression="2" borderColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='dark%20blue%20grey']" labelSize="9" showIcon="false" labelColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='deep%20orange']" roundedCorner="true">
-            <labelFormat>bold</labelFormat>
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="6" arcHeight="6" borderSizeComputationExpression="2" borderColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='dark%20blue%20grey']" labelSize="9" labelFormat="bold" showIcon="false" labelColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='deep%20orange']" roundedCorner="true">
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
@@ -210,7 +209,7 @@
               <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[arg0/]"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="Channel target">
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="Channel target" precondition="[target.oclAsType(EObject).inTheSameContainerPrecondition(source.oclAsType(EObject)) /]">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
@@ -223,7 +222,7 @@
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="Channel source" precondition="[target.reconnectChannelSourcePrecondition() /]" reconnectionKind="RECONNECT_SOURCE">
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="Channel source" precondition="[target.oclAsType(EObject).inTheSameContainerPrecondition(source.oclAsType(EObject)) /]" reconnectionKind="RECONNECT_SOURCE">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
@@ -249,7 +248,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="Conditional Route target">
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="Conditional Route target" precondition="[target.oclAsType(EObject).inTheSameContainerPrecondition(source.oclAsType(EObject)) /]">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
@@ -262,7 +261,7 @@
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="Conditional Route source" precondition="[target.oclIsKindOf(Router) /]" reconnectionKind="RECONNECT_SOURCE">
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="Conditional Route source" precondition="[target.oclIsKindOf(Router) and target.oclAsType(EObject).inTheSameContainerPrecondition(source.oclAsType(EObject))  /]" reconnectionKind="RECONNECT_SOURCE">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
@@ -323,9 +322,7 @@
         </nodeMappings>
         <edgeMappings name="NRI_ServiceInvocation" sourceMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint'] //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint']" targetMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@additionalLayers[name='Services%20and%20Routes%20Refs']/@nodeMappings[name='NRS_ServiceRef']" targetFinderExpression="[serviceRef/]" sourceFinderExpression="[eContainer()/]" domainClass="eip.ServiceInvocation" useDomainElement="true">
           <style strokeColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='deep%20orange']" lineStyle="dash" sizeComputationExpression="2" routingStyle="manhattan">
-            <centerLabelStyleDescription labelSize="9" labelExpression="['Op : ' + operationName/]" labelColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='deep%20orange']">
-              <labelFormat>bold</labelFormat>
-            </centerLabelStyleDescription>
+            <centerLabelStyleDescription labelSize="9" labelFormat="bold" labelExpression="['Op : ' + operationName/]" labelColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='deep%20orange']"/>
           </style>
         </edgeMappings>
         <toolSections name="References">
@@ -357,9 +354,7 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Routes Catalog" initialisation="true" domainClass="eip.EIPModel">
       <defaultLayer name="Default">
         <containerMappings name="CCR_Route" detailDescriptions="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Routes%20Catalog']/@defaultLayer/@toolSections.2/@ownedTools[name='Route%20Details']" labelDirectEdit="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Routes%20Catalog']/@defaultLayer/@toolSections.1/@ownedTools[name='Route%20Name']" semanticCandidatesExpression="[ownedRoutes/]" domainClass="eip.Route">
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="6" arcHeight="6" borderSizeComputationExpression="2" borderColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='dark%20blue%20grey']" labelSize="9" labelColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='deep%20orange']" roundedCorner="true" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='light%20blue%20grey']" foregroundColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='blue%20grey']">
-            <labelFormat>bold</labelFormat>
-          </style>
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="6" arcHeight="6" borderSizeComputationExpression="2" borderColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='dark%20blue%20grey']" labelSize="9" labelFormat="bold" labelColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='deep%20orange']" roundedCorner="true" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='light%20blue%20grey']" foregroundColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='blue%20grey']"/>
         </containerMappings>
         <toolSections name="Route">
           <ownedTools xsi:type="tool:ContainerCreationDescription" name="Route" containerMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Routes%20Catalog']/@defaultLayer/@containerMappings[name='CCR_Route']">
