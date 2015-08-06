@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="eip" version="10.0.0.201505222000">
   <ownedViewpoints name="Enterprise Integration Patterns" modelFileExtension="*.eip">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Route Diagram" initialisation="true" domainClass="eip.Route" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='DnD_OutOfComposite']" name="Route Diagram" initialisation="true" domainClass="eip.Route" enablePopupBars="true">
       <defaultLayer name="Default">
         <nodeMappings name="NRE_Endpoint" deletionDescription="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Endpoint']" labelDirectEdit="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Endpoint%20Name']" semanticCandidatesExpression="[ownedEndpoints/]" domainClass="eip.Endpoint">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Router.gif">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Router.gif">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="ERC_Channel" labelDirectEdit="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Channel%20Name']" sourceMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint'] //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint']" targetMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint'] //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint']" targetFinderExpression="[toEndpoint/]" sourceFinderExpression="[fromEndpoint/]" domainClass="eip.Channel" useDomainElement="true" reconnections="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Channel%20target'] //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Channel%20source']">
+        <edgeMappings name="ERC_Channel" labelDirectEdit="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Channel%20Name']" sourceMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" targetMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" targetFinderExpression="[toEndpoint/]" sourceFinderExpression="[fromEndpoint/]" domainClass="eip.Channel" useDomainElement="true" reconnections="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Channel%20target'] //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Channel%20source']">
           <style sizeComputationExpression="2" routingStyle="manhattan">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="9" labelExpression="[name/]">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
+          <conditionnalStyles predicateExpression="[self.toEndpoint.eContainer() &lt;> self.fromEndpoint.eContainer()/]">
+            <style sizeComputationExpression="2" routingStyle="manhattan">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <centerLabelStyleDescription labelSize="9" labelExpression="[name/]">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
         </edgeMappings>
         <edgeMappings name="RRC_CompositeDetails" sourceMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" targetMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']" targetFinderExpression="[self/]">
           <style lineStyle="dash" targetArrow="NoDecoration" sizeComputationExpression="2" foldingStyle="SOURCE">
@@ -25,23 +33,24 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="ERR_ConditionnalRoute" semanticCandidatesExpression="[ownedEndpoints->filter(eip::Router)->union( ownedEndpoints->filter(eip::CompositeProcessor).ownedEndpoints->filter(eip::Router)->asOrderedSet() ).ownedRoutes /]" semanticElements="[Sequence{self, channel}/]" sourceMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint'] //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" targetMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint'] //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" targetFinderExpression="[channel.toEndpoint/]" sourceFinderExpression="[eContainer()/]" domainClass="eip.ConditionalRoute" useDomainElement="true" reconnections="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Conditional%20Route%20target'] //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Conditional%20Route%20source']">
+        <edgeMappings name="ERR_ConditionnalRoute" semanticCandidatesExpression="[ownedEndpoints->filter(eip::Router)->union( ownedEndpoints->filter(eip::CompositeProcessor).ownedEndpoints->filter(eip::Router)->asOrderedSet() ).ownedRoutes /]" semanticElements="[Sequence{self, channel}/]" sourceMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" targetMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" targetFinderExpression="[channel.toEndpoint/]" sourceFinderExpression="[eContainer()/]" domainClass="eip.ConditionalRoute" useDomainElement="true" reconnections="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Conditional%20Route%20target'] //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Conditional%20Route%20source']">
           <style lineStyle="dash" sizeComputationExpression="2" routingStyle="manhattan">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="9" showIcon="false" labelExpression="['['+condition+']'/]">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
-        </edgeMappings>
-        <containerMappings name="CRE_Composite" semanticCandidatesExpression="[ownedEndpoints/]" domainClass="eip.CompositeProcessor">
-          <subNodeMappings name="NRC_Endpoint" deletionDescription="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Endpoint']" labelDirectEdit="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Endpoint%20Name']" semanticCandidatesExpression="[ownedEndpoints/]" domainClass="eip.Endpoint">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" tooltipExpression="[name/]" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Router.gif">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <conditionnalStyles predicateExpression="[self.eContainer().eContainer() &lt;> self.channel.toEndpoint.eContainer()/]">
+            <style lineStyle="dash" sizeComputationExpression="2" routingStyle="manhattan">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <centerLabelStyleDescription labelSize="9" showIcon="false" labelExpression="['['+condition+']'/]">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              </centerLabelStyleDescription>
             </style>
-          </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="6" arcHeight="6" borderSizeComputationExpression="2" borderColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='dark%20blue%20grey']" labelSize="9" showIcon="false" labelColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='deep%20orange']" roundedCorner="true">
-            <labelFormat>bold</labelFormat>
+          </conditionnalStyles>
+        </edgeMappings>
+        <containerMappings name="CRE_Composite" semanticCandidatesExpression="[ownedEndpoints/]" domainClass="eip.CompositeProcessor" dropDescriptions="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='DnD_InComposite']" reusedNodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" reusedContainerMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="6" arcHeight="6" borderSizeComputationExpression="2" borderColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='dark%20blue%20grey']" labelSize="9" labelFormat="bold" showIcon="false" labelColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='deep%20orange']" roundedCorner="true">
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
@@ -84,7 +93,7 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Message Routing">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Router" nodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint'] //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint']" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/Router.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Router" nodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/Router.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -102,7 +111,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Splitter" nodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint'] //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint']" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/Splitter.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Splitter" nodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/Splitter.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -111,7 +120,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Aggregator" nodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint'] //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint']" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/Aggregator.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Aggregator" nodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/Aggregator.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -120,7 +129,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Resequencer" nodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint'] //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint']" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/Resequencer.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Resequencer" nodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/Resequencer.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -138,7 +147,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Recipient List Router" nodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint'] //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/RecipientListRouter.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Recipient List Router" nodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/RecipientListRouter.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -167,7 +176,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Content Filter" nodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint'] //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/ContentFilter.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Content Filter" nodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/ContentFilter.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -187,7 +196,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Service Activator" nodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint'] //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint']" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/ServiceActivator.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Service Activator" nodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/ServiceActivator.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -210,7 +219,7 @@
               <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[arg0/]"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="Channel target">
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="Channel target" precondition="[target.oclAsType(EObject).inTheSameContainerPrecondition(source.oclAsType(EObject)) /]">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
@@ -223,7 +232,7 @@
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="Channel source" precondition="[target.reconnectChannelSourcePrecondition() /]" reconnectionKind="RECONNECT_SOURCE">
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="Channel source" precondition="[target.oclAsType(EObject).inTheSameContainerPrecondition(source.oclAsType(EObject)) /]" reconnectionKind="RECONNECT_SOURCE">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
@@ -231,7 +240,7 @@
             <element name="element"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[target/]">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="ownedRoutes" valueExpression="[element/]"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="toChannel" valueExpression="[element/]"/>
               </firstModelOperations>
             </initialOperation>
             <edgeView name="edgeView"/>
@@ -249,7 +258,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="Conditional Route target">
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="Conditional Route target" precondition="[target.oclAsType(EObject).inTheSameContainerPrecondition(source.oclAsType(EObject)) /]">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
@@ -262,7 +271,7 @@
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="Conditional Route source" precondition="[target.oclIsKindOf(Router) /]" reconnectionKind="RECONNECT_SOURCE">
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="Conditional Route source" precondition="[target.oclIsKindOf(Router) and target.oclAsType(EObject).inTheSameContainerPrecondition(source.oclAsType(EObject))  /]" reconnectionKind="RECONNECT_SOURCE">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
@@ -275,43 +284,65 @@
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DnD_InComposite" mappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" dragSource="BOTH">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[newSemanticContainer /]">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="ownedEndpoints" valueExpression="[element/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DnD_OutOfComposite" mappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint'] //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']" dragSource="BOTH">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[newSemanticContainer /]">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="ownedEndpoints" valueExpression="[element/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[self.oclIsTypeOf(eip::Router)/]">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']/@style //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint']/@style" attributeName="workspacePath" value="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Router.gif"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']/@style" attributeName="workspacePath" value="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Router.gif"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[self.oclIsTypeOf(eip::Filter)/]">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']/@style //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint']/@style" attributeName="workspacePath" value="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Filter.gif"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']/@style" attributeName="workspacePath" value="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Filter.gif"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[self.oclIsTypeOf(eip::Splitter)/]">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']/@style //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint']/@style" attributeName="workspacePath" value="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Splitter.gif"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']/@style" attributeName="workspacePath" value="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Splitter.gif"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[self.oclIsTypeOf(eip::Aggregator)/]">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']/@style //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint']/@style" attributeName="workspacePath" value="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Aggregator.gif"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']/@style" attributeName="workspacePath" value="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Aggregator.gif"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[self.oclIsTypeOf(eip::Resequencer)/]">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']/@style //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint']/@style" attributeName="workspacePath" value="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Resequencer.gif"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']/@style" attributeName="workspacePath" value="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Resequencer.gif"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[self.oclIsTypeOf(eip::CompositeProcessor)/]">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']/@style //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint']/@style" attributeName="workspacePath" value="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/CompositeProcessor.gif"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']/@style" attributeName="workspacePath" value="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/CompositeProcessor.gif"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[self.oclIsTypeOf(eip::RecipientListRouter)/]">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']/@style //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint']/@style" attributeName="workspacePath" value="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/RecipientListRouter.gif"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']/@style" attributeName="workspacePath" value="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/RecipientListRouter.gif"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[self.oclIsTypeOf(eip::Transformer)/]">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']/@style //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint']/@style" attributeName="workspacePath" value="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Transformer.gif"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']/@style" attributeName="workspacePath" value="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Transformer.gif"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[self.oclIsTypeOf(eip::Enricher)/]">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']/@style //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint']/@style" attributeName="workspacePath" value="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Enricher.gif"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']/@style" attributeName="workspacePath" value="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Enricher.gif"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[self.oclIsTypeOf(eip::ContentFilter)/]">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']/@style //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint']/@style" attributeName="workspacePath" value="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/ContentFilter.gif"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']/@style" attributeName="workspacePath" value="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/ContentFilter.gif"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[self.oclIsTypeOf(eip::Gateway)/]">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']/@style //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint']/@style" attributeName="workspacePath" value="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Gateway.gif"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']/@style" attributeName="workspacePath" value="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/Gateway.gif"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[self.oclIsTypeOf(eip::ServiceActivator)/]">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']/@style //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint']/@style" attributeName="workspacePath" value="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/ServiceActivator.gif"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']/@style" attributeName="workspacePath" value="com.github.lbroudoux.dsl.eip.edit/icons/full/obj64/ServiceActivator.gif"/>
           </vsmElementCustomizations>
         </customization>
       </defaultLayer>
@@ -321,11 +352,9 @@
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="NRI_ServiceInvocation" sourceMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint'] //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@containerMappings[name='CRE_Composite']/@subNodeMappings[name='NRC_Endpoint']" targetMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@additionalLayers[name='Services%20and%20Routes%20Refs']/@nodeMappings[name='NRS_ServiceRef']" targetFinderExpression="[serviceRef/]" sourceFinderExpression="[eContainer()/]" domainClass="eip.ServiceInvocation" useDomainElement="true">
+        <edgeMappings name="NRI_ServiceInvocation" sourceMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" targetMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@additionalLayers[name='Services%20and%20Routes%20Refs']/@nodeMappings[name='NRS_ServiceRef']" targetFinderExpression="[serviceRef/]" sourceFinderExpression="[eContainer()/]" domainClass="eip.ServiceInvocation" useDomainElement="true">
           <style strokeColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='deep%20orange']" lineStyle="dash" sizeComputationExpression="2" routingStyle="manhattan">
-            <centerLabelStyleDescription labelSize="9" labelExpression="['Op : ' + operationName/]" labelColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='deep%20orange']">
-              <labelFormat>bold</labelFormat>
-            </centerLabelStyleDescription>
+            <centerLabelStyleDescription labelSize="9" labelFormat="bold" labelExpression="['Op : ' + operationName/]" labelColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='deep%20orange']"/>
           </style>
         </edgeMappings>
         <toolSections name="References">
@@ -357,9 +386,7 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Routes Catalog" initialisation="true" domainClass="eip.EIPModel">
       <defaultLayer name="Default">
         <containerMappings name="CCR_Route" detailDescriptions="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Routes%20Catalog']/@defaultLayer/@toolSections.2/@ownedTools[name='Route%20Details']" labelDirectEdit="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Routes%20Catalog']/@defaultLayer/@toolSections.1/@ownedTools[name='Route%20Name']" semanticCandidatesExpression="[ownedRoutes/]" domainClass="eip.Route">
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="6" arcHeight="6" borderSizeComputationExpression="2" borderColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='dark%20blue%20grey']" labelSize="9" labelColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='deep%20orange']" roundedCorner="true" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='light%20blue%20grey']" foregroundColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='blue%20grey']">
-            <labelFormat>bold</labelFormat>
-          </style>
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="6" arcHeight="6" borderSizeComputationExpression="2" borderColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='dark%20blue%20grey']" labelSize="9" labelFormat="bold" labelColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='deep%20orange']" roundedCorner="true" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='light%20blue%20grey']" foregroundColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='blue%20grey']"/>
         </containerMappings>
         <toolSections name="Route">
           <ownedTools xsi:type="tool:ContainerCreationDescription" name="Route" containerMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Routes%20Catalog']/@defaultLayer/@containerMappings[name='CCR_Route']">
