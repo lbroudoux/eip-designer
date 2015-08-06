@@ -15,14 +15,15 @@ Finally, we aim to provide adapters and bridges to allow the usage of EIP Design
 
 ## Build Status
 
-Current development version is `0.1.1-SNAPSHOT`. [![Build Status](https://travis-ci.org/lbroudoux/eip-designer.png?branch=master)](https://travis-ci.org/lbroudoux/eip-designer)
+Current development version is `0.2.1-SNAPSHOT`. [![Build Status](https://travis-ci.org/lbroudoux/eip-designer.png?branch=master)](https://travis-ci.org/lbroudoux/eip-designer)
 
 
 ## Releases
 
 | Versions      | Date          | Update site  |
 | ------------- | ------------- | ------------ |
-|`0.1.0`      |16 Jun. 2015   |`http://dl.bintray.com/lbroudoux/maven/eip-designer/0.1.0/`|
+|`0.2.0`      |Aug. 06 2015   |`http://dl.bintray.com/lbroudoux/maven/eip-designer/0.2.0/`|
+|`0.1.0`      |Jun. 16 2015   |`http://dl.bintray.com/lbroudoux/maven/eip-designer/0.1.0/`|
 
 
 ## Installation
