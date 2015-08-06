@@ -2,7 +2,6 @@
  */
 package com.github.lbroudoux.dsl.eip;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Channel extends EObject {
+public interface Channel extends Metadatable {
 
 	/**
     * Returns the value of the '<em><b>To Endpoint</b></em>' reference.

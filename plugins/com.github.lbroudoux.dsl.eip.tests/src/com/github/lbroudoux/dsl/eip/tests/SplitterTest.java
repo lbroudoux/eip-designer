@@ -4,9 +4,6 @@ package com.github.lbroudoux.dsl.eip.tests;
 
 import com.github.lbroudoux.dsl.eip.EipFactory;
 import com.github.lbroudoux.dsl.eip.Splitter;
-
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -15,15 +12,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SplitterTest extends TestCase {
-
-	/**
-    * The fixture for this Splitter test case.
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    */
-	protected Splitter fixture = null;
+public class SplitterTest extends MetadatableTest {
 
 	/**
     * <!-- begin-user-doc -->
@@ -45,23 +34,14 @@ public class SplitterTest extends TestCase {
    }
 
 	/**
-    * Sets the fixture for this Splitter test case.
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    */
-	protected void setFixture(Splitter fixture) {
-      this.fixture = fixture;
-   }
-
-	/**
     * Returns the fixture for this Splitter test case.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
     * @generated
     */
-	protected Splitter getFixture() {
-      return fixture;
+	@Override
+   protected Splitter getFixture() {
+      return (Splitter)fixture;
    }
 
 	/**

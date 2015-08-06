@@ -58,6 +58,43 @@ public interface EipPackage extends EPackage {
 	EipPackage eINSTANCE = com.github.lbroudoux.dsl.eip.impl.EipPackageImpl.init();
 
 	/**
+    * The meta object id for the '{@link com.github.lbroudoux.dsl.eip.impl.MetadatableImpl <em>Metadatable</em>}' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see com.github.lbroudoux.dsl.eip.impl.MetadatableImpl
+    * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getMetadatable()
+    * @generated
+    */
+   int METADATABLE = 22;
+
+   /**
+    * The feature id for the '<em><b>Owned Metadatas</b></em>' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int METADATABLE__OWNED_METADATAS = 0;
+
+   /**
+    * The number of structural features of the '<em>Metadatable</em>' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int METADATABLE_FEATURE_COUNT = 1;
+
+   /**
+    * The number of operations of the '<em>Metadatable</em>' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int METADATABLE_OPERATION_COUNT = 0;
+
+   /**
     * The meta object id for the '{@link com.github.lbroudoux.dsl.eip.Endpoint <em>Endpoint</em>}' class.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -68,13 +105,22 @@ public interface EipPackage extends EPackage {
 	int ENDPOINT = 0;
 
 	/**
+    * The feature id for the '<em><b>Owned Metadatas</b></em>' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int ENDPOINT__OWNED_METADATAS = METADATABLE__OWNED_METADATAS;
+
+   /**
     * The feature id for the '<em><b>Name</b></em>' attribute.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-	int ENDPOINT__NAME = 0;
+	int ENDPOINT__NAME = METADATABLE_FEATURE_COUNT + 0;
 
 	/**
     * The feature id for the '<em><b>To Channel</b></em>' reference.
@@ -83,7 +129,7 @@ public interface EipPackage extends EPackage {
     * @generated
     * @ordered
     */
-	int ENDPOINT__TO_CHANNEL = 1;
+	int ENDPOINT__TO_CHANNEL = METADATABLE_FEATURE_COUNT + 1;
 
 	/**
     * The feature id for the '<em><b>From Channels</b></em>' reference list.
@@ -92,7 +138,7 @@ public interface EipPackage extends EPackage {
     * @generated
     * @ordered
     */
-	int ENDPOINT__FROM_CHANNELS = 2;
+	int ENDPOINT__FROM_CHANNELS = METADATABLE_FEATURE_COUNT + 2;
 
 	/**
     * The number of structural features of the '<em>Endpoint</em>' class.
@@ -101,7 +147,7 @@ public interface EipPackage extends EPackage {
     * @generated
     * @ordered
     */
-	int ENDPOINT_FEATURE_COUNT = 3;
+	int ENDPOINT_FEATURE_COUNT = METADATABLE_FEATURE_COUNT + 3;
 
 	/**
     * The number of operations of the '<em>Endpoint</em>' class.
@@ -110,7 +156,7 @@ public interface EipPackage extends EPackage {
     * @generated
     * @ordered
     */
-	int ENDPOINT_OPERATION_COUNT = 0;
+	int ENDPOINT_OPERATION_COUNT = METADATABLE_OPERATION_COUNT + 0;
 
 
 	/**
@@ -124,13 +170,22 @@ public interface EipPackage extends EPackage {
 	int CHANNEL = 1;
 
 	/**
+    * The feature id for the '<em><b>Owned Metadatas</b></em>' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int CHANNEL__OWNED_METADATAS = METADATABLE__OWNED_METADATAS;
+
+   /**
     * The feature id for the '<em><b>To Endpoint</b></em>' reference.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-	int CHANNEL__TO_ENDPOINT = 0;
+	int CHANNEL__TO_ENDPOINT = METADATABLE_FEATURE_COUNT + 0;
 
 	/**
     * The feature id for the '<em><b>From Endpoint</b></em>' reference.
@@ -139,7 +194,7 @@ public interface EipPackage extends EPackage {
     * @generated
     * @ordered
     */
-	int CHANNEL__FROM_ENDPOINT = 1;
+	int CHANNEL__FROM_ENDPOINT = METADATABLE_FEATURE_COUNT + 1;
 
 	/**
     * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -148,7 +203,7 @@ public interface EipPackage extends EPackage {
     * @generated
     * @ordered
     */
-	int CHANNEL__NAME = 2;
+	int CHANNEL__NAME = METADATABLE_FEATURE_COUNT + 2;
 
 	/**
     * The feature id for the '<em><b>Guaranteed</b></em>' attribute.
@@ -157,7 +212,7 @@ public interface EipPackage extends EPackage {
     * @generated
     * @ordered
     */
-	int CHANNEL__GUARANTEED = 3;
+	int CHANNEL__GUARANTEED = METADATABLE_FEATURE_COUNT + 3;
 
 	/**
     * The number of structural features of the '<em>Channel</em>' class.
@@ -166,7 +221,7 @@ public interface EipPackage extends EPackage {
     * @generated
     * @ordered
     */
-	int CHANNEL_FEATURE_COUNT = 4;
+	int CHANNEL_FEATURE_COUNT = METADATABLE_FEATURE_COUNT + 4;
 
 	/**
     * The number of operations of the '<em>Channel</em>' class.
@@ -175,7 +230,7 @@ public interface EipPackage extends EPackage {
     * @generated
     * @ordered
     */
-	int CHANNEL_OPERATION_COUNT = 0;
+	int CHANNEL_OPERATION_COUNT = METADATABLE_OPERATION_COUNT + 0;
 
 	/**
     * The meta object id for the '{@link com.github.lbroudoux.dsl.eip.impl.AdapterImpl <em>Adapter</em>}' class.
@@ -216,6 +271,15 @@ public interface EipPackage extends EPackage {
 	int ROUTER = 3;
 
 	/**
+    * The feature id for the '<em><b>Owned Metadatas</b></em>' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int ROUTER__OWNED_METADATAS = ENDPOINT__OWNED_METADATAS;
+
+   /**
     * The feature id for the '<em><b>Name</b></em>' attribute.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -289,6 +353,15 @@ public interface EipPackage extends EPackage {
 	int FILTER = 4;
 
 	/**
+    * The feature id for the '<em><b>Owned Metadatas</b></em>' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int FILTER__OWNED_METADATAS = ENDPOINT__OWNED_METADATAS;
+
+   /**
     * The feature id for the '<em><b>Name</b></em>' attribute.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -353,6 +426,15 @@ public interface EipPackage extends EPackage {
 	int TRANSFORMER = 5;
 
 	/**
+    * The feature id for the '<em><b>Owned Metadatas</b></em>' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int TRANSFORMER__OWNED_METADATAS = ENDPOINT__OWNED_METADATAS;
+
+   /**
     * The feature id for the '<em><b>Name</b></em>' attribute.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -408,6 +490,15 @@ public interface EipPackage extends EPackage {
 	int GATEWAY = 6;
 
 	/**
+    * The feature id for the '<em><b>Owned Metadatas</b></em>' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int GATEWAY__OWNED_METADATAS = ENDPOINT__OWNED_METADATAS;
+
+   /**
     * The feature id for the '<em><b>Name</b></em>' attribute.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -510,6 +601,15 @@ public interface EipPackage extends EPackage {
 	int SPLITTER = 8;
 
 	/**
+    * The feature id for the '<em><b>Owned Metadatas</b></em>' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int SPLITTER__OWNED_METADATAS = ENDPOINT__OWNED_METADATAS;
+
+   /**
     * The feature id for the '<em><b>Name</b></em>' attribute.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -566,6 +666,15 @@ public interface EipPackage extends EPackage {
 	int AGGREGATOR = 9;
 
 	/**
+    * The feature id for the '<em><b>Owned Metadatas</b></em>' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int AGGREGATOR__OWNED_METADATAS = ENDPOINT__OWNED_METADATAS;
+
+   /**
     * The feature id for the '<em><b>Name</b></em>' attribute.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -648,13 +757,22 @@ public interface EipPackage extends EPackage {
 	int ROUTE = 10;
 
 	/**
+    * The feature id for the '<em><b>Owned Metadatas</b></em>' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int ROUTE__OWNED_METADATAS = METADATABLE__OWNED_METADATAS;
+
+   /**
     * The feature id for the '<em><b>Owned Endpoints</b></em>' containment reference list.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-	int ROUTE__OWNED_ENDPOINTS = 0;
+	int ROUTE__OWNED_ENDPOINTS = METADATABLE_FEATURE_COUNT + 0;
 
 	/**
     * The feature id for the '<em><b>Owned Channels</b></em>' containment reference list.
@@ -663,7 +781,7 @@ public interface EipPackage extends EPackage {
     * @generated
     * @ordered
     */
-	int ROUTE__OWNED_CHANNELS = 1;
+	int ROUTE__OWNED_CHANNELS = METADATABLE_FEATURE_COUNT + 1;
 
 	/**
     * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -672,7 +790,7 @@ public interface EipPackage extends EPackage {
     * @generated
     * @ordered
     */
-	int ROUTE__NAME = 2;
+	int ROUTE__NAME = METADATABLE_FEATURE_COUNT + 2;
 
 	/**
     * The feature id for the '<em><b>Owned Service Refs</b></em>' containment reference list.
@@ -681,7 +799,7 @@ public interface EipPackage extends EPackage {
     * @generated
     * @ordered
     */
-	int ROUTE__OWNED_SERVICE_REFS = 3;
+	int ROUTE__OWNED_SERVICE_REFS = METADATABLE_FEATURE_COUNT + 3;
 
 	/**
     * The feature id for the '<em><b>Exchange Type</b></em>' attribute.
@@ -690,7 +808,7 @@ public interface EipPackage extends EPackage {
     * @generated
     * @ordered
     */
-   int ROUTE__EXCHANGE_TYPE = 4;
+   int ROUTE__EXCHANGE_TYPE = METADATABLE_FEATURE_COUNT + 4;
 
    /**
     * The number of structural features of the '<em>Route</em>' class.
@@ -699,7 +817,7 @@ public interface EipPackage extends EPackage {
     * @generated
     * @ordered
     */
-	int ROUTE_FEATURE_COUNT = 5;
+	int ROUTE_FEATURE_COUNT = METADATABLE_FEATURE_COUNT + 5;
 
 	/**
     * The number of operations of the '<em>Route</em>' class.
@@ -708,7 +826,7 @@ public interface EipPackage extends EPackage {
     * @generated
     * @ordered
     */
-	int ROUTE_OPERATION_COUNT = 0;
+	int ROUTE_OPERATION_COUNT = METADATABLE_OPERATION_COUNT + 0;
 
 	/**
     * The meta object id for the '{@link com.github.lbroudoux.dsl.eip.impl.InvocableEndpointImpl <em>Invocable Endpoint</em>}' class.
@@ -721,6 +839,15 @@ public interface EipPackage extends EPackage {
 	int INVOCABLE_ENDPOINT = 18;
 
 	/**
+    * The feature id for the '<em><b>Owned Metadatas</b></em>' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int INVOCABLE_ENDPOINT__OWNED_METADATAS = ENDPOINT__OWNED_METADATAS;
+
+   /**
     * The feature id for the '<em><b>Name</b></em>' attribute.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -785,6 +912,15 @@ public interface EipPackage extends EPackage {
 	int SERVICE_ACTIVATOR = 11;
 
 	/**
+    * The feature id for the '<em><b>Owned Metadatas</b></em>' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int SERVICE_ACTIVATOR__OWNED_METADATAS = INVOCABLE_ENDPOINT__OWNED_METADATAS;
+
+   /**
     * The feature id for the '<em><b>Name</b></em>' attribute.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -887,6 +1023,15 @@ public interface EipPackage extends EPackage {
 	int ENRICHER = 13;
 
 	/**
+    * The feature id for the '<em><b>Owned Metadatas</b></em>' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int ENRICHER__OWNED_METADATAS = INVOCABLE_ENDPOINT__OWNED_METADATAS;
+
+   /**
     * The feature id for the '<em><b>Name</b></em>' attribute.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -960,6 +1105,15 @@ public interface EipPackage extends EPackage {
 	int COMPOSITE_PROCESSOR = 14;
 
 	/**
+    * The feature id for the '<em><b>Owned Metadatas</b></em>' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int COMPOSITE_PROCESSOR__OWNED_METADATAS = ENDPOINT__OWNED_METADATAS;
+
+   /**
     * The feature id for the '<em><b>Name</b></em>' attribute.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1024,6 +1178,15 @@ public interface EipPackage extends EPackage {
 	int RECIPIENT_LIST_ROUTER = 15;
 
 	/**
+    * The feature id for the '<em><b>Owned Metadatas</b></em>' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int RECIPIENT_LIST_ROUTER__OWNED_METADATAS = ROUTER__OWNED_METADATAS;
+
+   /**
     * The feature id for the '<em><b>Name</b></em>' attribute.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1207,6 +1370,15 @@ public interface EipPackage extends EPackage {
 	int CONTENT_FILTER = 19;
 
 	/**
+    * The feature id for the '<em><b>Owned Metadatas</b></em>' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int CONTENT_FILTER__OWNED_METADATAS = FILTER__OWNED_METADATAS;
+
+   /**
     * The feature id for the '<em><b>Name</b></em>' attribute.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1269,6 +1441,15 @@ public interface EipPackage extends EPackage {
     * @generated
     */
    int RESEQUENCER = 20;
+
+   /**
+    * The feature id for the '<em><b>Owned Metadatas</b></em>' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int RESEQUENCER__OWNED_METADATAS = AGGREGATOR__OWNED_METADATAS;
 
    /**
     * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1352,6 +1533,52 @@ public interface EipPackage extends EPackage {
    int RESEQUENCER_OPERATION_COUNT = AGGREGATOR_OPERATION_COUNT + 0;
 
    /**
+    * The meta object id for the '{@link com.github.lbroudoux.dsl.eip.impl.MetadataImpl <em>Metadata</em>}' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see com.github.lbroudoux.dsl.eip.impl.MetadataImpl
+    * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getMetadata()
+    * @generated
+    */
+   int METADATA = 21;
+
+   /**
+    * The feature id for the '<em><b>Key</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int METADATA__KEY = 0;
+
+   /**
+    * The feature id for the '<em><b>Values</b></em>' attribute list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int METADATA__VALUES = 1;
+
+   /**
+    * The number of structural features of the '<em>Metadata</em>' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int METADATA_FEATURE_COUNT = 2;
+
+   /**
+    * The number of operations of the '<em>Metadata</em>' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int METADATA_OPERATION_COUNT = 0;
+
+   /**
     * The meta object id for the '{@link com.github.lbroudoux.dsl.eip.MessagePart <em>Message Part</em>}' enum.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1359,7 +1586,7 @@ public interface EipPackage extends EPackage {
     * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getMessagePart()
     * @generated
     */
-	int MESSAGE_PART = 21;
+	int MESSAGE_PART = 23;
 
 
 	/**
@@ -1370,7 +1597,7 @@ public interface EipPackage extends EPackage {
     * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getRoutingType()
     * @generated
     */
-	int ROUTING_TYPE = 22;
+	int ROUTING_TYPE = 24;
 
 
 	/**
@@ -1381,7 +1608,7 @@ public interface EipPackage extends EPackage {
     * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getExchangeType()
     * @generated
     */
-   int EXCHANGE_TYPE = 23;
+   int EXCHANGE_TYPE = 25;
 
 
    /**
@@ -1936,6 +2163,59 @@ public interface EipPackage extends EPackage {
    EAttribute getResequencer_StreamSequences();
 
    /**
+    * Returns the meta object for class '{@link com.github.lbroudoux.dsl.eip.Metadata <em>Metadata</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for class '<em>Metadata</em>'.
+    * @see com.github.lbroudoux.dsl.eip.Metadata
+    * @generated
+    */
+   EClass getMetadata();
+
+   /**
+    * Returns the meta object for the attribute '{@link com.github.lbroudoux.dsl.eip.Metadata#getKey <em>Key</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the attribute '<em>Key</em>'.
+    * @see com.github.lbroudoux.dsl.eip.Metadata#getKey()
+    * @see #getMetadata()
+    * @generated
+    */
+   EAttribute getMetadata_Key();
+
+   /**
+    * Returns the meta object for the attribute list '{@link com.github.lbroudoux.dsl.eip.Metadata#getValues <em>Values</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the attribute list '<em>Values</em>'.
+    * @see com.github.lbroudoux.dsl.eip.Metadata#getValues()
+    * @see #getMetadata()
+    * @generated
+    */
+   EAttribute getMetadata_Values();
+
+   /**
+    * Returns the meta object for class '{@link com.github.lbroudoux.dsl.eip.Metadatable <em>Metadatable</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for class '<em>Metadatable</em>'.
+    * @see com.github.lbroudoux.dsl.eip.Metadatable
+    * @generated
+    */
+   EClass getMetadatable();
+
+   /**
+    * Returns the meta object for the containment reference list '{@link com.github.lbroudoux.dsl.eip.Metadatable#getOwnedMetadatas <em>Owned Metadatas</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the containment reference list '<em>Owned Metadatas</em>'.
+    * @see com.github.lbroudoux.dsl.eip.Metadatable#getOwnedMetadatas()
+    * @see #getMetadatable()
+    * @generated
+    */
+   EReference getMetadatable_OwnedMetadatas();
+
+   /**
     * Returns the meta object for enum '{@link com.github.lbroudoux.dsl.eip.MessagePart <em>Message Part</em>}'.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2394,6 +2674,45 @@ public interface EipPackage extends EPackage {
        * @generated
        */
       EAttribute RESEQUENCER__STREAM_SEQUENCES = eINSTANCE.getResequencer_StreamSequences();
+      /**
+       * The meta object literal for the '{@link com.github.lbroudoux.dsl.eip.impl.MetadataImpl <em>Metadata</em>}' class.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @see com.github.lbroudoux.dsl.eip.impl.MetadataImpl
+       * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getMetadata()
+       * @generated
+       */
+      EClass METADATA = eINSTANCE.getMetadata();
+      /**
+       * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EAttribute METADATA__KEY = eINSTANCE.getMetadata_Key();
+      /**
+       * The meta object literal for the '<em><b>Values</b></em>' attribute list feature.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EAttribute METADATA__VALUES = eINSTANCE.getMetadata_Values();
+      /**
+       * The meta object literal for the '{@link com.github.lbroudoux.dsl.eip.impl.MetadatableImpl <em>Metadatable</em>}' class.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @see com.github.lbroudoux.dsl.eip.impl.MetadatableImpl
+       * @see com.github.lbroudoux.dsl.eip.impl.EipPackageImpl#getMetadatable()
+       * @generated
+       */
+      EClass METADATABLE = eINSTANCE.getMetadatable();
+      /**
+       * The meta object literal for the '<em><b>Owned Metadatas</b></em>' containment reference list feature.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EReference METADATABLE__OWNED_METADATAS = eINSTANCE.getMetadatable_OwnedMetadatas();
       /**
        * The meta object literal for the '{@link com.github.lbroudoux.dsl.eip.MessagePart <em>Message Part</em>}' enum.
        * <!-- begin-user-doc -->

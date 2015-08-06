@@ -87,5 +87,12 @@
       <genFeatures createChild="false" propertyCategory="" propertyDescription=""
           ecoreFeature="ecore:EAttribute eip.ecore#//Resequencer/streamSequences"/>
     </genClasses>
+    <genClasses ecoreClass="eip.ecore#//Metadata">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//Metadata/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//Metadata/values"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="eip.ecore#//Metadatable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eip.ecore#//Metadatable/ownedMetadatas"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

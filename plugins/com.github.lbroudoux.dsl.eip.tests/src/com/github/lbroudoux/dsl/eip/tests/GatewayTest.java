@@ -4,9 +4,6 @@ package com.github.lbroudoux.dsl.eip.tests;
 
 import com.github.lbroudoux.dsl.eip.EipFactory;
 import com.github.lbroudoux.dsl.eip.Gateway;
-
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -15,15 +12,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class GatewayTest extends TestCase {
-
-	/**
-    * The fixture for this Gateway test case.
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    */
-	protected Gateway fixture = null;
+public class GatewayTest extends MetadatableTest {
 
 	/**
     * <!-- begin-user-doc -->
@@ -45,23 +34,14 @@ public class GatewayTest extends TestCase {
    }
 
 	/**
-    * Sets the fixture for this Gateway test case.
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    */
-	protected void setFixture(Gateway fixture) {
-      this.fixture = fixture;
-   }
-
-	/**
     * Returns the fixture for this Gateway test case.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
     * @generated
     */
-	protected Gateway getFixture() {
-      return fixture;
+	@Override
+   protected Gateway getFixture() {
+      return (Gateway)fixture;
    }
 
 	/**

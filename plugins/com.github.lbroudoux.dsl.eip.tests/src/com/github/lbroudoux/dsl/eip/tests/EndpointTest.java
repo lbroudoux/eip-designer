@@ -4,23 +4,13 @@ package com.github.lbroudoux.dsl.eip.tests;
 
 import com.github.lbroudoux.dsl.eip.Endpoint;
 
-import junit.framework.TestCase;
-
 /**
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Endpoint</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class EndpointTest extends TestCase {
-
-	/**
-    * The fixture for this Endpoint test case.
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    */
-	protected Endpoint fixture = null;
+public abstract class EndpointTest extends MetadatableTest {
 
 	/**
     * Constructs a new Endpoint test case with the given name.
@@ -33,23 +23,14 @@ public abstract class EndpointTest extends TestCase {
    }
 
 	/**
-    * Sets the fixture for this Endpoint test case.
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    */
-	protected void setFixture(Endpoint fixture) {
-      this.fixture = fixture;
-   }
-
-	/**
     * Returns the fixture for this Endpoint test case.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
     * @generated
     */
-	protected Endpoint getFixture() {
-      return fixture;
+	@Override
+   protected Endpoint getFixture() {
+      return (Endpoint)fixture;
    }
 
 } //EndpointTest

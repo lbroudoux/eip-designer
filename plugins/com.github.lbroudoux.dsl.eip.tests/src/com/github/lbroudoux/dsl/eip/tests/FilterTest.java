@@ -4,9 +4,6 @@ package com.github.lbroudoux.dsl.eip.tests;
 
 import com.github.lbroudoux.dsl.eip.EipFactory;
 import com.github.lbroudoux.dsl.eip.Filter;
-
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -15,15 +12,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class FilterTest extends TestCase {
-
-	/**
-    * The fixture for this Filter test case.
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    */
-	protected Filter fixture = null;
+public class FilterTest extends MetadatableTest {
 
 	/**
     * <!-- begin-user-doc -->
@@ -45,23 +34,14 @@ public class FilterTest extends TestCase {
    }
 
 	/**
-    * Sets the fixture for this Filter test case.
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    */
-	protected void setFixture(Filter fixture) {
-      this.fixture = fixture;
-   }
-
-	/**
     * Returns the fixture for this Filter test case.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
     * @generated
     */
-	protected Filter getFixture() {
-      return fixture;
+	@Override
+   protected Filter getFixture() {
+      return (Filter)fixture;
    }
 
 	/**

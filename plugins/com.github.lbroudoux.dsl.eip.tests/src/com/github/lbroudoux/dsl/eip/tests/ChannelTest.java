@@ -4,9 +4,6 @@ package com.github.lbroudoux.dsl.eip.tests;
 
 import com.github.lbroudoux.dsl.eip.Channel;
 import com.github.lbroudoux.dsl.eip.EipFactory;
-
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -15,15 +12,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ChannelTest extends TestCase {
-
-	/**
-    * The fixture for this Channel test case.
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    */
-	protected Channel fixture = null;
+public class ChannelTest extends MetadatableTest {
 
 	/**
     * <!-- begin-user-doc -->
@@ -45,23 +34,14 @@ public class ChannelTest extends TestCase {
    }
 
 	/**
-    * Sets the fixture for this Channel test case.
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    */
-	protected void setFixture(Channel fixture) {
-      this.fixture = fixture;
-   }
-
-	/**
     * Returns the fixture for this Channel test case.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
     * @generated
     */
-	protected Channel getFixture() {
-      return fixture;
+	@Override
+   protected Channel getFixture() {
+      return (Channel)fixture;
    }
 
 	/**

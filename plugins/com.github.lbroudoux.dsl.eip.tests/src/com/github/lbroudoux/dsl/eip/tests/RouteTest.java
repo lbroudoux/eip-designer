@@ -4,9 +4,6 @@ package com.github.lbroudoux.dsl.eip.tests;
 
 import com.github.lbroudoux.dsl.eip.EipFactory;
 import com.github.lbroudoux.dsl.eip.Route;
-
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -15,15 +12,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RouteTest extends TestCase {
-
-	/**
-    * The fixture for this Route test case.
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    */
-	protected Route fixture = null;
+public class RouteTest extends MetadatableTest {
 
 	/**
     * <!-- begin-user-doc -->
@@ -45,23 +34,14 @@ public class RouteTest extends TestCase {
    }
 
 	/**
-    * Sets the fixture for this Route test case.
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    */
-	protected void setFixture(Route fixture) {
-      this.fixture = fixture;
-   }
-
-	/**
     * Returns the fixture for this Route test case.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
     * @generated
     */
-	protected Route getFixture() {
-      return fixture;
+	@Override
+   protected Route getFixture() {
+      return (Route)fixture;
    }
 
 	/**

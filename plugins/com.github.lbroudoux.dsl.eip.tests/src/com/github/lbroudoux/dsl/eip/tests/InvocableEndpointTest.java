@@ -4,9 +4,6 @@ package com.github.lbroudoux.dsl.eip.tests;
 
 import com.github.lbroudoux.dsl.eip.EipFactory;
 import com.github.lbroudoux.dsl.eip.InvocableEndpoint;
-
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -15,15 +12,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class InvocableEndpointTest extends TestCase {
-
-	/**
-    * The fixture for this Invocable Endpoint test case.
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    */
-	protected InvocableEndpoint fixture = null;
+public class InvocableEndpointTest extends MetadatableTest {
 
 	/**
     * <!-- begin-user-doc -->
@@ -45,23 +34,14 @@ public class InvocableEndpointTest extends TestCase {
    }
 
 	/**
-    * Sets the fixture for this Invocable Endpoint test case.
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    */
-	protected void setFixture(InvocableEndpoint fixture) {
-      this.fixture = fixture;
-   }
-
-	/**
     * Returns the fixture for this Invocable Endpoint test case.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
     * @generated
     */
-	protected InvocableEndpoint getFixture() {
-      return fixture;
+	@Override
+   protected InvocableEndpoint getFixture() {
+      return (InvocableEndpoint)fixture;
    }
 
 	/**

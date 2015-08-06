@@ -3,7 +3,6 @@
 package com.github.lbroudoux.dsl.eip;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface Endpoint extends EObject {
+public interface Endpoint extends Metadatable {
 
 	/**
     * Returns the value of the '<em><b>Name</b></em>' attribute.

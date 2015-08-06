@@ -77,6 +77,7 @@ public class EipFactoryImpl extends EFactoryImpl implements EipFactory {
          case EipPackage.INVOCABLE_ENDPOINT: return createInvocableEndpoint();
          case EipPackage.CONTENT_FILTER: return createContentFilter();
          case EipPackage.RESEQUENCER: return createResequencer();
+         case EipPackage.METADATA: return createMetadata();
          default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
       }
@@ -318,6 +319,16 @@ public class EipFactoryImpl extends EFactoryImpl implements EipFactory {
    public Resequencer createResequencer() {
       ResequencerImpl resequencer = new ResequencerImpl();
       return resequencer;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public Metadata createMetadata() {
+      MetadataImpl metadata = new MetadataImpl();
+      return metadata;
    }
 
    /**

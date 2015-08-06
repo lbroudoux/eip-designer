@@ -152,6 +152,14 @@ public class EipAdapterFactory extends AdapterFactoryImpl {
             return createResequencerAdapter();
          }
          @Override
+         public Adapter caseMetadata(Metadata object) {
+            return createMetadataAdapter();
+         }
+         @Override
+         public Adapter caseMetadatable(Metadatable object) {
+            return createMetadatableAdapter();
+         }
+         @Override
          public Adapter defaultCase(EObject object) {
             return createEObjectAdapter();
          }
@@ -462,6 +470,34 @@ public class EipAdapterFactory extends AdapterFactoryImpl {
     * @generated
     */
    public Adapter createResequencerAdapter() {
+      return null;
+   }
+
+   /**
+    * Creates a new adapter for an object of class '{@link com.github.lbroudoux.dsl.eip.Metadata <em>Metadata</em>}'.
+    * <!-- begin-user-doc -->
+    * This default implementation returns null so that we can easily ignore cases;
+    * it's useful to ignore a case when inheritance will catch all the cases anyway.
+    * <!-- end-user-doc -->
+    * @return the new adapter.
+    * @see com.github.lbroudoux.dsl.eip.Metadata
+    * @generated
+    */
+   public Adapter createMetadataAdapter() {
+      return null;
+   }
+
+   /**
+    * Creates a new adapter for an object of class '{@link com.github.lbroudoux.dsl.eip.Metadatable <em>Metadatable</em>}'.
+    * <!-- begin-user-doc -->
+    * This default implementation returns null so that we can easily ignore cases;
+    * it's useful to ignore a case when inheritance will catch all the cases anyway.
+    * <!-- end-user-doc -->
+    * @return the new adapter.
+    * @see com.github.lbroudoux.dsl.eip.Metadatable
+    * @generated
+    */
+   public Adapter createMetadatableAdapter() {
       return null;
    }
 

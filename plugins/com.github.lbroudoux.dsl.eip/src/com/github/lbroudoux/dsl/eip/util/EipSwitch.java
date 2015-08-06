@@ -69,12 +69,14 @@ public class EipSwitch<T> extends Switch<T> {
          case EipPackage.ENDPOINT: {
             Endpoint endpoint = (Endpoint)theEObject;
             T result = caseEndpoint(endpoint);
+            if (result == null) result = caseMetadatable(endpoint);
             if (result == null) result = defaultCase(theEObject);
             return result;
          }
          case EipPackage.CHANNEL: {
             Channel channel = (Channel)theEObject;
             T result = caseChannel(channel);
+            if (result == null) result = caseMetadatable(channel);
             if (result == null) result = defaultCase(theEObject);
             return result;
          }
@@ -88,6 +90,7 @@ public class EipSwitch<T> extends Switch<T> {
             Router router = (Router)theEObject;
             T result = caseRouter(router);
             if (result == null) result = caseEndpoint(router);
+            if (result == null) result = caseMetadatable(router);
             if (result == null) result = defaultCase(theEObject);
             return result;
          }
@@ -95,6 +98,7 @@ public class EipSwitch<T> extends Switch<T> {
             Filter filter = (Filter)theEObject;
             T result = caseFilter(filter);
             if (result == null) result = caseEndpoint(filter);
+            if (result == null) result = caseMetadatable(filter);
             if (result == null) result = defaultCase(theEObject);
             return result;
          }
@@ -102,6 +106,7 @@ public class EipSwitch<T> extends Switch<T> {
             Transformer transformer = (Transformer)theEObject;
             T result = caseTransformer(transformer);
             if (result == null) result = caseEndpoint(transformer);
+            if (result == null) result = caseMetadatable(transformer);
             if (result == null) result = defaultCase(theEObject);
             return result;
          }
@@ -109,6 +114,7 @@ public class EipSwitch<T> extends Switch<T> {
             Gateway gateway = (Gateway)theEObject;
             T result = caseGateway(gateway);
             if (result == null) result = caseEndpoint(gateway);
+            if (result == null) result = caseMetadatable(gateway);
             if (result == null) result = defaultCase(theEObject);
             return result;
          }
@@ -122,6 +128,7 @@ public class EipSwitch<T> extends Switch<T> {
             Splitter splitter = (Splitter)theEObject;
             T result = caseSplitter(splitter);
             if (result == null) result = caseEndpoint(splitter);
+            if (result == null) result = caseMetadatable(splitter);
             if (result == null) result = defaultCase(theEObject);
             return result;
          }
@@ -129,12 +136,14 @@ public class EipSwitch<T> extends Switch<T> {
             Aggregator aggregator = (Aggregator)theEObject;
             T result = caseAggregator(aggregator);
             if (result == null) result = caseEndpoint(aggregator);
+            if (result == null) result = caseMetadatable(aggregator);
             if (result == null) result = defaultCase(theEObject);
             return result;
          }
          case EipPackage.ROUTE: {
             Route route = (Route)theEObject;
             T result = caseRoute(route);
+            if (result == null) result = caseMetadatable(route);
             if (result == null) result = defaultCase(theEObject);
             return result;
          }
@@ -143,6 +152,7 @@ public class EipSwitch<T> extends Switch<T> {
             T result = caseServiceActivator(serviceActivator);
             if (result == null) result = caseInvocableEndpoint(serviceActivator);
             if (result == null) result = caseEndpoint(serviceActivator);
+            if (result == null) result = caseMetadatable(serviceActivator);
             if (result == null) result = defaultCase(theEObject);
             return result;
          }
@@ -157,6 +167,7 @@ public class EipSwitch<T> extends Switch<T> {
             T result = caseEnricher(enricher);
             if (result == null) result = caseInvocableEndpoint(enricher);
             if (result == null) result = caseEndpoint(enricher);
+            if (result == null) result = caseMetadatable(enricher);
             if (result == null) result = defaultCase(theEObject);
             return result;
          }
@@ -164,6 +175,7 @@ public class EipSwitch<T> extends Switch<T> {
             CompositeProcessor compositeProcessor = (CompositeProcessor)theEObject;
             T result = caseCompositeProcessor(compositeProcessor);
             if (result == null) result = caseEndpoint(compositeProcessor);
+            if (result == null) result = caseMetadatable(compositeProcessor);
             if (result == null) result = defaultCase(theEObject);
             return result;
          }
@@ -172,6 +184,7 @@ public class EipSwitch<T> extends Switch<T> {
             T result = caseRecipientListRouter(recipientListRouter);
             if (result == null) result = caseRouter(recipientListRouter);
             if (result == null) result = caseEndpoint(recipientListRouter);
+            if (result == null) result = caseMetadatable(recipientListRouter);
             if (result == null) result = defaultCase(theEObject);
             return result;
          }
@@ -191,6 +204,7 @@ public class EipSwitch<T> extends Switch<T> {
             InvocableEndpoint invocableEndpoint = (InvocableEndpoint)theEObject;
             T result = caseInvocableEndpoint(invocableEndpoint);
             if (result == null) result = caseEndpoint(invocableEndpoint);
+            if (result == null) result = caseMetadatable(invocableEndpoint);
             if (result == null) result = defaultCase(theEObject);
             return result;
          }
@@ -199,6 +213,7 @@ public class EipSwitch<T> extends Switch<T> {
             T result = caseContentFilter(contentFilter);
             if (result == null) result = caseFilter(contentFilter);
             if (result == null) result = caseEndpoint(contentFilter);
+            if (result == null) result = caseMetadatable(contentFilter);
             if (result == null) result = defaultCase(theEObject);
             return result;
          }
@@ -207,6 +222,19 @@ public class EipSwitch<T> extends Switch<T> {
             T result = caseResequencer(resequencer);
             if (result == null) result = caseAggregator(resequencer);
             if (result == null) result = caseEndpoint(resequencer);
+            if (result == null) result = caseMetadatable(resequencer);
+            if (result == null) result = defaultCase(theEObject);
+            return result;
+         }
+         case EipPackage.METADATA: {
+            Metadata metadata = (Metadata)theEObject;
+            T result = caseMetadata(metadata);
+            if (result == null) result = defaultCase(theEObject);
+            return result;
+         }
+         case EipPackage.METADATABLE: {
+            Metadatable metadatable = (Metadatable)theEObject;
+            T result = caseMetadatable(metadatable);
             if (result == null) result = defaultCase(theEObject);
             return result;
          }
@@ -526,6 +554,36 @@ public class EipSwitch<T> extends Switch<T> {
     * @generated
     */
    public T caseResequencer(Resequencer object) {
+      return null;
+   }
+
+   /**
+    * Returns the result of interpreting the object as an instance of '<em>Metadata</em>'.
+    * <!-- begin-user-doc -->
+    * This implementation returns null;
+    * returning a non-null result will terminate the switch.
+    * <!-- end-user-doc -->
+    * @param object the target of the switch.
+    * @return the result of interpreting the object as an instance of '<em>Metadata</em>'.
+    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+    * @generated
+    */
+   public T caseMetadata(Metadata object) {
+      return null;
+   }
+
+   /**
+    * Returns the result of interpreting the object as an instance of '<em>Metadatable</em>'.
+    * <!-- begin-user-doc -->
+    * This implementation returns null;
+    * returning a non-null result will terminate the switch.
+    * <!-- end-user-doc -->
+    * @param object the target of the switch.
+    * @return the result of interpreting the object as an instance of '<em>Metadatable</em>'.
+    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+    * @generated
+    */
+   public T caseMetadatable(Metadatable object) {
       return null;
    }
 

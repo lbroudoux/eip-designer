@@ -19,6 +19,8 @@ import com.github.lbroudoux.dsl.eip.Filter;
 import com.github.lbroudoux.dsl.eip.Gateway;
 import com.github.lbroudoux.dsl.eip.InvocableEndpoint;
 import com.github.lbroudoux.dsl.eip.MessagePart;
+import com.github.lbroudoux.dsl.eip.Metadata;
+import com.github.lbroudoux.dsl.eip.Metadatable;
 import com.github.lbroudoux.dsl.eip.RecipientListRouter;
 import com.github.lbroudoux.dsl.eip.Resequencer;
 import com.github.lbroudoux.dsl.eip.Route;
@@ -185,6 +187,20 @@ public class EipPackageImpl extends EPackageImpl implements EipPackage {
     * @generated
     */
    private EClass resequencerEClass = null;
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   private EClass metadataEClass = null;
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   private EClass metadatableEClass = null;
 
    /**
     * <!-- begin-user-doc -->
@@ -738,6 +754,51 @@ public class EipPackageImpl extends EPackageImpl implements EipPackage {
 
    /**
     * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EClass getMetadata() {
+      return metadataEClass;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getMetadata_Key() {
+      return (EAttribute)metadataEClass.getEStructuralFeatures().get(0);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getMetadata_Values() {
+      return (EAttribute)metadataEClass.getEStructuralFeatures().get(1);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EClass getMetadatable() {
+      return metadatableEClass;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EReference getMetadatable_OwnedMetadatas() {
+      return (EReference)metadatableEClass.getEStructuralFeatures().get(0);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
     * @generated
     */
@@ -864,6 +925,13 @@ public class EipPackageImpl extends EPackageImpl implements EipPackage {
       resequencerEClass = createEClass(RESEQUENCER);
       createEAttribute(resequencerEClass, RESEQUENCER__STREAM_SEQUENCES);
 
+      metadataEClass = createEClass(METADATA);
+      createEAttribute(metadataEClass, METADATA__KEY);
+      createEAttribute(metadataEClass, METADATA__VALUES);
+
+      metadatableEClass = createEClass(METADATABLE);
+      createEReference(metadatableEClass, METADATABLE__OWNED_METADATAS);
+
       // Create enums
       messagePartEEnum = createEEnum(MESSAGE_PART);
       routingTypeEEnum = createEEnum(ROUTING_TYPE);
@@ -898,12 +966,15 @@ public class EipPackageImpl extends EPackageImpl implements EipPackage {
       // Set bounds for type parameters
 
       // Add supertypes to classes
+      endpointEClass.getESuperTypes().add(this.getMetadatable());
+      channelEClass.getESuperTypes().add(this.getMetadatable());
       routerEClass.getESuperTypes().add(this.getEndpoint());
       filterEClass.getESuperTypes().add(this.getEndpoint());
       transformerEClass.getESuperTypes().add(this.getEndpoint());
       gatewayEClass.getESuperTypes().add(this.getEndpoint());
       splitterEClass.getESuperTypes().add(this.getEndpoint());
       aggregatorEClass.getESuperTypes().add(this.getEndpoint());
+      routeEClass.getESuperTypes().add(this.getMetadatable());
       serviceActivatorEClass.getESuperTypes().add(this.getInvocableEndpoint());
       enricherEClass.getESuperTypes().add(this.getInvocableEndpoint());
       compositeProcessorEClass.getESuperTypes().add(this.getEndpoint());
@@ -985,6 +1056,13 @@ public class EipPackageImpl extends EPackageImpl implements EipPackage {
 
       initEClass(resequencerEClass, Resequencer.class, "Resequencer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
       initEAttribute(getResequencer_StreamSequences(), ecorePackage.getEBoolean(), "streamSequences", "false", 0, 1, Resequencer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+      initEClass(metadataEClass, Metadata.class, "Metadata", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEAttribute(getMetadata_Key(), ecorePackage.getEString(), "key", null, 1, 1, Metadata.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getMetadata_Values(), ecorePackage.getEString(), "values", null, 0, -1, Metadata.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+      initEClass(metadatableEClass, Metadatable.class, "Metadatable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEReference(getMetadatable_OwnedMetadatas(), this.getMetadata(), null, "ownedMetadatas", null, 0, -1, Metadatable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
       // Initialize enums and add enum literals
       initEEnum(messagePartEEnum, MessagePart.class, "MessagePart");

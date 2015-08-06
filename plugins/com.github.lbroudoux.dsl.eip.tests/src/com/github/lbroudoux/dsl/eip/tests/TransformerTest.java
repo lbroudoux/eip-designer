@@ -4,9 +4,6 @@ package com.github.lbroudoux.dsl.eip.tests;
 
 import com.github.lbroudoux.dsl.eip.EipFactory;
 import com.github.lbroudoux.dsl.eip.Transformer;
-
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -15,15 +12,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TransformerTest extends TestCase {
-
-	/**
-    * The fixture for this Transformer test case.
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    */
-	protected Transformer fixture = null;
+public class TransformerTest extends MetadatableTest {
 
 	/**
     * <!-- begin-user-doc -->
@@ -45,23 +34,14 @@ public class TransformerTest extends TestCase {
    }
 
 	/**
-    * Sets the fixture for this Transformer test case.
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    */
-	protected void setFixture(Transformer fixture) {
-      this.fixture = fixture;
-   }
-
-	/**
     * Returns the fixture for this Transformer test case.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
     * @generated
     */
-	protected Transformer getFixture() {
-      return fixture;
+	@Override
+   protected Transformer getFixture() {
+      return (Transformer)fixture;
    }
 
 	/**

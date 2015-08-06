@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="eip" nsURI="http://www.github.com/lbroudoux/dsl/eip/1.0" nsPrefix="eip">
-  <eClassifiers xsi:type="ecore:EClass" name="Endpoint" abstract="true" interface="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Endpoint" abstract="true" interface="true"
+      eSuperTypes="#//Metadatable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="toChannel" eType="#//Channel"
         eOpposite="#//Channel/fromEndpoint"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fromChannels" upperBound="-1"
         eType="#//Channel" eOpposite="#//Channel/toEndpoint"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Channel">
+  <eClassifiers xsi:type="ecore:EClass" name="Channel" eSuperTypes="#//Metadatable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="toEndpoint" eType="#//Endpoint"
         eOpposite="#//Endpoint/fromChannels"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fromEndpoint" eType="#//Endpoint"
@@ -63,7 +64,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Route">
+  <eClassifiers xsi:type="ecore:EClass" name="Route" eSuperTypes="#//Metadatable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedEndpoints" upperBound="-1"
         eType="#//Endpoint" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedChannels" upperBound="-1"
@@ -136,5 +137,14 @@
   <eClassifiers xsi:type="ecore:EEnum" name="ExchangeType">
     <eLiterals name="IN_ONLY"/>
     <eLiterals name="IN_OUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Metadata">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Metadatable" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedMetadatas" upperBound="-1"
+        eType="#//Metadata" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

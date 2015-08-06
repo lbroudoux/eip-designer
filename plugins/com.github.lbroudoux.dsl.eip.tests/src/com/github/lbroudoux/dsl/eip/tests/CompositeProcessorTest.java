@@ -4,9 +4,6 @@ package com.github.lbroudoux.dsl.eip.tests;
 
 import com.github.lbroudoux.dsl.eip.CompositeProcessor;
 import com.github.lbroudoux.dsl.eip.EipFactory;
-
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -15,15 +12,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CompositeProcessorTest extends TestCase {
-
-	/**
-    * The fixture for this Composite Processor test case.
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    */
-	protected CompositeProcessor fixture = null;
+public class CompositeProcessorTest extends MetadatableTest {
 
 	/**
     * <!-- begin-user-doc -->
@@ -45,23 +34,14 @@ public class CompositeProcessorTest extends TestCase {
    }
 
 	/**
-    * Sets the fixture for this Composite Processor test case.
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    */
-	protected void setFixture(CompositeProcessor fixture) {
-      this.fixture = fixture;
-   }
-
-	/**
     * Returns the fixture for this Composite Processor test case.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
     * @generated
     */
-	protected CompositeProcessor getFixture() {
-      return fixture;
+	@Override
+   protected CompositeProcessor getFixture() {
+      return (CompositeProcessor)fixture;
    }
 
 	/**

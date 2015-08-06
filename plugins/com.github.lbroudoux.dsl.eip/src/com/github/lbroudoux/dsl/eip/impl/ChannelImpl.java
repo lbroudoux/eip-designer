@@ -4,15 +4,12 @@ package com.github.lbroudoux.dsl.eip.impl;
 
 import com.github.lbroudoux.dsl.eip.Channel;
 import com.github.lbroudoux.dsl.eip.EipPackage;
-
 import com.github.lbroudoux.dsl.eip.Endpoint;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class ChannelImpl extends MinimalEObjectImpl.Container implements Channel {
+public class ChannelImpl extends MetadatableImpl implements Channel {
 	/**
     * The cached value of the '{@link #getToEndpoint() <em>To Endpoint</em>}' reference.
     * <!-- begin-user-doc -->
