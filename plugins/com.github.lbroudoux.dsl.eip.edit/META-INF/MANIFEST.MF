@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: EIP Edit
 Bundle-SymbolicName: com.github.lbroudoux.dsl.eip.edit;singleton:=true
-Bundle-Version: 0.1.1.qualifier
+Bundle-Version: 0.2.0
 Bundle-ClassPath: .
 Bundle-Activator: com.github.lbroudoux.dsl.eip.provider.EipEditPlugin$Implementation
 Bundle-Vendor: LBroudoux
