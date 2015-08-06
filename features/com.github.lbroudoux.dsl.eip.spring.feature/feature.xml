@@ -2,7 +2,7 @@
 <feature
       id="com.github.lbroudoux.dsl.eip.spring.feature"
       label="EIP Designer extension for Spring Integration"
-      version="0.2.0"
+      version="0.2.1.qualifier"
       provider-name="LBroudoux">
 
    <description url="https://github.com/lbroudoux/eip-designer">
