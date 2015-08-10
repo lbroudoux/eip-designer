@@ -26,6 +26,8 @@ import java.util.List;
 import org.eclipse.acceleo.engine.event.IAcceleoTextGenerationListener;
 import org.eclipse.acceleo.engine.generation.strategy.IAcceleoGenerationStrategy;
 import org.eclipse.acceleo.engine.service.AbstractAcceleoGenerator;
+import org.eclipse.acceleo.engine.utils.AcceleoEngineUtils;
+import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.Monitor;
 import org.eclipse.emf.common.util.URI;
@@ -273,7 +275,7 @@ public class GenerateXmlRoutes extends AbstractAcceleoGenerator {
      * 
      * @return The list of properties file we need to add to the generation context.
      * @see java.util.ResourceBundle#getBundle(String)
-     * @generated
+     * @generated NOT
      */
     @Override
     public List<String> getProperties() {
@@ -311,6 +313,15 @@ public class GenerateXmlRoutes extends AbstractAcceleoGenerator {
          * 
          * To learn more about Properties Files, have a look at the Acceleo documentation (Help -> Help Contents).
          */
+    	
+    	if (model != null && model.eResource() != null) {
+           propertiesFiles.addAll(AcceleoEngineUtils.getPropertiesFilesNearModel(model.eResource()));
+   	 	}
+    	
+    	//propertiesFiles.add("platform:/com.github.lbroudoux.dsl.eip.gen.camel/com/github/lbroudoux/dsl/eip/gen/camel/default.properties");
+    	//propertiesFiles.add("platform:/plugin/com.github.lbroudoux.dsl.eip.gen.camel/com/github/lbroudoux/dsl/eip/gen/camel/default.properties");
+    	propertiesFiles.add("com.github.lbroudoux.dsl.eip.gen.camel.default");
+    	
         return propertiesFiles;
     }
     

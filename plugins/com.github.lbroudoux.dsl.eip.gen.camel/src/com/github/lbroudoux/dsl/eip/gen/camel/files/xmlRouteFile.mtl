@@ -9,7 +9,35 @@
 
 [template public genXmlRouteFileBody(aRoute : Route)]
 <?xml version="1.0" encoding="UTF-8"?>
+
+[if (getProperty('camel.xml.generation_target') = 'BASE_SPRING')]
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+  <camelContext xmlns="http://camel.apache.org/schema/spring">
+    [aRoute.genRouteXml()/]
+  </camelContext>
+</beans>
+
+[elseif (getProperty('camel.xml.generation_target') = 'BLUEPRINT')]
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+      http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+      http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+  
+  <camelContext xmlns="http://camel.apache.org/schema/blueprint">
+     [aRoute.genRouteXml()/]
+  </camelContext>
+</blueprint>
+
+[elseif (getProperty('camel.xml.generation_target') = 'SWITCHYARD')]
 <routes xmlns="http://camel.apache.org/schema/spring">
   [aRoute.genRouteXml()/]
 </routes>
+
+[/if]
 [/template]
