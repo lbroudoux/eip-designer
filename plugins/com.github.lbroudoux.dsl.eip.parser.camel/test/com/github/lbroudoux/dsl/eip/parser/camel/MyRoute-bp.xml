@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+      http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+      http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+  
+  <camelContext xmlns="http://camel.apache.org/schema/blueprint">
+	  <route id="MyRoute">
+	    <from id="GatewayIn|GatewayIn_Normalize" uri="switchyard://GatewayIn"/>
+	    <to id="NormalizeClients|Normalize_Filter" uri="xslt:NormalizeClients"/>
+	    <filter id="FilterIncompleteNormalization|Filter_Check">
+	      <simple></simple>
+	      <to id="Check ServiceCallout|ServiceCallout_Composite" uri="switchyard://Check ServiceCallout"/>
+	      <pipeline id="Composite|Composite_GatewayOut">
+	        <split id="ClientSplitter|Splitter_Router">
+	          <choice id="ClientRouter|DefaultRoute">
+	            <when id="Channel_">
+	            <simple>client.isGold()</simple>
+	            <to id="GoldService|GoldService_Aggregator" uri="switchyard://GoldService"/>
+	            <!-- Endpoint not yet supported by generator -->
+	            </when>
+	            <otherwise>
+	            <to id="DefaultService|Default_Aggregator" uri="switchyard://DefaultService"/>
+	            <!-- Endpoint not yet supported by generator -->
+	            </otherwise>
+	          </choice>
+	        </split>
+	      </pipeline>
+	      <to id="GatewayOut" uri="switchyard://GatewayOut"/>   
+	    </filter>
+	  </route>
+  </camelContext>
+</blueprint>

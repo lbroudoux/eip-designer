@@ -37,7 +37,63 @@ import com.github.lbroudoux.dsl.eip.Route;
 public class CamelXmlFileParserTest {
 
    @Test
-   public void testBasics() throws Exception {
+   public void testSpringBasics() throws Exception {
+      CamelXmlFileParser parser = new CamelXmlFileParser(
+            new File("test/com/github/lbroudoux/dsl/eip/parser/camel/MyRoute-spring.xml"));
+      EIPModel model = EipFactory.eINSTANCE.createEIPModel();
+      parser.parseAndFillModel(model);
+      
+      // Assert on model.
+      assertEquals(1, model.getOwnedRoutes().size());
+      Route route = model.getOwnedRoutes().get(0);
+      assertEquals(6, route.getOwnedEndpoints().size());
+      
+      boolean foundAComposite = false;
+      for (Endpoint endpoint : route.getOwnedEndpoints()) {
+         if (endpoint instanceof CompositeProcessor) {
+            CompositeProcessor composite = (CompositeProcessor)endpoint;
+            foundAComposite = true;
+            // Should be 5 but Aggregator parsing not yet ready...
+            assertEquals(4, composite.getOwnedEndpoints().size());
+         }
+      }
+      if (!foundAComposite) {
+         fail("We should have parsed and found a CompositeProcessor...");
+      }
+      
+      //assertEquals(8, route.getOwnedChannels().size());
+   }
+   
+   @Test
+   public void testBlueprintBasics() throws Exception {
+      CamelXmlFileParser parser = new CamelXmlFileParser(
+            new File("test/com/github/lbroudoux/dsl/eip/parser/camel/MyRoute-bp.xml"));
+      EIPModel model = EipFactory.eINSTANCE.createEIPModel();
+      parser.parseAndFillModel(model);
+      
+      // Assert on model.
+      assertEquals(1, model.getOwnedRoutes().size());
+      Route route = model.getOwnedRoutes().get(0);
+      assertEquals(6, route.getOwnedEndpoints().size());
+      
+      boolean foundAComposite = false;
+      for (Endpoint endpoint : route.getOwnedEndpoints()) {
+         if (endpoint instanceof CompositeProcessor) {
+            CompositeProcessor composite = (CompositeProcessor)endpoint;
+            foundAComposite = true;
+            // Should be 5 but Aggregator parsing not yet ready...
+            assertEquals(4, composite.getOwnedEndpoints().size());
+         }
+      }
+      if (!foundAComposite) {
+         fail("We should have parsed and found a CompositeProcessor...");
+      }
+      
+      //assertEquals(8, route.getOwnedChannels().size());
+   }
+   
+   @Test
+   public void testSwitchyardBasics() throws Exception {
       CamelXmlFileParser parser = new CamelXmlFileParser(
             new File("test/com/github/lbroudoux/dsl/eip/parser/camel/MyRoute.xml"));
       EIPModel model = EipFactory.eINSTANCE.createEIPModel();
