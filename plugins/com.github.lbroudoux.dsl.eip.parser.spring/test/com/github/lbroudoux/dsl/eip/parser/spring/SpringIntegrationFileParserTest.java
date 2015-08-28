@@ -86,7 +86,7 @@ public class SpringIntegrationFileParserTest {
          if (endpoint instanceof Router) {
             foundRouter = true;
             Router router = (Router) endpoint;
-            assertNotNull(router.getToChannel());
+            assertNotNull(router.getToChannels());
             assertEquals(1, router.getOwnedRoutes().size());
             assertEquals("client.isGold()", router.getOwnedRoutes().get(0).getCondition());
             assertEquals("Channel_", router.getOwnedRoutes().get(0).getChannel().getName());
@@ -160,12 +160,12 @@ public class SpringIntegrationFileParserTest {
       // Then, create endpoint and associate channels.
       Endpoint endpoint = EipFactory.eINSTANCE.createFilter();
       endpoint.setName("Filter");
-      endpoint.setToChannel(activateFiltered);
+      endpoint.getToChannels().add(activateFiltered);
       endpoint.getFromChannels().add(targetContent);
       refRoute.getOwnedEndpoints().add(endpoint);
       endpoint = EipFactory.eINSTANCE.createTransformer();
       endpoint.setName("Normalize Data");
-      endpoint.setToChannel(targetContent);
+      endpoint.getToChannels().add(targetContent);
       endpoint.getFromChannels().add(input);
       refRoute.getOwnedEndpoints().add(endpoint);
       

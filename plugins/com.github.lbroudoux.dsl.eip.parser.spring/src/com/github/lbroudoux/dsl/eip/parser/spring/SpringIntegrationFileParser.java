@@ -166,7 +166,7 @@ public class SpringIntegrationFileParser {
          Router router = ((Router) endpoint);
          String channelOut = endpointElement.getAttribute("default-output-channel");
          if (channelOut != null && channelOut.trim().length() > 0) {
-            router.setToChannel(channelsMap.get(channelOut));
+            router.getToChannels().add(channelsMap.get(channelOut));
          }
          NodeList mappings = endpointElement.getElementsByTagNameNS(SPRING_INT_NS, "mapping");
          // Add a conditional route for each mapping.
@@ -202,7 +202,7 @@ public class SpringIntegrationFileParser {
          }
          String outputChannelName = endpointElement.getAttribute("output-channel");
          if (outputChannelName != null && outputChannelName.trim().length() > 0) {
-            endpoint.setToChannel(channelsMap.get(outputChannelName));
+            endpoint.getToChannels().add(channelsMap.get(outputChannelName));
          }
          endpointsMap.put(endpoint.getName(), endpoint);
       }

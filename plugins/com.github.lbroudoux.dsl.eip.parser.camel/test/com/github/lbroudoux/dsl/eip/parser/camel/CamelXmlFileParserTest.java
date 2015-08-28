@@ -144,8 +144,8 @@ public class CamelXmlFileParserTest {
       }
       
       // Check properties.
-      assertEquals("Resequencer_GatewayOut", resequencer.getToChannel().getName());
-      assertEquals("GatewayOut", resequencer.getToChannel().getToEndpoint().getName());
+      assertEquals("Resequencer_GatewayOut", resequencer.getToChannels().get(0).getName());
+      assertEquals("GatewayOut", resequencer.getToChannels().get(0).getToEndpoint().getName());
       assertTrue(resequencer.isStreamSequences());
    }
 }

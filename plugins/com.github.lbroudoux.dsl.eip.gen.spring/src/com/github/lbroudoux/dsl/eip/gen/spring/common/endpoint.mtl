@@ -31,7 +31,7 @@
 [template public genEndpoint(aRouter : Router) post(trim())]
 [if (aRouter.type = RoutingType::HEADER_VALUE)]
 <int:header-value-router id="[aRouter.name/]" [aRouter.genInputChannelEndpointAttribute()/] header-name="[aRouter.name/]"
-    default-output-channel="[aRouter.toChannel.name/]">
+    default-output-channel="[aRouter.toChannels->first().name/]">
 [for (route : ConditionalRoute | aRouter.ownedRoutes)]
   <int:mapping id="[route.condition/]" value="[route.condition/]" channel="[route.channel.name/]" />
 [/for]
@@ -39,7 +39,7 @@
 [/if]
 [if (aRouter.type = RoutingType::PAYLOAD_VALUE)]
 <int:router id="[aRouter.name/]" [aRouter.genInputChannelEndpointAttribute()/] expression="payload.paymentType"
-	 default-output-channel="[aRouter.toChannel.name/]">
+	 default-output-channel="[aRouter.toChannels->first().name/]">
 [for (route : ConditionalRoute | aRouter.ownedRoutes)]
   <int:mapping id="[route.condition/]" value="[route.condition/]" channel="[route.channel.name/]" />
 [/for]
@@ -47,7 +47,7 @@
 [/if]
 [if (aRouter.type = RoutingType::PAYLOAD_TYPE)]
 <int:payload-type-router id="[aRouter.name/]" [aRouter.genInputChannelEndpointAttribute()/] header-name="[aRouter.name/]"
-    default-output-channel="[aRouter.toChannel.name/]">
+    default-output-channel="[aRouter.toChannels->first().name/]">
 [for (route : ConditionalRoute | aRouter.ownedRoutes)]
   <int:mapping id="[route.condition/]" type="[route.condition/]" channel="[route.channel.name/]" />
 [/for]

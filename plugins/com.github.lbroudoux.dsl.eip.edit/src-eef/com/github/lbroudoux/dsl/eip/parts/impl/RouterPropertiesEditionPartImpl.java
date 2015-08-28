@@ -92,7 +92,9 @@ import org.eclipse.swt.widgets.Text;
 public class RouterPropertiesEditionPartImpl extends CompositePropertiesEditionPart implements ISWTPropertiesEditionPart, RouterPropertiesEditionPart {
 
 	protected Text name;
-	protected EObjectFlatComboViewer toChannel;
+	protected ReferencesTable toChannels;
+	protected List<ViewerFilter> toChannelsBusinessFilters = new ArrayList<ViewerFilter>();
+	protected List<ViewerFilter> toChannelsFilters = new ArrayList<ViewerFilter>();
 	protected ReferencesTable fromChannels;
 	protected List<ViewerFilter> fromChannelsBusinessFilters = new ArrayList<ViewerFilter>();
 	protected List<ViewerFilter> fromChannelsFilters = new ArrayList<ViewerFilter>();
@@ -139,7 +141,7 @@ public class RouterPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		CompositionSequence routerStep = new BindingCompositionSequence(propertiesEditionComponent);
 		CompositionStep propertiesStep = routerStep.addStep(EipViewsRepository.Router.Properties.class);
 		propertiesStep.addStep(EipViewsRepository.Router.Properties.name);
-		propertiesStep.addStep(EipViewsRepository.Router.Properties.toChannel);
+		propertiesStep.addStep(EipViewsRepository.Router.Properties.toChannels);
 		propertiesStep.addStep(EipViewsRepository.Router.Properties.fromChannels);
 		propertiesStep.addStep(EipViewsRepository.Router.Properties.ownedRoutes);
 		propertiesStep.addStep(EipViewsRepository.Router.Properties.type);
@@ -155,8 +157,8 @@ public class RouterPropertiesEditionPartImpl extends CompositePropertiesEditionP
 				if (key == EipViewsRepository.Router.Properties.name) {
 					return createNameText(parent);
 				}
-				if (key == EipViewsRepository.Router.Properties.toChannel) {
-					return createToChannelFlatComboViewer(parent);
+				if (key == EipViewsRepository.Router.Properties.toChannels) {
+					return createToChannelsAdvancedReferencesTable(parent);
 				}
 				if (key == EipViewsRepository.Router.Properties.fromChannels) {
 					return createFromChannelsAdvancedReferencesTable(parent);
@@ -238,29 +240,85 @@ public class RouterPropertiesEditionPartImpl extends CompositePropertiesEditionP
 	}
 
 	/**
-	 * @param parent the parent composite
 	 * 
 	 */
-	protected Composite createToChannelFlatComboViewer(Composite parent) {
-		createDescription(parent, EipViewsRepository.Router.Properties.toChannel, EipMessages.RouterPropertiesEditionPart_ToChannelLabel);
-		toChannel = new EObjectFlatComboViewer(parent, !propertiesEditionComponent.isRequired(EipViewsRepository.Router.Properties.toChannel, EipViewsRepository.SWT_KIND));
-		toChannel.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-
-		toChannel.addSelectionChangedListener(new ISelectionChangedListener() {
-
-			public void selectionChanged(SelectionChangedEvent event) {
-				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(RouterPropertiesEditionPartImpl.this, EipViewsRepository.Router.Properties.toChannel, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SET, null, getToChannel()));
-			}
-
+	protected Composite createToChannelsAdvancedReferencesTable(Composite parent) {
+		String label = getDescription(EipViewsRepository.Router.Properties.toChannels, EipMessages.RouterPropertiesEditionPart_ToChannelsLabel);		 
+		this.toChannels = new ReferencesTable(label, new ReferencesTableListener() {
+			public void handleAdd() { addToChannels(); }
+			public void handleEdit(EObject element) { editToChannels(element); }
+			public void handleMove(EObject element, int oldIndex, int newIndex) { moveToChannels(element, oldIndex, newIndex); }
+			public void handleRemove(EObject element) { removeFromToChannels(element); }
+			public void navigateTo(EObject element) { }
 		});
-		GridData toChannelData = new GridData(GridData.FILL_HORIZONTAL);
-		toChannel.setLayoutData(toChannelData);
-		toChannel.setID(EipViewsRepository.Router.Properties.toChannel);
-		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EipViewsRepository.Router.Properties.toChannel, EipViewsRepository.SWT_KIND), null); //$NON-NLS-1$
-		// Start of user code for createToChannelFlatComboViewer
-
-		// End of user code
+		this.toChannels.setHelpText(propertiesEditionComponent.getHelpContent(EipViewsRepository.Router.Properties.toChannels, EipViewsRepository.SWT_KIND));
+		this.toChannels.createControls(parent);
+		this.toChannels.addSelectionListener(new SelectionAdapter() {
+			
+			public void widgetSelected(SelectionEvent e) {
+				if (e.item != null && e.item.getData() instanceof EObject) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(RouterPropertiesEditionPartImpl.this, EipViewsRepository.Router.Properties.toChannels, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SELECTION_CHANGED, null, e.item.getData()));
+				}
+			}
+			
+		});
+		GridData toChannelsData = new GridData(GridData.FILL_HORIZONTAL);
+		toChannelsData.horizontalSpan = 3;
+		this.toChannels.setLayoutData(toChannelsData);
+		this.toChannels.disableMove();
+		toChannels.setID(EipViewsRepository.Router.Properties.toChannels);
+		toChannels.setEEFType("eef::AdvancedReferencesTable"); //$NON-NLS-1$
 		return parent;
+	}
+
+	/**
+	 * 
+	 */
+	protected void addToChannels() {
+		TabElementTreeSelectionDialog dialog = new TabElementTreeSelectionDialog(toChannels.getInput(), toChannelsFilters, toChannelsBusinessFilters,
+		"toChannels", propertiesEditionComponent.getEditingContext().getAdapterFactory(), current.eResource()) {
+			@Override
+			public void process(IStructuredSelection selection) {
+				for (Iterator<?> iter = selection.iterator(); iter.hasNext();) {
+					EObject elem = (EObject) iter.next();
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(RouterPropertiesEditionPartImpl.this, EipViewsRepository.Router.Properties.toChannels,
+						PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.ADD, null, elem));
+				}
+				toChannels.refresh();
+			}
+		};
+		dialog.open();
+	}
+
+	/**
+	 * 
+	 */
+	protected void moveToChannels(EObject element, int oldIndex, int newIndex) {
+		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(RouterPropertiesEditionPartImpl.this, EipViewsRepository.Router.Properties.toChannels, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.MOVE, element, newIndex));
+		toChannels.refresh();
+	}
+
+	/**
+	 * 
+	 */
+	protected void removeFromToChannels(EObject element) {
+		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(RouterPropertiesEditionPartImpl.this, EipViewsRepository.Router.Properties.toChannels, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.REMOVE, null, element));
+		toChannels.refresh();
+	}
+
+	/**
+	 * 
+	 */
+	protected void editToChannels(EObject element) {
+		EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(propertiesEditionComponent.getEditingContext(), propertiesEditionComponent, element, adapterFactory);
+		PropertiesEditingProvider provider = (PropertiesEditingProvider)adapterFactory.adapt(element, PropertiesEditingProvider.class);
+		if (provider != null) {
+			PropertiesEditingPolicy policy = provider.getPolicy(context);
+			if (policy != null) {
+				policy.execute();
+				toChannels.refresh();
+			}
+		}
 	}
 
 	/**
@@ -471,90 +529,67 @@ public class RouterPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		
 	}
 
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see com.github.lbroudoux.dsl.eip.parts.RouterPropertiesEditionPart#getToChannel()
-	 * 
-	 */
-	public EObject getToChannel() {
-		if (toChannel.getSelection() instanceof StructuredSelection) {
-			Object firstElement = ((StructuredSelection) toChannel.getSelection()).getFirstElement();
-			if (firstElement instanceof EObject)
-				return (EObject) firstElement;
-		}
-		return null;
-	}
+
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see com.github.lbroudoux.dsl.eip.parts.RouterPropertiesEditionPart#initToChannel(EObjectFlatComboSettings)
+	 * @see com.github.lbroudoux.dsl.eip.parts.RouterPropertiesEditionPart#initToChannels(org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings)
 	 */
-	public void initToChannel(EObjectFlatComboSettings settings) {
-		toChannel.setInput(settings);
-		if (current != null) {
-			toChannel.setSelection(new StructuredSelection(settings.getValue()));
+	public void initToChannels(ReferencesTableSettings settings) {
+		if (current.eResource() != null && current.eResource().getResourceSet() != null)
+			this.resourceSet = current.eResource().getResourceSet();
+		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
+		toChannels.setContentProvider(contentProvider);
+		toChannels.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(EipViewsRepository.Router.Properties.toChannels);
+		if (eefElementEditorReadOnlyState && toChannels.getTable().isEnabled()) {
+			toChannels.setEnabled(false);
+			toChannels.setToolTipText(EipMessages.Router_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !toChannels.getTable().isEnabled()) {
+			toChannels.setEnabled(true);
 		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(EipViewsRepository.Router.Properties.toChannel);
-		if (eefElementEditorReadOnlyState && toChannel.isEnabled()) {
-			toChannel.setEnabled(false);
-			toChannel.setToolTipText(EipMessages.Router_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !toChannel.isEnabled()) {
-			toChannel.setEnabled(true);
-		}	
 		
 	}
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see com.github.lbroudoux.dsl.eip.parts.RouterPropertiesEditionPart#setToChannel(EObject newValue)
+	 * @see com.github.lbroudoux.dsl.eip.parts.RouterPropertiesEditionPart#updateToChannels()
 	 * 
 	 */
-	public void setToChannel(EObject newValue) {
-		if (newValue != null) {
-			toChannel.setSelection(new StructuredSelection(newValue));
-		} else {
-			toChannel.setSelection(new StructuredSelection()); //$NON-NLS-1$
-		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(EipViewsRepository.Router.Properties.toChannel);
-		if (eefElementEditorReadOnlyState && toChannel.isEnabled()) {
-			toChannel.setEnabled(false);
-			toChannel.setToolTipText(EipMessages.Router_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !toChannel.isEnabled()) {
-			toChannel.setEnabled(true);
-		}	
-		
+	public void updateToChannels() {
+	toChannels.refresh();
+}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see com.github.lbroudoux.dsl.eip.parts.RouterPropertiesEditionPart#addFilterToChannels(ViewerFilter filter)
+	 * 
+	 */
+	public void addFilterToToChannels(ViewerFilter filter) {
+		toChannelsFilters.add(filter);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see com.github.lbroudoux.dsl.eip.parts.RouterPropertiesEditionPart#setToChannelButtonMode(ButtonsModeEnum newValue)
+	 * @see com.github.lbroudoux.dsl.eip.parts.RouterPropertiesEditionPart#addBusinessFilterToChannels(ViewerFilter filter)
+	 * 
 	 */
-	public void setToChannelButtonMode(ButtonsModeEnum newValue) {
-		toChannel.setButtonMode(newValue);
+	public void addBusinessFilterToToChannels(ViewerFilter filter) {
+		toChannelsBusinessFilters.add(filter);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see com.github.lbroudoux.dsl.eip.parts.RouterPropertiesEditionPart#addFilterToChannel(ViewerFilter filter)
+	 * @see com.github.lbroudoux.dsl.eip.parts.RouterPropertiesEditionPart#isContainedInToChannelsTable(EObject element)
 	 * 
 	 */
-	public void addFilterToToChannel(ViewerFilter filter) {
-		toChannel.addFilter(filter);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see com.github.lbroudoux.dsl.eip.parts.RouterPropertiesEditionPart#addBusinessFilterToChannel(ViewerFilter filter)
-	 * 
-	 */
-	public void addBusinessFilterToToChannel(ViewerFilter filter) {
-		toChannel.addBusinessRuleFilter(filter);
+	public boolean isContainedInToChannelsTable(EObject element) {
+		return ((ReferencesTableSettings)toChannels.getInput()).contains(element);
 	}
 
 

@@ -22,7 +22,7 @@
     </genEnums>
     <genClasses image="false" ecoreClass="eip.ecore#//Endpoint">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//Endpoint/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eip.ecore#//Endpoint/toChannel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eip.ecore#//Endpoint/toChannels"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eip.ecore#//Endpoint/fromChannels"/>
     </genClasses>
     <genClasses ecoreClass="eip.ecore#//Channel">

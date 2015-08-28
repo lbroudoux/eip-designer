@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link com.github.lbroudoux.dsl.eip.impl.AggregatorImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.github.lbroudoux.dsl.eip.impl.AggregatorImpl#getToChannel <em>To Channel</em>}</li>
+ *   <li>{@link com.github.lbroudoux.dsl.eip.impl.AggregatorImpl#getToChannels <em>To Channels</em>}</li>
  *   <li>{@link com.github.lbroudoux.dsl.eip.impl.AggregatorImpl#getFromChannels <em>From Channels</em>}</li>
  *   <li>{@link com.github.lbroudoux.dsl.eip.impl.AggregatorImpl#getPart <em>Part</em>}</li>
  *   <li>{@link com.github.lbroudoux.dsl.eip.impl.AggregatorImpl#getStrategy <em>Strategy</em>}</li>
@@ -56,16 +56,16 @@ public class AggregatorImpl extends MetadatableImpl implements Aggregator {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-    * The cached value of the '{@link #getToChannel() <em>To Channel</em>}' reference.
+    * The cached value of the '{@link #getToChannels() <em>To Channels</em>}' reference list.
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @see #getToChannel()
+    * <!-- end-user-doc -->
+    * @see #getToChannels()
     * @generated
     * @ordered
     */
-	protected Channel toChannel;
+   protected EList<Channel> toChannels;
 
-	/**
+   /**
     * The cached value of the '{@link #getFromChannels() <em>From Channels</em>}' reference list.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -177,65 +177,17 @@ public class AggregatorImpl extends MetadatableImpl implements Aggregator {
 
 	/**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	public Channel getToChannel() {
-      if (toChannel != null && toChannel.eIsProxy()) {
-         InternalEObject oldToChannel = (InternalEObject)toChannel;
-         toChannel = (Channel)eResolveProxy(oldToChannel);
-         if (toChannel != oldToChannel) {
-            if (eNotificationRequired())
-               eNotify(new ENotificationImpl(this, Notification.RESOLVE, EipPackage.AGGREGATOR__TO_CHANNEL, oldToChannel, toChannel));
-         }
+   public EList<Channel> getToChannels() {
+      if (toChannels == null) {
+         toChannels = new EObjectWithInverseResolvingEList<Channel>(Channel.class, this, EipPackage.AGGREGATOR__TO_CHANNELS, EipPackage.CHANNEL__FROM_ENDPOINT);
       }
-      return toChannel;
+      return toChannels;
    }
 
-	/**
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    */
-	public Channel basicGetToChannel() {
-      return toChannel;
-   }
-
-	/**
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    */
-	public NotificationChain basicSetToChannel(Channel newToChannel, NotificationChain msgs) {
-      Channel oldToChannel = toChannel;
-      toChannel = newToChannel;
-      if (eNotificationRequired()) {
-         ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EipPackage.AGGREGATOR__TO_CHANNEL, oldToChannel, newToChannel);
-         if (msgs == null) msgs = notification; else msgs.add(notification);
-      }
-      return msgs;
-   }
-
-	/**
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    */
-	public void setToChannel(Channel newToChannel) {
-      if (newToChannel != toChannel) {
-         NotificationChain msgs = null;
-         if (toChannel != null)
-            msgs = ((InternalEObject)toChannel).eInverseRemove(this, EipPackage.CHANNEL__FROM_ENDPOINT, Channel.class, msgs);
-         if (newToChannel != null)
-            msgs = ((InternalEObject)newToChannel).eInverseAdd(this, EipPackage.CHANNEL__FROM_ENDPOINT, Channel.class, msgs);
-         msgs = basicSetToChannel(newToChannel, msgs);
-         if (msgs != null) msgs.dispatch();
-      }
-      else if (eNotificationRequired())
-         eNotify(new ENotificationImpl(this, Notification.SET, EipPackage.AGGREGATOR__TO_CHANNEL, newToChannel, newToChannel));
-   }
-
-	/**
+   /**
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
     * @generated
@@ -319,10 +271,8 @@ public class AggregatorImpl extends MetadatableImpl implements Aggregator {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
       switch (featureID) {
-         case EipPackage.AGGREGATOR__TO_CHANNEL:
-            if (toChannel != null)
-               msgs = ((InternalEObject)toChannel).eInverseRemove(this, EipPackage.CHANNEL__FROM_ENDPOINT, Channel.class, msgs);
-            return basicSetToChannel((Channel)otherEnd, msgs);
+         case EipPackage.AGGREGATOR__TO_CHANNELS:
+            return ((InternalEList<InternalEObject>)(InternalEList<?>)getToChannels()).basicAdd(otherEnd, msgs);
          case EipPackage.AGGREGATOR__FROM_CHANNELS:
             return ((InternalEList<InternalEObject>)(InternalEList<?>)getFromChannels()).basicAdd(otherEnd, msgs);
       }
@@ -337,8 +287,8 @@ public class AggregatorImpl extends MetadatableImpl implements Aggregator {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
       switch (featureID) {
-         case EipPackage.AGGREGATOR__TO_CHANNEL:
-            return basicSetToChannel(null, msgs);
+         case EipPackage.AGGREGATOR__TO_CHANNELS:
+            return ((InternalEList<?>)getToChannels()).basicRemove(otherEnd, msgs);
          case EipPackage.AGGREGATOR__FROM_CHANNELS:
             return ((InternalEList<?>)getFromChannels()).basicRemove(otherEnd, msgs);
       }
@@ -355,9 +305,8 @@ public class AggregatorImpl extends MetadatableImpl implements Aggregator {
       switch (featureID) {
          case EipPackage.AGGREGATOR__NAME:
             return getName();
-         case EipPackage.AGGREGATOR__TO_CHANNEL:
-            if (resolve) return getToChannel();
-            return basicGetToChannel();
+         case EipPackage.AGGREGATOR__TO_CHANNELS:
+            return getToChannels();
          case EipPackage.AGGREGATOR__FROM_CHANNELS:
             return getFromChannels();
          case EipPackage.AGGREGATOR__PART:
@@ -382,8 +331,9 @@ public class AggregatorImpl extends MetadatableImpl implements Aggregator {
          case EipPackage.AGGREGATOR__NAME:
             setName((String)newValue);
             return;
-         case EipPackage.AGGREGATOR__TO_CHANNEL:
-            setToChannel((Channel)newValue);
+         case EipPackage.AGGREGATOR__TO_CHANNELS:
+            getToChannels().clear();
+            getToChannels().addAll((Collection<? extends Channel>)newValue);
             return;
          case EipPackage.AGGREGATOR__FROM_CHANNELS:
             getFromChannels().clear();
@@ -413,8 +363,8 @@ public class AggregatorImpl extends MetadatableImpl implements Aggregator {
          case EipPackage.AGGREGATOR__NAME:
             setName(NAME_EDEFAULT);
             return;
-         case EipPackage.AGGREGATOR__TO_CHANNEL:
-            setToChannel((Channel)null);
+         case EipPackage.AGGREGATOR__TO_CHANNELS:
+            getToChannels().clear();
             return;
          case EipPackage.AGGREGATOR__FROM_CHANNELS:
             getFromChannels().clear();
@@ -442,8 +392,8 @@ public class AggregatorImpl extends MetadatableImpl implements Aggregator {
       switch (featureID) {
          case EipPackage.AGGREGATOR__NAME:
             return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-         case EipPackage.AGGREGATOR__TO_CHANNEL:
-            return toChannel != null;
+         case EipPackage.AGGREGATOR__TO_CHANNELS:
+            return toChannels != null && !toChannels.isEmpty();
          case EipPackage.AGGREGATOR__FROM_CHANNELS:
             return fromChannels != null && !fromChannels.isEmpty();
          case EipPackage.AGGREGATOR__PART:

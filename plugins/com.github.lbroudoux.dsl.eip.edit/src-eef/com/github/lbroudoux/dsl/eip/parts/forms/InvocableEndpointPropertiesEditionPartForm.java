@@ -90,7 +90,9 @@ import org.eclipse.ui.forms.widgets.Section;
 public class InvocableEndpointPropertiesEditionPartForm extends SectionPropertiesEditingPart implements IFormPropertiesEditionPart, InvocableEndpointPropertiesEditionPart {
 
 	protected Text name;
-	protected EObjectFlatComboViewer toChannel;
+	protected ReferencesTable toChannels;
+	protected List<ViewerFilter> toChannelsBusinessFilters = new ArrayList<ViewerFilter>();
+	protected List<ViewerFilter> toChannelsFilters = new ArrayList<ViewerFilter>();
 	protected ReferencesTable fromChannels;
 	protected List<ViewerFilter> fromChannelsBusinessFilters = new ArrayList<ViewerFilter>();
 	protected List<ViewerFilter> fromChannelsFilters = new ArrayList<ViewerFilter>();
@@ -143,7 +145,7 @@ public class InvocableEndpointPropertiesEditionPartForm extends SectionPropertie
 		CompositionSequence invocableEndpointStep = new BindingCompositionSequence(propertiesEditionComponent);
 		CompositionStep propertiesStep = invocableEndpointStep.addStep(EipViewsRepository.InvocableEndpoint.Properties.class);
 		propertiesStep.addStep(EipViewsRepository.InvocableEndpoint.Properties.name);
-		propertiesStep.addStep(EipViewsRepository.InvocableEndpoint.Properties.toChannel);
+		propertiesStep.addStep(EipViewsRepository.InvocableEndpoint.Properties.toChannels);
 		propertiesStep.addStep(EipViewsRepository.InvocableEndpoint.Properties.fromChannels);
 		propertiesStep.addStep(EipViewsRepository.InvocableEndpoint.Properties.ownedServiceInvocations);
 		
@@ -158,8 +160,8 @@ public class InvocableEndpointPropertiesEditionPartForm extends SectionPropertie
 				if (key == EipViewsRepository.InvocableEndpoint.Properties.name) {
 					return createNameText(widgetFactory, parent);
 				}
-				if (key == EipViewsRepository.InvocableEndpoint.Properties.toChannel) {
-					return createToChannelFlatComboViewer(parent, widgetFactory);
+				if (key == EipViewsRepository.InvocableEndpoint.Properties.toChannels) {
+					return createToChannelsReferencesTable(widgetFactory, parent);
 				}
 				if (key == EipViewsRepository.InvocableEndpoint.Properties.fromChannels) {
 					return createFromChannelsReferencesTable(widgetFactory, parent);
@@ -258,36 +260,87 @@ public class InvocableEndpointPropertiesEditionPartForm extends SectionPropertie
 	}
 
 	/**
-	 * @param parent the parent composite
-	 * @param widgetFactory factory to use to instanciante widget of the form
 	 * 
 	 */
-	protected Composite createToChannelFlatComboViewer(Composite parent, FormToolkit widgetFactory) {
-		createDescription(parent, EipViewsRepository.InvocableEndpoint.Properties.toChannel, EipMessages.InvocableEndpointPropertiesEditionPart_ToChannelLabel);
-		toChannel = new EObjectFlatComboViewer(parent, !propertiesEditionComponent.isRequired(EipViewsRepository.InvocableEndpoint.Properties.toChannel, EipViewsRepository.FORM_KIND));
-		widgetFactory.adapt(toChannel);
-		toChannel.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-		GridData toChannelData = new GridData(GridData.FILL_HORIZONTAL);
-		toChannel.setLayoutData(toChannelData);
-		toChannel.addSelectionChangedListener(new ISelectionChangedListener() {
-
-			/**
-			 * {@inheritDoc}
-			 * 
-			 * @see org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged(org.eclipse.jface.viewers.SelectionChangedEvent)
-			 */
-			public void selectionChanged(SelectionChangedEvent event) {
-				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(InvocableEndpointPropertiesEditionPartForm.this, EipViewsRepository.InvocableEndpoint.Properties.toChannel, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, getToChannel()));
-			}
-
+	protected Composite createToChannelsReferencesTable(FormToolkit widgetFactory, Composite parent) {
+		this.toChannels = new ReferencesTable(getDescription(EipViewsRepository.InvocableEndpoint.Properties.toChannels, EipMessages.InvocableEndpointPropertiesEditionPart_ToChannelsLabel), new ReferencesTableListener	() {
+			public void handleAdd() { addToChannels(); }
+			public void handleEdit(EObject element) { editToChannels(element); }
+			public void handleMove(EObject element, int oldIndex, int newIndex) { moveToChannels(element, oldIndex, newIndex); }
+			public void handleRemove(EObject element) { removeFromToChannels(element); }
+			public void navigateTo(EObject element) { }
 		});
-		toChannel.setID(EipViewsRepository.InvocableEndpoint.Properties.toChannel);
-		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EipViewsRepository.InvocableEndpoint.Properties.toChannel, EipViewsRepository.FORM_KIND), null); //$NON-NLS-1$
-		// Start of user code for createToChannelFlatComboViewer
+		this.toChannels.setHelpText(propertiesEditionComponent.getHelpContent(EipViewsRepository.InvocableEndpoint.Properties.toChannels, EipViewsRepository.FORM_KIND));
+		this.toChannels.createControls(parent, widgetFactory);
+		this.toChannels.addSelectionListener(new SelectionAdapter() {
+			
+			public void widgetSelected(SelectionEvent e) {
+				if (e.item != null && e.item.getData() instanceof EObject) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(InvocableEndpointPropertiesEditionPartForm.this, EipViewsRepository.InvocableEndpoint.Properties.toChannels, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SELECTION_CHANGED, null, e.item.getData()));
+				}
+			}
+			
+		});
+		GridData toChannelsData = new GridData(GridData.FILL_HORIZONTAL);
+		toChannelsData.horizontalSpan = 3;
+		this.toChannels.setLayoutData(toChannelsData);
+		this.toChannels.disableMove();
+		toChannels.setID(EipViewsRepository.InvocableEndpoint.Properties.toChannels);
+		toChannels.setEEFType("eef::AdvancedReferencesTable"); //$NON-NLS-1$
+		// Start of user code for createToChannelsReferencesTable
 
 		// End of user code
 		return parent;
+	}
+
+	/**
+	 * 
+	 */
+	protected void addToChannels() {
+		TabElementTreeSelectionDialog dialog = new TabElementTreeSelectionDialog(toChannels.getInput(), toChannelsFilters, toChannelsBusinessFilters,
+		"toChannels", propertiesEditionComponent.getEditingContext().getAdapterFactory(), current.eResource()) {
+			@Override
+			public void process(IStructuredSelection selection) {
+				for (Iterator<?> iter = selection.iterator(); iter.hasNext();) {
+					EObject elem = (EObject) iter.next();
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(InvocableEndpointPropertiesEditionPartForm.this, EipViewsRepository.InvocableEndpoint.Properties.toChannels,
+						PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.ADD, null, elem));
+				}
+				toChannels.refresh();
+			}
+		};
+		dialog.open();
+	}
+
+	/**
+	 * 
+	 */
+	protected void moveToChannels(EObject element, int oldIndex, int newIndex) {
+		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(InvocableEndpointPropertiesEditionPartForm.this, EipViewsRepository.InvocableEndpoint.Properties.toChannels, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.MOVE, element, newIndex));
+		toChannels.refresh();
+	}
+
+	/**
+	 * 
+	 */
+	protected void removeFromToChannels(EObject element) {
+		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(InvocableEndpointPropertiesEditionPartForm.this, EipViewsRepository.InvocableEndpoint.Properties.toChannels, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.REMOVE, null, element));
+		toChannels.refresh();
+	}
+
+	/**
+	 * 
+	 */
+	protected void editToChannels(EObject element) {
+		EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(propertiesEditionComponent.getEditingContext(), propertiesEditionComponent, element, adapterFactory);
+		PropertiesEditingProvider provider = (PropertiesEditingProvider)adapterFactory.adapt(element, PropertiesEditingProvider.class);
+		if (provider != null) {
+			PropertiesEditingPolicy policy = provider.getPolicy(context);
+			if (policy != null) {
+				policy.execute();
+				toChannels.refresh();
+			}
+		}
 	}
 
 	/**
@@ -470,90 +523,67 @@ public class InvocableEndpointPropertiesEditionPartForm extends SectionPropertie
 		
 	}
 
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see com.github.lbroudoux.dsl.eip.parts.InvocableEndpointPropertiesEditionPart#getToChannel()
-	 * 
-	 */
-	public EObject getToChannel() {
-		if (toChannel.getSelection() instanceof StructuredSelection) {
-			Object firstElement = ((StructuredSelection) toChannel.getSelection()).getFirstElement();
-			if (firstElement instanceof EObject)
-				return (EObject) firstElement;
-		}
-		return null;
-	}
+
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see com.github.lbroudoux.dsl.eip.parts.InvocableEndpointPropertiesEditionPart#initToChannel(EObjectFlatComboSettings)
+	 * @see com.github.lbroudoux.dsl.eip.parts.InvocableEndpointPropertiesEditionPart#initToChannels(org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings)
 	 */
-	public void initToChannel(EObjectFlatComboSettings settings) {
-		toChannel.setInput(settings);
-		if (current != null) {
-			toChannel.setSelection(new StructuredSelection(settings.getValue()));
+	public void initToChannels(ReferencesTableSettings settings) {
+		if (current.eResource() != null && current.eResource().getResourceSet() != null)
+			this.resourceSet = current.eResource().getResourceSet();
+		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
+		toChannels.setContentProvider(contentProvider);
+		toChannels.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(EipViewsRepository.InvocableEndpoint.Properties.toChannels);
+		if (eefElementEditorReadOnlyState && toChannels.getTable().isEnabled()) {
+			toChannels.setEnabled(false);
+			toChannels.setToolTipText(EipMessages.InvocableEndpoint_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !toChannels.getTable().isEnabled()) {
+			toChannels.setEnabled(true);
 		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(EipViewsRepository.InvocableEndpoint.Properties.toChannel);
-		if (eefElementEditorReadOnlyState && toChannel.isEnabled()) {
-			toChannel.setEnabled(false);
-			toChannel.setToolTipText(EipMessages.InvocableEndpoint_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !toChannel.isEnabled()) {
-			toChannel.setEnabled(true);
-		}	
 		
 	}
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see com.github.lbroudoux.dsl.eip.parts.InvocableEndpointPropertiesEditionPart#setToChannel(EObject newValue)
+	 * @see com.github.lbroudoux.dsl.eip.parts.InvocableEndpointPropertiesEditionPart#updateToChannels()
 	 * 
 	 */
-	public void setToChannel(EObject newValue) {
-		if (newValue != null) {
-			toChannel.setSelection(new StructuredSelection(newValue));
-		} else {
-			toChannel.setSelection(new StructuredSelection()); //$NON-NLS-1$
-		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(EipViewsRepository.InvocableEndpoint.Properties.toChannel);
-		if (eefElementEditorReadOnlyState && toChannel.isEnabled()) {
-			toChannel.setEnabled(false);
-			toChannel.setToolTipText(EipMessages.InvocableEndpoint_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !toChannel.isEnabled()) {
-			toChannel.setEnabled(true);
-		}	
-		
+	public void updateToChannels() {
+	toChannels.refresh();
+}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see com.github.lbroudoux.dsl.eip.parts.InvocableEndpointPropertiesEditionPart#addFilterToChannels(ViewerFilter filter)
+	 * 
+	 */
+	public void addFilterToToChannels(ViewerFilter filter) {
+		toChannelsFilters.add(filter);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see com.github.lbroudoux.dsl.eip.parts.InvocableEndpointPropertiesEditionPart#setToChannelButtonMode(ButtonsModeEnum newValue)
+	 * @see com.github.lbroudoux.dsl.eip.parts.InvocableEndpointPropertiesEditionPart#addBusinessFilterToChannels(ViewerFilter filter)
+	 * 
 	 */
-	public void setToChannelButtonMode(ButtonsModeEnum newValue) {
-		toChannel.setButtonMode(newValue);
+	public void addBusinessFilterToToChannels(ViewerFilter filter) {
+		toChannelsBusinessFilters.add(filter);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see com.github.lbroudoux.dsl.eip.parts.InvocableEndpointPropertiesEditionPart#addFilterToChannel(ViewerFilter filter)
+	 * @see com.github.lbroudoux.dsl.eip.parts.InvocableEndpointPropertiesEditionPart#isContainedInToChannelsTable(EObject element)
 	 * 
 	 */
-	public void addFilterToToChannel(ViewerFilter filter) {
-		toChannel.addFilter(filter);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see com.github.lbroudoux.dsl.eip.parts.InvocableEndpointPropertiesEditionPart#addBusinessFilterToChannel(ViewerFilter filter)
-	 * 
-	 */
-	public void addBusinessFilterToToChannel(ViewerFilter filter) {
-		toChannel.addBusinessRuleFilter(filter);
+	public boolean isContainedInToChannelsTable(EObject element) {
+		return ((ReferencesTableSettings)toChannels.getInput()).contains(element);
 	}
 
 

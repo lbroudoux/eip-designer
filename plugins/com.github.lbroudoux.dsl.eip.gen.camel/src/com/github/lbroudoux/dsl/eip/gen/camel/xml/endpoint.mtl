@@ -10,7 +10,7 @@
 [template public genEndpoint(aFilter : Filter) post(trim())]
 <filter id="[aFilter.name/][aFilter.genOutgoingChannelName()/]">
   <simple></simple>
-  [aFilter.toChannel.toEndpoint.genEndpoint()/]	
+  [aFilter.toChannels->first().toEndpoint.genEndpoint()/]	
 </filter>
 [/template]
 
@@ -24,7 +24,7 @@
 
 [template public genEndpoint(aTransformer : Transformer) post(trim())]
 <to id="[aTransformer.name/][aTransformer.genOutgoingChannelName()/]" uri="xslt:[aTransformer.name/]"/>
-[aTransformer.toChannel.toEndpoint.genEndpoint()/]
+[aTransformer.toChannels->first().toEndpoint.genEndpoint()/]
 [/template]
 
 [template public genEndpoint(aRouter : Router) post(trim())]
@@ -36,14 +36,14 @@
   </when>
 [/for]
   <otherwise>
-	[aRouter.toChannel.toEndpoint.genEndpoint()/]
+	[aRouter.toChannels->first().toEndpoint.genEndpoint()/]
   </otherwise>
 </choice>
 [/template]
 
 [template public genEndpoint(aSplitter : Splitter) post(trim())]
 <split id="[aSplitter.name/][aSplitter.genOutgoingChannelName()/]">
-  [aSplitter.toChannel.toEndpoint.genEndpoint()/]
+  [aSplitter.toChannels->first().toEndpoint.genEndpoint()/]
 </split>
 [/template]
 
@@ -59,7 +59,7 @@
 [else]
   <simple>[aResequencer.expression/]</simple>
 [/if]
-  [aResequencer.toChannel.toEndpoint.genEndpoint()/]
+  [aResequencer.toChannels->first().toEndpoint.genEndpoint()/]
 </resequence>
 [/template]
 
@@ -71,7 +71,7 @@
 [/if]
 [/for]
 </pipeline>
-[aCompositeProcessor.toChannel.toEndpoint.genEndpoint()/]
+[aCompositeProcessor.toChannels->first().toEndpoint.genEndpoint()/]
 [/template]
 
 [template public genEndpoint(aGateway : Gateway) post(trim())]
@@ -80,5 +80,5 @@
 
 [template public genEndpoint(aServiceActivator : ServiceActivator) post(trim())]
 <to id="[aServiceActivator.name/][aServiceActivator.genOutgoingChannelName()/]" uri="switchyard://[aServiceActivator.name/]"/>
-[aServiceActivator.toChannel.toEndpoint.genEndpoint()/]
+[aServiceActivator.toChannels->first().toEndpoint.genEndpoint()/]
 [/template]

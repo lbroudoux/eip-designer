@@ -24,8 +24,8 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9NiVgEeW6yLik4m7P0g" name="name" views="_QrJ9liVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/name"/>
         </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9NyVgEeW6yLik4m7P0g" name="toChannel" views="_QrJ9lyVgEeW6yLik4m7P0g">
-          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannel"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9NyVgEeW6yLik4m7P0g" name="toChannels" views="_QrJ9lyVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannels"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9OCVgEeW6yLik4m7P0g" name="fromChannels" views="_QrJ9mCVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/fromChannels"/>
@@ -42,8 +42,8 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9PCVgEeW6yLik4m7P0g" name="name" views="_QrJ9nSVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/name"/>
         </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9PSVgEeW6yLik4m7P0g" name="toChannel" views="_QrJ9niVgEeW6yLik4m7P0g">
-          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannel"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9PSVgEeW6yLik4m7P0g" name="toChannels" views="_QrJ9niVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannels"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9PiVgEeW6yLik4m7P0g" name="fromChannels" views="_QrJ9nyVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/fromChannels"/>
@@ -57,8 +57,8 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9QSVgEeW6yLik4m7P0g" name="name" views="_QrJ9oyVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/name"/>
         </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9QiVgEeW6yLik4m7P0g" name="toChannel" views="_QrJ9pCVgEeW6yLik4m7P0g">
-          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannel"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9QiVgEeW6yLik4m7P0g" name="toChannels" views="_QrJ9pCVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannels"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9QyVgEeW6yLik4m7P0g" name="fromChannels" views="_QrJ9pSVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/fromChannels"/>
@@ -69,8 +69,8 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9RSVgEeW6yLik4m7P0g" name="name" views="_QrJ9qCVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/name"/>
         </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9RiVgEeW6yLik4m7P0g" name="toChannel" views="_QrJ9qSVgEeW6yLik4m7P0g">
-          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannel"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9RiVgEeW6yLik4m7P0g" name="toChannels" views="_QrJ9qSVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannels"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9RyVgEeW6yLik4m7P0g" name="fromChannels" views="_QrJ9qiVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/fromChannels"/>
@@ -90,8 +90,8 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9TCVgEeW6yLik4m7P0g" name="name" views="_QrJ9sSVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/name"/>
         </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9TSVgEeW6yLik4m7P0g" name="toChannel" views="_QrJ9siVgEeW6yLik4m7P0g">
-          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannel"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9TSVgEeW6yLik4m7P0g" name="toChannels" views="_QrJ9siVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannels"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9TiVgEeW6yLik4m7P0g" name="fromChannels" views="_QrJ9syVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/fromChannels"/>
@@ -102,8 +102,8 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9UCVgEeW6yLik4m7P0g" name="name" views="_QrJ9tiVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/name"/>
         </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9USVgEeW6yLik4m7P0g" name="toChannel" views="_QrJ9tyVgEeW6yLik4m7P0g">
-          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannel"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9USVgEeW6yLik4m7P0g" name="toChannels" views="_QrJ9tyVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannels"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9UiVgEeW6yLik4m7P0g" name="fromChannels" views="_QrJ9uCVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/fromChannels"/>
@@ -135,8 +135,8 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9WyVgEeW6yLik4m7P0g" name="name" views="_QrJ9wyVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/name"/>
         </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9XCVgEeW6yLik4m7P0g" name="toChannel" views="_QrJ9xCVgEeW6yLik4m7P0g">
-          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannel"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9XCVgEeW6yLik4m7P0g" name="toChannels" views="_QrJ9xCVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannels"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9XSVgEeW6yLik4m7P0g" name="fromChannels" views="_QrJ9xSVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/fromChannels"/>
@@ -156,8 +156,8 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9YiVgEeW6yLik4m7P0g" name="name" views="_QrJ9zCVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/name"/>
         </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9YyVgEeW6yLik4m7P0g" name="toChannel" views="_QrJ9zSVgEeW6yLik4m7P0g">
-          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannel"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9YyVgEeW6yLik4m7P0g" name="toChannels" views="_QrJ9zSVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannels"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9ZCVgEeW6yLik4m7P0g" name="fromChannels" views="_QrJ9ziVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/fromChannels"/>
@@ -174,8 +174,8 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9aCVgEeW6yLik4m7P0g" name="name" views="_QrJ90yVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/name"/>
         </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9aSVgEeW6yLik4m7P0g" name="toChannel" views="_QrJ91CVgEeW6yLik4m7P0g">
-          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannel"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9aSVgEeW6yLik4m7P0g" name="toChannels" views="_QrJ91CVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannels"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9aiVgEeW6yLik4m7P0g" name="fromChannels" views="_QrJ91SVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/fromChannels"/>
@@ -186,8 +186,8 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9bCVgEeW6yLik4m7P0g" name="name" views="_QrJ92CVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/name"/>
         </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9bSVgEeW6yLik4m7P0g" name="toChannel" views="_QrJ92SVgEeW6yLik4m7P0g">
-          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannel"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9bSVgEeW6yLik4m7P0g" name="toChannels" views="_QrJ92SVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannels"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9biVgEeW6yLik4m7P0g" name="fromChannels" views="_QrJ92iVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/fromChannels"/>
@@ -228,8 +228,8 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9eiVgEeW6yLik4m7P0g" name="name" views="_QrJ96SVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/name"/>
         </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9eyVgEeW6yLik4m7P0g" name="toChannel" views="_QrJ96iVgEeW6yLik4m7P0g">
-          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannel"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9eyVgEeW6yLik4m7P0g" name="toChannels" views="_QrJ96iVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannels"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9fCVgEeW6yLik4m7P0g" name="fromChannels" views="_QrJ96yVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/fromChannels"/>
@@ -243,8 +243,8 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9fyVgEeW6yLik4m7P0g" name="name" views="_QrJ97yVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/name"/>
         </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9gCVgEeW6yLik4m7P0g" name="toChannel" views="_QrJ98CVgEeW6yLik4m7P0g">
-          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannel"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9gCVgEeW6yLik4m7P0g" name="toChannels" views="_QrJ98CVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannels"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9gSVgEeW6yLik4m7P0g" name="fromChannels" views="_QrJ98SVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/fromChannels"/>
@@ -258,8 +258,8 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9hCVgEeW6yLik4m7P0g" name="name" views="_QrJ99SVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/name"/>
         </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9hSVgEeW6yLik4m7P0g" name="toChannel" views="_QrJ99iVgEeW6yLik4m7P0g">
-          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannel"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9hSVgEeW6yLik4m7P0g" name="toChannels" views="_QrJ99iVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/toChannels"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9hiVgEeW6yLik4m7P0g" name="fromChannels" views="_QrJ99yVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Endpoint/fromChannels"/>
@@ -309,8 +309,8 @@
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9liVgEeW6yLik4m7P0g" name="name">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9lyVgEeW6yLik4m7P0g" name="toChannel">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9lyVgEeW6yLik4m7P0g" name="toChannels">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9mCVgEeW6yLik4m7P0g" name="fromChannels">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
@@ -329,8 +329,8 @@
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9nSVgEeW6yLik4m7P0g" name="name">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9niVgEeW6yLik4m7P0g" name="toChannel">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9niVgEeW6yLik4m7P0g" name="toChannels">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9nyVgEeW6yLik4m7P0g" name="fromChannels">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
@@ -346,8 +346,8 @@
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9oyVgEeW6yLik4m7P0g" name="name">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9pCVgEeW6yLik4m7P0g" name="toChannel">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9pCVgEeW6yLik4m7P0g" name="toChannels">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9pSVgEeW6yLik4m7P0g" name="fromChannels">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
@@ -360,8 +360,8 @@
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9qCVgEeW6yLik4m7P0g" name="name">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9qSVgEeW6yLik4m7P0g" name="toChannel">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9qSVgEeW6yLik4m7P0g" name="toChannels">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9qiVgEeW6yLik4m7P0g" name="fromChannels">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
@@ -385,8 +385,8 @@
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9sSVgEeW6yLik4m7P0g" name="name">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9siVgEeW6yLik4m7P0g" name="toChannel">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9siVgEeW6yLik4m7P0g" name="toChannels">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9syVgEeW6yLik4m7P0g" name="fromChannels">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
@@ -399,8 +399,8 @@
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9tiVgEeW6yLik4m7P0g" name="name">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9tyVgEeW6yLik4m7P0g" name="toChannel">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9tyVgEeW6yLik4m7P0g" name="toChannels">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9uCVgEeW6yLik4m7P0g" name="fromChannels">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
@@ -436,8 +436,8 @@
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9wyVgEeW6yLik4m7P0g" name="name">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9xCVgEeW6yLik4m7P0g" name="toChannel">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9xCVgEeW6yLik4m7P0g" name="toChannels">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9xSVgEeW6yLik4m7P0g" name="fromChannels">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
@@ -461,8 +461,8 @@
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9zCVgEeW6yLik4m7P0g" name="name">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9zSVgEeW6yLik4m7P0g" name="toChannel">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9zSVgEeW6yLik4m7P0g" name="toChannels">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9ziVgEeW6yLik4m7P0g" name="fromChannels">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
@@ -481,8 +481,8 @@
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ90yVgEeW6yLik4m7P0g" name="name">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ91CVgEeW6yLik4m7P0g" name="toChannel">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ91CVgEeW6yLik4m7P0g" name="toChannels">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ91SVgEeW6yLik4m7P0g" name="fromChannels">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
@@ -495,8 +495,8 @@
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ92CVgEeW6yLik4m7P0g" name="name">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ92SVgEeW6yLik4m7P0g" name="toChannel">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ92SVgEeW6yLik4m7P0g" name="toChannels">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ92iVgEeW6yLik4m7P0g" name="fromChannels">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
@@ -543,8 +543,8 @@
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ96SVgEeW6yLik4m7P0g" name="name">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ96iVgEeW6yLik4m7P0g" name="toChannel">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ96iVgEeW6yLik4m7P0g" name="toChannels">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ96yVgEeW6yLik4m7P0g" name="fromChannels">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
@@ -560,8 +560,8 @@
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ97yVgEeW6yLik4m7P0g" name="name">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ98CVgEeW6yLik4m7P0g" name="toChannel">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ98CVgEeW6yLik4m7P0g" name="toChannels">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ98SVgEeW6yLik4m7P0g" name="fromChannels">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
@@ -577,8 +577,8 @@
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ99SVgEeW6yLik4m7P0g" name="name">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ99iVgEeW6yLik4m7P0g" name="toChannel">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ99iVgEeW6yLik4m7P0g" name="toChannels">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ99yVgEeW6yLik4m7P0g" name="fromChannels">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>

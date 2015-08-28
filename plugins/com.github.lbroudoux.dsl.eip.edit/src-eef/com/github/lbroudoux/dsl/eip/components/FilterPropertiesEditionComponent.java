@@ -52,9 +52,9 @@ public class FilterPropertiesEditionComponent extends SinglePartPropertiesEditin
 
 	
 	/**
-	 * Settings for toChannel EObjectFlatComboViewer
+	 * Settings for toChannels ReferencesTable
 	 */
-	private EObjectFlatComboSettings toChannelSettings;
+	private ReferencesTableSettings toChannelsSettings;
 	
 	/**
 	 * Settings for fromChannels ReferencesTable
@@ -91,12 +91,9 @@ public class FilterPropertiesEditionComponent extends SinglePartPropertiesEditin
 			if (isAccessible(EipViewsRepository.Filter.Properties.name))
 				basePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, filter.getName()));
 			
-			if (isAccessible(EipViewsRepository.Filter.Properties.toChannel)) {
-				// init part
-				toChannelSettings = new EObjectFlatComboSettings(filter, EipPackage.eINSTANCE.getEndpoint_ToChannel());
-				basePart.initToChannel(toChannelSettings);
-				// set the button mode
-				basePart.setToChannelButtonMode(ButtonsModeEnum.BROWSE);
+			if (isAccessible(EipViewsRepository.Filter.Properties.toChannels)) {
+				toChannelsSettings = new ReferencesTableSettings(filter, EipPackage.eINSTANCE.getEndpoint_ToChannels());
+				basePart.initToChannels(toChannelsSettings);
 			}
 			if (isAccessible(EipViewsRepository.Filter.Properties.fromChannels)) {
 				fromChannelsSettings = new ReferencesTableSettings(filter, EipPackage.eINSTANCE.getEndpoint_FromChannels());
@@ -107,20 +104,9 @@ public class FilterPropertiesEditionComponent extends SinglePartPropertiesEditin
 			
 			// init filters
 			
-			if (isAccessible(EipViewsRepository.Filter.Properties.toChannel)) {
-				basePart.addFilterToToChannel(new ViewerFilter() {
-				
-					/**
-					 * {@inheritDoc}
-					 * 
-					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-					 */
-					public boolean select(Viewer viewer, Object parentElement, Object element) {
-						return (element instanceof String && element.equals("")) || (element instanceof Channel); //$NON-NLS-1$ 
-					}
-					
-				});
-				// Start of user code for additional businessfilters for toChannel
+			if (isAccessible(EipViewsRepository.Filter.Properties.toChannels)) {
+				basePart.addFilterToToChannels(new EObjectFilter(EipPackage.Literals.CHANNEL));
+				// Start of user code for additional businessfilters for toChannels
 				// End of user code
 			}
 			if (isAccessible(EipViewsRepository.Filter.Properties.fromChannels)) {
@@ -151,8 +137,8 @@ public class FilterPropertiesEditionComponent extends SinglePartPropertiesEditin
 		if (editorKey == EipViewsRepository.Filter.Properties.name) {
 			return EipPackage.eINSTANCE.getEndpoint_Name();
 		}
-		if (editorKey == EipViewsRepository.Filter.Properties.toChannel) {
-			return EipPackage.eINSTANCE.getEndpoint_ToChannel();
+		if (editorKey == EipViewsRepository.Filter.Properties.toChannels) {
+			return EipPackage.eINSTANCE.getEndpoint_ToChannels();
 		}
 		if (editorKey == EipViewsRepository.Filter.Properties.fromChannels) {
 			return EipPackage.eINSTANCE.getEndpoint_FromChannels();
@@ -173,20 +159,15 @@ public class FilterPropertiesEditionComponent extends SinglePartPropertiesEditin
 		if (EipViewsRepository.Filter.Properties.name == event.getAffectedEditor()) {
 			filter.setName((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
 		}
-		if (EipViewsRepository.Filter.Properties.toChannel == event.getAffectedEditor()) {
-			if (event.getKind() == PropertiesEditionEvent.SET) {
-				toChannelSettings.setToReference((Channel)event.getNewValue());
-			} else if (event.getKind() == PropertiesEditionEvent.ADD) {
-				Channel eObject = EipFactory.eINSTANCE.createChannel();
-				EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(editingContext, this, eObject, editingContext.getAdapterFactory());
-				PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(eObject, PropertiesEditingProvider.class);
-				if (provider != null) {
-					PropertiesEditingPolicy policy = provider.getPolicy(context);
-					if (policy != null) {
-						policy.execute();
-					}
+		if (EipViewsRepository.Filter.Properties.toChannels == event.getAffectedEditor()) {
+			if (event.getKind() == PropertiesEditionEvent.ADD) {
+				if (event.getNewValue() instanceof Channel) {
+					toChannelsSettings.addToReference((EObject) event.getNewValue());
 				}
-				toChannelSettings.setToReference(eObject);
+			} else if (event.getKind() == PropertiesEditionEvent.REMOVE) {
+				toChannelsSettings.removeFromReference((EObject) event.getNewValue());
+			} else if (event.getKind() == PropertiesEditionEvent.MOVE) {
+				toChannelsSettings.move(event.getNewIndex(), (Channel) event.getNewValue());
 			}
 		}
 		if (EipViewsRepository.Filter.Properties.fromChannels == event.getAffectedEditor()) {
@@ -220,8 +201,8 @@ public class FilterPropertiesEditionComponent extends SinglePartPropertiesEditin
 					basePart.setName("");
 				}
 			}
-			if (EipPackage.eINSTANCE.getEndpoint_ToChannel().equals(msg.getFeature()) && basePart != null && isAccessible(EipViewsRepository.Filter.Properties.toChannel))
-				basePart.setToChannel((EObject)msg.getNewValue());
+			if (EipPackage.eINSTANCE.getEndpoint_ToChannels().equals(msg.getFeature())  && isAccessible(EipViewsRepository.Filter.Properties.toChannels))
+				basePart.updateToChannels();
 			if (EipPackage.eINSTANCE.getEndpoint_FromChannels().equals(msg.getFeature())  && isAccessible(EipViewsRepository.Filter.Properties.fromChannels))
 				basePart.updateFromChannels();
 			if (EipPackage.eINSTANCE.getFilter_Expression().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && basePart != null && isAccessible(EipViewsRepository.Filter.Properties.expression)) {
@@ -244,7 +225,7 @@ public class FilterPropertiesEditionComponent extends SinglePartPropertiesEditin
 	protected NotificationFilter[] getNotificationFilters() {
 		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
 			EipPackage.eINSTANCE.getEndpoint_Name(),
-			EipPackage.eINSTANCE.getEndpoint_ToChannel(),
+			EipPackage.eINSTANCE.getEndpoint_ToChannels(),
 			EipPackage.eINSTANCE.getEndpoint_FromChannels(),
 			EipPackage.eINSTANCE.getFilter_Expression()		);
 		return new NotificationFilter[] {filter,};

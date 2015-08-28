@@ -8,7 +8,12 @@ import java.util.Collection;
 import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 /**
  * This is the item provider adapter for a {@link com.github.lbroudoux.dsl.eip.ServiceActivator} object.
@@ -17,91 +22,92 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
  * @generated
  */
 public class ServiceActivatorItemProvider 
-	extends InvocableEndpointItemProvider {
+	extends InvocableEndpointItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-    * This constructs an instance from a factory and a notifier.
-    * <!-- begin-user-doc -->
+   * This constructs an instance from a factory and a notifier.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	public ServiceActivatorItemProvider(AdapterFactory adapterFactory) {
-      super(adapterFactory);
-   }
+    super(adapterFactory);
+  }
 
 	/**
-    * This returns the property descriptors for the adapted class.
-    * <!-- begin-user-doc -->
+   * This returns the property descriptors for the adapted class.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-      if (itemPropertyDescriptors == null) {
-         super.getPropertyDescriptors(object);
+    if (itemPropertyDescriptors == null)
+    {
+      super.getPropertyDescriptors(object);
 
-      }
-      return itemPropertyDescriptors;
-   }
+    }
+    return itemPropertyDescriptors;
+  }
 
 	/**
-    * This returns ServiceActivator.gif.
-    * <!-- begin-user-doc -->
+   * This returns ServiceActivator.gif.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	@Override
 	public Object getImage(Object object) {
-      return overlayImage(object, getResourceLocator().getImage("full/obj16/ServiceActivator"));
-   }
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/ServiceActivator"));
+  }
 
 	/**
-    * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
    @Override
    protected boolean shouldComposeCreationImage() {
-      return true;
-   }
+    return true;
+  }
 
    /**
-    * This returns the label text for the adapted class.
-    * <!-- begin-user-doc -->
+   * This returns the label text for the adapted class.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	@Override
 	public String getText(Object object) {
-      String label = ((ServiceActivator)object).getName();
-      return label == null || label.length() == 0 ?
-         getString("_UI_ServiceActivator_type") :
-         getString("_UI_ServiceActivator_type") + " " + label;
-   }
+    String label = ((ServiceActivator)object).getName();
+    return label == null || label.length() == 0 ?
+      getString("_UI_ServiceActivator_type") :
+      getString("_UI_ServiceActivator_type") + " " + label;
+  }
 	
 
 	/**
-    * This handles model notifications by calling {@link #updateChildren} to update any cached
-    * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-    * <!-- begin-user-doc -->
+   * This handles model notifications by calling {@link #updateChildren} to update any cached
+   * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	@Override
 	public void notifyChanged(Notification notification) {
-      updateChildren(notification);
-      super.notifyChanged(notification);
-   }
+    updateChildren(notification);
+    super.notifyChanged(notification);
+  }
 
 	/**
-    * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-    * that can be created under this object.
-    * <!-- begin-user-doc -->
+   * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+   * that can be created under this object.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-      super.collectNewChildDescriptors(newChildDescriptors, object);
-   }
+    super.collectNewChildDescriptors(newChildDescriptors, object);
+  }
 
 }

@@ -304,14 +304,14 @@ public class EipPackageImpl extends EPackageImpl implements EipPackage {
 
 	/**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	public EReference getEndpoint_ToChannel() {
+   public EReference getEndpoint_ToChannels() {
       return (EReference)endpointEClass.getEStructuralFeatures().get(1);
    }
 
-	/**
+   /**
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
     * @generated
@@ -854,7 +854,7 @@ public class EipPackageImpl extends EPackageImpl implements EipPackage {
       // Create classes and their features
       endpointEClass = createEClass(ENDPOINT);
       createEAttribute(endpointEClass, ENDPOINT__NAME);
-      createEReference(endpointEClass, ENDPOINT__TO_CHANNEL);
+      createEReference(endpointEClass, ENDPOINT__TO_CHANNELS);
       createEReference(endpointEClass, ENDPOINT__FROM_CHANNELS);
 
       channelEClass = createEClass(CHANNEL);
@@ -986,12 +986,12 @@ public class EipPackageImpl extends EPackageImpl implements EipPackage {
       // Initialize classes, features, and operations; add parameters
       initEClass(endpointEClass, Endpoint.class, "Endpoint", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
       initEAttribute(getEndpoint_Name(), ecorePackage.getEString(), "name", null, 1, 1, Endpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-      initEReference(getEndpoint_ToChannel(), this.getChannel(), this.getChannel_FromEndpoint(), "toChannel", null, 0, 1, Endpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getEndpoint_ToChannels(), this.getChannel(), this.getChannel_FromEndpoint(), "toChannels", null, 0, -1, Endpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
       initEReference(getEndpoint_FromChannels(), this.getChannel(), this.getChannel_ToEndpoint(), "fromChannels", null, 0, -1, Endpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
       initEClass(channelEClass, Channel.class, "Channel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
       initEReference(getChannel_ToEndpoint(), this.getEndpoint(), this.getEndpoint_FromChannels(), "toEndpoint", null, 0, 1, Channel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-      initEReference(getChannel_FromEndpoint(), this.getEndpoint(), this.getEndpoint_ToChannel(), "fromEndpoint", null, 0, 1, Channel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getChannel_FromEndpoint(), this.getEndpoint(), this.getEndpoint_ToChannels(), "fromEndpoint", null, 0, 1, Channel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
       initEAttribute(getChannel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Channel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
       initEAttribute(getChannel_Guaranteed(), ecorePackage.getEBoolean(), "guaranteed", null, 0, 1, Channel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

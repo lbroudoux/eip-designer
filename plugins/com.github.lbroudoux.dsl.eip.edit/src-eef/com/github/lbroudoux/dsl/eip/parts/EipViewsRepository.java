@@ -56,7 +56,7 @@ public class EipViewsRepository {
 			public static String name = "eip::Router::properties::name";
 			
 			
-			public static String toChannel = "eip::Router::properties::toChannel";
+			public static String toChannels = "eip::Router::properties::toChannels";
 			
 			
 			public static String fromChannels = "eip::Router::properties::fromChannels";
@@ -83,7 +83,7 @@ public class EipViewsRepository {
 			public static String name = "eip::Filter::properties::name";
 			
 			
-			public static String toChannel = "eip::Filter::properties::toChannel";
+			public static String toChannels = "eip::Filter::properties::toChannels";
 			
 			
 			public static String fromChannels = "eip::Filter::properties::fromChannels";
@@ -107,7 +107,7 @@ public class EipViewsRepository {
 			public static String name = "eip::Transformer::properties::name";
 			
 			
-			public static String toChannel = "eip::Transformer::properties::toChannel";
+			public static String toChannels = "eip::Transformer::properties::toChannels";
 			
 			
 			public static String fromChannels = "eip::Transformer::properties::fromChannels";
@@ -128,7 +128,7 @@ public class EipViewsRepository {
 			public static String name = "eip::Gateway::properties::name";
 			
 			
-			public static String toChannel = "eip::Gateway::properties::toChannel";
+			public static String toChannels = "eip::Gateway::properties::toChannels";
 			
 			
 			public static String fromChannels = "eip::Gateway::properties::fromChannels";
@@ -167,7 +167,7 @@ public class EipViewsRepository {
 			public static String name = "eip::Splitter::properties::name";
 			
 			
-			public static String toChannel = "eip::Splitter::properties::toChannel";
+			public static String toChannels = "eip::Splitter::properties::toChannels";
 			
 			
 			public static String fromChannels = "eip::Splitter::properties::fromChannels";
@@ -188,7 +188,7 @@ public class EipViewsRepository {
 			public static String name = "eip::Aggregator::properties::name";
 			
 			
-			public static String toChannel = "eip::Aggregator::properties::toChannel";
+			public static String toChannels = "eip::Aggregator::properties::toChannels";
 			
 			
 			public static String fromChannels = "eip::Aggregator::properties::fromChannels";
@@ -239,7 +239,7 @@ public class EipViewsRepository {
 			public static String name = "eip::ServiceActivator::properties::name";
 			
 			
-			public static String toChannel = "eip::ServiceActivator::properties::toChannel";
+			public static String toChannels = "eip::ServiceActivator::properties::toChannels";
 			
 			
 			public static String fromChannels = "eip::ServiceActivator::properties::fromChannels";
@@ -278,7 +278,7 @@ public class EipViewsRepository {
 			public static String name = "eip::Enricher::properties::name";
 			
 			
-			public static String toChannel = "eip::Enricher::properties::toChannel";
+			public static String toChannels = "eip::Enricher::properties::toChannels";
 			
 			
 			public static String fromChannels = "eip::Enricher::properties::fromChannels";
@@ -305,7 +305,7 @@ public class EipViewsRepository {
 			public static String name = "eip::CompositeProcessor::properties::name";
 			
 			
-			public static String toChannel = "eip::CompositeProcessor::properties::toChannel";
+			public static String toChannels = "eip::CompositeProcessor::properties::toChannels";
 			
 			
 			public static String fromChannels = "eip::CompositeProcessor::properties::fromChannels";
@@ -326,7 +326,7 @@ public class EipViewsRepository {
 			public static String name = "eip::RecipientListRouter::properties::name";
 			
 			
-			public static String toChannel = "eip::RecipientListRouter::properties::toChannel";
+			public static String toChannels = "eip::RecipientListRouter::properties::toChannels";
 			
 			
 			public static String fromChannels = "eip::RecipientListRouter::properties::fromChannels";
@@ -395,7 +395,7 @@ public class EipViewsRepository {
 			public static String name = "eip::InvocableEndpoint::properties::name";
 			
 			
-			public static String toChannel = "eip::InvocableEndpoint::properties::toChannel";
+			public static String toChannels = "eip::InvocableEndpoint::properties::toChannels";
 			
 			
 			public static String fromChannels = "eip::InvocableEndpoint::properties::fromChannels";
@@ -419,7 +419,7 @@ public class EipViewsRepository {
 			public static String name = "eip::ContentFilter::properties::name";
 			
 			
-			public static String toChannel = "eip::ContentFilter::properties::toChannel";
+			public static String toChannels = "eip::ContentFilter::properties::toChannels";
 			
 			
 			public static String fromChannels = "eip::ContentFilter::properties::fromChannels";
@@ -443,7 +443,7 @@ public class EipViewsRepository {
 			public static String name = "eip::Resequencer::properties::name";
 			
 			
-			public static String toChannel = "eip::Resequencer::properties::toChannel";
+			public static String toChannels = "eip::Resequencer::properties::toChannels";
 			
 			
 			public static String fromChannels = "eip::Resequencer::properties::fromChannels";

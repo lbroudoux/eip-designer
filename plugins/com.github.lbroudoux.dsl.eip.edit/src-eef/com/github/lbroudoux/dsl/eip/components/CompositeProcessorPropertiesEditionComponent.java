@@ -52,9 +52,9 @@ public class CompositeProcessorPropertiesEditionComponent extends SinglePartProp
 
 	
 	/**
-	 * Settings for toChannel EObjectFlatComboViewer
+	 * Settings for toChannels ReferencesTable
 	 */
-	private EObjectFlatComboSettings toChannelSettings;
+	private ReferencesTableSettings toChannelsSettings;
 	
 	/**
 	 * Settings for fromChannels ReferencesTable
@@ -91,12 +91,9 @@ public class CompositeProcessorPropertiesEditionComponent extends SinglePartProp
 			if (isAccessible(EipViewsRepository.CompositeProcessor.Properties.name))
 				basePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, compositeProcessor.getName()));
 			
-			if (isAccessible(EipViewsRepository.CompositeProcessor.Properties.toChannel)) {
-				// init part
-				toChannelSettings = new EObjectFlatComboSettings(compositeProcessor, EipPackage.eINSTANCE.getEndpoint_ToChannel());
-				basePart.initToChannel(toChannelSettings);
-				// set the button mode
-				basePart.setToChannelButtonMode(ButtonsModeEnum.BROWSE);
+			if (isAccessible(EipViewsRepository.CompositeProcessor.Properties.toChannels)) {
+				toChannelsSettings = new ReferencesTableSettings(compositeProcessor, EipPackage.eINSTANCE.getEndpoint_ToChannels());
+				basePart.initToChannels(toChannelsSettings);
 			}
 			if (isAccessible(EipViewsRepository.CompositeProcessor.Properties.fromChannels)) {
 				fromChannelsSettings = new ReferencesTableSettings(compositeProcessor, EipPackage.eINSTANCE.getEndpoint_FromChannels());
@@ -104,20 +101,9 @@ public class CompositeProcessorPropertiesEditionComponent extends SinglePartProp
 			}
 			// init filters
 			
-			if (isAccessible(EipViewsRepository.CompositeProcessor.Properties.toChannel)) {
-				basePart.addFilterToToChannel(new ViewerFilter() {
-				
-					/**
-					 * {@inheritDoc}
-					 * 
-					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-					 */
-					public boolean select(Viewer viewer, Object parentElement, Object element) {
-						return (element instanceof String && element.equals("")) || (element instanceof Channel); //$NON-NLS-1$ 
-					}
-					
-				});
-				// Start of user code for additional businessfilters for toChannel
+			if (isAccessible(EipViewsRepository.CompositeProcessor.Properties.toChannels)) {
+				basePart.addFilterToToChannels(new EObjectFilter(EipPackage.Literals.CHANNEL));
+				// Start of user code for additional businessfilters for toChannels
 				// End of user code
 			}
 			if (isAccessible(EipViewsRepository.CompositeProcessor.Properties.fromChannels)) {
@@ -146,8 +132,8 @@ public class CompositeProcessorPropertiesEditionComponent extends SinglePartProp
 		if (editorKey == EipViewsRepository.CompositeProcessor.Properties.name) {
 			return EipPackage.eINSTANCE.getEndpoint_Name();
 		}
-		if (editorKey == EipViewsRepository.CompositeProcessor.Properties.toChannel) {
-			return EipPackage.eINSTANCE.getEndpoint_ToChannel();
+		if (editorKey == EipViewsRepository.CompositeProcessor.Properties.toChannels) {
+			return EipPackage.eINSTANCE.getEndpoint_ToChannels();
 		}
 		if (editorKey == EipViewsRepository.CompositeProcessor.Properties.fromChannels) {
 			return EipPackage.eINSTANCE.getEndpoint_FromChannels();
@@ -165,20 +151,15 @@ public class CompositeProcessorPropertiesEditionComponent extends SinglePartProp
 		if (EipViewsRepository.CompositeProcessor.Properties.name == event.getAffectedEditor()) {
 			compositeProcessor.setName((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
 		}
-		if (EipViewsRepository.CompositeProcessor.Properties.toChannel == event.getAffectedEditor()) {
-			if (event.getKind() == PropertiesEditionEvent.SET) {
-				toChannelSettings.setToReference((Channel)event.getNewValue());
-			} else if (event.getKind() == PropertiesEditionEvent.ADD) {
-				Channel eObject = EipFactory.eINSTANCE.createChannel();
-				EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(editingContext, this, eObject, editingContext.getAdapterFactory());
-				PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(eObject, PropertiesEditingProvider.class);
-				if (provider != null) {
-					PropertiesEditingPolicy policy = provider.getPolicy(context);
-					if (policy != null) {
-						policy.execute();
-					}
+		if (EipViewsRepository.CompositeProcessor.Properties.toChannels == event.getAffectedEditor()) {
+			if (event.getKind() == PropertiesEditionEvent.ADD) {
+				if (event.getNewValue() instanceof Channel) {
+					toChannelsSettings.addToReference((EObject) event.getNewValue());
 				}
-				toChannelSettings.setToReference(eObject);
+			} else if (event.getKind() == PropertiesEditionEvent.REMOVE) {
+				toChannelsSettings.removeFromReference((EObject) event.getNewValue());
+			} else if (event.getKind() == PropertiesEditionEvent.MOVE) {
+				toChannelsSettings.move(event.getNewIndex(), (Channel) event.getNewValue());
 			}
 		}
 		if (EipViewsRepository.CompositeProcessor.Properties.fromChannels == event.getAffectedEditor()) {
@@ -209,8 +190,8 @@ public class CompositeProcessorPropertiesEditionComponent extends SinglePartProp
 					basePart.setName("");
 				}
 			}
-			if (EipPackage.eINSTANCE.getEndpoint_ToChannel().equals(msg.getFeature()) && basePart != null && isAccessible(EipViewsRepository.CompositeProcessor.Properties.toChannel))
-				basePart.setToChannel((EObject)msg.getNewValue());
+			if (EipPackage.eINSTANCE.getEndpoint_ToChannels().equals(msg.getFeature())  && isAccessible(EipViewsRepository.CompositeProcessor.Properties.toChannels))
+				basePart.updateToChannels();
 			if (EipPackage.eINSTANCE.getEndpoint_FromChannels().equals(msg.getFeature())  && isAccessible(EipViewsRepository.CompositeProcessor.Properties.fromChannels))
 				basePart.updateFromChannels();
 			
@@ -226,7 +207,7 @@ public class CompositeProcessorPropertiesEditionComponent extends SinglePartProp
 	protected NotificationFilter[] getNotificationFilters() {
 		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
 			EipPackage.eINSTANCE.getEndpoint_Name(),
-			EipPackage.eINSTANCE.getEndpoint_ToChannel(),
+			EipPackage.eINSTANCE.getEndpoint_ToChannels(),
 			EipPackage.eINSTANCE.getEndpoint_FromChannels()		);
 		return new NotificationFilter[] {filter,};
 	}

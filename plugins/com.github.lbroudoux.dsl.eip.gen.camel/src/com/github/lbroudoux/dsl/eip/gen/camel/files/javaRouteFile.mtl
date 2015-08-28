@@ -20,7 +20,7 @@ public class [aRoute.name/] extends RouteBuilder {
       [for (endpoint : Endpoint | aRoute.ownedEndpoints)]
 	  [if (endpoint.fromChannels->size() = 0)]
       from("switchyard://[endpoint.name/]")		// [endpoint.name/][endpoint.genOutgoingChannelName()/]
- 	     [endpoint.toChannel.toEndpoint.genEndpoint()/]
+ 	     [endpoint.toChannels->first().toEndpoint.genEndpoint()/]
       ;
       [/if]
       [/for]

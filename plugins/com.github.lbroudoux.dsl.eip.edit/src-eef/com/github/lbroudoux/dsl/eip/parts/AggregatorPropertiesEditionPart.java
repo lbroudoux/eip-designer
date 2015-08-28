@@ -39,51 +39,46 @@ public interface AggregatorPropertiesEditionPart {
 	public void setName(String newValue);
 
 
+
+
 	/**
-	 * @return the toChannel
+	 * Init the toChannels
+	 * @param settings settings for the toChannels ReferencesTable 
+	 */
+	public void initToChannels(ReferencesTableSettings settings);
+
+	/**
+	 * Update the toChannels
+	 * @param newValue the toChannels to update
 	 * 
 	 */
-	public EObject getToChannel();
+	public void updateToChannels();
 
 	/**
-	 * Init the toChannel
-	 * @param settings the combo setting
-	 */
-	public void initToChannel(EObjectFlatComboSettings settings);
-
-	/**
-	 * Defines a new toChannel
-	 * @param newValue the new toChannel to set
-	 * 
-	 */
-	public void setToChannel(EObject newValue);
-
-	/**
-	 * Defines the button mode
-	 * @param newValue the new mode to set
-	 * 
-	 */
-	public void setToChannelButtonMode(ButtonsModeEnum newValue);
-
-	/**
-	 * Adds the given filter to the toChannel edition editor.
+	 * Adds the given filter to the toChannels edition editor.
 	 * 
 	 * @param filter
 	 *            a viewer filter
 	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
 	 * 
 	 */
-	public void addFilterToToChannel(ViewerFilter filter);
+	public void addFilterToToChannels(ViewerFilter filter);
 
 	/**
-	 * Adds the given filter to the toChannel edition editor.
+	 * Adds the given filter to the toChannels edition editor.
 	 * 
 	 * @param filter
 	 *            a viewer filter
 	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
 	 * 
 	 */
-	public void addBusinessFilterToToChannel(ViewerFilter filter);
+	public void addBusinessFilterToToChannels(ViewerFilter filter);
+
+	/**
+	 * @return true if the given element is contained inside the toChannels table
+	 * 
+	 */
+	public boolean isContainedInToChannelsTable(EObject element);
 
 
 

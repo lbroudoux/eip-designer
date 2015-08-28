@@ -208,7 +208,7 @@ public class EipMessages extends NLS {
 	public static String RouterPropertiesEditionPart_NameLabel;
 
 	
-	public static String RouterPropertiesEditionPart_ToChannelLabel;
+	public static String RouterPropertiesEditionPart_ToChannelsLabel;
 
 	
 	public static String RouterPropertiesEditionPart_FromChannelsLabel;
@@ -223,7 +223,7 @@ public class EipMessages extends NLS {
 	public static String FilterPropertiesEditionPart_NameLabel;
 
 	
-	public static String FilterPropertiesEditionPart_ToChannelLabel;
+	public static String FilterPropertiesEditionPart_ToChannelsLabel;
 
 	
 	public static String FilterPropertiesEditionPart_FromChannelsLabel;
@@ -235,7 +235,7 @@ public class EipMessages extends NLS {
 	public static String TransformerPropertiesEditionPart_NameLabel;
 
 	
-	public static String TransformerPropertiesEditionPart_ToChannelLabel;
+	public static String TransformerPropertiesEditionPart_ToChannelsLabel;
 
 	
 	public static String TransformerPropertiesEditionPart_FromChannelsLabel;
@@ -244,7 +244,7 @@ public class EipMessages extends NLS {
 	public static String GatewayPropertiesEditionPart_NameLabel;
 
 	
-	public static String GatewayPropertiesEditionPart_ToChannelLabel;
+	public static String GatewayPropertiesEditionPart_ToChannelsLabel;
 
 	
 	public static String GatewayPropertiesEditionPart_FromChannelsLabel;
@@ -259,7 +259,7 @@ public class EipMessages extends NLS {
 	public static String SplitterPropertiesEditionPart_NameLabel;
 
 	
-	public static String SplitterPropertiesEditionPart_ToChannelLabel;
+	public static String SplitterPropertiesEditionPart_ToChannelsLabel;
 
 	
 	public static String SplitterPropertiesEditionPart_FromChannelsLabel;
@@ -268,7 +268,7 @@ public class EipMessages extends NLS {
 	public static String AggregatorPropertiesEditionPart_NameLabel;
 
 	
-	public static String AggregatorPropertiesEditionPart_ToChannelLabel;
+	public static String AggregatorPropertiesEditionPart_ToChannelsLabel;
 
 	
 	public static String AggregatorPropertiesEditionPart_FromChannelsLabel;
@@ -295,7 +295,7 @@ public class EipMessages extends NLS {
 	public static String ServiceActivatorPropertiesEditionPart_NameLabel;
 
 	
-	public static String ServiceActivatorPropertiesEditionPart_ToChannelLabel;
+	public static String ServiceActivatorPropertiesEditionPart_ToChannelsLabel;
 
 	
 	public static String ServiceActivatorPropertiesEditionPart_FromChannelsLabel;
@@ -310,7 +310,7 @@ public class EipMessages extends NLS {
 	public static String EnricherPropertiesEditionPart_NameLabel;
 
 	
-	public static String EnricherPropertiesEditionPart_ToChannelLabel;
+	public static String EnricherPropertiesEditionPart_ToChannelsLabel;
 
 	
 	public static String EnricherPropertiesEditionPart_FromChannelsLabel;
@@ -325,7 +325,7 @@ public class EipMessages extends NLS {
 	public static String CompositeProcessorPropertiesEditionPart_NameLabel;
 
 	
-	public static String CompositeProcessorPropertiesEditionPart_ToChannelLabel;
+	public static String CompositeProcessorPropertiesEditionPart_ToChannelsLabel;
 
 	
 	public static String CompositeProcessorPropertiesEditionPart_FromChannelsLabel;
@@ -334,7 +334,7 @@ public class EipMessages extends NLS {
 	public static String RecipientListRouterPropertiesEditionPart_NameLabel;
 
 	
-	public static String RecipientListRouterPropertiesEditionPart_ToChannelLabel;
+	public static String RecipientListRouterPropertiesEditionPart_ToChannelsLabel;
 
 	
 	public static String RecipientListRouterPropertiesEditionPart_FromChannelsLabel;
@@ -367,7 +367,7 @@ public class EipMessages extends NLS {
 	public static String InvocableEndpointPropertiesEditionPart_NameLabel;
 
 	
-	public static String InvocableEndpointPropertiesEditionPart_ToChannelLabel;
+	public static String InvocableEndpointPropertiesEditionPart_ToChannelsLabel;
 
 	
 	public static String InvocableEndpointPropertiesEditionPart_FromChannelsLabel;
@@ -379,7 +379,7 @@ public class EipMessages extends NLS {
 	public static String ContentFilterPropertiesEditionPart_NameLabel;
 
 	
-	public static String ContentFilterPropertiesEditionPart_ToChannelLabel;
+	public static String ContentFilterPropertiesEditionPart_ToChannelsLabel;
 
 	
 	public static String ContentFilterPropertiesEditionPart_FromChannelsLabel;
@@ -391,7 +391,7 @@ public class EipMessages extends NLS {
 	public static String ResequencerPropertiesEditionPart_NameLabel;
 
 	
-	public static String ResequencerPropertiesEditionPart_ToChannelLabel;
+	public static String ResequencerPropertiesEditionPart_ToChannelsLabel;
 
 	
 	public static String ResequencerPropertiesEditionPart_FromChannelsLabel;

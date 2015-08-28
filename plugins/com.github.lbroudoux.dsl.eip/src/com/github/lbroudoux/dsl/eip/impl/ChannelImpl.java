@@ -213,9 +213,9 @@ public class ChannelImpl extends MetadatableImpl implements Channel {
       if (newFromEndpoint != fromEndpoint) {
          NotificationChain msgs = null;
          if (fromEndpoint != null)
-            msgs = ((InternalEObject)fromEndpoint).eInverseRemove(this, EipPackage.ENDPOINT__TO_CHANNEL, Endpoint.class, msgs);
+            msgs = ((InternalEObject)fromEndpoint).eInverseRemove(this, EipPackage.ENDPOINT__TO_CHANNELS, Endpoint.class, msgs);
          if (newFromEndpoint != null)
-            msgs = ((InternalEObject)newFromEndpoint).eInverseAdd(this, EipPackage.ENDPOINT__TO_CHANNEL, Endpoint.class, msgs);
+            msgs = ((InternalEObject)newFromEndpoint).eInverseAdd(this, EipPackage.ENDPOINT__TO_CHANNELS, Endpoint.class, msgs);
          msgs = basicSetFromEndpoint(newFromEndpoint, msgs);
          if (msgs != null) msgs.dispatch();
       }
@@ -279,7 +279,7 @@ public class ChannelImpl extends MetadatableImpl implements Channel {
             return basicSetToEndpoint((Endpoint)otherEnd, msgs);
          case EipPackage.CHANNEL__FROM_ENDPOINT:
             if (fromEndpoint != null)
-               msgs = ((InternalEObject)fromEndpoint).eInverseRemove(this, EipPackage.ENDPOINT__TO_CHANNEL, Endpoint.class, msgs);
+               msgs = ((InternalEObject)fromEndpoint).eInverseRemove(this, EipPackage.ENDPOINT__TO_CHANNELS, Endpoint.class, msgs);
             return basicSetFromEndpoint((Endpoint)otherEnd, msgs);
       }
       return super.eInverseAdd(otherEnd, featureID, msgs);

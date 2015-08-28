@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link com.github.lbroudoux.dsl.eip.impl.TransformerImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.github.lbroudoux.dsl.eip.impl.TransformerImpl#getToChannel <em>To Channel</em>}</li>
+ *   <li>{@link com.github.lbroudoux.dsl.eip.impl.TransformerImpl#getToChannels <em>To Channels</em>}</li>
  *   <li>{@link com.github.lbroudoux.dsl.eip.impl.TransformerImpl#getFromChannels <em>From Channels</em>}</li>
  * </ul>
  * </p>
@@ -52,16 +52,16 @@ public class TransformerImpl extends MetadatableImpl implements Transformer {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-    * The cached value of the '{@link #getToChannel() <em>To Channel</em>}' reference.
+    * The cached value of the '{@link #getToChannels() <em>To Channels</em>}' reference list.
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @see #getToChannel()
+    * <!-- end-user-doc -->
+    * @see #getToChannels()
     * @generated
     * @ordered
     */
-	protected Channel toChannel;
+   protected EList<Channel> toChannels;
 
-	/**
+   /**
     * The cached value of the '{@link #getFromChannels() <em>From Channels</em>}' reference list.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -113,65 +113,17 @@ public class TransformerImpl extends MetadatableImpl implements Transformer {
 
 	/**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	public Channel getToChannel() {
-      if (toChannel != null && toChannel.eIsProxy()) {
-         InternalEObject oldToChannel = (InternalEObject)toChannel;
-         toChannel = (Channel)eResolveProxy(oldToChannel);
-         if (toChannel != oldToChannel) {
-            if (eNotificationRequired())
-               eNotify(new ENotificationImpl(this, Notification.RESOLVE, EipPackage.TRANSFORMER__TO_CHANNEL, oldToChannel, toChannel));
-         }
+   public EList<Channel> getToChannels() {
+      if (toChannels == null) {
+         toChannels = new EObjectWithInverseResolvingEList<Channel>(Channel.class, this, EipPackage.TRANSFORMER__TO_CHANNELS, EipPackage.CHANNEL__FROM_ENDPOINT);
       }
-      return toChannel;
+      return toChannels;
    }
 
-	/**
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    */
-	public Channel basicGetToChannel() {
-      return toChannel;
-   }
-
-	/**
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    */
-	public NotificationChain basicSetToChannel(Channel newToChannel, NotificationChain msgs) {
-      Channel oldToChannel = toChannel;
-      toChannel = newToChannel;
-      if (eNotificationRequired()) {
-         ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EipPackage.TRANSFORMER__TO_CHANNEL, oldToChannel, newToChannel);
-         if (msgs == null) msgs = notification; else msgs.add(notification);
-      }
-      return msgs;
-   }
-
-	/**
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    */
-	public void setToChannel(Channel newToChannel) {
-      if (newToChannel != toChannel) {
-         NotificationChain msgs = null;
-         if (toChannel != null)
-            msgs = ((InternalEObject)toChannel).eInverseRemove(this, EipPackage.CHANNEL__FROM_ENDPOINT, Channel.class, msgs);
-         if (newToChannel != null)
-            msgs = ((InternalEObject)newToChannel).eInverseAdd(this, EipPackage.CHANNEL__FROM_ENDPOINT, Channel.class, msgs);
-         msgs = basicSetToChannel(newToChannel, msgs);
-         if (msgs != null) msgs.dispatch();
-      }
-      else if (eNotificationRequired())
-         eNotify(new ENotificationImpl(this, Notification.SET, EipPackage.TRANSFORMER__TO_CHANNEL, newToChannel, newToChannel));
-   }
-
-	/**
+   /**
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
     * @generated
@@ -192,10 +144,8 @@ public class TransformerImpl extends MetadatableImpl implements Transformer {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
       switch (featureID) {
-         case EipPackage.TRANSFORMER__TO_CHANNEL:
-            if (toChannel != null)
-               msgs = ((InternalEObject)toChannel).eInverseRemove(this, EipPackage.CHANNEL__FROM_ENDPOINT, Channel.class, msgs);
-            return basicSetToChannel((Channel)otherEnd, msgs);
+         case EipPackage.TRANSFORMER__TO_CHANNELS:
+            return ((InternalEList<InternalEObject>)(InternalEList<?>)getToChannels()).basicAdd(otherEnd, msgs);
          case EipPackage.TRANSFORMER__FROM_CHANNELS:
             return ((InternalEList<InternalEObject>)(InternalEList<?>)getFromChannels()).basicAdd(otherEnd, msgs);
       }
@@ -210,8 +160,8 @@ public class TransformerImpl extends MetadatableImpl implements Transformer {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
       switch (featureID) {
-         case EipPackage.TRANSFORMER__TO_CHANNEL:
-            return basicSetToChannel(null, msgs);
+         case EipPackage.TRANSFORMER__TO_CHANNELS:
+            return ((InternalEList<?>)getToChannels()).basicRemove(otherEnd, msgs);
          case EipPackage.TRANSFORMER__FROM_CHANNELS:
             return ((InternalEList<?>)getFromChannels()).basicRemove(otherEnd, msgs);
       }
@@ -228,9 +178,8 @@ public class TransformerImpl extends MetadatableImpl implements Transformer {
       switch (featureID) {
          case EipPackage.TRANSFORMER__NAME:
             return getName();
-         case EipPackage.TRANSFORMER__TO_CHANNEL:
-            if (resolve) return getToChannel();
-            return basicGetToChannel();
+         case EipPackage.TRANSFORMER__TO_CHANNELS:
+            return getToChannels();
          case EipPackage.TRANSFORMER__FROM_CHANNELS:
             return getFromChannels();
       }
@@ -249,8 +198,9 @@ public class TransformerImpl extends MetadatableImpl implements Transformer {
          case EipPackage.TRANSFORMER__NAME:
             setName((String)newValue);
             return;
-         case EipPackage.TRANSFORMER__TO_CHANNEL:
-            setToChannel((Channel)newValue);
+         case EipPackage.TRANSFORMER__TO_CHANNELS:
+            getToChannels().clear();
+            getToChannels().addAll((Collection<? extends Channel>)newValue);
             return;
          case EipPackage.TRANSFORMER__FROM_CHANNELS:
             getFromChannels().clear();
@@ -271,8 +221,8 @@ public class TransformerImpl extends MetadatableImpl implements Transformer {
          case EipPackage.TRANSFORMER__NAME:
             setName(NAME_EDEFAULT);
             return;
-         case EipPackage.TRANSFORMER__TO_CHANNEL:
-            setToChannel((Channel)null);
+         case EipPackage.TRANSFORMER__TO_CHANNELS:
+            getToChannels().clear();
             return;
          case EipPackage.TRANSFORMER__FROM_CHANNELS:
             getFromChannels().clear();
@@ -291,8 +241,8 @@ public class TransformerImpl extends MetadatableImpl implements Transformer {
       switch (featureID) {
          case EipPackage.TRANSFORMER__NAME:
             return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-         case EipPackage.TRANSFORMER__TO_CHANNEL:
-            return toChannel != null;
+         case EipPackage.TRANSFORMER__TO_CHANNELS:
+            return toChannels != null && !toChannels.isEmpty();
          case EipPackage.TRANSFORMER__FROM_CHANNELS:
             return fromChannels != null && !fromChannels.isEmpty();
       }

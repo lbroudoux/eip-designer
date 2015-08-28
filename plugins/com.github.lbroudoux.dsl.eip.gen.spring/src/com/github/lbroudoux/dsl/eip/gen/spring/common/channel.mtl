@@ -10,8 +10,8 @@
 [if (anEndpoint.fromChannels->size() <> 0)]
  input-channel="[anEndpoint.fromChannels->first().name/]"
 [/if]
-[if (not anEndpoint.toChannel.oclIsUndefined())] 
-  output-channel="[anEndpoint.toChannel.name/]"
+[if (not anEndpoint.toChannels->first().oclIsUndefined())] 
+  output-channel="[anEndpoint.toChannels->first().name/]"
 [/if]
 [/template]
 

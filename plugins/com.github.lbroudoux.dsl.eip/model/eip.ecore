@@ -4,8 +4,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Endpoint" abstract="true" interface="true"
       eSuperTypes="#//Metadatable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="toChannel" eType="#//Channel"
-        eOpposite="#//Channel/fromEndpoint"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="toChannels" upperBound="-1"
+        eType="#//Channel" eOpposite="#//Channel/fromEndpoint"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fromChannels" upperBound="-1"
         eType="#//Channel" eOpposite="#//Channel/toEndpoint"/>
   </eClassifiers>
@@ -13,7 +13,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="toEndpoint" eType="#//Endpoint"
         eOpposite="#//Endpoint/fromChannels"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fromEndpoint" eType="#//Endpoint"
-        eOpposite="#//Endpoint/toChannel"/>
+        eOpposite="#//Endpoint/toChannels"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="guaranteed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

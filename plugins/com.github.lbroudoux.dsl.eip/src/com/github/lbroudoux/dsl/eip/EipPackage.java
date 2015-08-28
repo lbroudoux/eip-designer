@@ -123,15 +123,15 @@ public interface EipPackage extends EPackage {
 	int ENDPOINT__NAME = METADATABLE_FEATURE_COUNT + 0;
 
 	/**
-    * The feature id for the '<em><b>To Channel</b></em>' reference.
+    * The feature id for the '<em><b>To Channels</b></em>' reference list.
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-	int ENDPOINT__TO_CHANNEL = METADATABLE_FEATURE_COUNT + 1;
+   int ENDPOINT__TO_CHANNELS = METADATABLE_FEATURE_COUNT + 1;
 
-	/**
+   /**
     * The feature id for the '<em><b>From Channels</b></em>' reference list.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -289,15 +289,15 @@ public interface EipPackage extends EPackage {
 	int ROUTER__NAME = ENDPOINT__NAME;
 
 	/**
-    * The feature id for the '<em><b>To Channel</b></em>' reference.
+    * The feature id for the '<em><b>To Channels</b></em>' reference list.
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-	int ROUTER__TO_CHANNEL = ENDPOINT__TO_CHANNEL;
+   int ROUTER__TO_CHANNELS = ENDPOINT__TO_CHANNELS;
 
-	/**
+   /**
     * The feature id for the '<em><b>From Channels</b></em>' reference list.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -371,15 +371,15 @@ public interface EipPackage extends EPackage {
 	int FILTER__NAME = ENDPOINT__NAME;
 
 	/**
-    * The feature id for the '<em><b>To Channel</b></em>' reference.
+    * The feature id for the '<em><b>To Channels</b></em>' reference list.
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-	int FILTER__TO_CHANNEL = ENDPOINT__TO_CHANNEL;
+   int FILTER__TO_CHANNELS = ENDPOINT__TO_CHANNELS;
 
-	/**
+   /**
     * The feature id for the '<em><b>From Channels</b></em>' reference list.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -444,15 +444,15 @@ public interface EipPackage extends EPackage {
 	int TRANSFORMER__NAME = ENDPOINT__NAME;
 
 	/**
-    * The feature id for the '<em><b>To Channel</b></em>' reference.
+    * The feature id for the '<em><b>To Channels</b></em>' reference list.
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-	int TRANSFORMER__TO_CHANNEL = ENDPOINT__TO_CHANNEL;
+   int TRANSFORMER__TO_CHANNELS = ENDPOINT__TO_CHANNELS;
 
-	/**
+   /**
     * The feature id for the '<em><b>From Channels</b></em>' reference list.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -508,15 +508,15 @@ public interface EipPackage extends EPackage {
 	int GATEWAY__NAME = ENDPOINT__NAME;
 
 	/**
-    * The feature id for the '<em><b>To Channel</b></em>' reference.
+    * The feature id for the '<em><b>To Channels</b></em>' reference list.
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-	int GATEWAY__TO_CHANNEL = ENDPOINT__TO_CHANNEL;
+   int GATEWAY__TO_CHANNELS = ENDPOINT__TO_CHANNELS;
 
-	/**
+   /**
     * The feature id for the '<em><b>From Channels</b></em>' reference list.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -619,15 +619,15 @@ public interface EipPackage extends EPackage {
 	int SPLITTER__NAME = ENDPOINT__NAME;
 
 	/**
-    * The feature id for the '<em><b>To Channel</b></em>' reference.
+    * The feature id for the '<em><b>To Channels</b></em>' reference list.
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-	int SPLITTER__TO_CHANNEL = ENDPOINT__TO_CHANNEL;
+   int SPLITTER__TO_CHANNELS = ENDPOINT__TO_CHANNELS;
 
-	/**
+   /**
     * The feature id for the '<em><b>From Channels</b></em>' reference list.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -684,15 +684,15 @@ public interface EipPackage extends EPackage {
 	int AGGREGATOR__NAME = ENDPOINT__NAME;
 
 	/**
-    * The feature id for the '<em><b>To Channel</b></em>' reference.
+    * The feature id for the '<em><b>To Channels</b></em>' reference list.
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-	int AGGREGATOR__TO_CHANNEL = ENDPOINT__TO_CHANNEL;
+   int AGGREGATOR__TO_CHANNELS = ENDPOINT__TO_CHANNELS;
 
-	/**
+   /**
     * The feature id for the '<em><b>From Channels</b></em>' reference list.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -857,15 +857,15 @@ public interface EipPackage extends EPackage {
 	int INVOCABLE_ENDPOINT__NAME = ENDPOINT__NAME;
 
 	/**
-    * The feature id for the '<em><b>To Channel</b></em>' reference.
+    * The feature id for the '<em><b>To Channels</b></em>' reference list.
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-	int INVOCABLE_ENDPOINT__TO_CHANNEL = ENDPOINT__TO_CHANNEL;
+   int INVOCABLE_ENDPOINT__TO_CHANNELS = ENDPOINT__TO_CHANNELS;
 
-	/**
+   /**
     * The feature id for the '<em><b>From Channels</b></em>' reference list.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -930,15 +930,15 @@ public interface EipPackage extends EPackage {
 	int SERVICE_ACTIVATOR__NAME = INVOCABLE_ENDPOINT__NAME;
 
 	/**
-    * The feature id for the '<em><b>To Channel</b></em>' reference.
+    * The feature id for the '<em><b>To Channels</b></em>' reference list.
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-	int SERVICE_ACTIVATOR__TO_CHANNEL = INVOCABLE_ENDPOINT__TO_CHANNEL;
+   int SERVICE_ACTIVATOR__TO_CHANNELS = INVOCABLE_ENDPOINT__TO_CHANNELS;
 
-	/**
+   /**
     * The feature id for the '<em><b>From Channels</b></em>' reference list.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1041,15 +1041,15 @@ public interface EipPackage extends EPackage {
 	int ENRICHER__NAME = INVOCABLE_ENDPOINT__NAME;
 
 	/**
-    * The feature id for the '<em><b>To Channel</b></em>' reference.
+    * The feature id for the '<em><b>To Channels</b></em>' reference list.
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-	int ENRICHER__TO_CHANNEL = INVOCABLE_ENDPOINT__TO_CHANNEL;
+   int ENRICHER__TO_CHANNELS = INVOCABLE_ENDPOINT__TO_CHANNELS;
 
-	/**
+   /**
     * The feature id for the '<em><b>From Channels</b></em>' reference list.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1123,15 +1123,15 @@ public interface EipPackage extends EPackage {
 	int COMPOSITE_PROCESSOR__NAME = ENDPOINT__NAME;
 
 	/**
-    * The feature id for the '<em><b>To Channel</b></em>' reference.
+    * The feature id for the '<em><b>To Channels</b></em>' reference list.
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-	int COMPOSITE_PROCESSOR__TO_CHANNEL = ENDPOINT__TO_CHANNEL;
+   int COMPOSITE_PROCESSOR__TO_CHANNELS = ENDPOINT__TO_CHANNELS;
 
-	/**
+   /**
     * The feature id for the '<em><b>From Channels</b></em>' reference list.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1196,15 +1196,15 @@ public interface EipPackage extends EPackage {
 	int RECIPIENT_LIST_ROUTER__NAME = ROUTER__NAME;
 
 	/**
-    * The feature id for the '<em><b>To Channel</b></em>' reference.
+    * The feature id for the '<em><b>To Channels</b></em>' reference list.
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-	int RECIPIENT_LIST_ROUTER__TO_CHANNEL = ROUTER__TO_CHANNEL;
+   int RECIPIENT_LIST_ROUTER__TO_CHANNELS = ROUTER__TO_CHANNELS;
 
-	/**
+   /**
     * The feature id for the '<em><b>From Channels</b></em>' reference list.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1388,15 +1388,15 @@ public interface EipPackage extends EPackage {
 	int CONTENT_FILTER__NAME = FILTER__NAME;
 
 	/**
-    * The feature id for the '<em><b>To Channel</b></em>' reference.
+    * The feature id for the '<em><b>To Channels</b></em>' reference list.
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-	int CONTENT_FILTER__TO_CHANNEL = FILTER__TO_CHANNEL;
+   int CONTENT_FILTER__TO_CHANNELS = FILTER__TO_CHANNELS;
 
-	/**
+   /**
     * The feature id for the '<em><b>From Channels</b></em>' reference list.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1461,13 +1461,13 @@ public interface EipPackage extends EPackage {
    int RESEQUENCER__NAME = AGGREGATOR__NAME;
 
    /**
-    * The feature id for the '<em><b>To Channel</b></em>' reference.
+    * The feature id for the '<em><b>To Channels</b></em>' reference list.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-   int RESEQUENCER__TO_CHANNEL = AGGREGATOR__TO_CHANNEL;
+   int RESEQUENCER__TO_CHANNELS = AGGREGATOR__TO_CHANNELS;
 
    /**
     * The feature id for the '<em><b>From Channels</b></em>' reference list.
@@ -1633,17 +1633,17 @@ public interface EipPackage extends EPackage {
 	EAttribute getEndpoint_Name();
 
 	/**
-    * Returns the meta object for the reference '{@link com.github.lbroudoux.dsl.eip.Endpoint#getToChannel <em>To Channel</em>}'.
+    * Returns the meta object for the reference list '{@link com.github.lbroudoux.dsl.eip.Endpoint#getToChannels <em>To Channels</em>}'.
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @return the meta object for the reference '<em>To Channel</em>'.
-    * @see com.github.lbroudoux.dsl.eip.Endpoint#getToChannel()
+    * <!-- end-user-doc -->
+    * @return the meta object for the reference list '<em>To Channels</em>'.
+    * @see com.github.lbroudoux.dsl.eip.Endpoint#getToChannels()
     * @see #getEndpoint()
     * @generated
     */
-	EReference getEndpoint_ToChannel();
+   EReference getEndpoint_ToChannels();
 
-	/**
+   /**
     * Returns the meta object for the reference list '{@link com.github.lbroudoux.dsl.eip.Endpoint#getFromChannels <em>From Channels</em>}'.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2285,13 +2285,13 @@ public interface EipPackage extends EPackage {
        */
 		EAttribute ENDPOINT__NAME = eINSTANCE.getEndpoint_Name();
 		/**
-       * The meta object literal for the '<em><b>To Channel</b></em>' reference feature.
+       * The meta object literal for the '<em><b>To Channels</b></em>' reference list feature.
        * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+       * <!-- end-user-doc -->
        * @generated
        */
-		EReference ENDPOINT__TO_CHANNEL = eINSTANCE.getEndpoint_ToChannel();
-		/**
+      EReference ENDPOINT__TO_CHANNELS = eINSTANCE.getEndpoint_ToChannels();
+      /**
        * The meta object literal for the '<em><b>From Channels</b></em>' reference list feature.
        * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

@@ -34,646 +34,670 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  */
 public class EipItemProviderAdapterFactory extends EipAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
-    * This keeps track of the root adapter factory that delegates to this adapter factory.
-    * <!-- begin-user-doc -->
+   * This keeps track of the root adapter factory that delegates to this adapter factory.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	protected ComposedAdapterFactory parentAdapterFactory;
 
 	/**
-    * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
-    * <!-- begin-user-doc -->
+   * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
 
 	/**
-    * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
-    * <!-- begin-user-doc -->
+   * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
 	/**
-    * This constructs an instance.
-    * <!-- begin-user-doc -->
+   * This constructs an instance.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	public EipItemProviderAdapterFactory() {
-      supportedTypes.add(IEditingDomainItemProvider.class);
-      supportedTypes.add(IStructuredItemContentProvider.class);
-      supportedTypes.add(ITreeItemContentProvider.class);
-      supportedTypes.add(IItemLabelProvider.class);
-      supportedTypes.add(IItemPropertySource.class);
-   }
+    supportedTypes.add(IEditingDomainItemProvider.class);
+    supportedTypes.add(IStructuredItemContentProvider.class);
+    supportedTypes.add(ITreeItemContentProvider.class);
+    supportedTypes.add(IItemLabelProvider.class);
+    supportedTypes.add(IItemPropertySource.class);
+  }
 
 	/**
-    * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Channel} instances.
-    * <!-- begin-user-doc -->
+   * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Channel} instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	protected ChannelItemProvider channelItemProvider;
 
 	/**
-    * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Channel}.
-    * <!-- begin-user-doc -->
+   * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Channel}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	@Override
 	public Adapter createChannelAdapter() {
-      if (channelItemProvider == null) {
-         channelItemProvider = new ChannelItemProvider(this);
-      }
+    if (channelItemProvider == null)
+    {
+      channelItemProvider = new ChannelItemProvider(this);
+    }
 
-      return channelItemProvider;
-   }
+    return channelItemProvider;
+  }
 
 	/**
-    * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Adapter} instances.
-    * <!-- begin-user-doc -->
+   * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Adapter} instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	protected AdapterItemProvider adapterItemProvider;
 
 	/**
-    * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Adapter}.
-    * <!-- begin-user-doc -->
+   * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Adapter}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	@Override
 	public Adapter createAdapterAdapter() {
-      if (adapterItemProvider == null) {
-         adapterItemProvider = new AdapterItemProvider(this);
-      }
+    if (adapterItemProvider == null)
+    {
+      adapterItemProvider = new AdapterItemProvider(this);
+    }
 
-      return adapterItemProvider;
-   }
+    return adapterItemProvider;
+  }
 
 	/**
-    * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Router} instances.
-    * <!-- begin-user-doc -->
+   * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Router} instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	protected RouterItemProvider routerItemProvider;
 
 	/**
-    * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Router}.
-    * <!-- begin-user-doc -->
+   * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Router}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	@Override
 	public Adapter createRouterAdapter() {
-      if (routerItemProvider == null) {
-         routerItemProvider = new RouterItemProvider(this);
-      }
+    if (routerItemProvider == null)
+    {
+      routerItemProvider = new RouterItemProvider(this);
+    }
 
-      return routerItemProvider;
-   }
+    return routerItemProvider;
+  }
 
 	/**
-    * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Filter} instances.
-    * <!-- begin-user-doc -->
+   * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Filter} instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	protected FilterItemProvider filterItemProvider;
 
 	/**
-    * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Filter}.
-    * <!-- begin-user-doc -->
+   * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Filter}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	@Override
 	public Adapter createFilterAdapter() {
-      if (filterItemProvider == null) {
-         filterItemProvider = new FilterItemProvider(this);
-      }
+    if (filterItemProvider == null)
+    {
+      filterItemProvider = new FilterItemProvider(this);
+    }
 
-      return filterItemProvider;
-   }
+    return filterItemProvider;
+  }
 
 	/**
-    * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Transformer} instances.
-    * <!-- begin-user-doc -->
+   * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Transformer} instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	protected TransformerItemProvider transformerItemProvider;
 
 	/**
-    * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Transformer}.
-    * <!-- begin-user-doc -->
+   * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Transformer}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	@Override
 	public Adapter createTransformerAdapter() {
-      if (transformerItemProvider == null) {
-         transformerItemProvider = new TransformerItemProvider(this);
-      }
+    if (transformerItemProvider == null)
+    {
+      transformerItemProvider = new TransformerItemProvider(this);
+    }
 
-      return transformerItemProvider;
-   }
+    return transformerItemProvider;
+  }
 
 	/**
-    * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Gateway} instances.
-    * <!-- begin-user-doc -->
+   * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Gateway} instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	protected GatewayItemProvider gatewayItemProvider;
 
 	/**
-    * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Gateway}.
-    * <!-- begin-user-doc -->
+   * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Gateway}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	@Override
 	public Adapter createGatewayAdapter() {
-      if (gatewayItemProvider == null) {
-         gatewayItemProvider = new GatewayItemProvider(this);
-      }
+    if (gatewayItemProvider == null)
+    {
+      gatewayItemProvider = new GatewayItemProvider(this);
+    }
 
-      return gatewayItemProvider;
-   }
+    return gatewayItemProvider;
+  }
 
 	/**
-    * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.ConditionalRoute} instances.
-    * <!-- begin-user-doc -->
+   * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.ConditionalRoute} instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	protected ConditionalRouteItemProvider conditionalRouteItemProvider;
 
 	/**
-    * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.ConditionalRoute}.
-    * <!-- begin-user-doc -->
+   * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.ConditionalRoute}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	@Override
 	public Adapter createConditionalRouteAdapter() {
-      if (conditionalRouteItemProvider == null) {
-         conditionalRouteItemProvider = new ConditionalRouteItemProvider(this);
-      }
+    if (conditionalRouteItemProvider == null)
+    {
+      conditionalRouteItemProvider = new ConditionalRouteItemProvider(this);
+    }
 
-      return conditionalRouteItemProvider;
-   }
+    return conditionalRouteItemProvider;
+  }
 
 	/**
-    * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Splitter} instances.
-    * <!-- begin-user-doc -->
+   * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Splitter} instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	protected SplitterItemProvider splitterItemProvider;
 
 	/**
-    * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Splitter}.
-    * <!-- begin-user-doc -->
+   * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Splitter}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	@Override
 	public Adapter createSplitterAdapter() {
-      if (splitterItemProvider == null) {
-         splitterItemProvider = new SplitterItemProvider(this);
-      }
+    if (splitterItemProvider == null)
+    {
+      splitterItemProvider = new SplitterItemProvider(this);
+    }
 
-      return splitterItemProvider;
-   }
+    return splitterItemProvider;
+  }
 
 	/**
-    * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Aggregator} instances.
-    * <!-- begin-user-doc -->
+   * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Aggregator} instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	protected AggregatorItemProvider aggregatorItemProvider;
 
 	/**
-    * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Aggregator}.
-    * <!-- begin-user-doc -->
+   * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Aggregator}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	@Override
 	public Adapter createAggregatorAdapter() {
-      if (aggregatorItemProvider == null) {
-         aggregatorItemProvider = new AggregatorItemProvider(this);
-      }
+    if (aggregatorItemProvider == null)
+    {
+      aggregatorItemProvider = new AggregatorItemProvider(this);
+    }
 
-      return aggregatorItemProvider;
-   }
+    return aggregatorItemProvider;
+  }
 
 	/**
-    * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Route} instances.
-    * <!-- begin-user-doc -->
+   * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Route} instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	protected RouteItemProvider routeItemProvider;
 
 	/**
-    * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Route}.
-    * <!-- begin-user-doc -->
+   * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Route}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	@Override
 	public Adapter createRouteAdapter() {
-      if (routeItemProvider == null) {
-         routeItemProvider = new RouteItemProvider(this);
-      }
+    if (routeItemProvider == null)
+    {
+      routeItemProvider = new RouteItemProvider(this);
+    }
 
-      return routeItemProvider;
-   }
+    return routeItemProvider;
+  }
 
 	/**
-    * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.ServiceActivator} instances.
-    * <!-- begin-user-doc -->
+   * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.ServiceActivator} instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	protected ServiceActivatorItemProvider serviceActivatorItemProvider;
 
 	/**
-    * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.ServiceActivator}.
-    * <!-- begin-user-doc -->
+   * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.ServiceActivator}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	@Override
 	public Adapter createServiceActivatorAdapter() {
-      if (serviceActivatorItemProvider == null) {
-         serviceActivatorItemProvider = new ServiceActivatorItemProvider(this);
-      }
+    if (serviceActivatorItemProvider == null)
+    {
+      serviceActivatorItemProvider = new ServiceActivatorItemProvider(this);
+    }
 
-      return serviceActivatorItemProvider;
-   }
+    return serviceActivatorItemProvider;
+  }
 
 	/**
-    * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.EIPModel} instances.
-    * <!-- begin-user-doc -->
+   * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.EIPModel} instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	protected EIPModelItemProvider eipModelItemProvider;
 
 	/**
-    * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.EIPModel}.
-    * <!-- begin-user-doc -->
+   * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.EIPModel}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	@Override
 	public Adapter createEIPModelAdapter() {
-      if (eipModelItemProvider == null) {
-         eipModelItemProvider = new EIPModelItemProvider(this);
-      }
+    if (eipModelItemProvider == null)
+    {
+      eipModelItemProvider = new EIPModelItemProvider(this);
+    }
 
-      return eipModelItemProvider;
-   }
+    return eipModelItemProvider;
+  }
 
 	/**
-    * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Enricher} instances.
-    * <!-- begin-user-doc -->
+   * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Enricher} instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	protected EnricherItemProvider enricherItemProvider;
 
 	/**
-    * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Enricher}.
-    * <!-- begin-user-doc -->
+   * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Enricher}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	@Override
 	public Adapter createEnricherAdapter() {
-      if (enricherItemProvider == null) {
-         enricherItemProvider = new EnricherItemProvider(this);
-      }
+    if (enricherItemProvider == null)
+    {
+      enricherItemProvider = new EnricherItemProvider(this);
+    }
 
-      return enricherItemProvider;
-   }
+    return enricherItemProvider;
+  }
 
 	/**
-    * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.CompositeProcessor} instances.
-    * <!-- begin-user-doc -->
+   * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.CompositeProcessor} instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	protected CompositeProcessorItemProvider compositeProcessorItemProvider;
 
 	/**
-    * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.CompositeProcessor}.
-    * <!-- begin-user-doc -->
+   * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.CompositeProcessor}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	@Override
 	public Adapter createCompositeProcessorAdapter() {
-      if (compositeProcessorItemProvider == null) {
-         compositeProcessorItemProvider = new CompositeProcessorItemProvider(this);
-      }
+    if (compositeProcessorItemProvider == null)
+    {
+      compositeProcessorItemProvider = new CompositeProcessorItemProvider(this);
+    }
 
-      return compositeProcessorItemProvider;
-   }
+    return compositeProcessorItemProvider;
+  }
 
 	/**
-    * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.RecipientListRouter} instances.
-    * <!-- begin-user-doc -->
+   * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.RecipientListRouter} instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	protected RecipientListRouterItemProvider recipientListRouterItemProvider;
 
 	/**
-    * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.RecipientListRouter}.
-    * <!-- begin-user-doc -->
+   * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.RecipientListRouter}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	@Override
 	public Adapter createRecipientListRouterAdapter() {
-      if (recipientListRouterItemProvider == null) {
-         recipientListRouterItemProvider = new RecipientListRouterItemProvider(this);
-      }
+    if (recipientListRouterItemProvider == null)
+    {
+      recipientListRouterItemProvider = new RecipientListRouterItemProvider(this);
+    }
 
-      return recipientListRouterItemProvider;
-   }
+    return recipientListRouterItemProvider;
+  }
 
 	/**
-    * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.ServiceRef} instances.
-    * <!-- begin-user-doc -->
+   * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.ServiceRef} instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	protected ServiceRefItemProvider serviceRefItemProvider;
 
 	/**
-    * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.ServiceRef}.
-    * <!-- begin-user-doc -->
+   * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.ServiceRef}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	@Override
 	public Adapter createServiceRefAdapter() {
-      if (serviceRefItemProvider == null) {
-         serviceRefItemProvider = new ServiceRefItemProvider(this);
-      }
+    if (serviceRefItemProvider == null)
+    {
+      serviceRefItemProvider = new ServiceRefItemProvider(this);
+    }
 
-      return serviceRefItemProvider;
-   }
+    return serviceRefItemProvider;
+  }
 
 	/**
-    * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.ServiceInvocation} instances.
-    * <!-- begin-user-doc -->
+   * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.ServiceInvocation} instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	protected ServiceInvocationItemProvider serviceInvocationItemProvider;
 
 	/**
-    * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.ServiceInvocation}.
-    * <!-- begin-user-doc -->
+   * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.ServiceInvocation}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	@Override
 	public Adapter createServiceInvocationAdapter() {
-      if (serviceInvocationItemProvider == null) {
-         serviceInvocationItemProvider = new ServiceInvocationItemProvider(this);
-      }
+    if (serviceInvocationItemProvider == null)
+    {
+      serviceInvocationItemProvider = new ServiceInvocationItemProvider(this);
+    }
 
-      return serviceInvocationItemProvider;
-   }
+    return serviceInvocationItemProvider;
+  }
 
 	/**
-    * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.InvocableEndpoint} instances.
-    * <!-- begin-user-doc -->
+   * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.InvocableEndpoint} instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	protected InvocableEndpointItemProvider invocableEndpointItemProvider;
 
 	/**
-    * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.InvocableEndpoint}.
-    * <!-- begin-user-doc -->
+   * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.InvocableEndpoint}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	@Override
 	public Adapter createInvocableEndpointAdapter() {
-      if (invocableEndpointItemProvider == null) {
-         invocableEndpointItemProvider = new InvocableEndpointItemProvider(this);
-      }
+    if (invocableEndpointItemProvider == null)
+    {
+      invocableEndpointItemProvider = new InvocableEndpointItemProvider(this);
+    }
 
-      return invocableEndpointItemProvider;
-   }
+    return invocableEndpointItemProvider;
+  }
 
 	/**
-    * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.ContentFilter} instances.
-    * <!-- begin-user-doc -->
+   * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.ContentFilter} instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	protected ContentFilterItemProvider contentFilterItemProvider;
 
 	/**
-    * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.ContentFilter}.
-    * <!-- begin-user-doc -->
+   * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.ContentFilter}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	@Override
 	public Adapter createContentFilterAdapter() {
-      if (contentFilterItemProvider == null) {
-         contentFilterItemProvider = new ContentFilterItemProvider(this);
-      }
+    if (contentFilterItemProvider == null)
+    {
+      contentFilterItemProvider = new ContentFilterItemProvider(this);
+    }
 
-      return contentFilterItemProvider;
-   }
+    return contentFilterItemProvider;
+  }
 
 	/**
-    * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Resequencer} instances.
-    * <!-- begin-user-doc -->
+   * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Resequencer} instances.
+   * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
    protected ResequencerItemProvider resequencerItemProvider;
 
    /**
-    * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Resequencer}.
-    * <!-- begin-user-doc -->
+   * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Resequencer}.
+   * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
    @Override
    public Adapter createResequencerAdapter() {
-      if (resequencerItemProvider == null) {
-         resequencerItemProvider = new ResequencerItemProvider(this);
-      }
+    if (resequencerItemProvider == null)
+    {
+      resequencerItemProvider = new ResequencerItemProvider(this);
+    }
 
-      return resequencerItemProvider;
-   }
+    return resequencerItemProvider;
+  }
 
    /**
-    * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Metadata} instances.
-    * <!-- begin-user-doc -->
+   * This keeps track of the one adapter used for all {@link com.github.lbroudoux.dsl.eip.Metadata} instances.
+   * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
    protected MetadataItemProvider metadataItemProvider;
 
    /**
-    * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Metadata}.
-    * <!-- begin-user-doc -->
+   * This creates an adapter for a {@link com.github.lbroudoux.dsl.eip.Metadata}.
+   * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
    @Override
    public Adapter createMetadataAdapter() {
-      if (metadataItemProvider == null) {
-         metadataItemProvider = new MetadataItemProvider(this);
-      }
+    if (metadataItemProvider == null)
+    {
+      metadataItemProvider = new MetadataItemProvider(this);
+    }
 
-      return metadataItemProvider;
-   }
+    return metadataItemProvider;
+  }
 
    /**
-    * This returns the root adapter factory that contains this factory.
-    * <!-- begin-user-doc -->
+   * This returns the root adapter factory that contains this factory.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	public ComposeableAdapterFactory getRootAdapterFactory() {
-      return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
-   }
+    return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
+  }
 
 	/**
-    * This sets the composed adapter factory that contains this factory.
-    * <!-- begin-user-doc -->
+   * This sets the composed adapter factory that contains this factory.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
-      this.parentAdapterFactory = parentAdapterFactory;
-   }
+    this.parentAdapterFactory = parentAdapterFactory;
+  }
 
 	/**
-    * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	@Override
 	public boolean isFactoryForType(Object type) {
-      return supportedTypes.contains(type) || super.isFactoryForType(type);
-   }
+    return supportedTypes.contains(type) || super.isFactoryForType(type);
+  }
 
 	/**
-    * This implementation substitutes the factory itself as the key for the adapter.
-    * <!-- begin-user-doc -->
+   * This implementation substitutes the factory itself as the key for the adapter.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	@Override
 	public Adapter adapt(Notifier notifier, Object type) {
-      return super.adapt(notifier, this);
-   }
+    return super.adapt(notifier, this);
+  }
 
 	/**
-    * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	@Override
 	public Object adapt(Object object, Object type) {
-      if (isFactoryForType(type)) {
-         Object adapter = super.adapt(object, type);
-         if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
-            return adapter;
-         }
+    if (isFactoryForType(type))
+    {
+      Object adapter = super.adapt(object, type);
+      if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter)))
+      {
+        return adapter;
       }
+    }
 
-      return null;
-   }
+    return null;
+  }
 
 	/**
-    * This adds a listener.
-    * <!-- begin-user-doc -->
+   * This adds a listener.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	public void addListener(INotifyChangedListener notifyChangedListener) {
-      changeNotifier.addListener(notifyChangedListener);
-   }
+    changeNotifier.addListener(notifyChangedListener);
+  }
 
 	/**
-    * This removes a listener.
-    * <!-- begin-user-doc -->
+   * This removes a listener.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
-      changeNotifier.removeListener(notifyChangedListener);
-   }
+    changeNotifier.removeListener(notifyChangedListener);
+  }
 
 	/**
-    * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
-    * <!-- begin-user-doc -->
+   * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	public void fireNotifyChanged(Notification notification) {
-      changeNotifier.fireNotifyChanged(notification);
+    changeNotifier.fireNotifyChanged(notification);
 
-      if (parentAdapterFactory != null) {
-         parentAdapterFactory.fireNotifyChanged(notification);
-      }
-   }
+    if (parentAdapterFactory != null)
+    {
+      parentAdapterFactory.fireNotifyChanged(notification);
+    }
+  }
 
 	/**
-    * This disposes all of the item providers created by this factory. 
-    * <!-- begin-user-doc -->
+   * This disposes all of the item providers created by this factory. 
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-    * @generated
-    */
+   * @generated
+   */
 	public void dispose() {
-      if (channelItemProvider != null) channelItemProvider.dispose();
-      if (adapterItemProvider != null) adapterItemProvider.dispose();
-      if (routerItemProvider != null) routerItemProvider.dispose();
-      if (filterItemProvider != null) filterItemProvider.dispose();
-      if (transformerItemProvider != null) transformerItemProvider.dispose();
-      if (gatewayItemProvider != null) gatewayItemProvider.dispose();
-      if (conditionalRouteItemProvider != null) conditionalRouteItemProvider.dispose();
-      if (splitterItemProvider != null) splitterItemProvider.dispose();
-      if (aggregatorItemProvider != null) aggregatorItemProvider.dispose();
-      if (routeItemProvider != null) routeItemProvider.dispose();
-      if (serviceActivatorItemProvider != null) serviceActivatorItemProvider.dispose();
-      if (eipModelItemProvider != null) eipModelItemProvider.dispose();
-      if (enricherItemProvider != null) enricherItemProvider.dispose();
-      if (compositeProcessorItemProvider != null) compositeProcessorItemProvider.dispose();
-      if (recipientListRouterItemProvider != null) recipientListRouterItemProvider.dispose();
-      if (serviceRefItemProvider != null) serviceRefItemProvider.dispose();
-      if (serviceInvocationItemProvider != null) serviceInvocationItemProvider.dispose();
-      if (invocableEndpointItemProvider != null) invocableEndpointItemProvider.dispose();
-      if (contentFilterItemProvider != null) contentFilterItemProvider.dispose();
-      if (resequencerItemProvider != null) resequencerItemProvider.dispose();
-      if (metadataItemProvider != null) metadataItemProvider.dispose();
-   }
+    if (channelItemProvider != null) channelItemProvider.dispose();
+    if (adapterItemProvider != null) adapterItemProvider.dispose();
+    if (routerItemProvider != null) routerItemProvider.dispose();
+    if (filterItemProvider != null) filterItemProvider.dispose();
+    if (transformerItemProvider != null) transformerItemProvider.dispose();
+    if (gatewayItemProvider != null) gatewayItemProvider.dispose();
+    if (conditionalRouteItemProvider != null) conditionalRouteItemProvider.dispose();
+    if (splitterItemProvider != null) splitterItemProvider.dispose();
+    if (aggregatorItemProvider != null) aggregatorItemProvider.dispose();
+    if (routeItemProvider != null) routeItemProvider.dispose();
+    if (serviceActivatorItemProvider != null) serviceActivatorItemProvider.dispose();
+    if (eipModelItemProvider != null) eipModelItemProvider.dispose();
+    if (enricherItemProvider != null) enricherItemProvider.dispose();
+    if (compositeProcessorItemProvider != null) compositeProcessorItemProvider.dispose();
+    if (recipientListRouterItemProvider != null) recipientListRouterItemProvider.dispose();
+    if (serviceRefItemProvider != null) serviceRefItemProvider.dispose();
+    if (serviceInvocationItemProvider != null) serviceInvocationItemProvider.dispose();
+    if (invocableEndpointItemProvider != null) invocableEndpointItemProvider.dispose();
+    if (contentFilterItemProvider != null) contentFilterItemProvider.dispose();
+    if (resequencerItemProvider != null) resequencerItemProvider.dispose();
+    if (metadataItemProvider != null) metadataItemProvider.dispose();
+  }
 
 }

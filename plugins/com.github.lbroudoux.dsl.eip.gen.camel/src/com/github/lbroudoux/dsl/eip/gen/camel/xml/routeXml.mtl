@@ -9,7 +9,7 @@
 [for (endpoint : Endpoint | aRoute.ownedEndpoints)]
 [if (endpoint.fromChannels->size() = 0)]
   <from id="[endpoint.name/][endpoint.genOutgoingChannelName()/]" uri="switchyard://[endpoint.name/]"/>
-  [endpoint.toChannel.toEndpoint.genEndpoint()/]
+  [endpoint.toChannels->first().toEndpoint.genEndpoint()/]
 [/if]
 [/for]
 </route>

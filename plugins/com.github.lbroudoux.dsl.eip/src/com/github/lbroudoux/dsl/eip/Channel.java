@@ -54,7 +54,7 @@ public interface Channel extends Metadatable {
 
 	/**
     * Returns the value of the '<em><b>From Endpoint</b></em>' reference.
-    * It is bidirectional and its opposite is '{@link com.github.lbroudoux.dsl.eip.Endpoint#getToChannel <em>To Channel</em>}'.
+    * It is bidirectional and its opposite is '{@link com.github.lbroudoux.dsl.eip.Endpoint#getToChannels <em>To Channels</em>}'.
     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>From Endpoint</em>' reference isn't clear,
@@ -64,8 +64,8 @@ public interface Channel extends Metadatable {
     * @return the value of the '<em>From Endpoint</em>' reference.
     * @see #setFromEndpoint(Endpoint)
     * @see com.github.lbroudoux.dsl.eip.EipPackage#getChannel_FromEndpoint()
-    * @see com.github.lbroudoux.dsl.eip.Endpoint#getToChannel
-    * @model opposite="toChannel"
+    * @see com.github.lbroudoux.dsl.eip.Endpoint#getToChannels
+    * @model opposite="toChannels"
     * @generated
     */
 	Endpoint getFromEndpoint();
