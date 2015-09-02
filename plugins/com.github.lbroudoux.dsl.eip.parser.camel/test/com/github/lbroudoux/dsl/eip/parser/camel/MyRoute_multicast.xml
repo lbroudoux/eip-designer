@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+  <camelContext xmlns="http://camel.apache.org/schema/spring">
+    <route id="MulticastRoute">
+      <from id="GatewayIn|GatewayIn_ServiceActivator_2" uri="switchyard://GatewayIn"/>
+      <multicast>
+        <to id="GatewayIn_ServiceActivator_2" uri="direct:ServiceActivator_2"/>
+        <to id="GatewayIn_ServiceActivator_3" uri="direct:ServiceActivator_3"/>
+        <to id="GatewayIn_ServiceActivator_1" uri="direct:ServiceActivator_1"/>
+      </multicast>
+    </route>
+    
+    <route>
+      <from id="GatewayIn_ServiceActivator_2" uri="direct:ServiceActivator_2"/>
+      <to id="ServiceActivator_2|ServiceActivator_2_Transformer_2" uri="switchyard://ServiceActivator_2"/>
+      <to id="Transformer_2|Transformer_2_Aggregator_1" uri="xslt:Transformer_2"/>
+      <!-- Endpoint not yet supported by generator -->
+    </route>
+    <route>
+      <from id="GatewayIn_ServiceActivator_3" uri="direct:ServiceActivator_3"/>
+      <to id="ServiceActivator_3|ServiceActivator_3_Transformer_3" uri="switchyard://ServiceActivator_3"/>
+      <to id="Transformer_3|Transformer_3_Aggregator_1" uri="xslt:Transformer_3"/>
+      <!-- Endpoint not yet supported by generator -->
+    </route>
+    <route>
+      <from id="GatewayIn_ServiceActivator_1" uri="direct:ServiceActivator_1"/>
+      <to id="ServiceActivator_1|ServiceActivator_1_Transformer_1" uri="switchyard://ServiceActivator_1"/>
+      <to id="Transformer_1|Transformer_1_Aggregator_1" uri="xslt:Transformer_1"/>
+      <!-- Endpoint not yet supported by generator -->
+    </route>
+    
+  </camelContext>
+</beans>
+
+

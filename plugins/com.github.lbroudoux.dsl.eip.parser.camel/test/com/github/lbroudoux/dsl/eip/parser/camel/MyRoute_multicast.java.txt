@@ -1,0 +1,33 @@
+import org.apache.camel.builder.RouteBuilder;
+
+public class MulticastRoute extends RouteBuilder {
+   /**
+    * The Camel route is configured via this method.
+   * The from endpoint is required to be a SwitchYard service.
+    */
+   public void configure() { 
+      from("switchyard://GatewayIn")      // GatewayIn|GatewayIn_ServiceActivator_2
+        .multicast()
+          .to("direct:ServiceActivator_2")         // GatewayIn_ServiceActivator_2
+          .to("direct:ServiceActivator_3")         // GatewayIn_ServiceActivator_3
+          .to("direct:ServiceActivator_1")         // GatewayIn_ServiceActivator_1
+      ;
+
+     from("direct:ServiceActivator_2")       // GatewayIn_ServiceActivator_2
+       .to("switchyard://ServiceActivator_2")                  // ServiceActivator_2|ServiceActivator_2_Transformer_2
+       .to("xslt:")           // Transformer_2|Transformer_2_Aggregator_1
+       // Endpoint not yet supported by generator
+     ;
+     from("direct:ServiceActivator_3")       // GatewayIn_ServiceActivator_3
+       .to("switchyard://ServiceActivator_3")                  // ServiceActivator_3|ServiceActivator_3_Transformer_3
+       .to("xslt:")           // Transformer_3|Transformer_3_Aggregator_1
+       // Endpoint not yet supported by generator
+     ;
+     from("direct:ServiceActivator_1")       // GatewayIn_ServiceActivator_1
+       .to("switchyard://ServiceActivator_1")                  // ServiceActivator_1|ServiceActivator_1_Transformer_1
+       .to("xslt:")           // Transformer_1|Transformer_1_Aggregator_1
+       // Endpoint not yet supported by generator
+     ;
+     
+   }
+}

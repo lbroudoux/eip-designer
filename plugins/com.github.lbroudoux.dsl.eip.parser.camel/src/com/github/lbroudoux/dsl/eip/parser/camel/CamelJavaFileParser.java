@@ -27,6 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTParser;
 import org.eclipse.jdt.core.dom.ASTVisitor;
@@ -164,7 +165,17 @@ public class CamelJavaFileParser extends ASTVisitor {
       Endpoint endpoint = null;
       
       if ("from".equals(invocation.getName().toString())) {
-         endpoint = EipFactory.eINSTANCE.createGateway();
+         // We may have some different stuffs here ! Check uri in order to guess...
+         String uri = invocation.arguments().get(0).toString();
+         if (uri.startsWith("\"direct:")) {
+            // That's a multicast subroute definition, use it to retrieve previously created
+            // channel and place it as the current incomingChannel.
+            int invocationLine = routeCU.getLineNumber(invocation.getStartPosition() + invocation.getLength());
+            String incomingChannelName = commentMap.get(invocationLine);
+            incomingChannel = retrieveChannelByName(incomingChannelName, route.getOwnedChannels());
+         } else {
+            endpoint = EipFactory.eINSTANCE.createGateway();
+         }
       } else if ("choice".equals(invocation.getName().toString())) { 
          endpoint = EipFactory.eINSTANCE.createRouter();
       } else if ("filter".equals(invocation.getName().toString())) {
@@ -218,6 +229,19 @@ public class CamelJavaFileParser extends ASTVisitor {
             endpoint = EipFactory.eINSTANCE.createTransformer();
          } else if (uri.startsWith("\"switchyard:")) {
             endpoint = EipFactory.eINSTANCE.createServiceActivator();
+         } else if (uri.startsWith("\"direct:")) {
+            // That's a multicast channel to a sub-route...
+            int invocationLine = routeCU.getLineNumber(invocation.getStartPosition() + invocation.getLength());
+            String outgoingChannelName = commentMap.get(invocationLine);
+            Channel multicast = retrieveChannelByName(outgoingChannelName, route.getOwnedChannels());
+            if (multicast == null) {
+               multicast = EipFactory.eINSTANCE.createChannel();
+               multicast.setName(outgoingChannelName);
+               route.getOwnedChannels().add(multicast);
+            }
+            
+            Endpoint lastEndpoint = endpoints.get(endpoints.size() - 1);
+            lastEndpoint.getToChannels().add(multicast);
          }
       } else {
          System.err.println("Got an unsupported: " + invocation.getName());
@@ -261,6 +285,16 @@ public class CamelJavaFileParser extends ASTVisitor {
       if (!expressionStack.isEmpty()) {
          parseAndFillEndpoint(expressionStack.pollLast(), incomingChannel, endpoints);
       }
+   }
+   
+   /** Browse the list of channels for retrieving the one having specified name. */
+   private Channel retrieveChannelByName(String name, EList<Channel> channels) {
+      for (Channel channel : channels) {
+         if (channel.getName().equals(name)) {
+            return channel;
+         }
+      }
+      return null;
    }
    
    /** Parse the Apache Camel route file and return content as String. */

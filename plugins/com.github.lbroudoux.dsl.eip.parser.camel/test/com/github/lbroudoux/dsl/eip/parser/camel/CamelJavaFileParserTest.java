@@ -104,4 +104,31 @@ public class CamelJavaFileParserTest {
       assertEquals("GatewayOut", resequencer.getToChannels().get(0).getToEndpoint().getName());
       assertTrue(resequencer.isStreamSequences());
    }
+   
+   @Test
+   public void testMulticast() throws Exception {
+      CamelJavaFileParser parser = new CamelJavaFileParser(
+            new File("test/com/github/lbroudoux/dsl/eip/parser/camel/MyRoute_multicast.java.txt"));
+      EIPModel model = EipFactory.eINSTANCE.createEIPModel();
+      parser.parseAndFillModel(model);
+      
+      // Assert on model.
+      assertEquals(1, model.getOwnedRoutes().size());
+      Route route = model.getOwnedRoutes().get(0);
+      assertEquals(7, route.getOwnedEndpoints().size());
+      assertEquals(9, route.getOwnedChannels().size());
+      
+      for (Endpoint endpoint : route.getOwnedEndpoints()) {
+         if ("GatewayIn".equals(endpoint.getName())) {
+            assertEquals(3, endpoint.getToChannels().size());
+         }
+         if ("ServiceActivator_1".equals(endpoint.getName())) {
+            assertEquals(1, endpoint.getFromChannels().size());
+         }
+      }
+      
+      // Once Aggregator support will be ok... 
+      // assertEquals(9, route.getOwnedEndpoints().size());
+      // assertEquals(10, route.getOwnedEndpoints().size());
+   }
 }

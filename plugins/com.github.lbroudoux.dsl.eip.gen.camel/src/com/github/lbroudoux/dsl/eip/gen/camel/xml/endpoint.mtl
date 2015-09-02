@@ -3,6 +3,18 @@
 
 [import com::github::lbroudoux::dsl::eip::gen::camel::xml::channel /]
 
+[template public followRoute(aEndpoint : Endpoint) post(trim())]
+[if (aEndpoint.toChannels->size() > 1)]
+<multicast>
+[for (channel : Channel | aEndpoint.toChannels)]
+  <to id="[channel.name/]" uri="direct:[channel.toEndpoint.name/]"/>
+[/for]
+</multicast>
+[elseif (not aEndpoint.toChannels->first().oclIsUndefined())]
+[aEndpoint.toChannels->first().toEndpoint.genEndpoint()/]
+[/if]
+[/template]
+
 [template public genEndpoint(anEndpoint : Endpoint) post(trim())]
 <!-- Endpoint not yet supported by generator -->
 [/template]
@@ -10,7 +22,7 @@
 [template public genEndpoint(aFilter : Filter) post(trim())]
 <filter id="[aFilter.name/][aFilter.genOutgoingChannelName()/]">
   <simple></simple>
-  [aFilter.toChannels->first().toEndpoint.genEndpoint()/]	
+  [aFilter.followRoute()/]	
 </filter>
 [/template]
 
@@ -24,7 +36,7 @@
 
 [template public genEndpoint(aTransformer : Transformer) post(trim())]
 <to id="[aTransformer.name/][aTransformer.genOutgoingChannelName()/]" uri="xslt:[aTransformer.name/]"/>
-[aTransformer.toChannels->first().toEndpoint.genEndpoint()/]
+[aTransformer.followRoute()/]
 [/template]
 
 [template public genEndpoint(aRouter : Router) post(trim())]
@@ -36,14 +48,14 @@
   </when>
 [/for]
   <otherwise>
-	[aRouter.toChannels->first().toEndpoint.genEndpoint()/]
+	[aRouter.followRoute()/]
   </otherwise>
 </choice>
 [/template]
 
 [template public genEndpoint(aSplitter : Splitter) post(trim())]
 <split id="[aSplitter.name/][aSplitter.genOutgoingChannelName()/]">
-  [aSplitter.toChannels->first().toEndpoint.genEndpoint()/]
+  [aSplitter.followRoute()/]
 </split>
 [/template]
 
@@ -59,7 +71,7 @@
 [else]
   <simple>[aResequencer.expression/]</simple>
 [/if]
-  [aResequencer.toChannels->first().toEndpoint.genEndpoint()/]
+  [aResequencer.followRoute()/]
 </resequence>
 [/template]
 
@@ -71,7 +83,7 @@
 [/if]
 [/for]
 </pipeline>
-[aCompositeProcessor.toChannels->first().toEndpoint.genEndpoint()/]
+[aCompositeProcessor.followRoute()/]
 [/template]
 
 [template public genEndpoint(aGateway : Gateway) post(trim())]
@@ -80,5 +92,5 @@
 
 [template public genEndpoint(aServiceActivator : ServiceActivator) post(trim())]
 <to id="[aServiceActivator.name/][aServiceActivator.genOutgoingChannelName()/]" uri="switchyard://[aServiceActivator.name/]"/>
-[aServiceActivator.toChannels->first().toEndpoint.genEndpoint()/]
+[aServiceActivator.followRoute()/]
 [/template]

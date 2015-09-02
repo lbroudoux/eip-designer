@@ -1,0 +1,21 @@
+[comment encoding = UTF-8 /]
+[module requests('http://www.github.com/lbroudoux/dsl/eip/1.0')]
+
+
+[query public endsWithAggregator(aEndpoint : Endpoint) : Boolean
+   = (aEndpoint.oclIsKindOf(Aggregator) or aEndpoint.toChannels.toEndpoint.endsWithAggregator()->includes(true))/]
+
+[query public getFollowingAggregator(aEndpoint : Endpoint) : Aggregator
+   = if (aEndpoint.oclIsKindOf(Aggregator)) then 
+		self 
+	 else
+		aEndpoint.toChannels->first().toEndpoint.getFollowingAggregator()
+	 endif  /]
+
+[**
+ * Returns all the endpoints corresponding to a subroute start (io. a route that begins after
+ * a publish-subscribe channel definition).
+ * @param aRoute The main route to extract subroutes from.
+ */]
+[query public getSubRoutesEndpoints(aRoute : Route) : Sequence(Endpoint) 
+	= aRoute.ownedEndpoints->select(toChannels->size() > 1).toChannels.toEndpoint /]

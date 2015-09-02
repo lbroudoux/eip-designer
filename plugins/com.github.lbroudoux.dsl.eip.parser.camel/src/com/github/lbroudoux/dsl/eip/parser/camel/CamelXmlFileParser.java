@@ -61,15 +61,18 @@ public class CamelXmlFileParser {
       Element root = document.getDocumentElement();
       
       NodeList routes = root.getElementsByTagName("route");
+      Route route = EipFactory.eINSTANCE.createRoute();
+      
       for (int i=0; i<routes.getLength(); i++) {
          Node routeNode = routes.item(i);
          Element routeElement = (Element)routeNode;
          
-         Route route = EipFactory.eINSTANCE.createRoute();
+         // Only main routes have an id. That's a constraint to make difference between main route
+         // in the designer and sub-routes that results from publish/subscribe/multicast diffusion branches.
          if (routeElement.hasAttribute("id")) {
             route.setName(routeElement.getAttribute("id"));
+            model.getOwnedRoutes().add(route);
          }
-         model.getOwnedRoutes().add(route);
          
          // Then extract and recursively add endpoints and channels to model.
          Node child = routeNode.getFirstChild();
@@ -88,7 +91,16 @@ public class CamelXmlFileParser {
             
             // Determine the correct implementation of Endpoint.
             if ("from".equals(endpointElement.getLocalName())) {
-               endpoint = EipFactory.eINSTANCE.createGateway();
+               // We may have some different stuffs here ! Check uri in order to guess...
+               String uri = endpointElement.getAttribute("uri");
+               if (uri.startsWith("direct:")) {
+                  // That's a multicast subroute definition, use it to retrieve previously created
+                  // channel and place it as the current incomingChannel.
+                  String id = endpointElement.getAttribute("id");
+                  incomingChannel = retrieveChannelByName(id, channels);
+               } else {
+                  endpoint = EipFactory.eINSTANCE.createGateway();
+               }
             } else if ("transform".equals(endpointElement.getLocalName())) {
                endpoint = EipFactory.eINSTANCE.createTransformer();
             } else if ("choice".equals(endpointElement.getLocalName())) {
@@ -107,6 +119,8 @@ public class CamelXmlFileParser {
                inspectChildren = true;
             } else if ("otherwise".equals(endpointElement.getLocalName())) {
                inspectChildren = true;
+            } else if ("multicast".equals(endpointElement.getLocalName())) {
+               inspectChildren = true;
             } else if ("resequence".equals(endpointElement.getLocalName())) {
                endpoint = EipFactory.eINSTANCE.createResequencer();
                inspectChildren = true;
@@ -123,6 +137,23 @@ public class CamelXmlFileParser {
                   endpoint = EipFactory.eINSTANCE.createTransformer();
                } else if (uri.startsWith("switchyard:")) {
                   endpoint = EipFactory.eINSTANCE.createServiceActivator();
+               } else if (uri.startsWith("direct:")) {
+                  // That's a multicast channel to a sub-route...
+                  String id = endpointElement.getAttribute("id");
+                  Channel multicast = retrieveChannelByName(id, channels);
+                  if (multicast == null) {
+                     multicast = EipFactory.eINSTANCE.createChannel();
+                     multicast.setName(endpointElement.getAttribute("id"));
+                     channels.add(multicast);
+                  }
+                  
+                  Endpoint lastEndpoint = endpoints.get(endpoints.size() - 1);
+                  lastEndpoint.getToChannels().add(multicast);
+                  
+                  // We cannot link channel to endpoint because it does not exist yet...
+                  // We cannot put channel as incomingChannel because next endpoint will
+                  // not be the outgoing endpoint... Incoming channel should be found when
+                  // dealing with sub-route endpoint!
                }
             } else {
                System.err.println("Got an unsupported: " + endpointElement.getLocalName());
@@ -177,6 +208,16 @@ public class CamelXmlFileParser {
       }
    }
    
+   /** Browse the list of channels for retrieving the one having specified name. */
+   private Channel retrieveChannelByName(String name, EList<Channel> channels) {
+      for (Channel channel : channels) {
+         if (channel.getName().equals(name)) {
+            return channel;
+         }
+      }
+      return null;
+   }
+
    /** Parse the Apache Camel route file and return DOM Document. */
    private Document parseRouteFile() throws Exception {
       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();

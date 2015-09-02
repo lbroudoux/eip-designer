@@ -3,28 +3,39 @@
 
 [import com::github::lbroudoux::dsl::eip::gen::camel::java::channel /]
 
+[template public followRoute(aEndpoint : Endpoint) post(trim())]
+[if (aEndpoint.toChannels->size() > 1)]
+.multicast()
+[for (channel : Channel | aEndpoint.toChannels)]
+  .to("direct:[channel.toEndpoint.name/]")			// [channel.name/]
+[/for]
+[elseif (not aEndpoint.toChannels->first().oclIsUndefined())]
+[aEndpoint.toChannels->first().toEndpoint.genEndpoint()/]
+[/if]
+[/template]
+
 [template public genEndpoint(anEndpoint : Endpoint) post(trim())]
 // Endpoint not yet supported by generator
 [/template]
 
 [template public genEndpoint(aFilter : Filter) post(trim())]
 .filter()					// [aFilter.name/][aFilter.genOutgoingChannelName()/]
-[aFilter.toChannels->first().toEndpoint.genEndpoint()/]
+[aFilter.followRoute()/]
 [/template]
 
 [template public genEndpoint(aFilter : ContentFilter) post(trim())]
 .filter()					// [aFilter.name/][aFilter.genOutgoingChannelName()/]
-[aFilter.toChannels->first().toEndpoint.genEndpoint()/]
+[aFilter.followRoute()/]
 [/template]
 
 [template public genEndpoint(anEnricher : Enricher) post(trim())]
 // Enricher					// [anEnricher.name/][anEnricher.genOutgoingChannelName()/]
-[anEnricher.toChannels->first().toEndpoint.genEndpoint()/]
+[anEnricher.followRoute()/]
 [/template]
 
 [template public genEndpoint(aTransformer : Transformer) post(trim())]
 .to("xslt:")				// [aTransformer.name/][aTransformer.genOutgoingChannelName()/]
-[aTransformer.toChannels->first().toEndpoint.genEndpoint()/]
+[aTransformer.followRoute()/]
 [/template]
 
 [template public genEndpoint(aRouter : Router) post(trim())]
@@ -34,17 +45,17 @@
       [route.channel.toEndpoint.genEndpoint()/]
 [/for]
    .otherwise()
-      [aRouter.toChannels->first().toEndpoint.genEndpoint()/]
+      [aRouter.followRoute()/]
 [/template]
 
 [template public genEndpoint(aSplitter : Splitter) post(trim())]
 .split()					// [aSplitter.name/][aSplitter.genOutgoingChannelName()/]
-  [aSplitter.toChannels->first().toEndpoint.genEndpoint()/]
+  [aSplitter.followRoute()/]
 [/template]
 
 [template public genEndpoint(aResequencer : Resequencer) post(trim())]
 .resequence([aResequencer.genExpression()/])[aResequencer.genConfig()/]				// [aResequencer.name/][aResequencer.genOutgoingChannelName()/]
-[aResequencer.toChannels->first().toEndpoint.genEndpoint()/]
+[aResequencer.followRoute()/]
 [/template]
 
 [template private genExpression(aResequencer : Resequencer) post(trim())]
@@ -70,7 +81,7 @@ header("[aResequencer.expression/]")
 [/if]
 [/for]
 .end()
-[aCompositeProcessor.toChannels->first().toEndpoint.genEndpoint()/]
+[aCompositeProcessor.followRoute()/]
 [/template]
 
 [template public genEndpoint(aGateway : Gateway) post(trim())]
@@ -79,6 +90,5 @@ header("[aResequencer.expression/]")
 
 [template public genEndpoint(aServiceActivator : ServiceActivator) post(trim())]
 .to("switchyard://[aServiceActivator.name/]")						// [aServiceActivator.name/][aServiceActivator.genOutgoingChannelName()/]
-[aServiceActivator.toChannels->first().toEndpoint.genEndpoint()/]
+[aServiceActivator.followRoute()/]
 [/template]
-
