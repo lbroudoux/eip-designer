@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.eip"
+            id="com.github.lbroudoux.dsl.eip.gen.camel.ui.popupMenus.contribution.IFile">
+         <menu id="com.github.lbroudoux.dsl.eip.gen.menu" label="EIP Generation" path="additionsAcceleo">
+               <groupMarker name="eip"/> 
+         </menu>
+         <action
+               class="com.github.lbroudoux.dsl.eip.gen.camel.ui.popupMenus.AcceleoGenerateEIPtoCamelXmlAction"
+               enablesFor="+"
+               id="com.github.lbroudoux.dsl.eip.gen.camel.ui.popupMenus.acceleoGenerateEIPtoCamelXmlAction"
+               icon="icons/default.gif"
+               label="Generate Camel Xml"
+               menubarPath="com.github.lbroudoux.dsl.eip.gen.menu/eip"/>
+         <action
+               class="com.github.lbroudoux.dsl.eip.gen.camel.ui.popupMenus.AcceleoGenerateEIPtoCamelJavaAction"
+               enablesFor="+"
+               id="com.github.lbroudoux.dsl.eip.gen.camel.ui.popupMenus.acceleoGenerateEIPtoCamelJavaAction"
+               icon="icons/default.gif"
+               label="Generate Camel Java"
+               menubarPath="com.github.lbroudoux.dsl.eip.gen.menu/eip"/>
+      </objectContribution>
+   </extension>
+</plugin>
