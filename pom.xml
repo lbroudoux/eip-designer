@@ -43,7 +43,9 @@
     <module>plugins/com.github.lbroudoux.dsl.eip.tests</module>
     <module>plugins/com.github.lbroudoux.dsl.eip.design</module>
     <module>plugins/com.github.lbroudoux.dsl.eip.gen.camel</module>
+    <module>plugins/com.github.lbroudoux.dsl.eip.gen.camel.ui</module>
     <module>plugins/com.github.lbroudoux.dsl.eip.gen.spring</module>
+    <module>plugins/com.github.lbroudoux.dsl.eip.gen.spring.ui</module>
     <module>plugins/com.github.lbroudoux.dsl.eip.parser.core</module>
     <module>plugins/com.github.lbroudoux.dsl.eip.parser.camel</module>
     <module>plugins/com.github.lbroudoux.dsl.eip.parser.spring</module>
