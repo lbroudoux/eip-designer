@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:int="http://www.springframework.org/schema/integration"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:beans="http://www.springframework.org/schema/beans"
+ xmlns:int-stream="http://www.springframework.org/schema/integration/stream"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/integration
+  http://www.springframework.org/schema/integration/spring-integration.xsd
+  http://www.springframework.org/schema/integration/stream
+  http://www.springframework.org/schema/integration/stream/spring-integration-stream.xsd">
+
+  <int:gateway id="GatewayIn" output-channel="GatewayIn_ServiceActivator_2" />
+  <int:gateway id="GatewayOut" input-channel="Aggregator_1_GatewayOut" />
+  <int:service-activator id="ServiceActivator_1" input-channel="GatewayIn_ServiceActivator_2"
+    output-channel="ServiceActivator_1_Transformer_1" />
+  <int:service-activator id="ServiceActivator_2" input-channel="GatewayIn_ServiceActivator_2"
+    output-channel="ServiceActivator_2_Transformer_2" />
+  <int:service-activator id="ServiceActivator_3" input-channel="GatewayIn_ServiceActivator_2"
+    output-channel="ServiceActivator_3_Transformer_3" />
+  <int:aggregator id="Aggregator_1" input-channel="Transformer_1_Aggregator_1"
+    output-channel="Aggregator_1_GatewayOut" />
+  <int:transformer id="Transformer_1" input-channel="ServiceActivator_1_Transformer_1"
+    output-channel="Transformer_1_Aggregator_1" />
+  <int:transformer id="Transformer_2" input-channel="ServiceActivator_2_Transformer_2"
+    output-channel="Transformer_1_Aggregator_1" />
+  <int:transformer id="Transformer_3" input-channel="ServiceActivator_3_Transformer_3"
+    output-channel="Transformer_1_Aggregator_1" />
+  
+  <int:publish-subscribe-channel id="GatewayIn_ServiceActivator_2"/>
+  
+  <int:channel id="Aggregator_1_GatewayOut" />
+  <int:channel id="ServiceActivator_1_Transformer_1" />
+  <int:channel id="ServiceActivator_2_Transformer_2" />
+  <int:channel id="ServiceActivator_3_Transformer_3" />
+  <int:channel id="Transformer_1_Aggregator_1" />
+   
+</beans:beans>

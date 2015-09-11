@@ -1,0 +1,22 @@
+[comment encoding = UTF-8 /]
+[module requests('http://www.github.com/lbroudoux/dsl/eip/1.0')]
+
+[**
+ * Check if given channel is a publish-subscribe one (ie. input endpoint
+ * has multiple other outgoing channels)
+ * @param aChannel The Channel to inspect.
+ */]
+[query public isPublishSubscribeChannel(aChannel : Channel) : Boolean 
+	= (not aChannel.fromEndpoint.oclIsUndefined() 
+		and aChannel.fromEndpoint.toChannels->size() > 1)
+/]
+
+[**
+ * Check if given channel is an aggregation one (ie. outgoing endpoint
+ * has multiple other input channels)
+ * @param aChannel The Channel to inspect.
+ */]
+[query public isAggregationChannel(aChannel : Channel) : Boolean
+	= (not aChannel.toEndpoint.oclIsUndefined()
+		and aChannel.toEndpoint.fromChannels->size() > 1)
+/]

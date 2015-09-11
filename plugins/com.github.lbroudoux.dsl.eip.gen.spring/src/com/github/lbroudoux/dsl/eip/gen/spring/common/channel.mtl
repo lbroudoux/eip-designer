@@ -1,17 +1,36 @@
 [comment encoding = UTF-8 /]
 [module channel('http://www.github.com/lbroudoux/dsl/eip/1.0')]
 
+[import com::github::lbroudoux::dsl::eip::gen::spring::requests::requests /]
 
-[template public genChannel(aChannel : Channel)]
+[template public genChannel(aChannel : Channel) post(trim())]
+[if (aChannel.isPublishSubscribeChannel())]
+  [if (aChannel = aChannel.fromEndpoint.toChannels->first())]
+<int:publish-subscribe-channel id="[aChannel.name/]"/>
+  [/if]
+[elseif (aChannel.isAggregationChannel())]
+  [if (aChannel = aChannel.toEndpoint.fromChannels->first())]
 <int:channel id="[aChannel.name/]" />
+  [/if]
+[else]
+<int:channel id="[aChannel.name/]" />
+[/if]
 [/template]
 
 [template public genChannelEndpointAttributes(anEndpoint : Endpoint) post (trim())]
 [if (anEndpoint.fromChannels->size() <> 0)]
+ [if (anEndpoint.fromChannels->first().isPublishSubscribeChannel())]
+ input-channel="[anEndpoint.fromChannels->first().fromEndpoint.toChannels->first().name/]"
+ [else]
  input-channel="[anEndpoint.fromChannels->first().name/]"
+ [/if]
 [/if]
 [if (not anEndpoint.toChannels->first().oclIsUndefined())] 
+  [if (anEndpoint.toChannels->first().isAggregationChannel())]
+  output-channel="[anEndpoint.toChannels->first().toEndpoint.fromChannels->first().name/]"
+  [else]
   output-channel="[anEndpoint.toChannels->first().name/]"
+  [/if]
 [/if]
 [/template]
 
