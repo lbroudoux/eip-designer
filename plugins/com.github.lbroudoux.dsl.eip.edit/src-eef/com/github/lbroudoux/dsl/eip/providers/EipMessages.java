@@ -286,9 +286,6 @@ public class EipMessages extends NLS {
 	public static String RoutePropertiesEditionPart_NameLabel;
 
 	
-	public static String RoutePropertiesEditionPart_OwnedServiceRefsLabel;
-
-	
 	public static String RoutePropertiesEditionPart_ExchangeTypeLabel;
 
 	
@@ -305,6 +302,9 @@ public class EipMessages extends NLS {
 
 	
 	public static String EIPModelPropertiesEditionPart_OwnedRoutesLabel;
+
+	
+	public static String EIPModelPropertiesEditionPart_OwnedServiceRefsLabel;
 
 	
 	public static String EnricherPropertiesEditionPart_NameLabel;

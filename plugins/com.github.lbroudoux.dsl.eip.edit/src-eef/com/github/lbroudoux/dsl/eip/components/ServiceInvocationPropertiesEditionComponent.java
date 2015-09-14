@@ -4,13 +4,6 @@
 package com.github.lbroudoux.dsl.eip.components;
 
 // Start of user code for imports
-import com.github.lbroudoux.dsl.eip.EipFactory;
-import com.github.lbroudoux.dsl.eip.EipPackage;
-import com.github.lbroudoux.dsl.eip.ServiceInvocation;
-import com.github.lbroudoux.dsl.eip.ServiceRef;
-import com.github.lbroudoux.dsl.eip.parts.EipViewsRepository;
-import com.github.lbroudoux.dsl.eip.parts.ServiceInvocationPropertiesEditionPart;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -35,6 +28,13 @@ import org.eclipse.emf.eef.runtime.ui.widgets.ButtonsModeEnum;
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
+
+import com.github.lbroudoux.dsl.eip.EipFactory;
+import com.github.lbroudoux.dsl.eip.EipPackage;
+import com.github.lbroudoux.dsl.eip.ServiceInvocation;
+import com.github.lbroudoux.dsl.eip.ServiceRef;
+import com.github.lbroudoux.dsl.eip.parts.EipViewsRepository;
+import com.github.lbroudoux.dsl.eip.parts.ServiceInvocationPropertiesEditionPart;
 
 
 // End of user code

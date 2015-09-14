@@ -187,7 +187,10 @@ public abstract class AbstractCreateEIPRouteDesignActionHandler extends Abstract
          if (serviceRefW.getReference() != null) {
             serviceRef.setReference(serviceRefW.getReference());
          }
-         route.getOwnedServiceRefs().add(serviceRef);
+         EIPModel model = (EIPModel) route.eContainer();
+         if (!isServiceRefAlreadyInModel(serviceRef, model)) {   
+            model.getOwnedServiceRefs().add(serviceRef);
+         }
          
          // Create a sample ServiceActivator and invocation for each reference.
          ServiceActivator activator = EipFactory.eINSTANCE.createServiceActivator();
@@ -198,5 +201,15 @@ public abstract class AbstractCreateEIPRouteDesignActionHandler extends Abstract
          route.getOwnedEndpoints().add(activator);
       }
       return route;
+   }
+   
+   /** Check if service reference is already present into model. */
+   private boolean isServiceRefAlreadyInModel(ServiceRef reference, EIPModel model) {
+      for (ServiceRef modelRef : model.getOwnedServiceRefs()) {
+         if (modelRef.getName().equals(reference.getName())) {
+            return true;
+         }
+      }
+      return false;
    }
 }

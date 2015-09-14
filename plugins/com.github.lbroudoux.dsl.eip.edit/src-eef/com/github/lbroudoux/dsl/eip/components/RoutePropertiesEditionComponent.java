@@ -4,13 +4,6 @@
 package com.github.lbroudoux.dsl.eip.components;
 
 // Start of user code for imports
-import com.github.lbroudoux.dsl.eip.EipPackage;
-import com.github.lbroudoux.dsl.eip.ExchangeType;
-import com.github.lbroudoux.dsl.eip.Route;
-import com.github.lbroudoux.dsl.eip.ServiceRef;
-import com.github.lbroudoux.dsl.eip.parts.EipViewsRepository;
-import com.github.lbroudoux.dsl.eip.parts.RoutePropertiesEditionPart;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -25,18 +18,15 @@ import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilt
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
-import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
-import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
-import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
-import org.eclipse.emf.eef.runtime.policies.PropertiesEditingPolicy;
-import org.eclipse.emf.eef.runtime.policies.impl.CreateEditingPolicy;
-import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
-import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.jface.viewers.ViewerFilter;
+
+import com.github.lbroudoux.dsl.eip.EipPackage;
+import com.github.lbroudoux.dsl.eip.ExchangeType;
+import com.github.lbroudoux.dsl.eip.Route;
+import com.github.lbroudoux.dsl.eip.parts.EipViewsRepository;
+import com.github.lbroudoux.dsl.eip.parts.RoutePropertiesEditionPart;
 
 
 // End of user code
@@ -50,11 +40,6 @@ public class RoutePropertiesEditionComponent extends SinglePartPropertiesEditing
 	
 	public static String BASE_PART = "Base"; //$NON-NLS-1$
 
-	
-	/**
-	 * Settings for ownedServiceRefs ReferencesTable
-	 */
-	protected ReferencesTableSettings ownedServiceRefsSettings;
 	
 	
 	/**
@@ -86,30 +71,11 @@ public class RoutePropertiesEditionComponent extends SinglePartPropertiesEditing
 			if (isAccessible(EipViewsRepository.Route.Properties.name))
 				basePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, route.getName()));
 			
-			if (isAccessible(EipViewsRepository.Route.Properties.ownedServiceRefs)) {
-				ownedServiceRefsSettings = new ReferencesTableSettings(route, EipPackage.eINSTANCE.getRoute_OwnedServiceRefs());
-				basePart.initOwnedServiceRefs(ownedServiceRefsSettings);
-			}
 			if (isAccessible(EipViewsRepository.Route.Properties.exchangeType)) {
 				basePart.initExchangeType(EEFUtils.choiceOfValues(route, EipPackage.eINSTANCE.getRoute_ExchangeType()), route.getExchangeType());
 			}
 			// init filters
 			
-			if (isAccessible(EipViewsRepository.Route.Properties.ownedServiceRefs)) {
-				basePart.addFilterToOwnedServiceRefs(new ViewerFilter() {
-					/**
-					 * {@inheritDoc}
-					 * 
-					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-					 */
-					public boolean select(Viewer viewer, Object parentElement, Object element) {
-						return (element instanceof String && element.equals("")) || (element instanceof ServiceRef); //$NON-NLS-1$ 
-					}
-			
-				});
-				// Start of user code for additional businessfilters for ownedServiceRefs
-				// End of user code
-			}
 			
 			// init values for referenced views
 			
@@ -123,7 +89,6 @@ public class RoutePropertiesEditionComponent extends SinglePartPropertiesEditing
 
 
 
-
 	/**
 	 * {@inheritDoc}
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#associatedFeature(java.lang.Object)
@@ -131,9 +96,6 @@ public class RoutePropertiesEditionComponent extends SinglePartPropertiesEditing
 	public EStructuralFeature associatedFeature(Object editorKey) {
 		if (editorKey == EipViewsRepository.Route.Properties.name) {
 			return EipPackage.eINSTANCE.getRoute_Name();
-		}
-		if (editorKey == EipViewsRepository.Route.Properties.ownedServiceRefs) {
-			return EipPackage.eINSTANCE.getRoute_OwnedServiceRefs();
 		}
 		if (editorKey == EipViewsRepository.Route.Properties.exchangeType) {
 			return EipPackage.eINSTANCE.getRoute_ExchangeType();
@@ -150,31 +112,6 @@ public class RoutePropertiesEditionComponent extends SinglePartPropertiesEditing
 		Route route = (Route)semanticObject;
 		if (EipViewsRepository.Route.Properties.name == event.getAffectedEditor()) {
 			route.setName((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
-		}
-		if (EipViewsRepository.Route.Properties.ownedServiceRefs == event.getAffectedEditor()) {
-			if (event.getKind() == PropertiesEditionEvent.ADD) {
-				EReferencePropertiesEditionContext context = new EReferencePropertiesEditionContext(editingContext, this, ownedServiceRefsSettings, editingContext.getAdapterFactory());
-				PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(semanticObject, PropertiesEditingProvider.class);
-				if (provider != null) {
-					PropertiesEditingPolicy policy = provider.getPolicy(context);
-					if (policy instanceof CreateEditingPolicy) {
-						policy.execute();
-					}
-				}
-			} else if (event.getKind() == PropertiesEditionEvent.EDIT) {
-				EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(editingContext, this, (EObject) event.getNewValue(), editingContext.getAdapterFactory());
-				PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt((EObject) event.getNewValue(), PropertiesEditingProvider.class);
-				if (provider != null) {
-					PropertiesEditingPolicy editionPolicy = provider.getPolicy(context);
-					if (editionPolicy != null) {
-						editionPolicy.execute();
-					}
-				}
-			} else if (event.getKind() == PropertiesEditionEvent.REMOVE) {
-				ownedServiceRefsSettings.removeFromReference((EObject) event.getNewValue());
-			} else if (event.getKind() == PropertiesEditionEvent.MOVE) {
-				ownedServiceRefsSettings.move(event.getNewIndex(), (ServiceRef) event.getNewValue());
-			}
 		}
 		if (EipViewsRepository.Route.Properties.exchangeType == event.getAffectedEditor()) {
 			route.setExchangeType((ExchangeType)event.getNewValue());
@@ -196,8 +133,6 @@ public class RoutePropertiesEditionComponent extends SinglePartPropertiesEditing
 					basePart.setName("");
 				}
 			}
-			if (EipPackage.eINSTANCE.getRoute_OwnedServiceRefs().equals(msg.getFeature()) && isAccessible(EipViewsRepository.Route.Properties.ownedServiceRefs))
-				basePart.updateOwnedServiceRefs();
 			if (EipPackage.eINSTANCE.getRoute_ExchangeType().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && isAccessible(EipViewsRepository.Route.Properties.exchangeType))
 				basePart.setExchangeType((ExchangeType)msg.getNewValue());
 			
@@ -214,7 +149,6 @@ public class RoutePropertiesEditionComponent extends SinglePartPropertiesEditing
 	protected NotificationFilter[] getNotificationFilters() {
 		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
 			EipPackage.eINSTANCE.getRoute_Name(),
-			EipPackage.eINSTANCE.getRoute_OwnedServiceRefs(),
 			EipPackage.eINSTANCE.getRoute_ExchangeType()		);
 		return new NotificationFilter[] {filter,};
 	}

@@ -6,12 +6,6 @@ package com.github.lbroudoux.dsl.eip.parts;
 // Start of user code for imports
 import org.eclipse.emf.common.util.Enumerator;
 
-import org.eclipse.emf.ecore.EObject;
-
-import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
-
-import org.eclipse.jface.viewers.ViewerFilter;
-
 
 // End of user code
 
@@ -33,50 +27,6 @@ public interface RoutePropertiesEditionPart {
 	 * 
 	 */
 	public void setName(String newValue);
-
-
-
-
-	/**
-	 * Init the ownedServiceRefs
-	 * @param current the current value
-	 * @param containgFeature the feature where to navigate if necessary
-	 * @param feature the feature to manage
-	 */
-	public void initOwnedServiceRefs(ReferencesTableSettings settings);
-
-	/**
-	 * Update the ownedServiceRefs
-	 * @param newValue the ownedServiceRefs to update
-	 * 
-	 */
-	public void updateOwnedServiceRefs();
-
-	/**
-	 * Adds the given filter to the ownedServiceRefs edition editor.
-	 * 
-	 * @param filter
-	 *            a viewer filter
-	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
-	 * 
-	 */
-	public void addFilterToOwnedServiceRefs(ViewerFilter filter);
-
-	/**
-	 * Adds the given filter to the ownedServiceRefs edition editor.
-	 * 
-	 * @param filter
-	 *            a viewer filter
-	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
-	 * 
-	 */
-	public void addBusinessFilterToOwnedServiceRefs(ViewerFilter filter);
-
-	/**
-	 * @return true if the given element is contained inside the ownedServiceRefs table
-	 * 
-	 */
-	public boolean isContainedInOwnedServiceRefsTable(EObject element);
 
 
 	/**

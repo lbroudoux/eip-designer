@@ -4,28 +4,19 @@
 package com.github.lbroudoux.dsl.eip.parts.impl;
 
 // Start of user code for imports
-import com.github.lbroudoux.dsl.eip.parts.AdapterPropertiesEditionPart;
-
-import com.github.lbroudoux.dsl.eip.providers.EipMessages;
-
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.api.parts.ISWTPropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.impl.parts.CompositePropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
-
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Composite;
+
+import com.github.lbroudoux.dsl.eip.parts.AdapterPropertiesEditionPart;
+import com.github.lbroudoux.dsl.eip.providers.EipMessages;
 
 // End of user code
 

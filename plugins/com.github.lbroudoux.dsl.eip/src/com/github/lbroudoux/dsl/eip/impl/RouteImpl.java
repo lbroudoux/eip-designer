@@ -7,7 +7,6 @@ import com.github.lbroudoux.dsl.eip.EipPackage;
 import com.github.lbroudoux.dsl.eip.Endpoint;
 import com.github.lbroudoux.dsl.eip.ExchangeType;
 import com.github.lbroudoux.dsl.eip.Route;
-import com.github.lbroudoux.dsl.eip.ServiceRef;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -28,7 +27,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.github.lbroudoux.dsl.eip.impl.RouteImpl#getOwnedEndpoints <em>Owned Endpoints</em>}</li>
  *   <li>{@link com.github.lbroudoux.dsl.eip.impl.RouteImpl#getOwnedChannels <em>Owned Channels</em>}</li>
  *   <li>{@link com.github.lbroudoux.dsl.eip.impl.RouteImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.github.lbroudoux.dsl.eip.impl.RouteImpl#getOwnedServiceRefs <em>Owned Service Refs</em>}</li>
  *   <li>{@link com.github.lbroudoux.dsl.eip.impl.RouteImpl#getExchangeType <em>Exchange Type</em>}</li>
  * </ul>
  * </p>
@@ -75,16 +73,6 @@ public class RouteImpl extends MetadatableImpl implements Route {
     * @ordered
     */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-    * The cached value of the '{@link #getOwnedServiceRefs() <em>Owned Service Refs</em>}' containment reference list.
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @see #getOwnedServiceRefs()
-    * @generated
-    * @ordered
-    */
-	protected EList<ServiceRef> ownedServiceRefs;
 
 	/**
     * The default value of the '{@link #getExchangeType() <em>Exchange Type</em>}' attribute.
@@ -172,18 +160,6 @@ public class RouteImpl extends MetadatableImpl implements Route {
 
 	/**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    */
-	public EList<ServiceRef> getOwnedServiceRefs() {
-      if (ownedServiceRefs == null) {
-         ownedServiceRefs = new EObjectContainmentEList<ServiceRef>(ServiceRef.class, this, EipPackage.ROUTE__OWNED_SERVICE_REFS);
-      }
-      return ownedServiceRefs;
-   }
-
-	/**
-    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     */
@@ -215,8 +191,6 @@ public class RouteImpl extends MetadatableImpl implements Route {
             return ((InternalEList<?>)getOwnedEndpoints()).basicRemove(otherEnd, msgs);
          case EipPackage.ROUTE__OWNED_CHANNELS:
             return ((InternalEList<?>)getOwnedChannels()).basicRemove(otherEnd, msgs);
-         case EipPackage.ROUTE__OWNED_SERVICE_REFS:
-            return ((InternalEList<?>)getOwnedServiceRefs()).basicRemove(otherEnd, msgs);
       }
       return super.eInverseRemove(otherEnd, featureID, msgs);
    }
@@ -235,8 +209,6 @@ public class RouteImpl extends MetadatableImpl implements Route {
             return getOwnedChannels();
          case EipPackage.ROUTE__NAME:
             return getName();
-         case EipPackage.ROUTE__OWNED_SERVICE_REFS:
-            return getOwnedServiceRefs();
          case EipPackage.ROUTE__EXCHANGE_TYPE:
             return getExchangeType();
       }
@@ -263,10 +235,6 @@ public class RouteImpl extends MetadatableImpl implements Route {
          case EipPackage.ROUTE__NAME:
             setName((String)newValue);
             return;
-         case EipPackage.ROUTE__OWNED_SERVICE_REFS:
-            getOwnedServiceRefs().clear();
-            getOwnedServiceRefs().addAll((Collection<? extends ServiceRef>)newValue);
-            return;
          case EipPackage.ROUTE__EXCHANGE_TYPE:
             setExchangeType((ExchangeType)newValue);
             return;
@@ -291,9 +259,6 @@ public class RouteImpl extends MetadatableImpl implements Route {
          case EipPackage.ROUTE__NAME:
             setName(NAME_EDEFAULT);
             return;
-         case EipPackage.ROUTE__OWNED_SERVICE_REFS:
-            getOwnedServiceRefs().clear();
-            return;
          case EipPackage.ROUTE__EXCHANGE_TYPE:
             setExchangeType(EXCHANGE_TYPE_EDEFAULT);
             return;
@@ -315,8 +280,6 @@ public class RouteImpl extends MetadatableImpl implements Route {
             return ownedChannels != null && !ownedChannels.isEmpty();
          case EipPackage.ROUTE__NAME:
             return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-         case EipPackage.ROUTE__OWNED_SERVICE_REFS:
-            return ownedServiceRefs != null && !ownedServiceRefs.isEmpty();
          case EipPackage.ROUTE__EXCHANGE_TYPE:
             return exchangeType != EXCHANGE_TYPE_EDEFAULT;
       }

@@ -55,12 +55,12 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eip.ecore#//Route/ownedEndpoints"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eip.ecore#//Route/ownedChannels"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//Route/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eip.ecore#//Route/ownedServiceRefs"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//Route/exchangeType"/>
     </genClasses>
     <genClasses ecoreClass="eip.ecore#//ServiceActivator"/>
     <genClasses ecoreClass="eip.ecore#//EIPModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eip.ecore#//EIPModel/ownedRoutes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eip.ecore#//EIPModel/ownedServiceRefs"/>
     </genClasses>
     <genClasses ecoreClass="eip.ecore#//Enricher">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eip.ecore#//Enricher/part"/>

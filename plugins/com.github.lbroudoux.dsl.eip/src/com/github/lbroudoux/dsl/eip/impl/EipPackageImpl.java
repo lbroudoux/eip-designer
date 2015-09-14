@@ -547,20 +547,11 @@ public class EipPackageImpl extends EPackageImpl implements EipPackage {
 
 	/**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    */
-	public EReference getRoute_OwnedServiceRefs() {
-      return (EReference)routeEClass.getEStructuralFeatures().get(3);
-   }
-
-	/**
-    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     */
    public EAttribute getRoute_ExchangeType() {
-      return (EAttribute)routeEClass.getEStructuralFeatures().get(4);
+      return (EAttribute)routeEClass.getEStructuralFeatures().get(3);
    }
 
    /**
@@ -591,6 +582,15 @@ public class EipPackageImpl extends EPackageImpl implements EipPackage {
    }
 
 	/**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EReference getEIPModel_OwnedServiceRefs() {
+      return (EReference)eipModelEClass.getEStructuralFeatures().get(1);
+   }
+
+   /**
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
     * @generated
@@ -891,13 +891,13 @@ public class EipPackageImpl extends EPackageImpl implements EipPackage {
       createEReference(routeEClass, ROUTE__OWNED_ENDPOINTS);
       createEReference(routeEClass, ROUTE__OWNED_CHANNELS);
       createEAttribute(routeEClass, ROUTE__NAME);
-      createEReference(routeEClass, ROUTE__OWNED_SERVICE_REFS);
       createEAttribute(routeEClass, ROUTE__EXCHANGE_TYPE);
 
       serviceActivatorEClass = createEClass(SERVICE_ACTIVATOR);
 
       eipModelEClass = createEClass(EIP_MODEL);
       createEReference(eipModelEClass, EIP_MODEL__OWNED_ROUTES);
+      createEReference(eipModelEClass, EIP_MODEL__OWNED_SERVICE_REFS);
 
       enricherEClass = createEClass(ENRICHER);
       createEAttribute(enricherEClass, ENRICHER__PART);
@@ -1023,13 +1023,13 @@ public class EipPackageImpl extends EPackageImpl implements EipPackage {
       initEReference(getRoute_OwnedEndpoints(), this.getEndpoint(), null, "ownedEndpoints", null, 0, -1, Route.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
       initEReference(getRoute_OwnedChannels(), this.getChannel(), null, "ownedChannels", null, 0, -1, Route.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
       initEAttribute(getRoute_Name(), ecorePackage.getEString(), "name", null, 1, 1, Route.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-      initEReference(getRoute_OwnedServiceRefs(), this.getServiceRef(), null, "ownedServiceRefs", null, 0, -1, Route.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
       initEAttribute(getRoute_ExchangeType(), this.getExchangeType(), "exchangeType", null, 0, 1, Route.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
       initEClass(serviceActivatorEClass, ServiceActivator.class, "ServiceActivator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
       initEClass(eipModelEClass, EIPModel.class, "EIPModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
       initEReference(getEIPModel_OwnedRoutes(), this.getRoute(), null, "ownedRoutes", null, 0, -1, EIPModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getEIPModel_OwnedServiceRefs(), this.getServiceRef(), null, "ownedServiceRefs", null, 0, -1, EIPModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
       initEClass(enricherEClass, Enricher.class, "Enricher", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
       initEAttribute(getEnricher_Part(), this.getMessagePart(), "part", "PAYLOAD", 0, 1, Enricher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

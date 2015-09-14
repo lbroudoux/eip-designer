@@ -3,8 +3,11 @@
  */
 package com.github.lbroudoux.dsl.eip.providers;
 
-import com.github.lbroudoux.dsl.eip.parts.EipViewsRepository;
+import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
+import org.eclipse.emf.eef.runtime.api.parts.IPropertiesEditionPart;
+import org.eclipse.emf.eef.runtime.api.providers.IPropertiesEditionPartProvider;
 
+import com.github.lbroudoux.dsl.eip.parts.EipViewsRepository;
 import com.github.lbroudoux.dsl.eip.parts.forms.AggregatorPropertiesEditionPartForm;
 import com.github.lbroudoux.dsl.eip.parts.forms.ChannelPropertiesEditionPartForm;
 import com.github.lbroudoux.dsl.eip.parts.forms.CompositeProcessorPropertiesEditionPartForm;
@@ -24,7 +27,6 @@ import com.github.lbroudoux.dsl.eip.parts.forms.ServiceInvocationPropertiesEditi
 import com.github.lbroudoux.dsl.eip.parts.forms.ServiceRefPropertiesEditionPartForm;
 import com.github.lbroudoux.dsl.eip.parts.forms.SplitterPropertiesEditionPartForm;
 import com.github.lbroudoux.dsl.eip.parts.forms.TransformerPropertiesEditionPartForm;
-
 import com.github.lbroudoux.dsl.eip.parts.impl.AggregatorPropertiesEditionPartImpl;
 import com.github.lbroudoux.dsl.eip.parts.impl.ChannelPropertiesEditionPartImpl;
 import com.github.lbroudoux.dsl.eip.parts.impl.CompositeProcessorPropertiesEditionPartImpl;
@@ -44,12 +46,6 @@ import com.github.lbroudoux.dsl.eip.parts.impl.ServiceInvocationPropertiesEditio
 import com.github.lbroudoux.dsl.eip.parts.impl.ServiceRefPropertiesEditionPartImpl;
 import com.github.lbroudoux.dsl.eip.parts.impl.SplitterPropertiesEditionPartImpl;
 import com.github.lbroudoux.dsl.eip.parts.impl.TransformerPropertiesEditionPartImpl;
-
-import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
-import org.eclipse.emf.eef.runtime.api.parts.IPropertiesEditionPart;
-
-import org.eclipse.emf.eef.runtime.api.providers.IPropertiesEditionPartProvider;
 
 /**
  * @author yanngv29

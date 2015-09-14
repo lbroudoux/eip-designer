@@ -218,9 +218,6 @@ public class EipViewsRepository {
 			public static String name = "eip::Route::properties::name";
 			
 			
-			public static String ownedServiceRefs = "eip::Route::properties::ownedServiceRefs";
-			
-			
 			public static String exchangeType = "eip::Route::properties::exchangeType";
 			
 	
@@ -261,6 +258,9 @@ public class EipViewsRepository {
 	
 			
 			public static String ownedRoutes = "eip::EIPModel::properties::ownedRoutes";
+			
+			
+			public static String ownedServiceRefs = "eip::EIPModel::properties::ownedServiceRefs";
 			
 	
 		}

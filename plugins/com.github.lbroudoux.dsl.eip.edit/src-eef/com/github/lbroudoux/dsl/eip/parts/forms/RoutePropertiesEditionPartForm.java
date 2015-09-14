@@ -4,76 +4,43 @@
 package com.github.lbroudoux.dsl.eip.parts.forms;
 
 // Start of user code for imports
-import com.github.lbroudoux.dsl.eip.parts.EipViewsRepository;
-import com.github.lbroudoux.dsl.eip.parts.RoutePropertiesEditionPart;
-
-import com.github.lbroudoux.dsl.eip.providers.EipMessages;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import org.eclipse.emf.common.util.Enumerator;
-
-import org.eclipse.emf.ecore.EObject;
-
-import org.eclipse.emf.ecore.util.EcoreAdapterFactory;
-
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-
 import org.eclipse.emf.eef.runtime.EEFRuntimePlugin;
-
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.api.parts.IFormPropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.part.impl.SectionPropertiesEditingPart;
-
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
-
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
-
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.EMFComboViewer;
 import org.eclipse.emf.eef.runtime.ui.widgets.FormUtils;
-import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable;
-
-import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable.ReferencesTableListener;
-
-import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableContentProvider;
-import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
-
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.jface.viewers.ViewerFilter;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
-
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Text;
-
 import org.eclipse.ui.forms.widgets.Form;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
+import org.eclipse.ui.views.properties.tabbed.ISection;
+
+import com.github.lbroudoux.dsl.eip.parts.EipViewsRepository;
+import com.github.lbroudoux.dsl.eip.parts.RoutePropertiesEditionPart;
+import com.github.lbroudoux.dsl.eip.providers.EipMessages;
 
 // End of user code
 
@@ -84,9 +51,6 @@ import org.eclipse.ui.forms.widgets.Section;
 public class RoutePropertiesEditionPartForm extends SectionPropertiesEditingPart implements IFormPropertiesEditionPart, RoutePropertiesEditionPart {
 
 	protected Text name;
-	protected ReferencesTable ownedServiceRefs;
-	protected List<ViewerFilter> ownedServiceRefsBusinessFilters = new ArrayList<ViewerFilter>();
-	protected List<ViewerFilter> ownedServiceRefsFilters = new ArrayList<ViewerFilter>();
 	protected EMFComboViewer exchangeType;
 
 
@@ -134,7 +98,6 @@ public class RoutePropertiesEditionPartForm extends SectionPropertiesEditingPart
 		CompositionSequence routeStep = new BindingCompositionSequence(propertiesEditionComponent);
 		CompositionStep propertiesStep = routeStep.addStep(EipViewsRepository.Route.Properties.class);
 		propertiesStep.addStep(EipViewsRepository.Route.Properties.name);
-		propertiesStep.addStep(EipViewsRepository.Route.Properties.ownedServiceRefs);
 		propertiesStep.addStep(EipViewsRepository.Route.Properties.exchangeType);
 		
 		
@@ -147,9 +110,6 @@ public class RoutePropertiesEditionPartForm extends SectionPropertiesEditingPart
 				}
 				if (key == EipViewsRepository.Route.Properties.name) {
 					return createNameText(widgetFactory, parent);
-				}
-				if (key == EipViewsRepository.Route.Properties.ownedServiceRefs) {
-					return createOwnedServiceRefsTableComposition(widgetFactory, parent);
 				}
 				if (key == EipViewsRepository.Route.Properties.exchangeType) {
 					return createExchangeTypeEMFComboViewer(widgetFactory, parent);
@@ -244,57 +204,6 @@ public class RoutePropertiesEditionPartForm extends SectionPropertiesEditingPart
 		return parent;
 	}
 
-	/**
-	 * @param container
-	 * 
-	 */
-	protected Composite createOwnedServiceRefsTableComposition(FormToolkit widgetFactory, Composite parent) {
-		this.ownedServiceRefs = new ReferencesTable(getDescription(EipViewsRepository.Route.Properties.ownedServiceRefs, EipMessages.RoutePropertiesEditionPart_OwnedServiceRefsLabel), new ReferencesTableListener() {
-			public void handleAdd() {
-				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(RoutePropertiesEditionPartForm.this, EipViewsRepository.Route.Properties.ownedServiceRefs, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.ADD, null, null));
-				ownedServiceRefs.refresh();
-			}
-			public void handleEdit(EObject element) {
-				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(RoutePropertiesEditionPartForm.this, EipViewsRepository.Route.Properties.ownedServiceRefs, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.EDIT, null, element));
-				ownedServiceRefs.refresh();
-			}
-			public void handleMove(EObject element, int oldIndex, int newIndex) {
-				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(RoutePropertiesEditionPartForm.this, EipViewsRepository.Route.Properties.ownedServiceRefs, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.MOVE, element, newIndex));
-				ownedServiceRefs.refresh();
-			}
-			public void handleRemove(EObject element) {
-				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(RoutePropertiesEditionPartForm.this, EipViewsRepository.Route.Properties.ownedServiceRefs, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.REMOVE, null, element));
-				ownedServiceRefs.refresh();
-			}
-			public void navigateTo(EObject element) { }
-		});
-		for (ViewerFilter filter : this.ownedServiceRefsFilters) {
-			this.ownedServiceRefs.addFilter(filter);
-		}
-		this.ownedServiceRefs.setHelpText(propertiesEditionComponent.getHelpContent(EipViewsRepository.Route.Properties.ownedServiceRefs, EipViewsRepository.FORM_KIND));
-		this.ownedServiceRefs.createControls(parent, widgetFactory);
-		this.ownedServiceRefs.addSelectionListener(new SelectionAdapter() {
-			
-			public void widgetSelected(SelectionEvent e) {
-				if (e.item != null && e.item.getData() instanceof EObject) {
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(RoutePropertiesEditionPartForm.this, EipViewsRepository.Route.Properties.ownedServiceRefs, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SELECTION_CHANGED, null, e.item.getData()));
-				}
-			}
-			
-		});
-		GridData ownedServiceRefsData = new GridData(GridData.FILL_HORIZONTAL);
-		ownedServiceRefsData.horizontalSpan = 3;
-		this.ownedServiceRefs.setLayoutData(ownedServiceRefsData);
-		this.ownedServiceRefs.setLowerBound(0);
-		this.ownedServiceRefs.setUpperBound(-1);
-		ownedServiceRefs.setID(EipViewsRepository.Route.Properties.ownedServiceRefs);
-		ownedServiceRefs.setEEFType("eef::AdvancedTableComposition"); //$NON-NLS-1$
-		// Start of user code for createOwnedServiceRefsTableComposition
-
-		// End of user code
-		return parent;
-	}
-
 	
 	protected Composite createExchangeTypeEMFComboViewer(FormToolkit widgetFactory, Composite parent) {
 		createDescription(parent, EipViewsRepository.Route.Properties.exchangeType, EipMessages.RoutePropertiesEditionPart_ExchangeTypeLabel);
@@ -368,72 +277,6 @@ public class RoutePropertiesEditionPartForm extends SectionPropertiesEditingPart
 			name.setEnabled(true);
 		}	
 		
-	}
-
-
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see com.github.lbroudoux.dsl.eip.parts.RoutePropertiesEditionPart#initOwnedServiceRefs(EObject current, EReference containingFeature, EReference feature)
-	 */
-	public void initOwnedServiceRefs(ReferencesTableSettings settings) {
-		if (current.eResource() != null && current.eResource().getResourceSet() != null)
-			this.resourceSet = current.eResource().getResourceSet();
-		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
-		ownedServiceRefs.setContentProvider(contentProvider);
-		ownedServiceRefs.setInput(settings);
-		boolean eefElementEditorReadOnlyState = isReadOnly(EipViewsRepository.Route.Properties.ownedServiceRefs);
-		if (eefElementEditorReadOnlyState && ownedServiceRefs.isEnabled()) {
-			ownedServiceRefs.setEnabled(false);
-			ownedServiceRefs.setToolTipText(EipMessages.Route_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !ownedServiceRefs.isEnabled()) {
-			ownedServiceRefs.setEnabled(true);
-		}	
-		
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see com.github.lbroudoux.dsl.eip.parts.RoutePropertiesEditionPart#updateOwnedServiceRefs()
-	 * 
-	 */
-	public void updateOwnedServiceRefs() {
-	ownedServiceRefs.refresh();
-}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see com.github.lbroudoux.dsl.eip.parts.RoutePropertiesEditionPart#addFilterOwnedServiceRefs(ViewerFilter filter)
-	 * 
-	 */
-	public void addFilterToOwnedServiceRefs(ViewerFilter filter) {
-		ownedServiceRefsFilters.add(filter);
-		if (this.ownedServiceRefs != null) {
-			this.ownedServiceRefs.addFilter(filter);
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see com.github.lbroudoux.dsl.eip.parts.RoutePropertiesEditionPart#addBusinessFilterOwnedServiceRefs(ViewerFilter filter)
-	 * 
-	 */
-	public void addBusinessFilterToOwnedServiceRefs(ViewerFilter filter) {
-		ownedServiceRefsBusinessFilters.add(filter);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see com.github.lbroudoux.dsl.eip.parts.RoutePropertiesEditionPart#isContainedInOwnedServiceRefsTable(EObject element)
-	 * 
-	 */
-	public boolean isContainedInOwnedServiceRefsTable(EObject element) {
-		return ((ReferencesTableSettings)ownedServiceRefs.getInput()).contains(element);
 	}
 
 	/**

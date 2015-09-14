@@ -3,26 +3,19 @@
  */
 package com.github.lbroudoux.dsl.eip.providers;
 
-import com.github.lbroudoux.dsl.eip.EipPackage;
-import com.github.lbroudoux.dsl.eip.ServiceActivator;
-
-import com.github.lbroudoux.dsl.eip.components.ServiceActivatorPropertiesEditionComponent;
-
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
-
 import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
-
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-
 import org.eclipse.emf.eef.runtime.providers.impl.PropertiesEditingProviderImpl;
-
 import org.eclipse.jface.viewers.IFilter;
+
+import com.github.lbroudoux.dsl.eip.EipPackage;
+import com.github.lbroudoux.dsl.eip.ServiceActivator;
+import com.github.lbroudoux.dsl.eip.components.ServiceActivatorPropertiesEditionComponent;
 
 /**
  * @author yanngv29

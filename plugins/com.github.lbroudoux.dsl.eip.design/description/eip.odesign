@@ -347,38 +347,42 @@
         </customization>
       </defaultLayer>
       <additionalLayers name="Services and Routes Refs">
-        <nodeMappings name="NRS_ServiceRef" semanticCandidatesExpression="[ownedServiceRefs/]" domainClass="eip.ServiceRef">
-          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="3" borderColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='deep%20orange']" labelSize="9" labelPosition="node" resizeKind="NSEW" color="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='light%20blue%20grey']">
+        <nodeMappings name="NRS_ServiceRef" deletionDescription="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@additionalLayers[name='Services%20and%20Routes%20Refs']/@toolSections.1/@ownedTools[name='ServiceRef']" semanticCandidatesExpression="[ownedEndpoints->filter(InvocableEndpoint).ownedServiceInvocations.serviceRef->union(ownedEndpoints->filter(CompositeProcessor).ownedEndpoints->filter(InvocableEndpoint).ownedServiceInvocations.serviceRef)->asSet()/]" domainClass="eip.ServiceRef">
+          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="3" borderColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='deep%20orange']" labelSize="9" labelPosition="node" resizeKind="NSEW" width="10" height="4" color="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='light%20blue%20grey']">
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="NRI_ServiceInvocation" sourceMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" targetMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@additionalLayers[name='Services%20and%20Routes%20Refs']/@nodeMappings[name='NRS_ServiceRef']" targetFinderExpression="[serviceRef/]" sourceFinderExpression="[eContainer()/]" domainClass="eip.ServiceInvocation" useDomainElement="true">
+        <edgeMappings name="NRI_ServiceInvocation" labelDirectEdit="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@additionalLayers[name='Services%20and%20Routes%20Refs']/@toolSections.1/@ownedTools[name='Invocation%20Operation%20Name']" sourceMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" targetMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@additionalLayers[name='Services%20and%20Routes%20Refs']/@nodeMappings[name='NRS_ServiceRef']" targetFinderExpression="[serviceRef/]" sourceFinderExpression="[eContainer()/]" domainClass="eip.ServiceInvocation" useDomainElement="true">
           <style strokeColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='deep%20orange']" lineStyle="dash" sizeComputationExpression="2" routingStyle="manhattan">
             <centerLabelStyleDescription labelSize="9" labelFormat="bold" labelExpression="['Op : ' + operationName/]" labelColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='deep%20orange']"/>
           </style>
         </edgeMappings>
         <toolSections name="References">
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Service Invocation" edgeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@additionalLayers[name='Services%20and%20Routes%20Refs']/@edgeMappings[name='NRI_ServiceInvocation']" connectionStartPrecondition="[preSource.oclIsKindOf(eip::InvocableEndpoint)/]">
-            <sourceVariable name="source"/>
-            <targetVariable name="target"/>
-            <sourceViewVariable name="sourceView"/>
-            <targetViewVariable name="targetView"/>
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="Service Invocation" precondition="[container.oclIsKindOf(eip::InvocableEndpoint)/]" candidatesExpression="[self.eContainer(eip::EIPModel).ownedServiceRefs/]" message="Select existing Service References" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/ServiceInvocation.gif" windowTitle="Selec Service Ref Wizard" windowImagePath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/ServiceRef.gif">
+            <element name="element"/>
+            <containerView name="containerView"/>
+            <container name="container"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[source/]">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container/]">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="eip.ServiceInvocation" referenceName="ownedServiceInvocations">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="serviceRef" valueExpression="[target/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="serviceRef" valueExpression="[element/]"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Service Reference" nodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@additionalLayers[name='Services%20and%20Routes%20Refs']/@nodeMappings[name='NRS_ServiceRef']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
+        </toolSections>
+        <toolSections name="Tools">
+          <ownedTools xsi:type="tool:DirectEditLabel" name="Invocation Operation Name">
+            <mask mask="Op : {0}"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="eip.ServiceRef" referenceName="ownedServiceRefs">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ServiceRef_'+self.eContainer(eip::Route).ownedServiceRefs->size()/]"/>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="operationName" valueExpression="[arg0/]"/>
             </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="ServiceRef" precondition="false">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation/>
           </ownedTools>
         </toolSections>
       </additionalLayers>
@@ -419,6 +423,29 @@
           <decorationDescriptions xsi:type="description:SemanticBasedDecoration" name="DCR_RequestReply" position="NORTH_EAST" decoratorPath="com.github.lbroudoux.dsl.eip.edit/icons/full/RequestReply.gif" preconditionExpression="[self.exchangeType =ExchangeType::IN_OUT/]" domainClass="Route"/>
         </decorationDescriptionsSet>
       </defaultLayer>
+      <additionalLayers name="Services and Routes Refs">
+        <nodeMappings name="NCS_ServiceRef" semanticCandidatesExpression="[ownedServiceRefs/]" domainClass="eip.ServiceRef">
+          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="3" borderColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='deep%20orange']" labelSize="9" labelPosition="node" resizeKind="NSEW" color="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='light%20blue%20grey']">
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="NCI_ServiceInvocation" sourceMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Routes%20Catalog']/@defaultLayer/@containerMappings[name='CCR_Route']" targetMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Routes%20Catalog']/@additionalLayers[name='Services%20and%20Routes%20Refs']/@nodeMappings[name='NCS_ServiceRef']" targetFinderExpression="[ownedEndpoints->filter(InvocableEndpoint).ownedServiceInvocations.serviceRef->union(ownedEndpoints->filter(CompositeProcessor).ownedEndpoints->filter(InvocableEndpoint).ownedServiceInvocations.serviceRef)->asSet()/]">
+          <style strokeColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='deep%20orange']" lineStyle="dash" sizeComputationExpression="2" routingStyle="manhattan">
+            <centerLabelStyleDescription labelSize="9" labelFormat="bold" labelExpression="&lt;uses>" labelColor="//@userColorsPalettes[name='EIP%20Color%20Palette']/@entries[name='deep%20orange']" iconPath="com.github.lbroudoux.dsl.eip.edit/icons/full/obj16/ServiceInvocation.gif"/>
+          </style>
+        </edgeMappings>
+        <toolSections name="References">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Service Reference" nodeMappings="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Routes%20Catalog']/@additionalLayers[name='Services%20and%20Routes%20Refs']/@nodeMappings[name='NCS_ServiceRef']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="eip.ServiceRef" referenceName="ownedServiceRefs">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ServiceRef_'+self.eContainer(eip::EIPModel).ownedServiceRefs->size()/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </additionalLayers>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="com.github.lbroudoux.dsl.eip.design.services.DebugService"/>
     <ownedJavaExtensions qualifiedClassName="com.github.lbroudoux.dsl.eip.design.services.EipDesignService"/>

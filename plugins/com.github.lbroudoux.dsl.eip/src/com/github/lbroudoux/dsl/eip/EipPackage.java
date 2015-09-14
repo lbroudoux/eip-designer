@@ -793,22 +793,13 @@ public interface EipPackage extends EPackage {
 	int ROUTE__NAME = METADATABLE_FEATURE_COUNT + 2;
 
 	/**
-    * The feature id for the '<em><b>Owned Service Refs</b></em>' containment reference list.
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @generated
-    * @ordered
-    */
-	int ROUTE__OWNED_SERVICE_REFS = METADATABLE_FEATURE_COUNT + 3;
-
-	/**
     * The feature id for the '<em><b>Exchange Type</b></em>' attribute.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-   int ROUTE__EXCHANGE_TYPE = METADATABLE_FEATURE_COUNT + 4;
+   int ROUTE__EXCHANGE_TYPE = METADATABLE_FEATURE_COUNT + 3;
 
    /**
     * The number of structural features of the '<em>Route</em>' class.
@@ -817,7 +808,7 @@ public interface EipPackage extends EPackage {
     * @generated
     * @ordered
     */
-	int ROUTE_FEATURE_COUNT = METADATABLE_FEATURE_COUNT + 5;
+	int ROUTE_FEATURE_COUNT = METADATABLE_FEATURE_COUNT + 4;
 
 	/**
     * The number of operations of the '<em>Route</em>' class.
@@ -994,13 +985,22 @@ public interface EipPackage extends EPackage {
 	int EIP_MODEL__OWNED_ROUTES = 0;
 
 	/**
+    * The feature id for the '<em><b>Owned Service Refs</b></em>' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int EIP_MODEL__OWNED_SERVICE_REFS = 1;
+
+   /**
     * The number of structural features of the '<em>EIP Model</em>' class.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-	int EIP_MODEL_FEATURE_COUNT = 1;
+	int EIP_MODEL_FEATURE_COUNT = 2;
 
 	/**
     * The number of operations of the '<em>EIP Model</em>' class.
@@ -1920,17 +1920,6 @@ public interface EipPackage extends EPackage {
 	EAttribute getRoute_Name();
 
 	/**
-    * Returns the meta object for the containment reference list '{@link com.github.lbroudoux.dsl.eip.Route#getOwnedServiceRefs <em>Owned Service Refs</em>}'.
-    * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-    * @return the meta object for the containment reference list '<em>Owned Service Refs</em>'.
-    * @see com.github.lbroudoux.dsl.eip.Route#getOwnedServiceRefs()
-    * @see #getRoute()
-    * @generated
-    */
-	EReference getRoute_OwnedServiceRefs();
-
-	/**
     * Returns the meta object for the attribute '{@link com.github.lbroudoux.dsl.eip.Route#getExchangeType <em>Exchange Type</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
@@ -1973,6 +1962,17 @@ public interface EipPackage extends EPackage {
 	EReference getEIPModel_OwnedRoutes();
 
 	/**
+    * Returns the meta object for the containment reference list '{@link com.github.lbroudoux.dsl.eip.EIPModel#getOwnedServiceRefs <em>Owned Service Refs</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the containment reference list '<em>Owned Service Refs</em>'.
+    * @see com.github.lbroudoux.dsl.eip.EIPModel#getOwnedServiceRefs()
+    * @see #getEIPModel()
+    * @generated
+    */
+   EReference getEIPModel_OwnedServiceRefs();
+
+   /**
     * Returns the meta object for class '{@link com.github.lbroudoux.dsl.eip.Enricher <em>Enricher</em>}'.
     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2494,13 +2494,6 @@ public interface EipPackage extends EPackage {
        */
 		EAttribute ROUTE__NAME = eINSTANCE.getRoute_Name();
 		/**
-       * The meta object literal for the '<em><b>Owned Service Refs</b></em>' containment reference list feature.
-       * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-       * @generated
-       */
-		EReference ROUTE__OWNED_SERVICE_REFS = eINSTANCE.getRoute_OwnedServiceRefs();
-		/**
        * The meta object literal for the '<em><b>Exchange Type</b></em>' attribute feature.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
@@ -2533,6 +2526,13 @@ public interface EipPackage extends EPackage {
        */
 		EReference EIP_MODEL__OWNED_ROUTES = eINSTANCE.getEIPModel_OwnedRoutes();
 		/**
+       * The meta object literal for the '<em><b>Owned Service Refs</b></em>' containment reference list feature.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EReference EIP_MODEL__OWNED_SERVICE_REFS = eINSTANCE.getEIPModel_OwnedServiceRefs();
+      /**
        * The meta object literal for the '{@link com.github.lbroudoux.dsl.eip.impl.EnricherImpl <em>Enricher</em>}' class.
        * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

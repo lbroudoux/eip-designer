@@ -15,7 +15,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.github.lbroudoux.dsl.eip.Route#getOwnedEndpoints <em>Owned Endpoints</em>}</li>
  *   <li>{@link com.github.lbroudoux.dsl.eip.Route#getOwnedChannels <em>Owned Channels</em>}</li>
  *   <li>{@link com.github.lbroudoux.dsl.eip.Route#getName <em>Name</em>}</li>
- *   <li>{@link com.github.lbroudoux.dsl.eip.Route#getOwnedServiceRefs <em>Owned Service Refs</em>}</li>
  *   <li>{@link com.github.lbroudoux.dsl.eip.Route#getExchangeType <em>Exchange Type</em>}</li>
  * </ul>
  * </p>
@@ -84,22 +83,6 @@ public interface Route extends Metadatable {
 	void setName(String value);
 
 	/**
-    * Returns the value of the '<em><b>Owned Service Refs</b></em>' containment reference list.
-    * The list contents are of type {@link com.github.lbroudoux.dsl.eip.ServiceRef}.
-    * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Owned Service Refs</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-    * @return the value of the '<em>Owned Service Refs</em>' containment reference list.
-    * @see com.github.lbroudoux.dsl.eip.EipPackage#getRoute_OwnedServiceRefs()
-    * @model containment="true"
-    * @generated
-    */
-	EList<ServiceRef> getOwnedServiceRefs();
-
-   /**
     * Returns the value of the '<em><b>Exchange Type</b></em>' attribute.
     * The literals are from the enumeration {@link com.github.lbroudoux.dsl.eip.ExchangeType}.
     * <!-- begin-user-doc -->

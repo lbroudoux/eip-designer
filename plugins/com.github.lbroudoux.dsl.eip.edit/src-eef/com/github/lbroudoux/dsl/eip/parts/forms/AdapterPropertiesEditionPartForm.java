@@ -4,30 +4,22 @@
 package com.github.lbroudoux.dsl.eip.parts.forms;
 
 // Start of user code for imports
-import com.github.lbroudoux.dsl.eip.parts.AdapterPropertiesEditionPart;
-
-import com.github.lbroudoux.dsl.eip.providers.EipMessages;
-
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.api.parts.IFormPropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.part.impl.SectionPropertiesEditingPart;
-
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
-
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
-
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Composite;
-
 import org.eclipse.ui.forms.widgets.Form;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
+import org.eclipse.ui.views.properties.tabbed.ISection;
+
+import com.github.lbroudoux.dsl.eip.parts.AdapterPropertiesEditionPart;
+import com.github.lbroudoux.dsl.eip.providers.EipMessages;
 
 // End of user code
 

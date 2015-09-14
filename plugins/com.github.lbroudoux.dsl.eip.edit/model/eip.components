@@ -123,9 +123,6 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9VyVgEeW6yLik4m7P0g" name="name" views="_QrJ9viVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Route/name"/>
         </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9WCVgEeW6yLik4m7P0g" name="ownedServiceRefs" views="_QrJ9vyVgEeW6yLik4m7P0g">
-          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Route/ownedServiceRefs"/>
-        </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9WSVgEeW6yLik4m7P0g" name="exchangeType" views="_QrJ9wCVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//Route/exchangeType"/>
         </properties>
@@ -149,6 +146,9 @@
       <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_QrJ9XyVgEeW6yLik4m7P0g" name="EIPModel" views="_QrJ9xyVgEeW6yLik4m7P0g">
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9YCVgEeW6yLik4m7P0g" name="ownedRoutes" views="_QrJ9ySVgEeW6yLik4m7P0g">
           <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//EIPModel/ownedRoutes"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_QrJ9WCVgEeW6yLik4m7P0g" name="ownedServiceRefs" views="_QrJ9vyVgEeW6yLik4m7P0g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//EIPModel/ownedServiceRefs"/>
         </properties>
         <model xsi:type="ecore:EClass" href="platform:/resource/com.github.lbroudoux.dsl.eip/model/eip.ecore#//EIPModel"/>
       </bindings>
@@ -422,9 +422,6 @@
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9viVgEeW6yLik4m7P0g" name="name">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9vyVgEeW6yLik4m7P0g" name="ownedServiceRefs">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
-          </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9wCVgEeW6yLik4m7P0g" name="exchangeType">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.2"/>
           </elements>
@@ -451,6 +448,9 @@
         <elements xsi:type="eef-views:Container" xmi:id="_QrJ9yCVgEeW6yLik4m7P0g" name="properties">
           <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9ySVgEeW6yLik4m7P0g" name="ownedRoutes">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_QrJ9vyVgEeW6yLik4m7P0g" name="ownedServiceRefs">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
           </elements>
         </elements>

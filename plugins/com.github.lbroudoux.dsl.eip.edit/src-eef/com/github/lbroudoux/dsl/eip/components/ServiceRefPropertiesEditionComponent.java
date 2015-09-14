@@ -4,11 +4,6 @@
 package com.github.lbroudoux.dsl.eip.components;
 
 // Start of user code for imports
-import com.github.lbroudoux.dsl.eip.EipPackage;
-import com.github.lbroudoux.dsl.eip.ServiceRef;
-import com.github.lbroudoux.dsl.eip.parts.EipViewsRepository;
-import com.github.lbroudoux.dsl.eip.parts.ServiceRefPropertiesEditionPart;
-
 import java.util.Iterator;
 import java.util.List;
 
@@ -31,6 +26,11 @@ import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
+
+import com.github.lbroudoux.dsl.eip.EipPackage;
+import com.github.lbroudoux.dsl.eip.ServiceRef;
+import com.github.lbroudoux.dsl.eip.parts.EipViewsRepository;
+import com.github.lbroudoux.dsl.eip.parts.ServiceRefPropertiesEditionPart;
 
 
 // End of user code

@@ -3,9 +3,9 @@
  */
 package com.github.lbroudoux.dsl.eip.providers;
 
-import com.github.lbroudoux.dsl.eip.util.EipAdapterFactory;
-
 import org.eclipse.emf.common.notify.Adapter;
+
+import com.github.lbroudoux.dsl.eip.util.EipAdapterFactory;
 
 /**
  * @author yanngv29

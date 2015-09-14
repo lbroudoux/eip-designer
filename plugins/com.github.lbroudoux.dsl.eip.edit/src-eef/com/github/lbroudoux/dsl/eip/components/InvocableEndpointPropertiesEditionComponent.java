@@ -4,14 +4,6 @@
 package com.github.lbroudoux.dsl.eip.components;
 
 // Start of user code for imports
-import com.github.lbroudoux.dsl.eip.Channel;
-import com.github.lbroudoux.dsl.eip.EipFactory;
-import com.github.lbroudoux.dsl.eip.EipPackage;
-import com.github.lbroudoux.dsl.eip.InvocableEndpoint;
-import com.github.lbroudoux.dsl.eip.ServiceInvocation;
-import com.github.lbroudoux.dsl.eip.parts.EipViewsRepository;
-import com.github.lbroudoux.dsl.eip.parts.InvocableEndpointPropertiesEditionPart;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -35,11 +27,16 @@ import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
 import org.eclipse.emf.eef.runtime.policies.PropertiesEditingPolicy;
 import org.eclipse.emf.eef.runtime.policies.impl.CreateEditingPolicy;
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-import org.eclipse.emf.eef.runtime.ui.widgets.ButtonsModeEnum;
-import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
+
+import com.github.lbroudoux.dsl.eip.Channel;
+import com.github.lbroudoux.dsl.eip.EipPackage;
+import com.github.lbroudoux.dsl.eip.InvocableEndpoint;
+import com.github.lbroudoux.dsl.eip.ServiceInvocation;
+import com.github.lbroudoux.dsl.eip.parts.EipViewsRepository;
+import com.github.lbroudoux.dsl.eip.parts.InvocableEndpointPropertiesEditionPart;
 
 
 // End of user code
