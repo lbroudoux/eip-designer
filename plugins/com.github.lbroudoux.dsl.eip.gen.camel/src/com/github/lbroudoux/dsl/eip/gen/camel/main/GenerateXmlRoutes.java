@@ -314,13 +314,13 @@ public class GenerateXmlRoutes extends AbstractAcceleoGenerator {
          * To learn more about Properties Files, have a look at the Acceleo documentation (Help -> Help Contents).
          */
     	
-    	   if (model != null && model.eResource() != null) {
-             propertiesFiles.addAll(AcceleoEngineUtils.getPropertiesFilesNearModel(model.eResource()));
-   	 	}
+    	if (model != null && model.eResource() != null) {
+           propertiesFiles.addAll(AcceleoEngineUtils.getPropertiesFilesNearModel(model.eResource()));
+    	}
     	
-    	   //propertiesFiles.add("platform:/com.github.lbroudoux.dsl.eip.gen.camel/com/github/lbroudoux/dsl/eip/gen/camel/default.properties");
-    	   //propertiesFiles.add("platform:/plugin/com.github.lbroudoux.dsl.eip.gen.camel/com/github/lbroudoux/dsl/eip/gen/camel/default.properties");
-    	   propertiesFiles.add("com.github.lbroudoux.dsl.eip.gen.camel.default");
+    	//propertiesFiles.add("platform:/com.github.lbroudoux.dsl.eip.gen.camel/com/github/lbroudoux/dsl/eip/gen/camel/default.properties");
+    	//propertiesFiles.add("platform:/plugin/com.github.lbroudoux.dsl.eip.gen.camel/com/github/lbroudoux/dsl/eip/gen/camel/default.properties");
+    	propertiesFiles.add("com.github.lbroudoux.dsl.eip.gen.camel.default");
     	
         return propertiesFiles;
     }

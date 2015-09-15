@@ -6,10 +6,24 @@
 [import com::github::lbroudoux::dsl::eip::gen::camel::java::endpoint /]
 
 [template public genJavaRouteFilePath(aRoute : Route)]
-[aRoute.name.concat('.java')/]
+[aRoute.getPackageName().substituteAll('.', '/').concat('/').concat(aRoute.name).concat('.java')/]
+[/template]
+
+[template public genJavaRouteClassName(aRoute : Route)]
+[aRoute.getPackageName().concat('.').concat(aRoute.name)/]
+[/template]
+
+[template private genPackageDeclaration(aRoute : Route) post(trim())]
+package [aRoute.getPackageName()/];
+[/template]
+
+[template private getPackageName(aRoute : Route) post(trim())]
+[getProperty('camel.java.package_name')/]
 [/template]
 
 [template public genJavaRouteFileBody(aRoute : Route)]
+[aRoute.genPackageDeclaration()/]
+
 import org.apache.camel.builder.RouteBuilder;
 
 public class [aRoute.name/] extends RouteBuilder {
