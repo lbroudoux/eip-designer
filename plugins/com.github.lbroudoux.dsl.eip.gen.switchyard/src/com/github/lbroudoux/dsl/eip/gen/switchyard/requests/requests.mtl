@@ -1,0 +1,38 @@
+[comment encoding = UTF-8 /]
+[module requests('http://www.github.com/lbroudoux/dsl/eip/1.0')]
+
+[**
+ * Returns all the ServiceRefs used by a Route. 
+ * @param aRoute The main route to extract references from.
+ */]
+[query public getInvokedServiceRefs(aRoute : Route) : Set(ServiceRef) 
+	= aRoute.ownedEndpoints->filter(eip::InvocableEndpoint).ownedServiceInvocations.serviceRef
+		->union(aRoute.ownedEndpoints->filter(eip::CompositeProcessor).ownedEndpoints->filter(eip::InvocableEndpoint).ownedServiceInvocations.serviceRef)
+		->asSet() 
+/]
+
+[**
+ * Check if a ServiceRef found into EIPModel is really used within a Route. 
+ * @param aServiceRef The reference to check usage for.
+ */]
+[query public isServiceRefUsed(aServiceRef : ServiceRef) : Boolean
+	= aServiceRef.eContainer(eip::EIPModel).ownedRoutes.getInvokedServiceRefs()->count(aServiceRef) > 0
+/]
+
+[**
+ * Returns the first invocation of a ServiceRef (used for generation a promotion link in SCA descriptor). 
+ * @param aServiceRef The reference to get usage for.
+ */]
+[query public getFirstInvocation(aServiceRef : ServiceRef) : ServiceInvocation
+	= aServiceRef.eContainer(eip::EIPModel).ownedRoutes.getServiceInvocations()->first()
+/]
+
+[**
+ * Returns all the ServiceInvocations of s specified route. 
+ * @param aRoute The main route to extract invocations from.
+ */]
+[query private getServiceInvocations(aRoute : Route) : Set(ServiceInvocation)
+	= aRoute.ownedEndpoints->filter(eip::InvocableEndpoint).ownedServiceInvocations
+		->union(aRoute.ownedEndpoints->filter(eip::CompositeProcessor).ownedEndpoints->filter(eip::InvocableEndpoint).ownedServiceInvocations)
+		->asSet() 
+/]

@@ -9,6 +9,9 @@
    <feature url="features/com.github.lbroudoux.dsl.eip.spring.feature_0.2.1.qualifier.jar" id="com.github.lbroudoux.dsl.eip.spring.feature" version="0.2.1.qualifier">
       <category name="com.github.lbroudoux.dsl.eip.extensions"/>
    </feature>
+   <feature url="features/com.github.lbroudoux.dsl.eip.switchyard.feature_0.2.1.qualifier.jar" id="com.github.lbroudoux.dsl.eip.switchyard.feature" version="0.2.1.qualifier">
+      <category name="com.github.lbroudoux.dsl.eip.extensions"/>
+   </feature>
    <bundle id="com.github.lbroudoux.dsl.eip.bridge.core" version="0.2.1.qualifier">
       <category name="com.github.lbroudoux.dsl.eip.sdk"/>
    </bundle>

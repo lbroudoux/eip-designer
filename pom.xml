@@ -46,6 +46,8 @@
     <module>plugins/com.github.lbroudoux.dsl.eip.gen.camel.ui</module>
     <module>plugins/com.github.lbroudoux.dsl.eip.gen.spring</module>
     <module>plugins/com.github.lbroudoux.dsl.eip.gen.spring.ui</module>
+    <module>plugins/com.github.lbroudoux.dsl.eip.gen.switchyard</module>
+    <module>plugins/com.github.lbroudoux.dsl.eip.gen.switchyard.ui</module>
     <module>plugins/com.github.lbroudoux.dsl.eip.parser.core</module>
     <module>plugins/com.github.lbroudoux.dsl.eip.parser.camel</module>
     <module>plugins/com.github.lbroudoux.dsl.eip.parser.spring</module>
@@ -54,6 +56,7 @@
     <module>features/com.github.lbroudoux.dsl.eip.feature</module>
     <module>features/com.github.lbroudoux.dsl.eip.camel.feature</module>
     <module>features/com.github.lbroudoux.dsl.eip.spring.feature</module>
+    <module>features/com.github.lbroudoux.dsl.eip.switchyard.feature</module>
     <!-- <module>features/com.github.lbroudoux.dsl.eip.togaf.feature</module> -->
     <module>releng/com.github.lbroudoux.dsl.eip.repository</module>
   </modules>

@@ -1,0 +1,74 @@
+[comment encoding = UTF-8 /]
+[module switchyardXmlFile('http://www.github.com/lbroudoux/dsl/eip/1.0')]
+
+[import com::github::lbroudoux::dsl::eip::gen::camel::files::javaRouteFile /]
+[import com::github::lbroudoux::dsl::eip::gen::camel::files::xmlRouteFile /]
+[import com::github::lbroudoux::dsl::eip::gen::switchyard::requests::requests /]
+
+
+[template public genSwitchyardXmlFilePath(anEIPModel : EIPModel)]
+src/main/resources/META-INF/switchyard.xml
+[/template]
+
+[template public genSwitchyardXmlFileBody(anEIPModel : EIPModel)]
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sy:switchyard xmlns:camel="urn:switchyard-component-camel:config:1.1" 
+    xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912" 
+    xmlns:soap="urn:switchyard-component-soap:config:1.1" 
+    xmlns:sy="urn:switchyard-config:switchyard:1.1" 
+    name="[getProperty('switchyard.composite_name')/]" 
+    targetNamespace="[getProperty('switchyard.composite_namespace')/]">
+
+  <sca:composite name="[getProperty('switchyard.composite_name')/]" targetNamespace="[getProperty('switchyard.composite_namespace')/]">
+    [for (aRoute : Route | anEIPModel.ownedRoutes)]
+    [aRoute.genSCAComponent()/]
+    [/for]
+    [for (aRoute : Route | anEIPModel.ownedRoutes)]
+    [aRoute.genSCAService()/]
+    [/for]
+    [for (aServiceRef : ServiceRef | anEIPModel.ownedServiceRefs)]
+	[if (aServiceRef.isServiceRefUsed())]
+  	[aServiceRef.genSCAReference()/]
+	[/if]
+    [/for]
+  </sca:composite>
+  <sy:domain>
+    <sy:properties>
+      <sy:property name="org.switchyard.handlers.messageTrace.enabled" value="true" />
+    </sy:properties>
+  </sy:domain>
+</sy:switchyard>
+[/template]
+
+[template protected genSCAComponent(aRoute : Route) post(trim())]
+<sca:component name="[aRoute.name/]Component">
+  <camel:implementation.camel>
+	[if (getProperty('switchyard.component_impl') = 'CAMEL_JAVA')]
+    <camel:java class="[aRoute.genJavaRouteClassName()/]" /> 
+    [else]
+    <camel:xml path="[aRoute.genXmlRouteFilePath()/]" />
+    [/if]
+  </camel:implementation.camel>
+  <sca:service name="[aRoute.name/]Service">
+  </sca:service>		
+  [for (aServiceRef : ServiceRef | aRoute.getInvokedServiceRefs())]
+  <sca:reference name="[aServiceRef.name/]">
+  </sca:reference>
+  [/for]
+</sca:component>
+[/template]
+
+[template protected genSCAService(aRoute : Route) post(trim())]
+<sca:service name="[aRoute.name/]Service" promote="[aRoute.name/]Component/[aRoute.name/]Service">
+</sca:service>
+[/template]
+
+[template protected genSCAReference(aServiceRef : ServiceRef) post(trim())]
+<sca:reference name="[aServiceRef.name/]" multiplicity="0..1" promote="[genPromoteLink(aServiceRef.getFirstInvocation())/]">
+</sca:reference>
+[/template]
+
+[template private genPromoteLink(anInvocation : ServiceInvocation)]
+[anInvocation.eContainer(eip::Route).name.concat('Component')/]/[anInvocation.serviceRef.name/]
+[/template]

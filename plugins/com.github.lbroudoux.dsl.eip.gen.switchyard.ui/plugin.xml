@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.eip"
+            id="com.github.lbroudoux.dsl.eip.gen.switchyard.ui.popupMenus.contribution.IFile">
+         <menu id="com.github.lbroudoux.dsl.eip.gen.menu" label="EIP Generation" path="additionsAcceleo">
+               <groupMarker name="eip"/> 
+         </menu>
+         <action
+               class="com.github.lbroudoux.dsl.eip.gen.switchyard.ui.popupMenus.AcceleoGenerateSwitchyardAction"
+               enablesFor="+"
+               id="com.github.lbroudoux.dsl.eip.gen.switchyard.ui.popupMenus.acceleoGenerateSwitchyardAction"
+               icon="icons/default.gif"
+               label="Generate Switchyard"
+               menubarPath="com.github.lbroudoux.dsl.eip.gen.menu/eip"/>
+      </objectContribution>
+   </extension>
+</plugin>
