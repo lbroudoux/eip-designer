@@ -15,13 +15,14 @@ Finally, we aim to provide adapters and bridges to allow the usage of EIP Design
 
 ## Build Status
 
-Current development version is `0.2.1-SNAPSHOT`. [![Build Status](https://travis-ci.org/lbroudoux/eip-designer.png?branch=master)](https://travis-ci.org/lbroudoux/eip-designer)
+Current development version is `0.3.1-SNAPSHOT`. [![Build Status](https://travis-ci.org/lbroudoux/eip-designer.png?branch=master)](https://travis-ci.org/lbroudoux/eip-designer)
 
 
 ## Releases
 
 | Versions      | Date          | Update site  |
 | ------------- | ------------- | ------------ |
+|`0.3.0`      |Sep. 21 2015   |`http://dl.bintray.com/lbroudoux/maven/eip-designer/0.3.0/`|
 |`0.2.0`      |Aug. 06 2015   |`http://dl.bintray.com/lbroudoux/maven/eip-designer/0.2.0/`|
 |`0.1.0`      |Jun. 16 2015   |`http://dl.bintray.com/lbroudoux/maven/eip-designer/0.1.0/`|
 
@@ -83,15 +84,9 @@ Designer provides only 2 diagrams :
 
 ### Generators
 
-Generators are provided within features dedicated to specific generation target. For now, we have :
-* [Spring Integration](http://projects.spring.io/spring-integration/) support provided by the _EIP Designer extension for Spring Integration_ (`com.github.lbroudoux.dsl.eip.spring.feature` feature)
-* [Apache Camel](http://camel.apache.org) support provided by the _EIP Designer extension for Apache Camel_ (`com.github.lbroudoux.dsl.eip.camel.feature` feature)
+Generators are provided within features dedicated to specific generation target. For now, there's support for [Apache Camel](http://camel.apache.org), [Spring Integration](http://projects.spring.io/spring-integration/) and [JBoss SwitchYard](http://switchyard.jboss.org/).
 
-For now, there's no graphical integration plugin defined and you should defined an _Acceleo Application_ and use our generators through the traditional `Run As...` integration.
-
-The main classes for generators are :
-* `com.github.lbroudoux.dsl.eip.gen.spring.main.GenerateRoutes` for [Spring Integration](http://projects.spring.io/spring-integration/),
-* `com.github.lbroudoux.dsl.eip.gen.camel.main.GenerateXmlRoutes` for [Apache Camel](http://camel.apache.org). We only support routes specification in Xml at time of writing.
+Check our [Wiki documentation](https://github.com/lbroudoux/eip-designer/wiki/How-To-Use-Generators) on how to use generators.
 
 ### Parsers and comparators
 
