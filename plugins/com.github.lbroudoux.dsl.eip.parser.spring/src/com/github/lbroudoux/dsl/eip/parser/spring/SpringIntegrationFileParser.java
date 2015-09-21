@@ -87,6 +87,11 @@ public class SpringIntegrationFileParser {
          Node channelNode = channels.item(i);
          route.getOwnedChannels().add(createChannel(channelNode));
       }
+      channels = root.getElementsByTagNameNS(SPRING_INT_NS, "publish-subscribe-channel");
+      for (int i=0; i<channels.getLength(); i++) {
+         Node channelNode = channels.item(i);
+         createPubSubChannels(route, channelNode);
+      }
       
       // Then, extract and add endpoints to model.
       NodeList children = root.getChildNodes();
@@ -120,6 +125,16 @@ public class SpringIntegrationFileParser {
       channel.setName(channelElement.getAttribute("id"));
       channelsMap.put(channel.getName(), channel);
       return channel;
+   }
+   
+   /** Create Channels mode elements from node and its attributes. */
+   private void createPubSubChannels(Route route, Node channelNode) {
+      Element channelElement = (Element) channelNode;
+      // TODO: retrieval and creation of multiple channels in case of PubSub semantic must be finalized. 
+      Channel channel = EipFactory.eINSTANCE.createChannel();
+      channel.setName(channelElement.getAttribute("id"));
+      channelsMap.put(channel.getName(), channel);
+      route.getOwnedChannels().add(channel);
    }
    
    /** Create Endpoint model element from node, its attributes and perhaps children. */

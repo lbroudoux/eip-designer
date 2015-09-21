@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: EIP Camel parser
 Bundle-SymbolicName: com.github.lbroudoux.dsl.eip.parser.camel;singleton:=true
-Bundle-Version: 0.2.1.qualifier
+Bundle-Version: 0.3.0
 Bundle-Activator: com.github.lbroudoux.dsl.eip.parser.camel.Activator
 Bundle-Vendor: LBroudoux
 Require-Bundle: org.eclipse.ui,

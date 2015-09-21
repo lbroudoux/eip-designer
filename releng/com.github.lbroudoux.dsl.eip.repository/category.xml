@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/com.github.lbroudoux.dsl.eip.feature_0.2.1.qualifier.jar" id="com.github.lbroudoux.dsl.eip.feature" version="0.2.1.qualifier">
+   <feature url="features/com.github.lbroudoux.dsl.eip.feature_0.3.0.jar" id="com.github.lbroudoux.dsl.eip.feature" version="0.3.0">
       <category name="com.github.lbroudoux.dsl.eip.designer"/>
    </feature>
-   <feature url="features/com.github.lbroudoux.dsl.eip.camel.feature_0.2.1.qualifier.jar" id="com.github.lbroudoux.dsl.eip.camel.feature" version="0.2.1.qualifier">
+   <feature url="features/com.github.lbroudoux.dsl.eip.camel.feature_0.3.0.jar" id="com.github.lbroudoux.dsl.eip.camel.feature" version="0.3.0">
       <category name="com.github.lbroudoux.dsl.eip.extensions"/>
    </feature>
-   <feature url="features/com.github.lbroudoux.dsl.eip.spring.feature_0.2.1.qualifier.jar" id="com.github.lbroudoux.dsl.eip.spring.feature" version="0.2.1.qualifier">
+   <feature url="features/com.github.lbroudoux.dsl.eip.spring.feature_0.3.0.jar" id="com.github.lbroudoux.dsl.eip.spring.feature" version="0.3.0">
       <category name="com.github.lbroudoux.dsl.eip.extensions"/>
    </feature>
-   <feature url="features/com.github.lbroudoux.dsl.eip.switchyard.feature_0.2.1.qualifier.jar" id="com.github.lbroudoux.dsl.eip.switchyard.feature" version="0.2.1.qualifier">
+   <feature url="features/com.github.lbroudoux.dsl.eip.switchyard.feature_0.3.0.jar" id="com.github.lbroudoux.dsl.eip.switchyard.feature" version="0.3.0">
       <category name="com.github.lbroudoux.dsl.eip.extensions"/>
    </feature>
-   <bundle id="com.github.lbroudoux.dsl.eip.bridge.core" version="0.2.1.qualifier">
+   <bundle id="com.github.lbroudoux.dsl.eip.bridge.core" version="0.3.0">
       <category name="com.github.lbroudoux.dsl.eip.sdk"/>
    </bundle>
    <category-def name="com.github.lbroudoux.dsl.eip.designer" label="EIP Designer"/>
