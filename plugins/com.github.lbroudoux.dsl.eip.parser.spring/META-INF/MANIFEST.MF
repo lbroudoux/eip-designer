@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: EIP Spring parser
 Bundle-SymbolicName: com.github.lbroudoux.dsl.eip.parser.spring;singleton:=true
-Bundle-Version: 0.3.0
+Bundle-Version: 0.3.1.qualifier
 Bundle-Activator: com.github.lbroudoux.dsl.eip.parser.spring.Activator
 Bundle-Vendor: LBroudoux
 Require-Bundle: org.eclipse.ui,

@@ -2,7 +2,7 @@
 <feature
       id="com.github.lbroudoux.dsl.eip.feature"
       label="EIP Designer Core"
-      version="0.3.0"
+      version="0.3.1.qualifier"
       provider-name="LBroudoux">
 
    <description url="https://github.com/lbroudoux/eip-designer">
