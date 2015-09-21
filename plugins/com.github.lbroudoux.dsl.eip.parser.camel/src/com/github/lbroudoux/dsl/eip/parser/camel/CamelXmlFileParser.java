@@ -29,6 +29,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import com.github.lbroudoux.dsl.eip.Aggregator;
 import com.github.lbroudoux.dsl.eip.Channel;
 import com.github.lbroudoux.dsl.eip.CompositeProcessor;
 import com.github.lbroudoux.dsl.eip.EIPModel;
@@ -45,6 +46,8 @@ import com.github.lbroudoux.dsl.eip.Route;
 public class CamelXmlFileParser {
 
    private final File routeFile;
+   
+   private Aggregator currentAggregator = null;
    
    public CamelXmlFileParser(File routeFile) {
       this.routeFile = routeFile;
@@ -85,6 +88,11 @@ public class CamelXmlFileParser {
       if (endpointNode != null) {
          
          if (endpointNode.getNodeType() == Node.ELEMENT_NODE) {
+            // Add incomingChannel only if we really have an endpoint.
+            if (incomingChannel != null) {
+               channels.add(incomingChannel);
+            }
+            
             Element endpointElement = (Element) endpointNode;
             Endpoint endpoint = null;
             boolean inspectChildren = false;
@@ -94,7 +102,7 @@ public class CamelXmlFileParser {
                // We may have some different stuffs here ! Check uri in order to guess...
                String uri = endpointElement.getAttribute("uri");
                if (uri.startsWith("direct:")) {
-                  // That's a multicast subroute definition, use it to retrieve previously created
+                  // That's a multicast sub-route definition, use it to retrieve previously created
                   // channel and place it as the current incomingChannel.
                   String id = endpointElement.getAttribute("id");
                   incomingChannel = retrieveChannelByName(id, channels);
@@ -115,12 +123,50 @@ public class CamelXmlFileParser {
             } else if ("split".equals(endpointElement.getLocalName())) {
                endpoint = EipFactory.eINSTANCE.createSplitter();
                inspectChildren = true;
+               // We may have an aggregator referenced here.
+               String strategyRef = endpointElement.getAttribute("strategyRef");
+               if (strategyRef != null && strategyRef.length() > 0) {
+                  String id = endpointElement.getAttribute("id");
+                  String name = id.substring(0, id.indexOf('|'));
+                  String outgoingChannelName = id.substring(id.indexOf('|') + 1); 
+                  
+                  Aggregator aggregator = EipFactory.eINSTANCE.createAggregator();
+                  aggregator.setName(name);
+                  aggregator.setStrategy(strategyRef);
+                  Channel outgoingChannel = retrieveChannelByName(outgoingChannelName, channels);
+                  if (outgoingChannel == null) {
+                     outgoingChannel = EipFactory.eINSTANCE.createChannel();
+                     outgoingChannel.setName(outgoingChannelName);
+                     channels.add(outgoingChannel);
+                  }
+                  aggregator.getToChannels().add(outgoingChannel);
+                  currentAggregator = aggregator;
+               }
             } else if ("when".equals(endpointElement.getLocalName())) {
                inspectChildren = true;
             } else if ("otherwise".equals(endpointElement.getLocalName())) {
                inspectChildren = true;
             } else if ("multicast".equals(endpointElement.getLocalName())) {
                inspectChildren = true;
+               // We may have an aggregator referenced here.
+               String strategyRef = endpointElement.getAttribute("strategyRef");
+               if (strategyRef != null && strategyRef.length() > 0) {
+                  String id = endpointElement.getAttribute("id");
+                  String name = id.substring(0, id.indexOf('|'));
+                  String outgoingChannelName = id.substring(id.indexOf('|') + 1); 
+                  
+                  Aggregator aggregator = EipFactory.eINSTANCE.createAggregator();
+                  aggregator.setName(name);
+                  aggregator.setStrategy(strategyRef);
+                  Channel outgoingChannel = retrieveChannelByName(outgoingChannelName, channels);
+                  if (outgoingChannel == null) {
+                     outgoingChannel = EipFactory.eINSTANCE.createChannel();
+                     outgoingChannel.setName(outgoingChannelName);
+                     channels.add(outgoingChannel);
+                  }
+                  aggregator.getToChannels().add(outgoingChannel);
+                  currentAggregator = aggregator;
+               }
             } else if ("resequence".equals(endpointElement.getLocalName())) {
                endpoint = EipFactory.eINSTANCE.createResequencer();
                inspectChildren = true;
@@ -144,6 +190,7 @@ public class CamelXmlFileParser {
                   if (multicast == null) {
                      multicast = EipFactory.eINSTANCE.createChannel();
                      multicast.setName(endpointElement.getAttribute("id"));
+                     System.err.println("Adding mc channel with name: " + multicast.getName());
                      channels.add(multicast);
                   }
                   
@@ -178,14 +225,15 @@ public class CamelXmlFileParser {
                   incomingChannel.setToEndpoint(endpoint);
                }
                
-               // We have created an endpoint so we need an outgoingChannel that
-               // will become incoming one for next endpoint to create !
+               // We have created an endpoint so we need an outgoingChannel that will become
+               // incoming one for next endpoint to create ! But only if there's other endpoint to link to !
                incomingChannel = EipFactory.eINSTANCE.createChannel();
-               if (outgoingChannelName != null) {
-                  incomingChannel.setName(outgoingChannelName);
-               }
                incomingChannel.setFromEndpoint(endpoint);
-               channels.add(incomingChannel);
+               if (outgoingChannelName != null) {
+                  // Because we have a name, we're sure channel exists. We can add it here.
+                  incomingChannel.setName(outgoingChannelName);
+                  channels.add(incomingChannel);
+               }
             }
             
             // If node may contain endpoint nodes, go deeper...
@@ -198,6 +246,15 @@ public class CamelXmlFileParser {
                   parseAndFillEndpoint(firstChild, incomingChannel, ((CompositeProcessor)endpoint).getOwnedEndpoints(), channels);
                } else {
                   parseAndFillEndpoint(firstChild, incomingChannel, endpoints, channels);
+               }
+               
+               // If we have an aggregator and were inspecting children of specific element,
+               // we have now finished and must add it to the list of route endpoints. 
+               if (currentAggregator != null && (
+                     "multicast".equals(endpointElement.getLocalName())
+                     || "split".equals(endpointElement.getLocalName())) ) {
+                  endpoints.add(currentAggregator);
+                  currentAggregator = null;
                }
             }
          }

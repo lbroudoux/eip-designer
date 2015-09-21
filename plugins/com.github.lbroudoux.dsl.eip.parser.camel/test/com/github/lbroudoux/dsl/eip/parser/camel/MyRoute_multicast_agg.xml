@@ -9,30 +9,28 @@
   <camelContext xmlns="http://camel.apache.org/schema/spring">
     <route id="MulticastRoute">
       <from id="GatewayIn|GatewayIn_ServiceActivator_2" uri="switchyard://GatewayIn"/>
-      <multicast>
+      <multicast id="Aggregator_1|Aggregator_1_GatewayOut" strategyRef="myStrategyBean">
         <to id="GatewayIn_ServiceActivator_2" uri="direct:ServiceActivator_2"/>
         <to id="GatewayIn_ServiceActivator_3" uri="direct:ServiceActivator_3"/>
         <to id="GatewayIn_ServiceActivator_1" uri="direct:ServiceActivator_1"/>
       </multicast>
+      <to id="GatewayOut" uri="switchyard://GatewayOut"/>
     </route>
     
     <route>
       <from id="GatewayIn_ServiceActivator_2" uri="direct:ServiceActivator_2"/>
       <to id="ServiceActivator_2|ServiceActivator_2_Transformer_2" uri="switchyard://ServiceActivator_2"/>
-      <to id="Transformer_2|Transformer_2_GatewayOut_2" uri="xslt:Transformer_2"/>
-      <to id="GatewayOut_2" uri="switchyard://GatewayOut_2"/>
+      <to id="Transformer_2|Transformer_2_Aggregator_1" uri="xslt:Transformer_2"/>
     </route>
     <route>
       <from id="GatewayIn_ServiceActivator_3" uri="direct:ServiceActivator_3"/>
       <to id="ServiceActivator_3|ServiceActivator_3_Transformer_3" uri="switchyard://ServiceActivator_3"/>
-      <to id="Transformer_3|Transformer_3_GatewayOut_3" uri="xslt:Transformer_3"/>
-      <to id="GatewayOut_3" uri="switchyard://GatewayOut_3"/>
+      <to id="Transformer_3|Transformer_3_Aggregator_1" uri="xslt:Transformer_3"/>
     </route>
     <route>
       <from id="GatewayIn_ServiceActivator_1" uri="direct:ServiceActivator_1"/>
       <to id="ServiceActivator_1|ServiceActivator_1_Transformer_1" uri="switchyard://ServiceActivator_1"/>
-      <to id="Transformer_1|Transformer_1_GatewayOut_1" uri="xslt:Transformer_1"/>
-      <to id="GatewayOut_1" uri="switchyard://GatewayOut_1"/>
+      <to id="Transformer_1|Transformer_1_Aggregator_1" uri="xslt:Transformer_1"/>
     </route>
     
   </camelContext>

@@ -2,13 +2,22 @@
 [module endpoint('http://www.github.com/lbroudoux/dsl/eip/1.0')]
 
 [import com::github::lbroudoux::dsl::eip::gen::camel::java::channel /]
+[import com::github::lbroudoux::dsl::eip::gen::camel::requests::requests /]
 
 [template public followRoute(aEndpoint : Endpoint) post(trim())]
 [if (aEndpoint.toChannels->size() > 1)]
+[if (aEndpoint.endsWithAggregator())]
+.multicast().strategyRef("[aEndpoint.getFollowingAggregator().strategy/]")				// [aEndpoint.getFollowingAggregator().name/]
+[else]
 .multicast()
+[/if]
 [for (channel : Channel | aEndpoint.toChannels)]
   .to("direct:[channel.toEndpoint.name/]")			// [channel.name/]
 [/for]
+[if (aEndpoint.endsWithAggregator())]
+.end()
+[aEndpoint.getFollowingAggregator().followRoute()/]
+[/if]
 [elseif (not aEndpoint.toChannels->first().oclIsUndefined())]
 [aEndpoint.toChannels->first().toEndpoint.genEndpoint()/]
 [/if]
@@ -49,8 +58,16 @@
 [/template]
 
 [template public genEndpoint(aSplitter : Splitter) post(trim())]
+[if (aSplitter.endsWithAggregator())]
+.split().strategyRef("[aSplitter.getFollowingAggregator().strategy/]")					// [aSplitter.name/][aSplitter.genOutgoingChannelName()/]
+[else]
 .split()					// [aSplitter.name/][aSplitter.genOutgoingChannelName()/]
+[/if]
   [aSplitter.followRoute()/]
+[/template]
+
+[template public genEndpoint(anAggregator : Aggregator) post(trim())]
+[comment Nothing to generate here: aggregation strategy is defined on split or multicast/]
 [/template]
 
 [template public genEndpoint(aResequencer : Resequencer) post(trim())]

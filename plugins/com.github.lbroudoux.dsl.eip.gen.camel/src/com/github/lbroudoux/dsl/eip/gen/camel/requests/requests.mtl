@@ -1,13 +1,22 @@
 [comment encoding = UTF-8 /]
 [module requests('http://www.github.com/lbroudoux/dsl/eip/1.0')]
 
-
+[**
+ * Tells if given endpoint is followed by an Aggregator (in order to deduce that endpoint
+ * should reference an aggregation strategy for example).
+ * @param aEndpoint The endpoint to evaluate.   
+ */]
 [query public endsWithAggregator(aEndpoint : Endpoint) : Boolean
    = (aEndpoint.oclIsKindOf(Aggregator) or aEndpoint.toChannels.toEndpoint.endsWithAggregator()->includes(true))/]
 
+[**
+ * Get Aggregator endpoint following the current one (check of existence of such an Aggregator
+ * should be done before using the endsWithAggregator() request).
+ * @param aEndpoint The endpoint to evaluate.
+ */]
 [query public getFollowingAggregator(aEndpoint : Endpoint) : Aggregator
    = if (aEndpoint.oclIsKindOf(Aggregator)) then 
-		self 
+		self.oclAsType(Aggregator)
 	 else
 		aEndpoint.toChannels->first().toEndpoint.getFollowingAggregator()
 	 endif  /]

@@ -160,7 +160,7 @@ public class CamelXmlFileParserTest {
       // Assert on model.
       assertEquals(1, model.getOwnedRoutes().size());
       Route route = model.getOwnedRoutes().get(0);
-      assertEquals(7, route.getOwnedEndpoints().size());
+      assertEquals(10, route.getOwnedEndpoints().size());
       assertEquals(9, route.getOwnedChannels().size());
       
       for (Endpoint endpoint : route.getOwnedEndpoints()) {
@@ -171,9 +171,36 @@ public class CamelXmlFileParserTest {
             assertEquals(1, endpoint.getFromChannels().size());
          }
       }
+   }
+   
+   @Test
+   public void testMulticastWithAggregator() throws Exception {
+      CamelXmlFileParser parser = new CamelXmlFileParser(
+            new File("test/com/github/lbroudoux/dsl/eip/parser/camel/MyRoute_multicast_agg.xml"));
+      EIPModel model = EipFactory.eINSTANCE.createEIPModel();
+      parser.parseAndFillModel(model);
       
-      // Once Aggregator support will be ok... 
-      // assertEquals(9, route.getOwnedEndpoints().size());
-      // assertEquals(10, route.getOwnedEndpoints().size());
+      // Assert on model.
+      assertEquals(1, model.getOwnedRoutes().size());
+      Route route = model.getOwnedRoutes().get(0);
+      
+      for (Endpoint endpoint : route.getOwnedEndpoints()) {
+         System.err.println("Endpoint " + endpoint.getName());
+      }
+      for (Channel channel : route.getOwnedChannels()) {
+         System.err.println("Channel " + channel.getName());
+      }
+      
+      assertEquals(9, route.getOwnedEndpoints().size());
+      assertEquals(10, route.getOwnedChannels().size());
+      
+      for (Endpoint endpoint : route.getOwnedEndpoints()) {
+         if ("GatewayIn".equals(endpoint.getName())) {
+            assertEquals(3, endpoint.getToChannels().size());
+         }
+         if ("ServiceActivator_1".equals(endpoint.getName())) {
+            assertEquals(1, endpoint.getFromChannels().size());
+         }
+      }
    }
 }
