@@ -1,6 +1,6 @@
 <blockquote>
-I'll talk about EIP Designer at [SiriusCon 2015 Paris](http://www.siriuscon.org/) on December 3rd. Join us at Room 2 for an introduction! 
-![sirius](http://www.eclipse.org/sirius/images/logos/logo.png)
+I'll talk about EIP Designer at <a href="http://www.siriuscon.org/">SiriusCon 2015 Paris</a> on December 3rd. Join us at Room 2 for an introduction!<br>
+<img src="http://www.eclipse.org/sirius/images/logos/logo.png"/>
 </blockquote>
 
 # eip-designer
