@@ -1,3 +1,8 @@
+<blockquote>
+I'll talk about EIP Designer at [SiriusCon 2015 Paris](http://www.siriuscon.org/) on December 3rd. Join us at Room 2 for an introduction! 
+![sirius](http://www.eclipse.org/sirius/images/logos/logo.png)
+</blockquote>
+
 # eip-designer
 
 A Sirius designer for Enterprise Integration Patterns (see http://www.enterpriseintegrationpatterns.com/ for introduction of what are EIP). It allows you to design integration routes using the common patterns and vocabulary used within Enterprise Application Integration or Enterprise Services Bus solutions.
@@ -11,6 +16,8 @@ Moreover designing routes, the goal of EIP Designer is also to give :
 * control onto final realization by providing parsers and comparators able to check that development was done respecting "original design". 
 
 Finally, we aim to provide adapters and bridges to allow the usage of EIP Designer from a more generic and abstract design solution such as a TOGAF or a Archimate Designer. Those one presenting the notion of Services and Services dependencies without a mean of describing orchestration process or integration routes ... everything we thought EIP is great at ! 
+
+If you're looking for a deeper introduction on solution and project genesis, we invite you reading this [InfoQ's article](http://www.infoq.com/articles/eip-designer).
 
 
 ## Build Status
@@ -37,7 +44,7 @@ After having installed and ran Eclipse, you also need to add Sirius 2.0. See the
 
 ### Released versions
 
-Find the correct update site URL in the above Releases table and just use this URL as an update site into your Eclipse installation within `Install New Software...`. More details on available features are mentionned below when talking about _Usage_, _Generators_ and _Bridges_.
+Find the correct update site URL in the above Releases table and just use this URL as an update site into your Eclipse installation within `Install New Software...`. More details on available features are mentioned below when talking about _Usage_, _Generators_ and _Bridges_.
 
 ### Development version
 
