@@ -35,9 +35,11 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.window.Window;
 import org.eclipse.ui.handlers.HandlerUtil;
 
+import com.github.lbroudoux.dsl.eip.Channel;
 import com.github.lbroudoux.dsl.eip.EIPModel;
 import com.github.lbroudoux.dsl.eip.EipFactory;
 import com.github.lbroudoux.dsl.eip.EipPackage;
+import com.github.lbroudoux.dsl.eip.Gateway;
 import com.github.lbroudoux.dsl.eip.Route;
 import com.github.lbroudoux.dsl.eip.ServiceActivator;
 import com.github.lbroudoux.dsl.eip.ServiceInvocation;
@@ -46,7 +48,7 @@ import com.github.lbroudoux.dsl.eip.bridge.core.ui.dialogs.EIPModelAndRouteSelec
 
 /**
  * Base Handler for Designer Bridges plugins. It defines the base process of bridging designers together
- * and initializing the target EIP model as a consequence. It provides 2 hook methods that shouls be implemented
+ * and initializing the target EIP model as a consequence. It provides 2 hook methods that should be implemented
  * by concrete subclasses : <ul>
  * <li><code>checkEventCurrentSelection(ISelection)</code> should check if event is correct and return
  * a Route name in this case,</li>
@@ -88,10 +90,12 @@ public abstract class AbstractCreateEIPRouteDesignActionHandler extends Abstract
          List<ServiceRefWrapper> serviceRefW = extractServiceRefs();
          
          // Create route with correct service references.
+         Route route = null;
          for (EObject object : emfResource.getContents()){
             if (object instanceof EIPModel) {
                EIPModel eipModel = (EIPModel) object;
-               eipModel.getOwnedRoutes().add(createRouteAndServiceRefs(dialog.getRouteName(), serviceRefW));
+               route = createRouteAndServiceRefs(eipModel, dialog.getRouteName(), serviceRefW);
+               break;
             }
          }
          
@@ -99,7 +103,7 @@ public abstract class AbstractCreateEIPRouteDesignActionHandler extends Abstract
          try {
             emfResource.save(null);
          } catch (IOException ioe) {
-            System.err.println("IOException whil saving modified EIP model");
+            System.err.println("IOException while saving modified EIP model");
             ioe.printStackTrace();
          }
       }
@@ -154,7 +158,7 @@ public abstract class AbstractCreateEIPRouteDesignActionHandler extends Abstract
       }
    }
    
-   /** Factorire here the EMF loading model plumbing stuffs. */
+   /** Factorize here the EMF loading model plumbing stuffs. */
    private ResourceSet initializeResourceSet() {
       // Initialize a ResourceSet to later load model and add Route.
       ResourceSet resourceSet = new ResourceSetImpl();
@@ -170,11 +174,29 @@ public abstract class AbstractCreateEIPRouteDesignActionHandler extends Abstract
    }
    
    /** Factorize here the EMF resource creation plumbing stuffs. */
-   private Route createRouteAndServiceRefs(String routeName, List<ServiceRefWrapper> serviceRefs) {
+   private Route createRouteAndServiceRefs(EIPModel eipModel, String routeName, List<ServiceRefWrapper> serviceRefs) {
       Route route = EipFactory.eINSTANCE.createRoute();
       route.setName(routeName);
       
-      for (ServiceRefWrapper serviceRefW : serviceRefs) {
+      // Create default GatewayIn and GatewayOut endpoints.
+      Gateway in = EipFactory.eINSTANCE.createGateway();
+      Gateway out = EipFactory.eINSTANCE.createGateway();
+      in.setName("GatewayIn");
+      out.setName("GatewayOut");
+      Channel inToFirst = EipFactory.eINSTANCE.createChannel();
+      Channel lastToOut = EipFactory.eINSTANCE.createChannel();
+      inToFirst.setName("GatewayIn_First");
+      lastToOut.setName("Last_GatewayOut");
+      in.getToChannels().add(inToFirst);
+      out.getFromChannels().add(lastToOut);
+      route.getOwnedEndpoints().add(in);
+      route.getOwnedEndpoints().add(out);
+      route.getOwnedChannels().add(inToFirst);
+      route.getOwnedChannels().add(lastToOut);
+      
+      Channel incomingChannel = inToFirst;
+      for (int i=0; i<serviceRefs.size(); i++) {
+         ServiceRefWrapper serviceRefW = serviceRefs.get(i);
          ServiceRef serviceRef = EipFactory.eINSTANCE.createServiceRef();
          serviceRef.setName(serviceRefW.getName());
          // Add operation if any.
@@ -187,9 +209,8 @@ public abstract class AbstractCreateEIPRouteDesignActionHandler extends Abstract
          if (serviceRefW.getReference() != null) {
             serviceRef.setReference(serviceRefW.getReference());
          }
-         EIPModel model = (EIPModel) route.eContainer();
-         if (!isServiceRefAlreadyInModel(serviceRef, model)) {   
-            model.getOwnedServiceRefs().add(serviceRef);
+         if (!isServiceRefAlreadyInModel(serviceRef, eipModel)) {   
+            eipModel.getOwnedServiceRefs().add(serviceRef);
          }
          
          // Create a sample ServiceActivator and invocation for each reference.
@@ -198,8 +219,21 @@ public abstract class AbstractCreateEIPRouteDesignActionHandler extends Abstract
          activator.setName(serviceRef.getName()+ " Activator");
          invocation.setServiceRef(serviceRef);
          activator.getOwnedServiceInvocations().add(invocation);
+         
+         // Complete activator with channels.
+         activator.getFromChannels().add(incomingChannel);
+         if (i < serviceRefs.size() - 1) {
+            incomingChannel = EipFactory.eINSTANCE.createChannel();
+            incomingChannel.setName(serviceRefW.getName() + "_" + serviceRefs.get(i + 1).getName());
+            activator.getToChannels().add(incomingChannel);
+            route.getOwnedChannels().add(incomingChannel);
+         } else {
+            activator.getToChannels().add(lastToOut);
+         }
+         
          route.getOwnedEndpoints().add(activator);
       }
+      eipModel.getOwnedRoutes().add(route);
       return route;
    }
    

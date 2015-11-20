@@ -101,8 +101,7 @@ public class EIPModelTreeContentProvider implements ITreeContentProvider {
             }
          }
       } catch (CoreException e) {
-         // TODO Auto-generated catch block
-         e.printStackTrace();
+         System.err.println("CoreException while browsing " + path);
       }
    }
 }

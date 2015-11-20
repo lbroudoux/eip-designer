@@ -42,7 +42,6 @@ public class IsATogafServiceTester extends PropertyTester {
             if (model instanceof DDiagramElement) {
                DDiagramElement dde = (DDiagramElement) model;
                // Here's is the real semantic target...
-               System.err.println("model element target: " + dde.getTarget());
                return (dde.getTarget() instanceof InformationSystemService);
             }
          }

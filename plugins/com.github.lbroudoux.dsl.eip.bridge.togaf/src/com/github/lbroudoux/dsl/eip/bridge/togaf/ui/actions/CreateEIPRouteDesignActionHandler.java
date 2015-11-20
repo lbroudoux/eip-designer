@@ -54,12 +54,10 @@ public class CreateEIPRouteDesignActionHandler extends AbstractCreateEIPRouteDes
          if (receiver instanceof IGraphicalEditPart) {
             final IGraphicalEditPart part = (IGraphicalEditPart) receiver;
             final EObject model = part.resolveSemanticElement();
-            System.err.println("model element in handler: " + model);
           
             // We have retrieved here a DNodeSpec element or something that subclasses DDiagramElement...
             if (model instanceof DDiagramElement) {
                DDiagramElement dde = (DDiagramElement) model;
-               System.err.println("model element target in handler: " + dde.getTarget());
              
                if (dde.getTarget() instanceof InformationSystemService) {
                   service = (InformationSystemService) dde.getTarget();

@@ -26,10 +26,11 @@
             label="Design an EIP Route..."
             style="push">
             <visibleWhen
-               checkEnabled="false">
+               checkEnabled="true">
                <with
                      variable="activeMenuSelection">
                   <iterate
+                        ifEmpty="false"
                         operator="and">
                      <instanceof
                            value="org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramElementEditPart">
