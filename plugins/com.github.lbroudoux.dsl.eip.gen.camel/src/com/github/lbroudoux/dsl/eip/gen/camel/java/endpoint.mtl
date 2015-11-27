@@ -7,7 +7,7 @@
 [template public followRoute(aEndpoint : Endpoint) post(trim())]
 [if (aEndpoint.toChannels->size() > 1)]
 [if (aEndpoint.endsWithAggregator())]
-.multicast().strategyRef("[aEndpoint.getFollowingAggregator().strategy/]")				// [aEndpoint.getFollowingAggregator().name/]
+.multicast().aggregationStrategyRef("[aEndpoint.getFollowingAggregator().strategy/]")				// [aEndpoint.getFollowingAggregator().name/]
 [else]
 .multicast()
 [/if]
@@ -59,7 +59,7 @@
 
 [template public genEndpoint(aSplitter : Splitter) post(trim())]
 [if (aSplitter.endsWithAggregator())]
-.split().strategyRef("[aSplitter.getFollowingAggregator().strategy/]")					// [aSplitter.name/][aSplitter.genOutgoingChannelName()/]
+.split(body().tokenize(","), new [aSplitter.getFollowingAggregator().strategy/]())					// [aSplitter.name/][aSplitter.genOutgoingChannelName()/]
 [else]
 .split()					// [aSplitter.name/][aSplitter.genOutgoingChannelName()/]
 [/if]
