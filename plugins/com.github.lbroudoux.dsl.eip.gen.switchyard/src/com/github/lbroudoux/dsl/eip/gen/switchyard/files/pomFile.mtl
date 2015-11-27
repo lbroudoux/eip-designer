@@ -1,0 +1,115 @@
+[comment encoding = UTF-8 /]
+[module pomFile('http://www.github.com/lbroudoux/dsl/eip/1.0')]
+
+
+[template public genPomFilePath(anEIPModel : EIPModel)]
+pom.xml
+[/template]
+
+
+[template public genPomFileBody(anEIPModel : EIPModel)]
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.github.lbroudoux.switchyard</groupId>
+  <artifactId>my-switchyard-project</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>my-switchyard-project</name>
+  <properties>
+    <switchyard.version>1.1.1-p8-redhat-1</switchyard.version>
+    <cxf.version>2.6.8</cxf.version>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>org.switchyard.components</groupId>
+      <artifactId>switchyard-component-bean</artifactId>
+      <version>${switchyard.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.switchyard.components</groupId>
+      <artifactId>switchyard-component-camel</artifactId>
+      <version>${switchyard.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.switchyard.components</groupId>
+      <artifactId>switchyard-component-resteasy</artifactId>
+      <version>${switchyard.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.switchyard.components</groupId>
+      <artifactId>switchyard-component-soap</artifactId>
+      <version>${switchyard.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.switchyard</groupId>
+      <artifactId>switchyard-api</artifactId>
+      <version>${switchyard.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.switchyard</groupId>
+      <artifactId>switchyard-transform</artifactId>
+      <version>${switchyard.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.switchyard</groupId>
+      <artifactId>switchyard-validate</artifactId>
+      <version>${switchyard.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.switchyard</groupId>
+      <artifactId>switchyard-plugin</artifactId>
+      <version>${switchyard.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.switchyard</groupId>
+      <artifactId>switchyard-test</artifactId>
+      <version>${switchyard.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.switchyard.components</groupId>
+      <artifactId>switchyard-component-test-mixin-cdi</artifactId>
+      <version>${switchyard.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+    	<groupId>org.switchyard.components</groupId>
+    	<artifactId>switchyard-component-test-mixin-http</artifactId>
+    	<version>${switchyard.version}</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.switchyard</groupId>
+        <artifactId>switchyard-plugin</artifactId>
+        <version>${switchyard.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>configure</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <scannerClassNames>
+            <param>org.switchyard.transform.config.model.TransformSwitchYardScanner</param>
+          </scannerClassNames>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+          <debug>true</debug>
+          <showWarnings>true</showWarnings>
+          <showDeprecation>true</showDeprecation>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+[/template]

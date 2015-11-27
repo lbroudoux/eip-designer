@@ -1,0 +1,18 @@
+[comment encoding = UTF-8 /]
+[module settingsFile('http://www.github.com/lbroudoux/dsl/eip/1.0')]
+
+
+[template public genSettingsFilePath(anEIPModel : EIPModel)]
+.settings/org.eclipse.wst.common.project.facet.core.xml
+[/template]
+
+[template public genSettingsFileBody(anEIPModel : EIPModel)]
+<?xml version="1.0" encoding="UTF-8"?>
+<faceted-project>
+  <installed facet="java" version="1.6"/>
+  <installed facet="jst.utility" version="1.0"/>
+  <installed facet="jboss.m2" version="1.0"/>
+  <installed facet="switchyard.core" version="1.1"/>
+</faceted-projec
+[/template]
+

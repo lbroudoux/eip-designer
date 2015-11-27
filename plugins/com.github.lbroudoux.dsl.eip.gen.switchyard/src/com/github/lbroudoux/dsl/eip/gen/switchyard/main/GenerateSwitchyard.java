@@ -359,9 +359,6 @@ public class GenerateSwitchyard extends AbstractAcceleoGenerator {
     @Override
     public void registerPackages(ResourceSet resourceSet) {
         super.registerPackages(resourceSet);
-        if (!isInWorkspace(com.github.lbroudoux.dsl.eip.EipPackage.class)) {
-            resourceSet.getPackageRegistry().put(com.github.lbroudoux.dsl.eip.EipPackage.eINSTANCE.getNsURI(), com.github.lbroudoux.dsl.eip.EipPackage.eINSTANCE);
-        }
         
         /*
          * If you want to change the content of this method, do NOT forget to change the "@generated"

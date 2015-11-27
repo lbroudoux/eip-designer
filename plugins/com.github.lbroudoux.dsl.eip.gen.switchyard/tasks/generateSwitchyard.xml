@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generateSwitchyard" name="com.github.lbroudoux.dsl.eip.gen.switchyard">
     <property name="ECLIPSE_HOME" value="../../../../../eclipse-4.4.1-modeling"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../../../workspaces/runtime-EclipseApplication-4.4.1-modeling"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../../workspaces/eclipse-4.4.1-modeling"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="com.github.lbroudoux.dsl.eip.gen.switchyard.libraryclasspath">
