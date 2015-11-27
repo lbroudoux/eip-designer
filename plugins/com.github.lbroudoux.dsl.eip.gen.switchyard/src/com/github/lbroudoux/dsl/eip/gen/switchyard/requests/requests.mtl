@@ -24,7 +24,7 @@
  * @param aServiceRef The reference to get usage for.
  */]
 [query public getFirstInvocation(aServiceRef : ServiceRef) : ServiceInvocation
-	= aServiceRef.eContainer(eip::EIPModel).ownedRoutes.getServiceInvocations()->first()
+	= aServiceRef.eContainer(eip::EIPModel).ownedRoutes.getServiceInvocations()->select(serviceRef = aServiceRef)->first()
 /]
 
 [**
