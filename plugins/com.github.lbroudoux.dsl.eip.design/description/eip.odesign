@@ -33,7 +33,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="ERR_ConditionnalRoute" semanticCandidatesExpression="[ownedEndpoints->filter(eip::Router)->union( ownedEndpoints->filter(eip::CompositeProcessor).ownedEndpoints->filter(eip::Router)->asOrderedSet() ).ownedRoutes /]" semanticElements="[Sequence{self, channel}/]" sourceMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" targetMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" targetFinderExpression="[channel.toEndpoint/]" sourceFinderExpression="[eContainer()/]" domainClass="eip.ConditionalRoute" useDomainElement="true" reconnections="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Conditional%20Route%20target'] //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Conditional%20Route%20source']">
+        <edgeMappings name="ERR_ConditionnalRoute" deletionDescription="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='ConditionnalRoute']" semanticCandidatesExpression="[ownedEndpoints->filter(eip::Router)->union( ownedEndpoints->filter(eip::CompositeProcessor).ownedEndpoints->filter(eip::Router)->asOrderedSet() ).ownedRoutes /]" semanticElements="[Sequence{self, channel}/]" sourceMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" targetMapping="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@nodeMappings[name='NRE_Endpoint']" targetFinderExpression="[channel.toEndpoint/]" sourceFinderExpression="[eContainer()/]" domainClass="eip.ConditionalRoute" useDomainElement="true" reconnections="//@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Conditional%20Route%20target'] //@ownedViewpoints[name='Enterprise%20Integration%20Patterns']/@ownedRepresentations[name='Route%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Conditional%20Route%20source']">
           <style lineStyle="dash" sizeComputationExpression="2" routingStyle="manhattan">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="9" showIcon="false" labelExpression="['['+condition+']'/]">
@@ -252,6 +252,19 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element/]">
                 <subModelOperations xsi:type="tool_1:For" expression="[self.fromChannels->union(OrderedSet{self.toChannel})/]" iteratorName="channel">
+                  <subModelOperations xsi:type="tool_1:RemoveElement"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:RemoveElement"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="ConditionnalRoute">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element/]">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element.channel/]">
                   <subModelOperations xsi:type="tool_1:RemoveElement"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_1:RemoveElement"/>
