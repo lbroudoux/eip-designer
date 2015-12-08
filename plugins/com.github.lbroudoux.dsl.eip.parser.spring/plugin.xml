@@ -16,6 +16,21 @@
                menubarPath="compareWithMenu/eipCompareWithGroup">
          </action>
       </objectContribution>
+      <objectContribution
+         adaptable="true"
+         id="com.github.lbroudoux.dsl.eip.parser.spring.ui.addToModelContribution"
+         objectClass="org.eclipse.core.resources.IResource">
+         <menu id="com.github.lbroudoux.dsl.eip.parser.menu" label="EIP Extraction" path="additionsEip">
+            <groupMarker name="eip"/> 
+         </menu>
+         <action
+               class="com.github.lbroudoux.dsl.eip.parser.spring.ui.actions.PersistToRouteModelAction"
+               icon="icons/obj16/Route.gif"
+               id="com.github.lbroudoux.dsl.eip.parser.spring.ui.actions.PersistToRouteModelAction"
+               label="Add to EIP Model"
+               menubarPath="com.github.lbroudoux.dsl.eip.parser.menu/eip">
+         </action>
+      </objectContribution>
    </extension>
    
    <extension point="org.eclipse.ui.commands" name="EIP Commands">
@@ -26,8 +41,14 @@
       <command
          id="com.github.lbroudoux.dsl.eip.parser.spring.ui.actions.CompareWithRoute"
          categoryId="com.github.lbroudoux.dsl.eip.parser.spring.ui.commandCategory"
-         defaultHandler="com.github.lbroudoux.dsl.eip.parser.spring.ui.actions.CompareWithRouteHandler"
+         defaultHandler="com.github.lbroudoux.dsl.eip.parser.spring.ui.actions.CompareWithRouteActionHandler"
          name="Compare With EIP Route Command">
+      </command>
+      <command
+         id="com.github.lbroudoux.dsl.eip.parser.spring.ui.actions.PersistToRouteModel"
+         categoryId="com.github.lbroudoux.dsl.eip.parser.spring.ui.commandCategory"
+         defaultHandler="com.github.lbroudoux.dsl.eip.parser.spring.ui.actions.PersistToRouteModelActionHandler"
+         name="Add to EIP Model Command">
       </command>
    </extension>
 </plugin>

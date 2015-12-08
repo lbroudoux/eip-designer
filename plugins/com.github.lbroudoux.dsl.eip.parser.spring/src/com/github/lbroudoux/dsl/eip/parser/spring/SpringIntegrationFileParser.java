@@ -77,8 +77,8 @@ public class SpringIntegrationFileParser {
       }
       
       // Pre-requisite : we should have a Route object added to model.
-      // TODO: Find a way to store and retrieve Route name for branch comparison.
       Route route = EipFactory.eINSTANCE.createRoute();
+      route.setName(routeFile.getName().substring(0, routeFile.getName().lastIndexOf('.')));
       model.getOwnedRoutes().add(route);    
       
       // First, extract and add channels to model.
