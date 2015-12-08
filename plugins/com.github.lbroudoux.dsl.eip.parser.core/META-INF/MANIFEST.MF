@@ -6,6 +6,7 @@ Bundle-Version: 0.3.1.qualifier
 Bundle-Activator: com.github.lbroudoux.dsl.eip.parser.core.Activator
 Bundle-Vendor: LBroudoux
 Require-Bundle: org.eclipse.ui,
+ org.eclipse.ui.ide,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
  com.github.lbroudoux.dsl.eip,

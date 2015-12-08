@@ -19,12 +19,16 @@
 package com.github.lbroudoux.dsl.eip.parser.core.ui.actions;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -35,6 +39,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.window.Window;
+import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 import com.github.lbroudoux.dsl.eip.EIPModel;
@@ -79,7 +84,7 @@ public abstract class AbstractPersistToRouteModelActionHandler extends AbstractH
          // Load and find EIPModel definition.
          IResource eipModelResource = dialog.getSelectedEIPModel();
          ResourceSet resourceSet = initializeResourceSet();
-         Resource emfResource = resourceSet.getResource(URI.createURI(eipModelResource.getLocationURI().toString()), true);
+         final Resource emfResource = resourceSet.getResource(URI.createURI(eipModelResource.getLocationURI().toString()), true);
          
          EIPModel target = null;
          for (EObject object : emfResource.getContents()){
@@ -117,11 +122,32 @@ public abstract class AbstractPersistToRouteModelActionHandler extends AbstractH
          }
          
          // Finally, save modified EMF resource.
+         WorkspaceModifyOperation modifyOp = new WorkspaceModifyOperation() {
+            @Override
+            protected void execute(IProgressMonitor monitor) throws CoreException,
+                  InvocationTargetException, InterruptedException {
+               try {
+                  emfResource.save(null);
+               } catch (IOException e) {
+                  System.err.println("IOException while saving modified EIP model");
+                  e.printStackTrace();
+               }
+            }
+         }; 
          try {
-            emfResource.save(null);
-         } catch (IOException ioe) {
-            System.err.println("IOException while saving modified EIP model");
-            ioe.printStackTrace();
+            modifyOp.run(new NullProgressMonitor());
+         } catch (InvocationTargetException ite) {
+            ite.printStackTrace();
+         } catch (InterruptedException ie) {
+            ie.printStackTrace();
+         }
+         
+         // Refresh project containing target model.
+         try {
+            eipModelResource.getProject().refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+         } catch (CoreException e) {
+            System.err.println("Exception while refreshing project containing target model");
+            e.printStackTrace();
          }
       }
       
@@ -129,9 +155,11 @@ public abstract class AbstractPersistToRouteModelActionHandler extends AbstractH
    }
    
    /**
-    * 
-    * @param selectionFile
-    * @return
+    * Hook for concrete subclass. Only called once event is valid and valid EIP Model to host target Route
+    * has been found and loaded. Subclass should implement this method in order to specify how to retrieve the EIPModel
+    * model fragment containing Route that need to be persisted into the target EIP Route to create.
+    * @param selectionFile The event current selection.
+    * @return an EIPModel fragment containing extransted Route dans service references
     */
    protected abstract EIPModel extractEIPModelFromFile(IFile selectionFile);
    
