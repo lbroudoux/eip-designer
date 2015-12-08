@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -93,10 +94,10 @@ public abstract class AbstractPersistToRouteModelActionHandler extends AbstractH
             Route existing = findRouteByName(target, route.getName());
             if (existing != null) {
                // New route totally overrides existing one. Simply replace existing pointer ?
-               existing = route;
+               existing = EcoreUtil.copy(route);
             } else {
                // Add a new route to target model.
-               target.getOwnedRoutes().add(route);
+               target.getOwnedRoutes().add(EcoreUtil.copy(route));
             }
          }
          for (ServiceRef serviceRef : extracted.getOwnedServiceRefs()) {
@@ -111,7 +112,7 @@ public abstract class AbstractPersistToRouteModelActionHandler extends AbstractH
                }
             } else {
                // Add a new service reference to target model.
-               target.getOwnedServiceRefs().add(serviceRef);
+               target.getOwnedServiceRefs().add(EcoreUtil.copy(serviceRef));
             }
          }
          
