@@ -19,7 +19,8 @@
       <objectContribution
          adaptable="true"
          id="com.github.lbroudoux.dsl.eip.parser.spring.ui.addToModelContribution"
-         objectClass="org.eclipse.core.resources.IResource">
+         objectClass="org.eclipse.core.resources.IFile"
+         nameFilter="*.xml">
          <menu id="com.github.lbroudoux.dsl.eip.parser.menu" label="EIP Extraction" path="additionsEip">
             <groupMarker name="eip"/> 
          </menu>
