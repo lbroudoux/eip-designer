@@ -19,12 +19,19 @@
 package com.github.lbroudoux.dsl.eip.bridge.core.ui.actions;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -33,6 +40,14 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.window.Window;
+import org.eclipse.sirius.business.api.dialect.DialectManager;
+import org.eclipse.sirius.business.api.dialect.command.CreateRepresentationCommand;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
+import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
+import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 import com.github.lbroudoux.dsl.eip.Channel;
@@ -84,7 +99,7 @@ public abstract class AbstractCreateEIPRouteDesignActionHandler extends Abstract
          // Load and find EIPModel definition.
          IResource eipModelResource = dialog.getSelectedEIPModel();
          ResourceSet resourceSet = initializeResourceSet();
-         Resource emfResource = resourceSet.getResource(URI.createURI(eipModelResource.getLocationURI().toString()), true);
+         final Resource emfResource = resourceSet.getResource(URI.createURI(eipModelResource.getLocationURI().toString()), true);
          
          // Ask concrete subclass to produce a list of wrapped ServiceRef.
          List<ServiceRefWrapper> serviceRefW = extractServiceRefs();
@@ -100,11 +115,79 @@ public abstract class AbstractCreateEIPRouteDesignActionHandler extends Abstract
          }
          
          // Finally, save modified EMF resource.
+         WorkspaceModifyOperation modifyOp = new WorkspaceModifyOperation() {
+            @Override
+            protected void execute(IProgressMonitor monitor) throws CoreException,
+                  InvocationTargetException, InterruptedException {
+               try {
+                  emfResource.save(null);
+               } catch (IOException e) {
+                  System.err.println("IOException while saving modified EIP model");
+                  e.printStackTrace();
+               }
+            }
+         }; 
          try {
-            emfResource.save(null);
-         } catch (IOException ioe) {
-            System.err.println("IOException while saving modified EIP model");
-            ioe.printStackTrace();
+            modifyOp.run(new NullProgressMonitor());
+         } catch (InvocationTargetException ite) {
+            ite.printStackTrace();
+         } catch (InterruptedException ie) {
+            ie.printStackTrace();
+         }
+         
+         try {
+            eipModelResource.getProject().refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+         } catch (CoreException e) {
+            System.err.println("Exception while refreshing project containing target model");
+            e.printStackTrace();
+         }
+         
+         // Now, retrieve Sirius session to create default diagram for Route.
+         IFile airdFile = eipModelResource.getProject().getFile("representations.aird");
+         if (!airdFile.exists()) {
+            System.err.println("Could not found file:" + airdFile.getLocationURI());
+            return null;
+         }
+         URI airdFileURI = URI.createPlatformResourceURI(airdFile.getFullPath().toOSString(), true);
+         Session session = SessionManager.INSTANCE.getSession(airdFileURI, new NullProgressMonitor());
+         
+         // Reload route so that we're sure it's the one associated to Sirius session.
+         Route sessionRoute = null; 
+         EIPModel sessionModel = (EIPModel) session.getSemanticResources().iterator().next().getContents().get(0);
+         for (Route r : sessionModel.getOwnedRoutes()) {
+            if (r.getName().equals(route.getName())) {
+               sessionRoute = r;
+               break;
+            }
+         }
+         
+         // Create route details representation.
+         Collection<RepresentationDescription> descriptions = DialectManager.INSTANCE.getAvailableRepresentationDescriptions(
+               session.getSelectedViewpoints(false), sessionRoute);
+         if (descriptions.isEmpty()) {
+            System.err.println("Could not found representation description for object: " + sessionRoute);
+            return null;
+         }
+         
+         RepresentationDescription description = descriptions.iterator().next();
+         Command createViewCommand = new CreateRepresentationCommand(session,
+                 description, sessionRoute, sessionRoute.getName() + " Details", new NullProgressMonitor());
+         session.getTransactionalEditingDomain().getCommandStack().execute(createViewCommand);
+
+         SessionManager.INSTANCE.notifyRepresentationCreated(session);
+         
+         // Open-up newly created representation.
+         Collection<DRepresentation> representations = DialectManager.INSTANCE.getRepresentations(description, session);
+         DRepresentation myDiagramRepresentation = representations.iterator().next();
+
+         DialectUIManager.INSTANCE.openEditor(session, myDiagramRepresentation, new NullProgressMonitor());
+         
+         // Save session and refresh workspace
+         session.save(new NullProgressMonitor());
+         try {
+            eipModelResource.getProject().refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+         } catch (CoreException e) {
+            e.printStackTrace();
          }
       }
       
