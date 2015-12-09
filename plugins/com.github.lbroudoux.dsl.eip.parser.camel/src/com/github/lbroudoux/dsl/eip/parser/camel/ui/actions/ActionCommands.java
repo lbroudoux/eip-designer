@@ -26,4 +26,7 @@ public class ActionCommands {
 
    /** "Compare with route" action command id */
    public static final String COMPARE_WITH_ROUTE_ACTION = "com.github.lbroudoux.dsl.eip.parser.camel.ui.actions.CompareWithRoute";
+   
+   /** "Add to EIP Model" action command id */
+   public static final String PERSIST_TO_ROUTE_MODEL_ACTION = "com.github.lbroudoux.dsl.eip.parser.camel.ui.actions.PersistToRouteModel";
 }
