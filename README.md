@@ -1,5 +1,5 @@
 <blockquote>
-I'll talk about EIP Designer at <a href="http://www.siriuscon.org/">SiriusCon 2015 Paris</a> on December 3rd. Join us at Room 2 for an introduction!<br>
+I have talked about EIP Designer at <a href="http://www.siriuscon.org/">SiriusCon 2015 Paris</a> on December 3rd. Here are the <a href="http://fr.slideshare.net/LaurentBroudoux/talk-eclipsesirius-con-eip-designer-20151203">slides</a> of the prez.<br>
 <img src="http://www.eclipse.org/sirius/images/logos/logo.png"/>
 </blockquote>
 
@@ -22,13 +22,14 @@ If you're looking for a deeper introduction on solution and project genesis, we 
 
 ## Build Status
 
-Current development version is `0.3.1-SNAPSHOT`. [![Build Status](https://travis-ci.org/lbroudoux/eip-designer.png?branch=master)](https://travis-ci.org/lbroudoux/eip-designer)
+Current development version is `0.4.1-SNAPSHOT`. [![Build Status](https://travis-ci.org/lbroudoux/eip-designer.png?branch=master)](https://travis-ci.org/lbroudoux/eip-designer)
 
 
 ## Releases
 
 | Versions      | Date          | Update site  |
 | ------------- | ------------- | ------------ |
+|`0.4.0`      |Dec. 18 2015   |`http://dl.bintray.com/lbroudoux/maven/eip-designer/0.4.0/`|
 |`0.3.0`      |Sep. 21 2015   |`http://dl.bintray.com/lbroudoux/maven/eip-designer/0.3.0/`|
 |`0.2.0`      |Aug. 06 2015   |`http://dl.bintray.com/lbroudoux/maven/eip-designer/0.2.0/`|
 |`0.1.0`      |Jun. 16 2015   |`http://dl.bintray.com/lbroudoux/maven/eip-designer/0.1.0/`|
