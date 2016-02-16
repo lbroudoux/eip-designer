@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eip:EIPModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:eip="http://www.github.com/lbroudoux/dsl/eip/1.0">
+  <ownedRoutes name="MulticastRoute">
+    <ownedEndpoints xsi:type="eip:Gateway" name="GatewayIn" toChannels="//@ownedRoutes.0/@ownedChannels.0 //@ownedRoutes.0/@ownedChannels.1 //@ownedRoutes.0/@ownedChannels.2"/>
+    <ownedEndpoints xsi:type="eip:Gateway" name="GatewayOut" fromChannels="//@ownedRoutes.0/@ownedChannels.9"/>
+    <ownedEndpoints xsi:type="eip:ServiceActivator" name="FooActivator" toChannels="//@ownedRoutes.0/@ownedChannels.3" fromChannels="//@ownedRoutes.0/@ownedChannels.0"/>
+    <ownedEndpoints xsi:type="eip:ServiceActivator" name="BarActivator" toChannels="//@ownedRoutes.0/@ownedChannels.4" fromChannels="//@ownedRoutes.0/@ownedChannels.1"/>
+    <ownedEndpoints xsi:type="eip:ServiceActivator" name="BazActivator" toChannels="//@ownedRoutes.0/@ownedChannels.5" fromChannels="//@ownedRoutes.0/@ownedChannels.2"/>
+    <ownedEndpoints xsi:type="eip:Aggregator" name="FBBAgregator" toChannels="//@ownedRoutes.0/@ownedChannels.9" fromChannels="//@ownedRoutes.0/@ownedChannels.6 //@ownedRoutes.0/@ownedChannels.7 //@ownedRoutes.0/@ownedChannels.8"/>
+    <ownedEndpoints xsi:type="eip:Transformer" name="FooTransformer" toChannels="//@ownedRoutes.0/@ownedChannels.6" fromChannels="//@ownedRoutes.0/@ownedChannels.3"/>
+    <ownedEndpoints xsi:type="eip:Transformer" name="BarTransformer" toChannels="//@ownedRoutes.0/@ownedChannels.7" fromChannels="//@ownedRoutes.0/@ownedChannels.4"/>
+    <ownedEndpoints xsi:type="eip:Transformer" name="BazTransformer" toChannels="//@ownedRoutes.0/@ownedChannels.8" fromChannels="//@ownedRoutes.0/@ownedChannels.5"/>
+    <ownedChannels toEndpoint="//@ownedRoutes.0/@ownedEndpoints.2" fromEndpoint="//@ownedRoutes.0/@ownedEndpoints.0" name="GatewayIn_FooActivator"/>
+    <ownedChannels toEndpoint="//@ownedRoutes.0/@ownedEndpoints.3" fromEndpoint="//@ownedRoutes.0/@ownedEndpoints.0" name="GatewayIn_BarActivator"/>
+    <ownedChannels toEndpoint="//@ownedRoutes.0/@ownedEndpoints.4" fromEndpoint="//@ownedRoutes.0/@ownedEndpoints.0" name="GatewayIn_BazActivator"/>
+    <ownedChannels toEndpoint="//@ownedRoutes.0/@ownedEndpoints.6" fromEndpoint="//@ownedRoutes.0/@ownedEndpoints.2" name="FooActivator_FooTransformer"/>
+    <ownedChannels toEndpoint="//@ownedRoutes.0/@ownedEndpoints.7" fromEndpoint="//@ownedRoutes.0/@ownedEndpoints.3" name="BarActivator_BarTransformer"/>
+    <ownedChannels toEndpoint="//@ownedRoutes.0/@ownedEndpoints.8" fromEndpoint="//@ownedRoutes.0/@ownedEndpoints.4" name="BazActivator_BazTransformer"/>
+    <ownedChannels toEndpoint="//@ownedRoutes.0/@ownedEndpoints.5" fromEndpoint="//@ownedRoutes.0/@ownedEndpoints.6" name="FooTransformer_FBBAgregator"/>
+    <ownedChannels toEndpoint="//@ownedRoutes.0/@ownedEndpoints.5" fromEndpoint="//@ownedRoutes.0/@ownedEndpoints.7" name="BarTransformer_FBBAgregator"/>
+    <ownedChannels toEndpoint="//@ownedRoutes.0/@ownedEndpoints.5" fromEndpoint="//@ownedRoutes.0/@ownedEndpoints.8" name="BazTransformer_FBBAgregator"/>
+    <ownedChannels toEndpoint="//@ownedRoutes.0/@ownedEndpoints.1" fromEndpoint="//@ownedRoutes.0/@ownedEndpoints.5" name="FBBAgregator_GatewayOut"/>
+  </ownedRoutes>
+  <ownedRoutes name="QuoteHealthInsuranceOffers" exchangeType="IN_OUT">
+    <ownedEndpoints xsi:type="eip:Gateway" name="Gateway_In" toChannels="//@ownedRoutes.1/@ownedChannels.0"/>
+    <ownedEndpoints xsi:type="eip:Gateway" name="Gateway_Out" fromChannels="//@ownedRoutes.1/@ownedChannels.1"/>
+    <ownedEndpoints xsi:type="eip:CompositeProcessor" name="Composite" toChannels="//@ownedRoutes.1/@ownedChannels.1" fromChannels="//@ownedRoutes.1/@ownedChannels.0">
+      <ownedEndpoints xsi:type="eip:Splitter" name="OffersSplitter" toChannels="//@ownedRoutes.1/@ownedChannels.2"/>
+      <ownedEndpoints xsi:type="eip:Aggregator" name="QuotesAggregator" fromChannels="//@ownedRoutes.1/@ownedChannels.6 //@ownedRoutes.1/@ownedChannels.7" part="PAYLOAD" strategy="CanonicalQuoteAggregationStrategy"/>
+      <ownedEndpoints xsi:type="eip:Transformer" name="SlytherinToCanonical" toChannels="//@ownedRoutes.1/@ownedChannels.6" fromChannels="//@ownedRoutes.1/@ownedChannels.3"/>
+      <ownedEndpoints xsi:type="eip:Transformer" name="GryffinToCanonical" toChannels="//@ownedRoutes.1/@ownedChannels.7" fromChannels="//@ownedRoutes.1/@ownedChannels.4"/>
+      <ownedEndpoints xsi:type="eip:Router" name="OfferRouter" toChannels="//@ownedRoutes.1/@ownedChannels.5" fromChannels="//@ownedRoutes.1/@ownedChannels.2" type="PAYLOAD_VALUE">
+        <ownedRoutes condition="offer.name in ['Rogue', 'Lestrange']" channel="//@ownedRoutes.1/@ownedChannels.8"/>
+      </ownedEndpoints>
+      <ownedEndpoints xsi:type="eip:ServiceActivator" name="GryffinActivator" toChannels="//@ownedRoutes.1/@ownedChannels.4" fromChannels="//@ownedRoutes.1/@ownedChannels.5">
+        <ownedServiceInvocations operationName="GET /${offer}/quote" serviceRef="//@ownedServiceRefs.1"/>
+      </ownedEndpoints>
+      <ownedEndpoints xsi:type="eip:ServiceActivator" name="SlytherinActivator" toChannels="//@ownedRoutes.1/@ownedChannels.3" fromChannels="//@ownedRoutes.1/@ownedChannels.8"/>
+    </ownedEndpoints>
+    <ownedChannels toEndpoint="//@ownedRoutes.1/@ownedEndpoints.2" fromEndpoint="//@ownedRoutes.1/@ownedEndpoints.0" name="Gateway_In_Composite"/>
+    <ownedChannels toEndpoint="//@ownedRoutes.1/@ownedEndpoints.1" fromEndpoint="//@ownedRoutes.1/@ownedEndpoints.2" name="Composite_Gateway_Out"/>
+    <ownedChannels toEndpoint="//@ownedRoutes.1/@ownedEndpoints.2/@ownedEndpoints.4" fromEndpoint="//@ownedRoutes.1/@ownedEndpoints.2/@ownedEndpoints.0" name="eachOffer"/>
+    <ownedChannels toEndpoint="//@ownedRoutes.1/@ownedEndpoints.2/@ownedEndpoints.2" fromEndpoint="//@ownedRoutes.1/@ownedEndpoints.2/@ownedEndpoints.6" name="processSlytherinQuote"/>
+    <ownedChannels toEndpoint="//@ownedRoutes.1/@ownedEndpoints.2/@ownedEndpoints.3" fromEndpoint="//@ownedRoutes.1/@ownedEndpoints.2/@ownedEndpoints.5" name="processGryffinQuote"/>
+    <ownedChannels toEndpoint="//@ownedRoutes.1/@ownedEndpoints.2/@ownedEndpoints.5" fromEndpoint="//@ownedRoutes.1/@ownedEndpoints.2/@ownedEndpoints.4" name="default"/>
+    <ownedChannels toEndpoint="//@ownedRoutes.1/@ownedEndpoints.2/@ownedEndpoints.1" fromEndpoint="//@ownedRoutes.1/@ownedEndpoints.2/@ownedEndpoints.2" name="aggFromSlytherin"/>
+    <ownedChannels toEndpoint="//@ownedRoutes.1/@ownedEndpoints.2/@ownedEndpoints.1" fromEndpoint="//@ownedRoutes.1/@ownedEndpoints.2/@ownedEndpoints.3" name="aggFromGryffin"/>
+    <ownedChannels toEndpoint="//@ownedRoutes.1/@ownedEndpoints.2/@ownedEndpoints.6" name="Channel_"/>
+  </ownedRoutes>
+  <ownedRoutes name="ClientInfoIntegrationFlow">
+    <ownedEndpoints xsi:type="eip:Gateway" name="Gateway_In" toChannels="//@ownedRoutes.2/@ownedChannels.6"/>
+    <ownedEndpoints xsi:type="eip:Gateway" name="Gateway_Out" fromChannels="//@ownedRoutes.2/@ownedChannels.9"/>
+    <ownedEndpoints xsi:type="eip:Transformer" name="NormalizeClients" toChannels="//@ownedRoutes.2/@ownedChannels.7" fromChannels="//@ownedRoutes.2/@ownedChannels.6"/>
+    <ownedEndpoints xsi:type="eip:ContentFilter" name="FilterIncompletes" toChannels="//@ownedRoutes.2/@ownedChannels.8" fromChannels="//@ownedRoutes.2/@ownedChannels.7"/>
+    <ownedEndpoints xsi:type="eip:CompositeProcessor" name="Composite" toChannels="//@ownedRoutes.2/@ownedChannels.9" fromChannels="//@ownedRoutes.2/@ownedChannels.8">
+      <ownedEndpoints xsi:type="eip:Splitter" name="ClientSplitter" toChannels="//@ownedRoutes.2/@ownedChannels.0"/>
+      <ownedEndpoints xsi:type="eip:Enricher" name="EnrichWithPersonRepository" toChannels="//@ownedRoutes.2/@ownedChannels.1" fromChannels="//@ownedRoutes.2/@ownedChannels.0">
+        <ownedServiceInvocations operationName="findClientProfile" serviceRef="//@ownedServiceRefs.2"/>
+      </ownedEndpoints>
+      <ownedEndpoints xsi:type="eip:Aggregator" name="EnrichedClientAggregator" fromChannels="//@ownedRoutes.2/@ownedChannels.4 //@ownedRoutes.2/@ownedChannels.5"/>
+      <ownedEndpoints xsi:type="eip:Router" name="ClientRouter" toChannels="//@ownedRoutes.2/@ownedChannels.2" fromChannels="//@ownedRoutes.2/@ownedChannels.1">
+        <ownedRoutes condition="client.isGold()" channel="//@ownedRoutes.2/@ownedChannels.3"/>
+      </ownedEndpoints>
+      <ownedEndpoints xsi:type="eip:ServiceActivator" name="GoldService" toChannels="//@ownedRoutes.2/@ownedChannels.5" fromChannels="//@ownedRoutes.2/@ownedChannels.3">
+        <ownedServiceInvocations operationName="getGoldClientDetails" serviceRef="//@ownedServiceRefs.3"/>
+      </ownedEndpoints>
+      <ownedEndpoints xsi:type="eip:ServiceActivator" name="DefaultService" toChannels="//@ownedRoutes.2/@ownedChannels.4" fromChannels="//@ownedRoutes.2/@ownedChannels.2">
+        <ownedServiceInvocations operationName="getClientDetails" serviceRef="//@ownedServiceRefs.3"/>
+      </ownedEndpoints>
+    </ownedEndpoints>
+    <ownedChannels toEndpoint="//@ownedRoutes.2/@ownedEndpoints.4/@ownedEndpoints.1" fromEndpoint="//@ownedRoutes.2/@ownedEndpoints.4/@ownedEndpoints.0" name="eachClient"/>
+    <ownedChannels toEndpoint="//@ownedRoutes.2/@ownedEndpoints.4/@ownedEndpoints.3" fromEndpoint="//@ownedRoutes.2/@ownedEndpoints.4/@ownedEndpoints.1" name="enrichedClient"/>
+    <ownedChannels toEndpoint="//@ownedRoutes.2/@ownedEndpoints.4/@ownedEndpoints.5" fromEndpoint="//@ownedRoutes.2/@ownedEndpoints.4/@ownedEndpoints.3" name="default"/>
+    <ownedChannels toEndpoint="//@ownedRoutes.2/@ownedEndpoints.4/@ownedEndpoints.4" name="Channel_"/>
+    <ownedChannels toEndpoint="//@ownedRoutes.2/@ownedEndpoints.4/@ownedEndpoints.2" fromEndpoint="//@ownedRoutes.2/@ownedEndpoints.4/@ownedEndpoints.5" name="DefaultAggregator"/>
+    <ownedChannels toEndpoint="//@ownedRoutes.2/@ownedEndpoints.4/@ownedEndpoints.2" fromEndpoint="//@ownedRoutes.2/@ownedEndpoints.4/@ownedEndpoints.4" name="Gold_Aggregator"/>
+    <ownedChannels toEndpoint="//@ownedRoutes.2/@ownedEndpoints.2" fromEndpoint="//@ownedRoutes.2/@ownedEndpoints.0" name="Gateway_In_NormalizeClients"/>
+    <ownedChannels toEndpoint="//@ownedRoutes.2/@ownedEndpoints.3" fromEndpoint="//@ownedRoutes.2/@ownedEndpoints.2" name="Normalize_Filter"/>
+    <ownedChannels toEndpoint="//@ownedRoutes.2/@ownedEndpoints.4" fromEndpoint="//@ownedRoutes.2/@ownedEndpoints.3" name="Filter_Composite"/>
+    <ownedChannels toEndpoint="//@ownedRoutes.2/@ownedEndpoints.1" fromEndpoint="//@ownedRoutes.2/@ownedEndpoints.4" name="Composite_Gateway_Out"/>
+  </ownedRoutes>
+  <ownedServiceRefs name="SlytherinService"/>
+  <ownedServiceRefs name="GryffinService"/>
+  <ownedServiceRefs name="PersonRepositoryService"/>
+  <ownedServiceRefs name="ClientDetailsService"/>
+</eip:EIPModel>

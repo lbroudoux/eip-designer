@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:int="http://www.springframework.org/schema/integration"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:beans="http://www.springframework.org/schema/beans"
+ xmlns:int-stream="http://www.springframework.org/schema/integration/stream"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/integration
+  http://www.springframework.org/schema/integration/spring-integration.xsd
+  http://www.springframework.org/schema/integration/stream
+  http://www.springframework.org/schema/integration/stream/spring-integration-stream.xsd">
+
+  <int:gateway id="Gateway_In" output-channel="Gateway_In_NormalizeClients" />
+  <int:gateway id="Gateway_Out" input-channel="Composite_Gateway_Out" />
+  <int:transformer id="NormalizeClients" input-channel="Gateway_In_NormalizeClients"
+    output-channel="Normalize_Filter" />
+  <int:chain id="Composite" input-channel="Normalize_Filter"
+    output-channel="Composite_Gateway_Out">
+    <int:splitter id="ClientSplitter" output-channel="eachClient" />
+    <int:enricher id="EnrichWithPersonRepository" input-channel="eachClient" output-channel="enrichedClient" />
+    <int:aggregator id="EnrichedClientAggregator" input-channel="DefaultAggregator" />
+    <int:header-value-router id="ClientRouter" input-channel="enrichedClient" header-name="ClientRouter"
+        default-output-channel="default">
+      <int:mapping id="client.isGold()" value="client.isGold()" channel="Channel_" />
+    </int:header-value-router>
+    <int:service-activator id="GoldService" input-channel="Channel_"
+      output-channel="DefaultAggregator" />
+    <int:service-activator id="DefaultService" input-channel="default"
+      output-channel="DefaultAggregator" />
+  </int:chain>
+
+  <int:channel id="eachClient" />
+  <int:channel id="enrichedClient" />
+  <int:channel id="default" />
+  <int:channel id="Channel_" />
+  <int:channel id="DefaultAggregator" />
+  
+  <int:channel id="Gateway_In_NormalizeClients" />
+  <int:channel id="Normalize_Filter" />
+  <int:channel id="Composite_Gateway_Out" />
+</beans:beans>
