@@ -42,7 +42,10 @@
 [/template]
 
 [template public genEndpoint(anEnricher : Enricher) post(trim())]
-
+<enrich id="[anEnricher.name/][anEnricher.genOutgoingChannelName()/]">
+  <constant>direct:resource</constant>
+</enrich>
+[anEnricher.followRoute()/]
 [/template]
 
 [template public genEndpoint(aTransformer : Transformer) post(trim())]
