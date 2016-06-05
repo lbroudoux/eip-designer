@@ -35,7 +35,10 @@
 [/template]
 
 [template public genEndpoint(aFilter : ContentFilter) post(trim())]
-
+<setBody id="[aFilter.name/][aFilter.genOutgoingChannelName()/]">
+  <xpath resultType="org.w3c.dom.Document">//foo:bar</xpath>
+</setBody>
+[aFilter.followRoute()/]
 [/template]
 
 [template public genEndpoint(anEnricher : Enricher) post(trim())]
