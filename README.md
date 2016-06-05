@@ -43,6 +43,15 @@ EIP Designer needs at least Eclipse Luna SR1 with modeling stuffs. We recommend 
 
 After having installed and ran Eclipse, you also need to add Sirius 2.0. See the download page on [http://www.eclipse.org/sirius](http://www.eclipse.org/sirius/download.html) on how to add Sirius to your Eclipse modeling installation.
 
+#### Tested configurations
+
+EIP Designer has been developped and tested on following configurations.
+
+| Eclipse version | Sirius version |
+| --------------- | -------------- |
+| `Luna SR1`      | `2.0`          |
+| `Mars SR2`      | `3.1`          |
+
 ### Released versions
 
 Find the correct update site URL in the above Releases table and just use this URL as an update site into your Eclipse installation within `Install New Software...`. More details on available features are mentioned below when talking about _Usage_, _Generators_ and _Bridges_.
