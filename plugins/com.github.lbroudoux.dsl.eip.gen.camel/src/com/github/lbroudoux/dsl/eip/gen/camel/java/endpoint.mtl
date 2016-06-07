@@ -33,7 +33,7 @@
 [/template]
 
 [template public genEndpoint(aFilter : ContentFilter) post(trim())]
-.filter()					// [aFilter.name/][aFilter.genOutgoingChannelName()/]
+.setBody(body().append(" updated"))				// [aFilter.name/][aFilter.genOutgoingChannelName()/]
 [aFilter.followRoute()/]
 [/template]
 
