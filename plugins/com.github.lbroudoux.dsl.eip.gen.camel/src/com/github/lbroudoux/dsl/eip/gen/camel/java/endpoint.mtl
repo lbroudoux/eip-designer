@@ -38,7 +38,7 @@
 [/template]
 
 [template public genEndpoint(anEnricher : Enricher) post(trim())]
-// Enricher					// [anEnricher.name/][anEnricher.genOutgoingChannelName()/]
+.enricher("direct:resource")			// [anEnricher.name/][anEnricher.genOutgoingChannelName()/]
 [anEnricher.followRoute()/]
 [/template]
 
