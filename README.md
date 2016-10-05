@@ -1,4 +1,9 @@
 <blockquote>
+I have talked about EIP Designer at <a href="https://www.redhat.com/fr/about/events/conférence-red-hat-lentreprise-digitale">Red Hat - L'Entreprise Numérique - 2016 Paris</a> on March 23st. Here are the <a href="http://www.slideshare.net/LaurentBroudoux/talk-red-hat-entreprise-numerique-eip-designer-20160323">slides</a> of the prez.<br>
+<img src="https://www.redhat.com/profiles/rh/themes/redhatdotcom/img/logo.png"/>
+</blockquote>
+
+<blockquote>
 I have talked about EIP Designer at <a href="http://www.siriuscon.org/">SiriusCon 2015 Paris</a> on December 3rd. Here are the <a href="http://fr.slideshare.net/LaurentBroudoux/talk-eclipsesirius-con-eip-designer-20151203">slides</a> of the prez.<br>
 <img src="http://www.eclipse.org/sirius/images/logos/logo.png"/>
 </blockquote>
@@ -11,11 +16,11 @@ Here's an overview of the design perspective :
 
 ![overview](https://raw.githubusercontent.com/lbroudoux/eip-designer/master/assets/eip-designer.png)  
 
-Moreover designing routes, the goal of EIP Designer is also to give : 
+Moreover designing routes, the goal of EIP Designer is also to give :
 * acceleration to realization by allowing generation of route skeletons for common integration frameworks such as [Spring Integration](http://projects.spring.io/spring-integration/) or [Apache Camel](http://camel.apache.org),
-* control onto final realization by providing parsers and comparators able to check that development was done respecting "original design". 
+* control onto final realization by providing parsers and comparators able to check that development was done respecting "original design".
 
-Finally, we aim to provide adapters and bridges to allow the usage of EIP Designer from a more generic and abstract design solution such as a TOGAF or a Archimate Designer. Those one presenting the notion of Services and Services dependencies without a mean of describing orchestration process or integration routes ... everything we thought EIP is great at ! 
+Finally, we aim to provide adapters and bridges to allow the usage of EIP Designer from a more generic and abstract design solution such as a TOGAF or a Archimate Designer. Those one presenting the notion of Services and Services dependencies without a mean of describing orchestration process or integration routes ... everything we thought EIP is great at !
 
 If you're looking for a deeper introduction on solution and project genesis, we invite you reading this [InfoQ's article](http://www.infoq.com/articles/eip-designer).
 
@@ -58,7 +63,7 @@ Find the correct update site URL in the above Releases table and just use this U
 
 ### Development version
 
-Want to live on the edge ? The development version of EIP Designer could either be : 
+Want to live on the edge ? The development version of EIP Designer could either be :
 * built from sources to get distributable and installable binary packages or,
 * directly imported into Eclipse workbench for local tests.
 
@@ -109,8 +114,8 @@ Check our [Wiki documentation](https://github.com/lbroudoux/eip-designer/wiki/Ho
 
 Once features mentioned into _Generators_ section are presents, comparison of implementations files with base model is made available through a new `Compare With EIP Route` context item within the traditional `Compare With...` submenu.
 
-Then, select a Route definition within an EIP Model present into your workspace and you should be able to inspect differences onto a quite standard `Compare` dialog : 
-   
+Then, select a Route definition within an EIP Model present into your workspace and you should be able to inspect differences onto a quite standard `Compare` dialog :
+
 ![compare](https://raw.githubusercontent.com/lbroudoux/eip-designer/master/assets/eip-designer-compare.png)
 
 ### Bridges
@@ -149,7 +154,3 @@ WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations under
 the License.
 ```
-
-
-
-
